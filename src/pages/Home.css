@@ -11,10 +11,12 @@
 /* Enhanced Hero Section */
 .hero {
   height: 90vh;
-  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('../../public/images/hero-bg.jpg');
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), 
+                    url('https://img.freepik.com/premium-photo/ai-image-generator-bonfire-with-firewood-chairs-camping_977285-39288.jpg?semt=ais_hybrid');
   background-size: cover;
   background-position: center;
-  background-attachment: fixed; /* Parallax effect */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -26,28 +28,55 @@
   overflow: hidden;
 }
 
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, 
+              rgba(0,0,0,0.2) 0%, 
+              rgba(0,0,0,0.4) 100%);
+  z-index: 1;
+}
+
 .hero::after {
   content: '';
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  height: 100px;
-  background: linear-gradient(to top, rgba(255,255,255,1), transparent);
+  height: 200px;
+  background: linear-gradient(to top, 
+              rgba(255,255,255,1) 0%,
+              rgba(255,255,255,0.8) 20%,
+              rgba(255,255,255,0) 100%);
+}
+
+.hero h1, .hero p {
+  position: relative;
+  z-index: 2;
+  max-width: 1000px;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
 }
 
 .hero h1 {
-  font-size: 4rem;
+  font-size: 4.8rem;
   margin-bottom: 1.5rem;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
   animation: fadeInDown 1s ease-out;
+  font-weight: 800;
+  letter-spacing: 2px;
+  line-height: 1.2;
 }
 
 .hero p {
   font-size: 1.8rem;
   max-width: 800px;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
   animation: fadeInUp 1s ease-out;
+  line-height: 1.6;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
 /* Enhanced Featured Tours Section */
@@ -192,5 +221,824 @@
   .featured-tours,
   .why-choose-us {
     padding: 4rem 1.5rem;
+  }
+} 
+
+/* CTA Button in Hero Section */
+.cta-button {
+  background: var(--primary-color);
+  color: white;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-decoration: none;
+  margin-top: 2rem;
+  transition: all 0.3s ease;
+  border: 2px solid var(--primary-color);
+  z-index: 2;
+  position: relative;
+}
+
+.cta-button:hover {
+  background: var(--primary-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* Destinations Section */
+.destinations {
+  padding: 6rem 2rem;
+  background: #fff;
+}
+
+.destination-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.destination-card {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.destination-card:hover {
+  transform: translateY(-10px);
+}
+
+.destination-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.destination-card:hover img {
+  transform: scale(1.1);
+}
+
+.destination-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  color: white;
+}
+
+.destination-content h3 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.learn-more {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-block;
+  margin-top: 1rem;
+  transition: color 0.3s ease;
+}
+
+.learn-more:hover {
+  color: var(--primary-color);
+}
+
+/* Testimonials Section */
+.testimonials {
+  padding: 6rem 2rem;
+  background: #f9f9f9;
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.testimonial-card {
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+}
+
+.testimonial-content p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.testimonial-author img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.testimonial-author h4 {
+  color: var(--primary-dark);
+  margin: 0;
+}
+
+.testimonial-author p {
+  color: #666;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* CTA Section */
+.cta-section {
+  padding: 6rem 2rem;
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+              url('https://img.freepik.com/premium-photo/beautiful-tropical-island-zanzibar-aerial-view-sea-zanzibar-beach-tanzania_87394-11016.jpg?semt=ais_hybrid') center/cover no-repeat fixed;
+  color: white;
+  text-align: center;
+}
+
+.cta-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cta-content h2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.cta-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.cta-button.secondary {
+  background: transparent;
+  color: white;
+}
+
+.cta-button.secondary:hover {
+  background: white;
+  color: var(--primary-color);
+  border-color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .destination-grid,
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-content h2 {
+    font-size: 2rem;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    gap: 1rem;
+  }
+} 
+
+/* Adventure Types Section */
+.adventure-types {
+  padding: 6rem 2rem;
+  background: #fff;
+}
+
+.adventure-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.adventure-card {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.adventure-card img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.adventure-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+  color: white;
+  transform: translateY(100px);
+  transition: transform 0.3s ease;
+}
+
+.adventure-card:hover .adventure-content {
+  transform: translateY(0);
+}
+
+.adventure-card:hover img {
+  transform: scale(1.1);
+}
+
+/* Stats Section */
+.stats-section {
+  padding: 4rem 2rem;
+  background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)),
+              url('https://img.freepik.com/premium-photo/couple-selfie-having-breakfast-camping-outdoors-morning-cold_107467-1043.jpg?semt=ais_hybrid') center/cover fixed;
+  color: white;
+}
+
+.stats-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 3rem;
+  text-align: center;
+}
+
+.stat-item {
+  padding: 2rem;
+}
+
+.stat-icon {
+  font-size: 3rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.stat-item h3 {
+  font-size: 2.5rem;
+  margin: 1rem 0;
+  color: var(--primary-color);
+}
+
+/* Gallery Section */
+.gallery-section {
+  padding: 6rem 2rem;
+  background: #f9f9f9;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.gallery-item {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  aspect-ratio: 1;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.gallery-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  color: white;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.1);
+}
+
+/* Blog Section */
+.blog-section {
+  padding: 6rem 2rem;
+  background: #fff;
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.blog-card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.blog-card:hover {
+  transform: translateY(-10px);
+}
+
+.blog-image {
+  position: relative;
+  height: 250px;
+}
+
+.blog-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.blog-category {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--primary-color);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  font-size: 0.9rem;
+}
+
+.blog-content {
+  padding: 2rem;
+}
+
+.blog-content h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.blog-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+}
+
+.blog-date {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.read-more {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.read-more:hover {
+  color: var(--primary-dark);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .adventure-card {
+    height: 300px;
+  }
+  
+  .adventure-content {
+    transform: translateY(0);
+  }
+  
+  .stat-item h3 {
+    font-size: 2rem;
+  }
+  
+  .blog-grid {
+    grid-template-columns: 1fr;
+  }
+} 
+
+/* Popular Safari Packages Section */
+.featured-tours {
+  padding: 8rem 2rem;
+  background: linear-gradient(to bottom, #fff, #f9f9f9);
+}
+
+.tour-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.tour-card {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+  transition: all 0.4s ease;
+  background: white;
+}
+
+.tour-card:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 20px 40px rgba(255, 123, 37, 0.15);
+}
+
+/* Why Choose Us Section */
+.why-choose-us {
+  padding: 8rem 2rem;
+  background: linear-gradient(45deg, rgba(255,123,37,0.05), rgba(255,123,37,0.1));
+  position: relative;
+  overflow: hidden;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.feature {
+  background: white;
+  padding: 3rem 2rem;
+  border-radius: 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.feature::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, var(--primary-color), var(--primary-light));
+  border-radius: 20px;
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s ease;
+}
+
+.feature:hover::before {
+  opacity: 1;
+}
+
+.feature:hover {
+  transform: translateY(-10px);
+  color: white;
+}
+
+.feature:hover .feature-icon {
+  color: white;
+  transform: scale(1.2);
+}
+
+.feature-icon {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+/* Top Destinations Section */
+.destinations {
+  padding: 8rem 2rem;
+  background: #fff;
+}
+
+.destination-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.destination-card:nth-child(1) {
+  grid-column: span 6;
+  grid-row: span 2;
+}
+
+.destination-card:nth-child(2) {
+  grid-column: span 6;
+}
+
+.destination-card:nth-child(3),
+.destination-card:nth-child(4) {
+  grid-column: span 3;
+}
+
+/* Testimonials Section */
+.testimonials {
+  padding: 8rem 2rem;
+  background: linear-gradient(to right, #f9f9f9, #fff);
+  position: relative;
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.testimonial-card {
+  background: white;
+  padding: 3rem;
+  border-radius: 20px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.testimonial-card::before {
+  content: '"';
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  font-size: 5rem;
+  color: var(--primary-color);
+  opacity: 0.1;
+  font-family: serif;
+}
+
+.testimonial-content p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-top: 1px solid #eee;
+  padding-top: 1.5rem;
+}
+
+.testimonial-author img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--primary-light);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .tour-grid,
+  .features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .destination-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .destination-card:nth-child(1) {
+    grid-column: span 2;
+  }
+  
+  .destination-card:nth-child(2),
+  .destination-card:nth-child(3),
+  .destination-card:nth-child(4) {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .tour-grid,
+  .features,
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .destination-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .destination-card:nth-child(n) {
+    grid-column: span 1;
+  }
+} 
+
+/* Large Screens */
+@media (min-width: 1400px) {
+  .tour-grid,
+  .features,
+  .destination-grid,
+  .testimonial-grid,
+  .blog-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+}
+
+/* Medium-Large Screens */
+@media (max-width: 1200px) {
+  .hero h1 {
+    font-size: 4rem;
+  }
+
+  .tour-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .destination-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .testimonial-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Tablets */
+@media (max-width: 992px) {
+  .hero {
+    height: 80vh;
+  }
+
+  .hero h1 {
+    font-size: 3.5rem;
+    padding: 0 1rem;
+  }
+
+  .hero p {
+    font-size: 1.4rem;
+    padding: 0 2rem;
+  }
+
+  .section-title {
+    font-size: 2.2rem;
+  }
+
+  .featured-tours,
+  .why-choose-us,
+  .destinations,
+  .testimonials,
+  .blog-section {
+    padding: 4rem 1.5rem;
+  }
+}
+
+/* Large Mobile */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.8rem;
+  }
+
+  .hero p {
+    font-size: 1.2rem;
+  }
+
+  .tour-grid,
+  .features,
+  .destination-grid,
+  .testimonial-grid,
+  .blog-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .destination-card:nth-child(n) {
+    grid-column: span 1;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .cta-button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .stats-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .stats-container {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonial-card {
+    padding: 1.5rem;
+  }
+
+  .featured-tours,
+  .why-choose-us,
+  .destinations,
+  .testimonials,
+  .blog-section {
+    padding: 3rem 1rem;
+  }
+
+  .tour-card,
+  .destination-card,
+  .testimonial-card,
+  .blog-card {
+    margin: 0 0.5rem;
+  }
+}
+
+/* Height-based media queries */
+@media (max-height: 700px) {
+  .hero {
+    height: 100vh;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+}
+
+/* Landscape mode */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero {
+    height: 120vh;
+  }
+
+  .hero-content {
+    padding: 2rem 0;
+  }
+}
+
+/* High-resolution screens */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .hero,
+  .cta-section {
+    background-size: cover;
+    background-position: center;
   }
 } 

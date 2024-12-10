@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { FaMountain, FaBars, FaTimes } from 'react-icons/fa';
+import { FaMountain, FaBars, FaTimes, FaChevronDown } from 'react-icons/fa';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -19,12 +19,38 @@ const Navbar = () => {
 
   const navLinks = [
     { path: '/', text: 'Home' },
-    { path: '/camping-tours', text: 'Camping Tours' },
-    { path: '/parks-reserves', text: 'Parks & Reserves' },
-    { path: '/cultural', text: 'Cultural' },
+    { 
+      text: 'Camping Tours',
+      path: '/camping-tours',
+      submenu: [
+        { path: '/camping-tours/luxury', text: 'Luxury Camping' },
+        { path: '/camping-tours/budget', text: 'Budget Camping' },
+        { path: '/camping-tours/family', text: 'Family Camping' },
+        { path: '/camping-tours/group', text: 'Group Camping' }
+      ]
+    },
+    { 
+      text: 'Parks & Reserves',
+      path: '/parks-reserves',
+      submenu: [
+        { path: '/parks-reserves/serengeti', text: 'Serengeti' },
+        { path: '/parks-reserves/ngorongoro', text: 'Ngorongoro' },
+        { path: '/parks-reserves/tarangire', text: 'Tarangire' },
+        { path: '/parks-reserves/manyara', text: 'Lake Manyara' }
+      ]
+    },
+    { 
+      text: 'Cultural',
+      path: '/cultural',
+      submenu: [
+        { path: '/cultural/maasai', text: 'Maasai Culture' },
+        { path: '/cultural/local-villages', text: 'Local Villages' },
+        { path: '/cultural/traditions', text: 'Traditions' }
+      ]
+    },
     { path: '/experience', text: 'Experience' },
     { path: '/about-us', text: 'About Us' },
-    { path: '/contact-us', text: 'Contact' },
+    { path: '/contact-us', text: 'Contact' }
   ];
 
   return (
@@ -49,14 +75,30 @@ const Navbar = () => {
 
         <div className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
           {navLinks.map((link) => (
-            <Link
-              key={link.path}
-              to={link.path}
-              className={`nav-link ${location.pathname === link.path ? 'active' : ''}`}
-              onClick={() => setIsMenuOpen(false)}
-            >
-              {link.text}
-            </Link>
+            <div key={link.path} className="nav-item">
+              <Link
+                to={link.path}
+                className={`nav-link ${location.pathname === link.path ? 'active' : ''}`}
+                onClick={() => !link.submenu && setIsMenuOpen(false)}
+              >
+                {link.text}
+                {link.submenu && <FaChevronDown className="dropdown-icon" />}
+              </Link>
+              {link.submenu && (
+                <div className="dropdown-menu">
+                  {link.submenu.map((subItem) => (
+                    <Link
+                      key={subItem.path}
+                      to={subItem.path}
+                      className="dropdown-item"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {subItem.text}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
           ))}
         </div>
       </div>
