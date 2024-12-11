@@ -1728,4 +1728,221 @@ html {
   .beach-amenity {
     padding: 1.5rem;
   }
+}
+
+/* General responsive adjustments */
+@media (max-width: 1400px) {
+  .container {
+    max-width: 1200px;
+    padding: 0 2rem;
+  }
+
+  .packages-grid,
+  .trips-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .hero-content h1 {
+    font-size: 3.5rem;
+  }
+
+  .amenities-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .package-highlights {
+    grid-template-columns: 1fr;
+  }
+
+  .inclusion-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 992px) {
+  .camping-hero {
+    height: 50vh;
+  }
+
+  .hero-content h1 {
+    font-size: 3rem;
+    padding: 0 1rem;
+  }
+
+  .hero-content p {
+    font-size: 1.2rem;
+    padding: 0 1rem;
+  }
+
+  .container h2 {
+    font-size: 2.4rem;
+  }
+
+  .package-card,
+  .trip-card {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .beach-activities,
+  .beach-amenities {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .camping-hero {
+    height: 40vh;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-content p {
+    font-size: 1.1rem;
+  }
+
+  .packages-grid,
+  .trips-grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin: 2rem auto;
+  }
+
+  .amenities-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .package-image,
+  .trip-image {
+    height: 250px;
+  }
+
+  .package-content,
+  .trip-content {
+    padding: 1.5rem;
+  }
+
+  .inclusion-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .beach-activities,
+  .beach-amenities {
+    grid-template-columns: 1fr;
+  }
+
+  .weather-info {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .equipment-list {
+    grid-template-columns: 1fr;
+  }
+
+  .route-details {
+    flex-direction: column;
+  }
+
+  .wildlife-guide .guide-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .camping-hero {
+    height: 35vh;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .container h2 {
+    font-size: 2rem;
+  }
+
+  .package-content h3,
+  .trip-content h3 {
+    font-size: 1.3rem;
+  }
+
+  .package-features,
+  .trip-features {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .feature {
+    width: 100%;
+  }
+
+  .price .amount {
+    font-size: 1.4rem;
+  }
+
+  .book-button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .amenity-item {
+    padding: 1.5rem;
+  }
+
+  .package-highlights {
+    padding: 1rem;
+  }
+
+  .highlight {
+    padding: 0.6rem;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) {
+  .package-card:hover,
+  .trip-card:hover {
+    transform: none;
+  }
+
+  .amenity-item:hover {
+    transform: none;
+  }
+
+  .highlight:hover {
+    transform: none;
+  }
+
+  .book-button:hover {
+    transform: none;
+  }
+}
+
+/* Landscape mode adjustments */
+@media (max-height: 500px) and (orientation: landscape) {
+  .camping-hero {
+    height: 100vh;
+  }
+
+  .hero-content {
+    padding: 1rem 0;
+  }
+}
+
+/* High-resolution screens */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .camping-hero {
+    background-attachment: scroll;
+  }
 } 
