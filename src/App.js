@@ -9,6 +9,7 @@ import Cultural from './pages/Cultural';
 import ParksReserves from './pages/ParksReserves';
 import AboutUs from './pages/AboutUs';
 import ContactUs from './pages/ContactUs';
+import OurTeam from './pages/OurTeam';
 import './App.css';
 
 function App() {
@@ -23,8 +24,13 @@ function App() {
             <Route path="/experience/*" element={<Experience />} />
             <Route path="/cultural/*" element={<Cultural />} />
             <Route path="/parks-reserves/*" element={<ParksReserves />} />
-            <Route path="/about/*" element={<AboutUs />} />
-            <Route path="/contact" element={<ContactUs />} />
+            <Route path="/about/*" element={
+              <Routes>
+                <Route index element={<AboutUs />} />
+                <Route path="team" element={<OurTeam />} />
+              </Routes>
+            } />
+            <Route path="/contact-us" element={<ContactUs />} />
           </Routes>
         </main>
         <Footer />

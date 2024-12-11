@@ -49,7 +49,14 @@ const Navbar = () => {
       ]
     },
     { path: '/experience', text: 'Experience' },
-    { path: '/about-us', text: 'About Us' },
+    { 
+      text: 'About Us',
+      path: '/about',
+      submenu: [
+        { path: '/about', text: 'About Us' },
+        { path: '/about/team', text: 'Our Team' }
+      ]
+    },
     { path: '/contact-us', text: 'Contact' }
   ];
 

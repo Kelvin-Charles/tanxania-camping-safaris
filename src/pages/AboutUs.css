@@ -1,4 +1,850 @@
-/* Basic styling for AboutUs page */
+:root {
+  --primary-color: #ff7b25;
+  --primary-dark: #e66000;
+  --primary-light: #ffa366;
+}
+
 .about-us {
-    padding: 2rem;
-} 
+  padding-top: 80px;
+}
+
+/* Hero Section */
+.about-hero {
+  height: 70vh;
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+              url('https://img.freepik.com/free-photo/young-multiethnic-international-romantic-couple-outdoors-meadow-sunny-summer-day-african-american-man-caucasian-woman-having-picnic-together-concept-relationship-summertime_155003-23121.jpg?semt=ais_hybrid') center/cover fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.4) 100%);
+}
+
+.hero-content {
+  max-width: 800px;
+  padding: 0 2rem;
+  z-index: 2;
+  animation: fadeIn 1s ease-out;
+}
+
+.hero-content h1 {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  line-height: 1.2;
+}
+
+.hero-content p {
+  font-size: 1.5rem;
+  line-height: 1.6;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+  font-weight: 500;
+}
+
+/* Welcome Section */
+.welcome-section {
+  padding: 6rem 0;
+  background: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.welcome-section::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: linear-gradient(to bottom, transparent, #fff);
+}
+
+.welcome-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.welcome-text {
+  position: relative;
+}
+
+.welcome-text h2 {
+  font-size: 2.8rem;
+  color: var(--primary-dark);
+  margin-bottom: 2rem;
+  line-height: 1.2;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.welcome-text h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 80px;
+  height: 4px;
+  background: var(--primary-color);
+  border-radius: 2px;
+}
+
+.highlight-text {
+  font-size: 1.2rem;
+  color: var(--primary-dark);
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
+}
+
+.welcome-text p {
+  color: #555;
+  line-height: 1.8;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.stats-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 2rem;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.stat-item:hover {
+  transform: translateY(-10px);
+}
+
+.stat-item svg {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.stat-item h3 {
+  font-size: 2.5rem;
+  color: var(--primary-dark);
+  margin-bottom: 0.5rem;
+  font-weight: 800;
+}
+
+.stat-item p {
+  color: #666;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+/* Enhanced Expertise Section */
+.expertise-section {
+  padding: 8rem 0;
+  background: linear-gradient(to right, rgba(0,0,0,0.9), rgba(0,0,0,0.7)),
+              url('https://img.freepik.com/free-photo/beautiful-shot-safari-africa_181624-35554.jpg') center/cover fixed;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.expertise-header h2 {
+  font-size: 3.5rem;
+  text-align: center;
+  margin-bottom: 4rem;
+  color: white;
+  position: relative;
+  padding-bottom: 1.5rem;
+}
+
+.expertise-header h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: var(--primary-color);
+  border-radius: 2px;
+}
+
+.expertise-intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  padding: 3rem;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.expertise-image {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  transform: perspective(1000px) rotateY(-5deg);
+  transition: transform 0.5s ease;
+}
+
+.expertise-image:hover {
+  transform: perspective(1000px) rotateY(0);
+}
+
+.expertise-image img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.expertise-image:hover img {
+  transform: scale(1.1);
+}
+
+.expertise-description {
+  padding: 2rem;
+}
+
+.expertise-text-content h3 {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+  font-weight: 700;
+}
+
+.expertise-text-content p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #f0f0f0;
+  margin-bottom: 1.5rem;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.expertise-highlights {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.highlight-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  transition: all 0.3s ease;
+}
+
+.highlight-item:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 123, 37, 0.2);
+}
+
+.highlight-icon {
+  font-size: 2rem;
+  color: var(--primary-color);
+}
+
+.highlight-item span {
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  color: white;
+}
+
+@media (max-width: 992px) {
+  .expertise-intro {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .expertise-image {
+    transform: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .expertise-section {
+    padding: 6rem 1rem;
+  }
+
+  .expertise-header h2 {
+    font-size: 2.5rem;
+  }
+
+  .expertise-text-content h3 {
+    font-size: 2rem;
+  }
+
+  .expertise-highlights {
+    grid-template-columns: 1fr;
+  }
+
+  .expertise-intro {
+    padding: 1.5rem;
+  }
+}
+
+/* Enhanced Commitment Section */
+.commitment-section {
+  padding: 8rem 0;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.commitment-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, var(--primary-light) 0%, transparent 70%);
+  opacity: 0.1;
+  transform: rotate(-45deg);
+}
+
+.commitment-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+}
+
+.commitment-content h2 {
+  text-align: center;
+  font-size: 3.5rem;
+  color: var(--primary-dark);
+  margin-bottom: 4rem;
+  position: relative;
+  padding-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.commitment-content h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(to right, var(--primary-light), var(--primary-color), var(--primary-light));
+  border-radius: 2px;
+}
+
+.commitment-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
+.commitment-card {
+  background: white;
+  padding: 3rem 2rem;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+}
+
+.commitment-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, var(--primary-color), var(--primary-light));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+}
+
+.commitment-card:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 20px 40px rgba(255, 123, 37, 0.15);
+}
+
+.commitment-card:hover::before {
+  opacity: 1;
+}
+
+.commitment-card svg {
+  font-size: 3.5rem;
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 2;
+  transition: all 0.4s ease;
+}
+
+.commitment-card h3 {
+  font-size: 1.8rem;
+  color: var(--primary-dark);
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 2;
+  transition: all 0.4s ease;
+}
+
+.commitment-card p {
+  color: #666;
+  line-height: 1.8;
+  font-size: 1.1rem;
+  position: relative;
+  z-index: 2;
+  transition: all 0.4s ease;
+}
+
+.commitment-card:hover svg,
+.commitment-card:hover h3,
+.commitment-card:hover p {
+  color: white;
+}
+
+/* Add animation for cards */
+.commitment-card {
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.commitment-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.commitment-card:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.commitment-card:nth-child(4) {
+  animation-delay: 0.6s;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .expertise-text h2,
+  .commitment-content h2 {
+    font-size: 2.5rem;
+  }
+
+  .expertise-text p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+
+  .commitment-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .commitment-card h3 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Services Grid */
+.services-grid {
+  padding: 6rem 0;
+  background: #f9f9f9;
+}
+
+.services-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+}
+
+.service-card {
+  background: white;
+  padding: 3rem 2rem;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--primary-color);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+}
+
+.service-card:hover::before {
+  transform: scaleX(1);
+}
+
+.service-card svg {
+  font-size: 3rem;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+}
+
+.service-card h3 {
+  font-size: 1.5rem;
+  color: var(--primary-dark);
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.service-card ul {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+}
+
+.service-card ul li {
+  color: #666;
+  padding: 0.5rem 0;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.service-card ul li::before {
+  content: '•';
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+/* CTA Section */
+.cta-section {
+  padding: 6rem 0;
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+              url('https://img.freepik.com/free-photo/beautiful-shot-kilimanjaro-mountain-kenya_181624-21320.jpg') center/cover fixed;
+  color: white;
+  text-align: center;
+}
+
+.cta-section h2 {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.cta-section p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.cta-button {
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.cta-button.primary {
+  background: var(--primary-color);
+  color: white;
+}
+
+.cta-button.secondary {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.cta-button.primary:hover {
+  background: var(--primary-dark);
+}
+
+.cta-button.secondary:hover {
+  background: white;
+  color: var(--primary-color);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .welcome-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 3rem;
+  }
+
+  .welcome-text h2 {
+    font-size: 2.4rem;
+  }
+
+  .stats-container {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    padding: 0 2rem;
+  }
+
+  .service-card {
+    padding: 2rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-content p {
+    font-size: 1.2rem;
+  }
+
+  .expertise-text h2 {
+    font-size: 2.2rem;
+  }
+}
+
+/* Add this to your AboutUs.css */
+
+.mission-vision {
+  padding: 8rem 0;
+  background: linear-gradient(to right, #f8f9fa, #ffffff);
+  position: relative;
+  overflow: hidden;
+}
+
+.mission-vision::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, var(--primary-light) 0%, transparent 70%);
+  opacity: 0.05;
+  transform: rotate(45deg);
+}
+
+.mission-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.mission-text h2 {
+  text-align: center;
+  font-size: 3.5rem;
+  color: var(--primary-dark);
+  margin-bottom: 4rem;
+  position: relative;
+  padding-bottom: 1.5rem;
+}
+
+.mission-text h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(to right, var(--primary-light), var(--primary-color), var(--primary-light));
+  border-radius: 2px;
+}
+
+.mission-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  margin-top: 2rem;
+}
+
+.mission-card {
+  background: white;
+  border-radius: 20px;
+  padding: 3rem 2rem;
+  text-align: center;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.mission-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(to right, var(--primary-light), var(--primary-color));
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+
+.mission-card:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 20px 40px rgba(255, 123, 37, 0.15);
+}
+
+.mission-card:hover::before {
+  transform: scaleX(1);
+}
+
+.card-icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(45deg, var(--primary-light), var(--primary-color));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 2rem;
+  color: white;
+  font-size: 2rem;
+  transition: all 0.4s ease;
+}
+
+.mission-card:hover .card-icon {
+  transform: rotateY(360deg);
+}
+
+.card-content h3 {
+  color: var(--primary-dark);
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.card-content p {
+  color: #666;
+  line-height: 1.8;
+  font-size: 1.1rem;
+}
+
+/* Animation */
+.mission-card {
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.mission-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.mission-card:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .mission-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .mission-vision {
+    padding: 6rem 0;
+  }
+
+  .mission-cards {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .mission-text h2 {
+    font-size: 2.5rem;
+  }
+
+  .card-content h3 {
+    font-size: 1.5rem;
+  }
+}

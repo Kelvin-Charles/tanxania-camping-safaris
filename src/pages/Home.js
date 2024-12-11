@@ -2,14 +2,29 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaCompass, FaCampground, FaUsers, FaShieldAlt, FaClock, FaMapMarkedAlt, FaArrowRight, FaSmile, FaAward } from 'react-icons/fa';
 import './Home.css';
+import heroVideo from '../home-hero-bg-video/hero-video1.mp4';
 
 const Home = () => {
   return (
     <div className="home">
       <section className="hero">
-        <h1>Experience Tanzania's Wilderness</h1>
-        <p>Discover the magic of camping safaris in Africa's most beautiful landscapes</p>
-        <Link to="/camping-tours" className="cta-button">Explore Tours</Link>
+        <div className="hero-video-container">
+          <video 
+            className="hero-video"
+            autoPlay 
+            loop 
+            muted 
+            playsInline
+          >
+            <source src={heroVideo} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div className="hero-content">
+          <h1>Tanzania Camping Safaris</h1>
+          <p>Discover the magic of camping safaris in Africa's most beautiful landscapes</p>
+          <Link to="/camping-tours" className="cta-button">Explore Tours</Link>
+        </div>
       </section>
 
       <section className="featured-tours">
