@@ -24,9 +24,13 @@ const Navbar = () => {
       path: '/camping-tours',
       submenu: [
         { path: '/camping-tours/luxury', text: 'Luxury Camping' },
+        { path: '/camping-tours/mid-range', text: 'Mid-Range Camping' },
         { path: '/camping-tours/budget', text: 'Budget Camping' },
-        { path: '/camping-tours/family', text: 'Family Camping' },
-        { path: '/camping-tours/group', text: 'Group Camping' }
+        { path: '/camping-tours/day-trip', text: 'Day Trip' },
+        { path: '/camping-tours/game-packages', text: 'Game Packages' },
+        { path: '/camping-tours/mountain', text: 'Mountain Camping' },
+        { path: '/camping-tours/photography', text: 'Photography Safaris' },
+        { path: '/camping-tours/beach', text: 'Beach Camping' }
       ]
     },
     { 

@@ -151,8 +151,68 @@
   transform: scale(1.1);
 }
 
+.tour-info {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  border-top: 1px solid #eee;
+  padding-top: 1rem;
+}
+
+.price {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.tour-button {
+  display: inline-block;
+  width: auto;
+  min-width: 120px;
+  padding: 0.8rem 1.5rem;
+  background: var(--primary-color);
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.tour-button:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255,123,37,0.3);
+}
+
 .tour-content {
   padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 300px;
+}
+
+.tour-duration {
+  color: var(--primary-color);
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.tour-content h3 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.tour-content p {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
 }
 
 .tour-card h3 {
@@ -391,7 +451,7 @@
 .cta-section {
   padding: 6rem 2rem;
   background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
-              url('https://img.freepik.com/premium-photo/beautiful-tropical-island-zanzibar-aerial-view-sea-zanzibar-beach-tanzania_87394-11016.jpg?semt=ais_hybrid') center/cover no-repeat fixed;
+              url('https://img.freepik.com/premium-photo/beautiful-tropical-island-zanzibar-aerial-view-sea-zanzibar-beach-tanzania_87394-11016.jpg?semt=ais_hybrid') center/cover fixed;
   color: white;
   text-align: center;
 }
@@ -415,35 +475,88 @@
   display: flex;
   gap: 1.5rem;
   justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-button {
+  min-width: 200px;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  text-align: center;
+  display: inline-block;
+}
+
+.cta-button.primary {
+  background: var(--primary-color);
+  color: white;
+  border: 2px solid var(--primary-color);
 }
 
 .cta-button.secondary {
   background: transparent;
   color: white;
+  border: 2px solid white;
+}
+
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.cta-button.primary:hover {
+  background: var(--primary-dark);
+  border-color: var(--primary-dark);
 }
 
 .cta-button.secondary:hover {
   background: white;
   color: var(--primary-color);
-  border-color: white;
 }
 
-/* Responsive Design */
+/* Mobile Responsiveness */
 @media (max-width: 768px) {
-  .destination-grid,
-  .testimonial-grid {
-    grid-template-columns: 1fr;
+  .cta-section {
+    padding: 4rem 1rem;
   }
 
   .cta-content h2 {
-    font-size: 2rem;
+    font-size: 2.2rem;
+  }
+
+  .cta-content p {
+    font-size: 1.1rem;
+    padding: 0 1rem;
   }
 
   .cta-buttons {
     flex-direction: column;
+    align-items: center;
     gap: 1rem;
+    padding: 0 1rem;
   }
-} 
+
+  .cta-button {
+    width: 100%;
+    max-width: 300px;
+    font-size: 1rem;
+    padding: 0.9rem 1.5rem;
+  }
+}
+
+/* Small screens */
+@media (max-width: 480px) {
+  .cta-content h2 {
+    font-size: 1.8rem;
+  }
+
+  .cta-button {
+    max-width: 250px;
+  }
+}
 
 /* Adventure Types Section */
 .adventure-types {

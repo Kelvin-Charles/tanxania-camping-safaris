@@ -1,0 +1,1731 @@
+:root {
+  --primary-color: #ff7b25;
+  --primary-dark: #e66000;
+  --primary-light: #ffa366;
+}
+
+.camping-page {
+  padding-top: 80px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+}
+
+/* Hero Section */
+.camping-hero {
+  height: 60vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  overflow: hidden;
+}
+
+.day-trip-hero {
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+              url('https://img.freepik.com/free-photo/group-tourists-enjoying-safari-trip_23-2149011754.jpg') center/cover fixed;
+}
+
+.luxury-hero {
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+              url('https://images.unsplash.com/photo-1547471080-7cc2caa01a7e') center/cover fixed;
+}
+
+.midrange-hero {
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+              url('https://img.freepik.com/free-photo/camping-tent-with-car-background_1150-17710.jpg') center/cover fixed;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.6) 100%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 0 2rem;
+}
+
+.hero-content h1 {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  animation: fadeInDown 1s ease-out;
+}
+
+.hero-content p {
+  font-size: 1.5rem;
+  line-height: 1.6;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+  animation: fadeInUp 1s ease-out;
+}
+
+/* Trip/Package Cards */
+.trip-overview,
+.luxury-packages {
+  padding: 6rem 0;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.container h2 {
+  text-align: center;
+  font-size: 2.8rem;
+  color: var(--primary-dark);
+  margin-bottom: 3rem;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.container h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(to right, var(--primary-light), var(--primary-color));
+  border-radius: 2px;
+}
+
+.trips-grid,
+.packages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
+.trip-card,
+.package-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+  transition: all 0.4s ease;
+}
+
+.trip-card:hover,
+.package-card:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 20px 40px rgba(255,123,37,0.15);
+}
+
+.trip-image,
+.package-image {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+}
+
+.trip-image img,
+.package-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.trip-card:hover .trip-image img,
+.package-card:hover .package-image img {
+  transform: scale(1.1);
+}
+
+.trip-duration,
+.package-duration {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: var(--primary-color);
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.trip-content,
+.package-content {
+  padding: 2rem;
+}
+
+.trip-content h3,
+.package-content h3 {
+  font-size: 1.8rem;
+  color: var(--primary-dark);
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.trip-content p,
+.package-content p {
+  color: #666;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.trip-features,
+.package-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #f8f9fa;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  color: #555;
+  transition: all 0.3s ease;
+}
+
+.feature:hover {
+  background: var(--primary-light);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.feature svg {
+  color: var(--primary-color);
+}
+
+.trip-highlights,
+.package-highlights {
+  margin: 1.5rem 0;
+}
+
+.highlight {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 0.8rem;
+  color: #555;
+}
+
+.highlight svg {
+  color: var(--primary-color);
+  font-size: 1.1rem;
+}
+
+.trip-inclusions,
+.package-inclusions {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 15px;
+  margin: 1.5rem 0;
+}
+
+.trip-inclusions h4,
+.package-inclusions h4 {
+  color: var(--primary-dark);
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.inclusion-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.inclusion-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: #555;
+}
+
+.inclusion-item svg {
+  color: var(--primary-color);
+  font-size: 1.2rem;
+}
+
+.trip-footer,
+.package-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #eee;
+}
+
+.price {
+  display: flex;
+  flex-direction: column;
+}
+
+.price .amount {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--primary-color);
+}
+
+.price .per {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.book-button {
+  background: var(--primary-color);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+}
+
+.book-button:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255,123,37,0.3);
+}
+
+/* Animations */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .trips-grid,
+  .packages-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 992px) {
+  .container h2 {
+    font-size: 2.4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .camping-hero {
+    height: 50vh;
+  }
+
+  .hero-content h1 {
+    font-size: 2.8rem;
+  }
+
+  .hero-content p {
+    font-size: 1.2rem;
+  }
+
+  .trips-grid,
+  .packages-grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin: 2rem auto;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 2.2rem;
+  }
+
+  .trip-content h3,
+  .package-content h3 {
+    font-size: 1.5rem;
+  }
+
+  .price .amount {
+    font-size: 1.5rem;
+  }
+}
+
+/* Mid-range camping intro section */
+.camping-intro {
+  padding: 6rem 0;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+}
+
+.intro-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  text-align: center;
+}
+
+.intro-content h2 {
+  font-size: 2.8rem;
+  color: var(--primary-dark);
+  margin-bottom: 2rem;
+  position: relative;
+  padding-bottom: 1.5rem;
+}
+
+.intro-content h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(to right, var(--primary-light), var(--primary-color));
+  border-radius: 2px;
+}
+
+.intro-content p {
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  color: #666;
+  line-height: 1.8;
+  font-size: 1.1rem;
+}
+
+/* Amenities grid for mid-range section */
+.amenities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.amenity-item {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.amenity-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(to right, var(--primary-light), var(--primary-color));
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.amenity-item:hover {
+  transform: translateY(-10px);
+}
+
+.amenity-item:hover::before {
+  transform: scaleX(1);
+}
+
+.amenity-item svg {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+}
+
+.amenity-item h3 {
+  font-size: 1.4rem;
+  color: var(--primary-dark);
+  margin-bottom: 1rem;
+}
+
+.amenity-item p {
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Mid-range packages section */
+.camping-packages {
+  padding: 6rem 0;
+  background: #f8f9fa;
+}
+
+.package-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.package-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, var(--primary-color), var(--primary-light));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.package-card:hover::after {
+  opacity: 0.05;
+}
+
+/* Package highlights for mid-range */
+.package-highlights {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.highlight {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.8rem;
+  background: #f8f9fa;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.highlight:hover {
+  background: rgba(255,123,37,0.1);
+  transform: translateX(5px);
+}
+
+.highlight svg {
+  color: var(--primary-color);
+  font-size: 1.1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .package-highlights {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .intro-content h2 {
+    font-size: 2.2rem;
+  }
+
+  .amenity-item {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .camping-intro {
+    padding: 4rem 0;
+  }
+
+  .intro-content h2 {
+    font-size: 1.8rem;
+  }
+}
+
+/* Budget camping specific hero section */
+.budget-hero {
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+              url('https://img.freepik.com/free-photo/camping-tent-with-car-background_1150-17710.jpg') center/cover fixed;
+}
+
+/* Budget camping intro section */
+.camping-intro {
+  padding: 6rem 0;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+}
+
+.intro-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  text-align: center;
+}
+
+.intro-content h2 {
+  font-size: 2.8rem;
+  color: var(--primary-dark);
+  margin-bottom: 2rem;
+  position: relative;
+  padding-bottom: 1.5rem;
+}
+
+.intro-content h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(to right, var(--primary-light), var(--primary-color));
+  border-radius: 2px;
+}
+
+.intro-content p {
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  color: #666;
+  line-height: 1.8;
+  font-size: 1.1rem;
+}
+
+/* Budget amenities grid */
+.amenities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.amenity-item {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.amenity-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+}
+
+.amenity-item svg {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+}
+
+.amenity-item h3 {
+  font-size: 1.3rem;
+  color: var(--primary-dark);
+  margin-bottom: 1rem;
+}
+
+.amenity-item p {
+  color: #666;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* Budget packages section */
+.camping-packages {
+  padding: 6rem 0;
+  background: #f8f9fa;
+}
+
+.package-card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.package-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.package-image {
+  position: relative;
+  height: 250px;
+  overflow: hidden;
+}
+
+.package-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.package-card:hover .package-image img {
+  transform: scale(1.1);
+}
+
+.package-duration {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--primary-color);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.package-content {
+  padding: 1.5rem;
+}
+
+.package-content h3 {
+  font-size: 1.4rem;
+  color: var(--primary-dark);
+  margin-bottom: 0.8rem;
+}
+
+.package-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin: 1rem 0;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.8rem;
+  background: #f8f9fa;
+  border-radius: 15px;
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.feature svg {
+  color: var(--primary-color);
+  font-size: 1rem;
+}
+
+.package-highlights {
+  margin: 1.5rem 0;
+}
+
+.highlight {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 0.5rem;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.highlight svg {
+  color: var(--primary-color);
+  font-size: 1rem;
+}
+
+.package-inclusions {
+  background: #f8f9fa;
+  padding: 1.2rem;
+  border-radius: 10px;
+  margin: 1.5rem 0;
+}
+
+.package-inclusions h4 {
+  color: var(--primary-dark);
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.inclusion-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.8rem;
+}
+
+.inclusion-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.inclusion-item svg {
+  color: var(--primary-color);
+}
+
+.package-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #eee;
+}
+
+.price {
+  display: flex;
+  flex-direction: column;
+}
+
+.price .amount {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.price .per {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.book-button {
+  background: var(--primary-color);
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.book-button:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255,123,37,0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .intro-content h2 {
+    font-size: 2.2rem;
+  }
+
+  .amenity-item {
+    padding: 1.5rem;
+  }
+
+  .inclusion-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .package-content {
+    padding: 1rem;
+  }
+
+  .package-content h3 {
+    font-size: 1.2rem;
+  }
+
+  .price .amount {
+    font-size: 1.4rem;
+  }
+}
+
+/* Game Packages specific hero section */
+.game-hero {
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+              url('https://images.unsplash.com/photo-1547471080-7cc2caa01a7e') center/cover fixed;
+}
+
+/* Game intro section */
+.game-intro {
+  padding: 6rem 0;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+}
+
+/* Wildlife highlights section */
+.wildlife-highlights {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 15px;
+  margin: 1.5rem 0;
+}
+
+.wildlife-highlights h4 {
+  color: var(--primary-dark);
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.wildlife-highlights h4::before {
+  content: '🦁';
+  font-size: 1.4rem;
+}
+
+/* Wildlife Guide section */
+.wildlife-guide {
+  padding: 6rem 0;
+  background: linear-gradient(to bottom, #fff, #f8f9fa);
+}
+
+.guide-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.guide-card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.guide-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(255,123,37,0.15);
+}
+
+.guide-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.guide-card:hover img {
+  transform: scale(1.1);
+}
+
+.guide-content {
+  padding: 1.5rem;
+}
+
+.guide-content h3 {
+  font-size: 1.4rem;
+  color: var(--primary-dark);
+  margin-bottom: 1rem;
+}
+
+.guide-content p {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.best-time {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: var(--primary-color);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.best-time svg {
+  font-size: 1.1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .guide-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .guide-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .guide-card {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
+
+/* Wildlife highlight animations */
+.wildlife-highlights .highlight {
+  animation: slideIn 0.5s ease-out forwards;
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+.wildlife-highlights .highlight:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.wildlife-highlights .highlight:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.wildlife-highlights .highlight:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.wildlife-highlights .highlight:nth-child(5) {
+  animation-delay: 0.4s;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Mountain camping specific hero section */
+.mountain-hero {
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+              url('https://images.unsplash.com/photo-1521150932951-303a95503ed3') center/cover fixed;
+}
+
+/* Mountain camping specific sections */
+.mountain-intro {
+  padding: 6rem 0;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+}
+
+.mountain-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.mountain-feature {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.mountain-feature::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--primary-color);
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
+}
+
+.mountain-feature:hover {
+  transform: translateY(-10px);
+}
+
+.mountain-feature:hover::before {
+  transform: scaleY(1);
+}
+
+.mountain-feature svg {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+}
+
+/* Package cards specific to mountain camping */
+.mountain-package {
+  position: relative;
+  overflow: hidden;
+}
+
+.mountain-package .package-image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.7));
+  z-index: 1;
+}
+
+.mountain-package .package-duration {
+  background: var(--primary-color);
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 30px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* Difficulty level indicator */
+.difficulty-badge {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 2;
+  background: rgba(0,0,0,0.8);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.difficulty-badge.easy {
+  background: #4CAF50;
+}
+
+.difficulty-badge.moderate {
+  background: #FF9800;
+}
+
+.difficulty-badge.challenging {
+  background: #f44336;
+}
+
+/* Altitude information */
+.altitude-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #f8f9fa;
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  margin: 1rem 0;
+}
+
+.altitude-info svg {
+  color: var(--primary-color);
+}
+
+/* Equipment list */
+.equipment-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.equipment-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.8rem;
+  background: #f8f9fa;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.equipment-item:hover {
+  background: rgba(255,123,37,0.1);
+  transform: translateX(5px);
+}
+
+/* Route information */
+.route-info {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 15px;
+  margin: 1.5rem 0;
+}
+
+.route-info h4 {
+  color: var(--primary-dark);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.route-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.route-detail {
+  flex: 1;
+  min-width: 200px;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .equipment-list {
+    grid-template-columns: 1fr;
+  }
+
+  .route-details {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .mountain-features {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Animations */
+@keyframes fadeInAltitude {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.altitude-info {
+  animation: fadeInAltitude 0.5s ease-out forwards;
+}
+
+.equipment-item {
+  animation: fadeInRight 0.5s ease-out forwards;
+  opacity: 0;
+}
+
+.equipment-item:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.equipment-item:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Enhanced Responsive Design */
+@media (max-width: 1400px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .hero-content h1 {
+    font-size: 3.5rem;
+  }
+
+  .packages-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .amenities-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 992px) {
+  .hero-content h1 {
+    font-size: 3rem;
+  }
+
+  .package-highlights {
+    grid-template-columns: 1fr;
+  }
+
+  .inclusion-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .camping-hero {
+    height: 50vh;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+    padding: 0 1rem;
+  }
+
+  .packages-grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin: 2rem auto;
+  }
+
+  .package-image {
+    height: 250px;
+  }
+}
+
+/* Interactive Elements */
+.package-card {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.package-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, var(--primary-color), var(--primary-light));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.package-card:hover::before {
+  opacity: 0.05;
+}
+
+.package-image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.7));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.package-card:hover .package-image::after {
+  opacity: 1;
+}
+
+.feature {
+  position: relative;
+  overflow: hidden;
+}
+
+.feature::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-color);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+  border-radius: inherit;
+}
+
+.feature:hover::before {
+  opacity: 0.1;
+}
+
+.book-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.book-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.book-button:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* Loading Skeleton Animation */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.loading {
+  background: linear-gradient(90deg, 
+    #f0f0f0 25%, 
+    #e0e0e0 50%, 
+    #f0f0f0 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Smooth Scroll Behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Enhanced Package Card Interactions */
+.package-content {
+  transform: translateY(0);
+  transition: transform 0.4s ease;
+}
+
+.package-card:hover .package-content {
+  transform: translateY(-10px);
+}
+
+.highlight {
+  transition: all 0.3s ease;
+}
+
+.highlight:hover {
+  transform: translateX(10px);
+  background: rgba(255,123,37,0.1);
+  padding: 0.5rem;
+  border-radius: 8px;
+}
+
+/* Price Animation */
+.price .amount {
+  position: relative;
+  display: inline-block;
+}
+
+.price .amount::before {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary-color);
+  transition: width 0.3s ease;
+}
+
+.package-card:hover .price .amount::before {
+  width: 100%;
+}
+
+/* Enhanced Accessibility */
+.book-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255,123,37,0.3);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) {
+  .package-card:hover {
+    transform: none;
+  }
+
+  .feature:hover {
+    background: var(--primary-light);
+    color: white;
+  }
+
+  .highlight:hover {
+    transform: none;
+  }
+}
+
+.photography-hero {
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+              url('https://img.freepik.com/free-photo/old-woman-celebrating-world-photography-day_23-2151644742.jpg?semt=ais_hybrid') center/cover fixed;
+}
+/* Beach Camping specific hero section */
+.beach-hero {
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+              url('https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f') center/cover fixed;
+}
+
+/* Beach camping specific sections */
+.beach-intro {
+  padding: 6rem 0;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.beach-intro::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, var(--primary-light) 0%, transparent 70%);
+  opacity: 0.05;
+  transform: rotate(45deg);
+}
+
+/* Beach specific package cards */
+.beach-package {
+  position: relative;
+  overflow: hidden;
+}
+
+.beach-package .package-image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.7));
+  z-index: 1;
+}
+
+/* Beach activities section */
+.beach-activities {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.activity-card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.activity-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(255,123,37,0.15);
+}
+
+.activity-image {
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+}
+
+.activity-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.activity-card:hover .activity-image img {
+  transform: scale(1.1);
+}
+
+.activity-content {
+  padding: 1.5rem;
+}
+
+.activity-content h3 {
+  color: var(--primary-dark);
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.activity-content p {
+  color: #666;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* Beach weather info */
+.weather-info {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 15px;
+  margin: 1.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.weather-icon {
+  font-size: 2rem;
+  color: var(--primary-color);
+}
+
+.weather-details {
+  flex: 1;
+}
+
+.weather-details h4 {
+  color: var(--primary-dark);
+  margin-bottom: 0.5rem;
+}
+
+.weather-details p {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* Beach amenities grid */
+.beach-amenities {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.beach-amenity {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+}
+
+.beach-amenity:hover {
+  transform: translateY(-10px);
+  background: linear-gradient(45deg, var(--primary-light), var(--primary-color));
+  color: white;
+}
+
+.beach-amenity svg {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.beach-amenity:hover svg {
+  color: white;
+}
+
+.beach-amenity h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  transition: color 0.3s ease;
+}
+
+.beach-amenity p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  transition: color 0.3s ease;
+}
+
+/* Beach specific animations */
+@keyframes waveEffect {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.beach-package::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+  animation: waveEffect 2s infinite;
+  z-index: 1;
+}
+
+/* Responsive adjustments for beach camping */
+@media (max-width: 992px) {
+  .beach-activities {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .beach-amenities {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .beach-activities,
+  .beach-amenities {
+    grid-template-columns: 1fr;
+  }
+
+  .weather-info {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .activity-image {
+    height: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .beach-package .package-content {
+    padding: 1rem;
+  }
+
+  .beach-amenity {
+    padding: 1.5rem;
+  }
+} 

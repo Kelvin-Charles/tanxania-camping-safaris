@@ -34,7 +34,7 @@ const Footer = () => {
             <h3>Useful Links</h3>
             <ul className="footer-links">
               <li><Link to="/"><FaChevronRight />Home</Link></li>
-              <li><Link to="/about-us"><FaChevronRight />About Us</Link></li>
+              <li><Link to="/about"><FaChevronRight />About Us</Link></li>
               <li><Link to="/camping-tours"><FaChevronRight />Camping Tours</Link></li>
               <li><Link to="/parks-reserves"><FaChevronRight />Parks & Reserves</Link></li>
               <li><Link to="/contact-us"><FaChevronRight />Contact Us</Link></li>

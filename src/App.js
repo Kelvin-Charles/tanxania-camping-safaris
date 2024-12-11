@@ -10,6 +10,14 @@ import ParksReserves from './pages/ParksReserves';
 import AboutUs from './pages/AboutUs';
 import ContactUs from './pages/ContactUs';
 import OurTeam from './pages/OurTeam';
+import LuxuryCamping from './pages/camping/LuxuryCamping';
+import MidRangeCamping from './pages/camping/MidRangeCamping';
+import BudgetCamping from './pages/camping/BudgetCamping';
+import DayTrip from './pages/camping/DayTrip';
+import GamePackages from './pages/camping/GamePackages';
+import MountainCamping from './pages/camping/MountainCamping';
+import PhotographySafaris from './pages/camping/PhotographySafaris';
+import BeachCamping from './pages/camping/BeachCamping';
 import './App.css';
 
 function App() {
@@ -20,7 +28,18 @@ function App() {
         <main className="main-content">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/camping-tours/*" element={<CampingTours />} />
+            
+            {/* Camping Tours Routes */}
+            <Route path="/camping-tours" element={<CampingTours />} />
+            <Route path="/camping-tours/luxury" element={<LuxuryCamping />} />
+            <Route path="/camping-tours/mid-range" element={<MidRangeCamping />} />
+            <Route path="/camping-tours/budget" element={<BudgetCamping />} />
+            <Route path="/camping-tours/day-trip" element={<DayTrip />} />
+            <Route path="/camping-tours/game-packages" element={<GamePackages />} />
+            <Route path="/camping-tours/mountain" element={<MountainCamping />} />
+            <Route path="/camping-tours/photography" element={<PhotographySafaris />} />
+            <Route path="/camping-tours/beach" element={<BeachCamping />} />
+            
             <Route path="/experience/*" element={<Experience />} />
             <Route path="/cultural/*" element={<Cultural />} />
             <Route path="/parks-reserves/*" element={<ParksReserves />} />
