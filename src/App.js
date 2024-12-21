@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
+import ParkRouter from './components/ParkRouter';
 import CampingTours from './pages/CampingTours';
 import Experience from './pages/Experience';
 import Cultural from './pages/Cultural';
@@ -41,6 +42,8 @@ import ZanzibarPark from './pages/parks/coastal/ZanzibarPark';
 import MafiaIsland from './pages/parks/coastal/MafiaIsland';
 import PembaIsland from './pages/parks/coastal/PembaIsland';
 import KataviPark from './pages/parks/southern/KataviPark';
+import TripsRouter from './components/TripsRouter';
+
 import './App.css';
 
 function App() {
@@ -63,40 +66,10 @@ function App() {
             <Route path="/camping-tours/photography" element={<PhotographySafaris />} />
             <Route path="/camping-tours/beach" element={<BeachCamping />} />
             
-            {/* Northern Circuit Routes */}
-            <Route path="/parks-reserves/northern/serengeti" element={<SerengetiPark />} />
-            <Route path="/parks-reserves/northern/ngorongoro" element={<Ngorongoro />} />
-            <Route path="/parks-reserves/northern/tarangire" element={<Tarangire />} />
-            <Route path="/parks-reserves/northern/manyara" element={<LakeManyara />} />
-            <Route path="/parks-reserves/northern/kilimanjaro" element={<Kilimanjaro />} />
-            <Route path="/parks-reserves/northern/arusha" element={<ArushaPark />} />
-
-            {/* Southern Circuit Routes */}
-            <Route path="/parks-reserves/southern/ruaha" element={<RuahaPark />} />
-            <Route path="/parks-reserves/southern/mikumi" element={<MikumiPark />} />
-            <Route path="/parks-reserves/southern/nyerere" element={<NyererePark />} />
-            <Route path="/parks-reserves/southern/udzungwa" element={<UdzungwaPark />} />
-            <Route path="/parks-reserves/southern/katavi" element={<KataviPark />} />
-
-            {/* Western Circuit Routes */}
-            <Route path="/parks-reserves/western/gombe" element={<Gombe />} />
-            <Route path="/parks-reserves/western/mahale" element={<Mahale />} />
-            <Route path="/parks-reserves/western/rubondo" element={<Rubondo />} />
-            <Route path="/parks-reserves/western/saanane" element={<SaananeIsland />} />
-            <Route path="/parks-reserves/western/burigi-chato" element={<BurigiChato />} />
-            <Route path="/parks-reserves/western/ibanda-kyerwa" element={<IbandaKyerwa />} />
-            <Route path="/parks-reserves/western/rumanyika" element={<Rumanyika />} />
-            <Route path="/parks-reserves/western/ugalla" element={<Ugalla />} />
-
-            {/* Coastal & Islands Routes */}
-            <Route path="/parks-reserves/coastal/saadani" element={<SaadaniPark />} />
-            <Route path="/parks-reserves/coastal/zanzibar" element={<ZanzibarPark />} />
-            <Route path="/parks-reserves/coastal/mafia" element={<MafiaIsland />} />
-            <Route path="/parks-reserves/coastal/pemba" element={<PembaIsland />} />
+            <Route path="/parks-reserves/*" element={<ParkRouter />} />
 
             <Route path="/experience/*" element={<Experience />} />
             <Route path="/cultural/*" element={<Cultural />} />
-            <Route path="/parks-reserves/*" element={<ParksReserves />} />
             <Route path="/about/*" element={
               <Routes>
                 <Route index element={<AboutUs />} />
@@ -104,6 +77,7 @@ function App() {
               </Routes>
             } />
             <Route path="/contact-us" element={<ContactUs />} />
+            <Route path="/trips/*" element={<TripsRouter />} />
           </Routes>
         </main>
         <Footer />
