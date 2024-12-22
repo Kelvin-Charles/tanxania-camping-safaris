@@ -20,6 +20,18 @@ const Navbar = () => {
   const navLinks = [
     { path: '/', text: 'Home' },
     { 
+      text: 'All Trips',
+      path: '/trips',
+      submenu: [
+        { path: '/trips/wildlife-safaris', text: 'Wildlife Safaris' },
+        { path: '/trips/mountain-climbing', text: 'Mountain Climbing' },
+        { path: '/trips/beach-holidays', text: 'Beach Holidays' },
+        { path: '/trips/cultural-tours', text: 'Cultural Tours' },
+        { path: '/trips/day-trips', text: 'Day Trips' },
+        { path: '/trips/custom-safaris', text: 'Custom Safaris' }
+      ]
+    },
+    { 
       text: 'Camping Tours',
       path: '/camping-tours',
       submenu: [
@@ -34,25 +46,25 @@ const Navbar = () => {
       ]
     },
     { 
-      text: 'Where to Go',
+      text: 'Parks & Reserves',
       path: '/parks-reserves',
       submenu: [
         { 
           text: 'Northern Circuit',
           path: '/parks-reserves/northern',
-          submenu: [
+          nestedSubmenu: [
+            { path: '/parks-reserves/northern/kilimanjaro', text: 'Mount Kilimanjaro' },
             { path: '/parks-reserves/northern/serengeti', text: 'Serengeti National Park' },
             { path: '/parks-reserves/northern/ngorongoro', text: 'Ngorongoro Crater' },
             { path: '/parks-reserves/northern/tarangire', text: 'Tarangire National Park' },
             { path: '/parks-reserves/northern/manyara', text: 'Lake Manyara National Park' },
-            { path: '/parks-reserves/northern/kilimanjaro', text: 'Mount Kilimanjaro' },
             { path: '/parks-reserves/northern/arusha', text: 'Arusha National Park' }
           ]
         },
         { 
           text: 'Southern Circuit',
           path: '/parks-reserves/southern',
-          submenu: [
+          nestedSubmenu: [
             { path: '/parks-reserves/southern/ruaha', text: 'Ruaha National Park' },
             { path: '/parks-reserves/southern/mikumi', text: 'Mikumi National Park' },
             { path: '/parks-reserves/southern/nyerere', text: 'Nyerere National Park' },
@@ -63,7 +75,7 @@ const Navbar = () => {
         { 
           text: 'Western Circuit',
           path: '/parks-reserves/western',
-          submenu: [
+          nestedSubmenu: [
             { path: '/parks-reserves/western/gombe', text: 'Gombe National Park' },
             { path: '/parks-reserves/western/mahale', text: 'Mahale Mountains' },
             { path: '/parks-reserves/western/rubondo', text: 'Rubondo Island' },
@@ -77,7 +89,7 @@ const Navbar = () => {
         {
           text: 'Coastal & Islands',
           path: '/parks-reserves/coastal',
-          submenu: [
+          nestedSubmenu: [
             { path: '/parks-reserves/coastal/saadani', text: 'Saadani National Park' },
             { path: '/parks-reserves/coastal/zanzibar', text: 'Zanzibar Archipelago' },
             { path: '/parks-reserves/coastal/mafia', text: 'Mafia Island' },
@@ -142,17 +154,18 @@ const Navbar = () => {
                 <div className="dropdown-menu">
                   {link.submenu.map((subItem) => (
                     <div key={subItem.path} className="dropdown-item">
-                      {subItem.submenu ? (
+                      {subItem.nestedSubmenu ? (
                         <div className="dropdown-item-content">
                           <span>{subItem.text}</span>
                           <FaChevronRight className="nested-arrow" />
                           <div className="nested-dropdown">
-                            {subItem.submenu.map((nestedItem) => (
+                            {subItem.nestedSubmenu.map((nestedItem) => (
                               <Link
                                 key={nestedItem.path}
                                 to={nestedItem.path}
                                 className="dropdown-item"
                                 onClick={() => setIsMenuOpen(false)}
+                                title={nestedItem.title}
                               >
                                 {nestedItem.text}
                               </Link>

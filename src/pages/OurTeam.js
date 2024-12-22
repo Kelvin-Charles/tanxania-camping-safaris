@@ -82,6 +82,13 @@ const OurTeam = () => {
       </section>
 
       <div className="team-container">
+        {/* 
+        
+        social Media Panel
+        And Team Member Panel also 
+        
+        
+        */}
         {teamMembers.map((member) => (
           <div key={member.id} className="team-member">
             <div className="member-image">

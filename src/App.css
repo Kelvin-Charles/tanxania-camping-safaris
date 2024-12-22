@@ -36,3 +36,88 @@
     transform: rotate(360deg);
   }
 }
+
+/* Add these styles for the tooltip effect */
+[title] {
+  position: relative;
+  cursor: pointer;
+}
+
+[title]:hover::after {
+  content: attr(title);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 8px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  border-radius: 4px;
+  font-size: 14px;
+  white-space: nowrap;
+  z-index: 1000;
+  min-width: 200px;
+  text-align: center;
+}
+
+/* Add these styles for dropdown menus */
+.nav-item {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  min-width: 200px;
+  display: none;
+  z-index: 1000;
+}
+
+.nav-item:hover > .dropdown-menu {
+  display: block;
+}
+
+.dropdown-item {
+  position: relative;
+}
+
+.nested-dropdown {
+  position: absolute;
+  left: 100%;
+  top: 0;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  min-width: 200px;
+  display: none;
+  z-index: 1001;
+}
+
+/* This is the key style that shows nested submenu on hover */
+.dropdown-item:hover > .dropdown-item-content + .nested-dropdown,
+.dropdown-item:hover > .nested-dropdown {
+  display: block;
+}
+
+.dropdown-item-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 15px;
+  color: #333;
+  text-decoration: none;
+}
+
+.dropdown-item a {
+  display: block;
+  padding: 10px 15px;
+  color: #333;
+  text-decoration: none;
+}
+
+.dropdown-item:hover .dropdown-item-content,
+.dropdown-item a:hover {
+  background-color: #f5f5f5;
+}
