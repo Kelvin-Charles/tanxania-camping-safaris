@@ -1,0 +1,612 @@
+.park-hero {
+  height: 85vh;
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+              url('https://www.tanzaniaparks.go.tz/uploads/megamenu/1636014285-IMG_5859.jpg') center/cover fixed;
+  position: relative;
+  overflow: hidden;
+}
+
+.park-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.6) 100%);
+}
+
+.hero-content {
+  max-width: 900px;
+  text-align: center;
+  padding: 2rem;
+  background: rgba(88, 81, 81, 0.098);
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.hero-content h1 {
+  font-size: 4.5rem;
+  margin-bottom: 1.5rem;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.key-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.feature {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  text-align: center;
+}
+
+.feature:hover {
+  transform: translateY(-10px);
+}
+
+.feature svg {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.wildlife-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+
+.wildlife-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.wildlife-card:hover {
+  transform: translateY(-10px);
+}
+
+.wildlife-image {
+  height: 250px;
+  overflow: hidden;
+}
+
+.wildlife-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.wildlife-card:hover .wildlife-image img {
+  transform: scale(1.1);
+}
+
+.wildlife-content {
+  padding: 2rem;
+}
+
+.activities-section {
+  padding: 6rem 0;
+  background: #fff;
+}
+
+.activities-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.activities-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(300px, 1fr));
+  grid-auto-flow: row;
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+
+.activity-card:nth-child(-n+3) {
+  grid-row: 1;
+}
+
+.activity-card:nth-child(n+4) {
+  grid-row: 2;
+}
+
+.activity-card {
+  width: 100%;
+  height: 100%;
+  min-width: 300px;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  margin: 0 auto;
+}
+
+.activity-card:hover {
+  transform: translateY(-5px);
+}
+
+.activity-image {
+  height: 250px;
+  overflow: hidden;
+  position: relative;
+}
+
+.activity-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.activity-content {
+  flex: 1;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.activity-content h3 {
+  color: var(--primary-dark);
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+}
+
+.activity-content p {
+  color: #666;
+  line-height: 1.6;
+}
+
+@media (max-width: 1200px) {
+  .activities-grid {
+    grid-template-columns: repeat(2, minmax(300px, 1fr));
+  }
+  
+  .activity-card:nth-child(-n+3),
+  .activity-card:nth-child(n+4) {
+    grid-row: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .activities-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .activity-card {
+    min-width: 280px;
+    max-width: 100%;
+  }
+  
+  .activities-section .container {
+    padding: 0 1rem;
+  }
+  
+  .activity-image {
+    height: 200px;
+  }
+  
+  .route-quick-facts {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .fact {
+    width: calc(50% - 0.5rem);
+  }
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.info-card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-10px);
+}
+
+.info-card svg {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 3rem;
+  }
+  
+  .key-features {
+    grid-template-columns: 1fr;
+  }
+  
+  .wildlife-grid,
+  .activities-grid {
+    grid-template-columns: 1fr;
+  }
+} 
+
+.overview-content {
+  margin-top: 2rem;
+}
+
+.lead-text {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+.mountain-facts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-top: 2rem;
+  padding: 2rem;
+  background: #f8f9fa;
+  border-radius: 15px;
+}
+
+.fact-column h3 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.fact-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.fact-column ul li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.routes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.route-card {
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.route-card:hover {
+  transform: translateY(-10px);
+}
+
+.route-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.success-rate {
+  background: var(--primary-color);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  font-size: 0.9rem;
+}
+
+.route-details {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.route-highlights ul {
+  list-style: none;
+  padding: 0;
+}
+
+.route-highlights li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.route-highlights svg {
+  color: var(--primary-color);
+}
+
+.camps-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.camp-tag {
+  background: #f0f0f0;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+.section-intro {
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  text-align: center;
+  color: #666;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .mountain-facts {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .routes-grid {
+    grid-template-columns: 1fr;
+  }
+} 
+
+/* Preparation Guide Styles */
+.preparation-guide {
+  background: #f9f9f9;
+  padding: 6rem 0;
+}
+
+.prep-content {
+  margin-top: 3rem;
+}
+
+.prep-section {
+  background: white;
+  border-radius: 15px;
+  padding: 2.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.prep-section h3 {
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+.gear-categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.gear-category {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 10px;
+}
+
+.gear-category h4 {
+  color: var(--primary-dark);
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.gear-category ul,
+.health-category ul,
+.tips-container ul {
+  list-style: none;
+  padding: 0;
+}
+
+.gear-category li,
+.health-category li,
+.tips-container li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
+  color: #444;
+}
+
+.gear-category li svg,
+.health-category li svg,
+.tips-container li svg {
+  color: var(--primary-color);
+  font-size: 1.1rem;
+}
+
+.health-prep {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.health-category {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 10px;
+}
+
+.health-category h4 {
+  color: var(--primary-dark);
+  margin-bottom: 1rem;
+}
+
+.health-category p {
+  margin-bottom: 1rem;
+  color: #666;
+}
+
+.tips-container {
+  background: #f8f9fa;
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .gear-categories,
+  .health-prep {
+    grid-template-columns: 1fr;
+  }
+
+  .prep-section {
+    padding: 1.5rem;
+  }
+} 
+
+/* Enhanced Activity Cards */
+.activity-card {
+  position: relative;
+}
+
+.route-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.5rem 1rem;
+  background: var(--primary-color);
+  color: white;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  z-index: 2;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.route-badge.success {
+  background: var(--primary-color);
+}
+
+.route-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.difficulty {
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.difficulty.easy {
+  background: #e3f8e2;
+  color: #2da026;
+}
+
+.difficulty.moderate {
+  background: #fff4e5;
+  color: #ff8b00;
+}
+
+.difficulty.hard {
+  background: #ffe5e5;
+  color: #ff0000;
+}
+
+.route-quick-facts {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0;
+  margin: 1rem 0;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+.fact {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.fact svg {
+  color: var(--primary-color);
+}
+
+.learn-more-btn {
+  margin-top: auto;
+  align-self: flex-start;
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.learn-more-btn:hover {
+  background: var(--primary-color);
+  color: white;
+}
+
+.learn-more-btn:hover svg {
+  transform: translateX(4px);
+}
+
+/* Hover effect for route cards */
+.activity-card:hover .route-badge {
+  transform: scale(1.05);
+}
+
+/* Additional responsive styles */
+@media (max-width: 768px) {
+  .route-quick-facts {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .fact {
+    min-width: calc(50% - 0.5rem);
+  }
+} 

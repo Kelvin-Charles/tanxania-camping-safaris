@@ -11,7 +11,7 @@
   right: 0;
   height: 80px;
   background: transparent;
-  z-index: 1000;
+  z-index: 9999;
   transition: all 0.3s ease;
 }
 
@@ -28,6 +28,8 @@
   align-items: center;
   padding: 0 4rem;
   justify-content: space-between;
+  position: relative;
+  z-index: 9999;
 }
 
 /* Logo */
@@ -94,9 +96,52 @@
   visibility: hidden;
   transition: all 0.3s ease;
   padding: 0.8rem 0;
+  z-index: 10000;
 }
 
-.nav-item:hover > .dropdown-menu {
+/* Update nested dropdown positioning and visibility */
+.nested-dropdown {
+  position: absolute;
+  left: 100%;
+  top: 0;
+  min-width: 200px;
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+/* Show dropdowns on hover */
+.nav-item:hover > .dropdown-menu,
+.dropdown-item:hover > .nested-dropdown {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Update dropdown item styles */
+.dropdown-item {
+  position: relative;
+  display: block;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+/* Update dropdown item content styles */
+.dropdown-item-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem;
+  color: #333;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+/* Show nested dropdown on hover */
+.dropdown-item:hover .nested-dropdown,
+.dropdown-item-content:hover + .nested-dropdown {
   opacity: 1;
   visibility: visible;
 }
@@ -156,10 +201,26 @@
     width: 100%;
   }
 
-  .dropdown-menu {
+  .dropdown-menu,
+  .nested-dropdown {
+    position: static;
+    box-shadow: none;
+    opacity: 1;
+    visibility: visible;
+    display: none;
+    padding-left: 1.5rem;
+  }
+
+  .nav-item:hover > .dropdown-menu,
+  .dropdown-item:hover > .nested-dropdown {
+    display: block;
+  }
+
+  .nested-dropdown {
     position: static;
     box-shadow: none;
     padding-left: 1rem;
+    margin-top: 0.5rem;
   }
 }
 
@@ -211,4 +272,57 @@
 .navbar.scrolled .dropdown-item a.active {
   color: white;
   background: rgba(255, 255, 255, 0.1);
+}
+
+/* Hover effect for dropdown items */
+.dropdown-item:hover > .dropdown-item-content,
+.dropdown-item:hover > a {
+  background-color: #f5f5f5;
+}
+
+/* Update dropdown styles */
+.dropdown-item a {
+  display: block;
+  width: 100%;
+  padding: 0.8rem 1.5rem;
+  color: #333;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.dropdown-item a:hover {
+  background-color: var(--primary-light);
+  color: white;
+}
+
+/* Ensure nested dropdowns are properly positioned */
+.nested-dropdown {
+  position: absolute;
+  left: 100%;
+  top: 0;
+  min-width: 200px;
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.dropdown-item:hover > .nested-dropdown {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  .nested-dropdown {
+    position: static;
+    box-shadow: none;
+    padding-left: 1.5rem;
+  }
+  
+  .dropdown-item a {
+    padding: 0.8rem 1rem;
+  }
 }

@@ -2,3 +2,14 @@
 .parks-reserves {
     padding: 2rem;
 } 
+
+/* Remove animations from hero content */
+.parks-hero h1 {
+  font-size: 3.5rem;
+  /* Remove animation if present */
+}
+
+.parks-hero p {
+  font-size: 1.4rem;
+  /* Remove animation if present */
+} 

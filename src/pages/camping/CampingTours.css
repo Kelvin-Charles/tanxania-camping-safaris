@@ -1,5 +1,6 @@
 /* Duration Badge Styles */
-.duration-badge {
+
+/* .duration-badge {
   position: absolute;
   top: 5px;
   right: 5px;
@@ -16,8 +17,8 @@
   gap: 2px;
   line-height: 1;
   white-space: nowrap;
-  height: 16px;
-}
+  height: 3px;
+} */
 
 .duration-badge svg {
   font-size: 0.5rem;
