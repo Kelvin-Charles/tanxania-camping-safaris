@@ -397,7 +397,7 @@ const Kilimanjaro = () => {
             <div className="activity-card">
               <div className="activity-image">
                 <img 
-                  src="https://images.unsplash.com/photo-1589308157994-c3a61d5756e7" 
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8kDfgxlbCqel_seq9B86BU9D16pGS3Z9dKA&s" 
                   alt="Lemosho Route - Kilimanjaro" 
                 />
                 <div className="route-badge success">90% Success Rate</div>
@@ -428,7 +428,7 @@ const Kilimanjaro = () => {
             <div className="activity-card">
               <div className="activity-image">
                 <img 
-                  src="https://images.unsplash.com/photo-1613339027986-b94d85708995" 
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTt_LPlGEdhZcCimMg_oP-LJ8oD_TpsDEEhcw&s" 
                   alt="Rongai Route - Kilimanjaro" 
                 />
                 <div className="route-badge success">Unique Perspective</div>
@@ -466,7 +466,7 @@ const Kilimanjaro = () => {
               </div>
               <div className="activity-content">
                 <div className="route-header">
-                  <h3>Northern Circuit</h3>
+                  <h3>Shiro Route</h3>
                   <span className="difficulty moderate">Moderate</span>
                 </div>
                 <div className="route-quick-facts">
@@ -490,7 +490,7 @@ const Kilimanjaro = () => {
             <div className="activity-card">
               <div className="activity-image">
                 <img 
-                  src="https://images.unsplash.com/photo-1613339027986-b94d85708995" 
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRO5kfLVL-lSlt-QBwc5MTb2_4L8CzVQ7fGcg&s" 
                   alt="Umbwe Route - Kilimanjaro" 
                 />
                 <div className="route-badge success">Steep Route</div>
