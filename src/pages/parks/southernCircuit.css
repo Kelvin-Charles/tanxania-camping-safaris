@@ -1,0 +1,27 @@
+@import './CircuitBase.css';
+
+.southern-circuit {
+  padding-top: 80px;
+}
+
+.circuit-hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+              url('https://images.unsplash.com/photo-1516426122078-c23e76301801') center/cover;
+}
+
+/* Custom styles for southern circuit */
+.feature svg {
+  color: #805ad5; /* Unique color for southern circuit icons */
+}
+
+.view-details-btn {
+  background: #805ad5;
+}
+
+.view-details-btn:hover {
+  background: #6b46c1;
+}
+
+.highlight-item strong {
+  color: #805ad5;
+} 

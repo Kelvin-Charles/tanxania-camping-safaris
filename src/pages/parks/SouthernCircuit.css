@@ -1,0 +1,14 @@
+/* Import base circuit styles */
+@import './CircuitBase.css';
+
+.southern-circuit {
+  padding-top: 80px;
+}
+
+.circuit-hero {
+  height: 60vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+              url('https://images.unsplash.com/photo-1516426122078-c23e76319801') center/cover;
+  margin-top: -80px;
+  padding-top: 80px;
+} 
