@@ -1,0 +1,36 @@
+@import './CircuitBase.css';
+
+.western-circuit {
+  padding-top: 80px;
+}
+
+.circuit-hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+              url('https://images.unsplash.com/photo-1516426122078-c23e76301801') center/cover;
+}
+
+/* Custom styles for western circuit */
+.feature svg {
+  color: #2c5282; /* Unique color for western circuit icons */
+}
+
+.view-details-btn {
+  background: #2c5282;
+}
+
+.view-details-btn:hover {
+  background: #1a365d;
+}
+
+.highlight-item strong {
+  color: #2c5282;
+}
+
+/* Additional western-specific animations */
+.park-card:hover .park-image img {
+  transform: scale(1.1);
+}
+
+.feature:hover {
+  border-color: #2c5282;
+} 

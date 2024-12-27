@@ -1,0 +1,10 @@
+@import './CircuitBase.css';
+
+.coastal-circuit {
+  padding-top: 80px;
+}
+
+.circuit-hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+              url('https://images.unsplash.com/photo-coastal-circuit') center/cover;
+} 
