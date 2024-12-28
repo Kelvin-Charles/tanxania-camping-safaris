@@ -26,33 +26,25 @@ const SerengetiPark = () => {
       id: 'savannah',
       name: 'Endless Plains',
       description: 'Experience the vast savannah that stretches to the horizon',
-      coordinates: '-2.3333333,34.8333333',
-      heading: '180',
-      pitch: '0'
+      embedCode: 'https://www.google.com/maps/embed?pb=!4v1710825433695!6m8!1m7!1sCAoSLEFGMVFpcFBkWHZxUzBkbXFYWnJKRGpqX0QtRWFhUDRQUmJqY0QtRHJERVNN!2m2!1d-2.3333333!2d34.8333333!3f180!4f0!5f0.7820865974627469'
     },
     {
       id: 'river',
       name: 'Mara River',
       description: 'Watch the dramatic river crossings during migration',
-      coordinates: '-1.5824,34.8234',
-      heading: '220',
-      pitch: '-10'
+      embedCode: 'https://www.google.com/maps/embed?pb=!4v1710825433695!6m8!1m7!1sCAoSLEFGMVFpcFBkWHZxUzBkbXFYWnJKRGpqX0QtRWFhUDRQUmJqY0QtRHJERVNN!2m2!1d-1.5824!2d34.8234!3f220!4f0!5f0.7820865974627469'
     },
     {
       id: 'kopjes',
       name: 'Kopjes Viewpoint',
       description: 'Explore the iconic granite rock formations',
-      coordinates: '-2.4521,34.9012',
-      heading: '150',
-      pitch: '10'
+      embedCode: 'https://www.google.com/maps/embed?pb=!4v1710825433695!6m8!1m7!1sCAoSLEFGMVFpcFBkWHZxUzBkbXFYWnJKRGpqX0QtRWFhUDRQUmJqY0QtRHJERVNN!2m2!1d-2.4521!2d34.9012!3f150!4f0!5f0.7820865974627469'
     },
     {
       id: 'woodland',
       name: 'Acacia Woodland',
       description: 'Discover the beautiful acacia forests',
-      coordinates: '-2.3821,34.8567',
-      heading: '90',
-      pitch: '0'
+      embedCode: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.01234567891!2d34.8567!3d-2.3821!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMsKwMjInNTUuNiJTIDM0wrA1MScyNC4xIkU!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus'
     }
   ];
 
@@ -767,7 +759,7 @@ const SerengetiPark = () => {
             </div>
             
             <iframe 
-              src={`https://www.google.com/maps/embed?pb=!4v1710144433695!6m8!1m7!1sCAoSLEFGMVFpcE1aWUY4MHZfbXFYWnJKRGpqX0QtRWFhUDRQUmJqY0QtRHJERVNN!2m2!1d${viewpoints.find(p => p.id === activeViewpoint).coordinates}!3f${viewpoints.find(p => p.id === activeViewpoint).heading}!4f${viewpoints.find(p => p.id === activeViewpoint).pitch}!5f0.7820865974627469`}
+              src={viewpoints.find(p => p.id === activeViewpoint).embedCode}
               width="100%" 
               height="500" 
               style={{border:0}} 
