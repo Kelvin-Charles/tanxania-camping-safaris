@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import '../western/ParkStyles.css';
-import { FaMapMarkerAlt, FaTree, FaLeaf, FaPaw, FaSun, FaCamera, FaCar, FaBinoculars, FaCalendarAlt, FaCheckCircle, FaInfoCircle, FaWater, FaChevronLeft, FaChevronRight, FaCalendarCheck, FaWhatsapp, FaArrowRight, FaImages, FaTimes, FaSearchPlus } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaTree, FaLeaf, FaPaw, FaSun, FaCamera, FaCar, FaBinoculars, FaCalendarAlt, FaCheckCircle, FaInfoCircle, FaWater, FaChevronLeft, FaChevronRight, FaCalendarCheck, FaWhatsapp, FaArrowRight, FaImages, FaTimes, FaSearchPlus, FaSync, FaExpand } from 'react-icons/fa';
 import './SerengetiPark.css';
+import { contactInfo } from '../../../config/contact';
+import '../../../shared/styles/BookingForm.css';
 
 const SerengetiPark = () => {
   const [activeSlide, setActiveSlide] = useState(0);
@@ -16,6 +18,43 @@ const SerengetiPark = () => {
   const [pinchStart, setPinchStart] = useState(null);
   const [isDragging, setIsDragging] = useState(false);
   const [dragPosition, setDragPosition] = useState({ x: 0, y: 0 });
+  const [activeViewpoint, setActiveViewpoint] = useState('savannah');
+  const [isLoading, setIsLoading] = useState(true);
+
+  const viewpoints = [
+    {
+      id: 'savannah',
+      name: 'Endless Plains',
+      description: 'Experience the vast savannah that stretches to the horizon',
+      coordinates: '-2.3333333,34.8333333',
+      heading: '180',
+      pitch: '0'
+    },
+    {
+      id: 'river',
+      name: 'Mara River',
+      description: 'Watch the dramatic river crossings during migration',
+      coordinates: '-1.5824,34.8234',
+      heading: '220',
+      pitch: '-10'
+    },
+    {
+      id: 'kopjes',
+      name: 'Kopjes Viewpoint',
+      description: 'Explore the iconic granite rock formations',
+      coordinates: '-2.4521,34.9012',
+      heading: '150',
+      pitch: '10'
+    },
+    {
+      id: 'woodland',
+      name: 'Acacia Woodland',
+      description: 'Discover the beautiful acacia forests',
+      coordinates: '-2.3821,34.8567',
+      heading: '90',
+      pitch: '0'
+    }
+  ];
 
   const safariActivities = [
     {
@@ -285,6 +324,10 @@ const SerengetiPark = () => {
     const y = (e.clientY - top) / height * 100;
     
     setZoomPosition({ x, y });
+  };
+
+  const toggleAutoRotate = () => {
+    // Implementation for auto-rotate
   };
 
   return (
@@ -690,21 +733,62 @@ const SerengetiPark = () => {
       <section className="experience-360">
         <div className="container">
           <h2>360° Virtual Experience</h2>
-          <div className="virtual-tour">
+          <div className="virtual-tour-controls">
+            <div className="viewpoint-selector">
+              {viewpoints.map((point) => (
+                <button 
+                  key={point.id}
+                  className={`viewpoint-btn ${activeViewpoint === point.id ? 'active' : ''}`}
+                  onClick={() => {
+                    setIsLoading(true);
+                    setActiveViewpoint(point.id);
+                  }}
+                >
+                  <span className="viewpoint-name">{point.name}</span>
+                  <span className="viewpoint-hint">Click to view</span>
+                </button>
+              ))}
+            </div>
+            
+            <div className="tour-actions">
+              <button className="action-btn" onClick={toggleAutoRotate}>
+                <FaSync /> Auto-Rotate
+              </button>
+              <button className="action-btn" onClick={toggleFullscreen}>
+                <FaExpand /> Fullscreen
+              </button>
+            </div>
+          </div>
+
+          <div className={`virtual-tour ${isLoading ? 'loading' : ''}`}>
+            <div className="loading-overlay" style={{ opacity: isLoading ? 1 : 0 }}>
+              <div className="spinner"></div>
+              <p>Loading viewpoint...</p>
+            </div>
+            
             <iframe 
-              src="https://www.google.com/maps/embed?pb=!4v1710144433695!6m8!1m7!1sCAoSLEFGMVFpcE1aWUY4MHZfbXFYWnJKRGpqX0QtRWFhUDRQUmJqY0QtRHJERVNN!2m2!1d-2.3333333!2d34.8333333!3f180!4f0!5f0.7820865974627469" 
+              src={`https://www.google.com/maps/embed?pb=!4v1710144433695!6m8!1m7!1sCAoSLEFGMVFpcE1aWUY4MHZfbXFYWnJKRGpqX0QtRWFhUDRQUmJqY0QtRHJERVNN!2m2!1d${viewpoints.find(p => p.id === activeViewpoint).coordinates}!3f${viewpoints.find(p => p.id === activeViewpoint).heading}!4f${viewpoints.find(p => p.id === activeViewpoint).pitch}!5f0.7820865974627469`}
               width="100%" 
               height="500" 
               style={{border:0}} 
               allowFullScreen 
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
+              onLoad={() => setIsLoading(false)}
             ></iframe>
           </div>
+
           <div className="virtual-tour-info">
-            <p>Experience the vastness of Serengeti's plains and get a feel for the landscape before your visit.</p>
+            <div className="viewpoint-description">
+              <h3>{viewpoints.find(p => p.id === activeViewpoint).name}</h3>
+              <p>{viewpoints.find(p => p.id === activeViewpoint).description}</p>
+            </div>
             <div className="tour-controls">
-              <span>💡 Tip: Use your mouse or touch to look around in 360°</span>
+              <div className="control-hint">
+                <span>🖱️ Drag to look around</span>
+                <span>👆 Pinch to zoom</span>
+                <span>⌨️ Arrow keys to navigate</span>
+              </div>
             </div>
           </div>
         </div>
@@ -771,12 +855,12 @@ const SerengetiPark = () => {
             <div className="quick-contact">
               <h3>Quick Contact</h3>
               <div className="contact-options">
-                <a href="https://wa.me/255123456789" className="whatsapp-btn">
+                <a href={contactInfo.whatsappLink} className="whatsapp-btn">
                   <FaWhatsapp /> Chat on WhatsApp
                 </a>
                 <div className="contact-info">
-                  <p>Email: info@serengetisafaris.com</p>
-                  <p>Phone: +255 123 456 789</p>
+                  <p>Email: {contactInfo.email}</p>
+                  <p>Phone: {contactInfo.phone}</p>
                 </div>
               </div>
             </div>

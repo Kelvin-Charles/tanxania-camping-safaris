@@ -1705,3 +1705,74 @@
   border-radius: 4px;
   font-size: 0.9rem;
 } 
+
+/* Enhanced Virtual Tour Styles */
+.virtual-tour-selector {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.viewpoint-btn {
+  padding: 0.8rem 1.5rem;
+  border: 2px solid var(--primary-color);
+  background: transparent;
+  color: var(--primary-color);
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.viewpoint-btn:hover {
+  background: var(--primary-color);
+  color: white;
+}
+
+.viewpoint-btn.active {
+  background: var(--primary-color);
+  color: white;
+}
+
+.viewpoint-description {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  text-align: center;
+  font-style: italic;
+  color: #666;
+}
+
+.virtual-tour {
+  position: relative;
+  transition: opacity 0.3s ease;
+}
+
+.virtual-tour iframe {
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
+}
+
+.virtual-tour:hover iframe {
+  transform: scale(1.01);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .virtual-tour-selector {
+    flex-wrap: wrap;
+  }
+  
+  .viewpoint-btn {
+    width: calc(50% - 0.5rem);
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .virtual-tour iframe {
+    height: 300px;
+  }
+} 

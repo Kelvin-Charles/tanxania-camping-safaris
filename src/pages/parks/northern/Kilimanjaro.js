@@ -2,6 +2,8 @@ import React from 'react';
 import '../western/ParkStyles.css';
 import { FaMapMarkerAlt, FaTree, FaLeaf, FaPaw, FaMountain, FaCamera, FaHiking, FaBinoculars, FaCalendarAlt, FaCheckCircle, FaInfoCircle, FaWater, FaArrowRight, FaCalendarCheck, FaWhatsapp } from 'react-icons/fa';
 import './Kilimanjaro.css';
+import { contactInfo } from '../../../config/contact';
+import '../../../shared/styles/BookingForm.css';
 
 const Kilimanjaro = () => {
   const climbingRoutes = [
@@ -594,13 +596,13 @@ const Kilimanjaro = () => {
                     </select>
                   </div>
                 </div>
-                <div className="form-group">
+                <div className="form-group select-wrapper">
                   <select required>
                     <option value="">Select Route</option>
-                    <option value="marangu">Marangu Route</option>
-                    <option value="machame">Machame Route</option>
-                    <option value="lemosho">Lemosho Route</option>
-                    <option value="rongai">Rongai Route</option>
+                    <option value="marangu">Marangu Route (5-6 days)</option>
+                    <option value="machame">Machame Route (6-7 days)</option>
+                    <option value="lemosho">Lemosho Route (7-8 days)</option>
+                    <option value="rongai">Rongai Route (6-7 days)</option>
                   </select>
                 </div>
                 <div className="form-group">
@@ -614,12 +616,12 @@ const Kilimanjaro = () => {
             <div className="quick-contact">
               <h3>Quick Contact</h3>
               <div className="contact-options">
-                <a href="https://wa.me/255123456789" className="whatsapp-btn">
+                <a href={contactInfo.whatsappLink} className="whatsapp-btn">
                   <FaWhatsapp /> Chat on WhatsApp
                 </a>
                 <div className="contact-info">
-                  <p>Email: info@kilimanjaroclimbs.com</p>
-                  <p>Phone: +255 123 456 789</p>
+                  <p>Email: {contactInfo.email}</p>
+                  <p>Phone: {contactInfo.phone}</p>
                 </div>
               </div>
             </div>
