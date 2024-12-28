@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../western/ParkStyles.css';
-import { FaMapMarkerAlt, FaTree, FaLeaf, FaPaw, FaMountain, FaCamera, FaHiking, FaBinoculars, FaCalendarAlt, FaCheckCircle, FaInfoCircle, FaWater, FaArrowRight, FaCalendarCheck, FaWhatsapp } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaTree, FaLeaf, FaPaw, FaMountain, FaCamera, FaHiking, FaBinoculars, FaCalendarAlt, FaCheckCircle, FaInfoCircle, FaWater, FaArrowRight, FaCalendarCheck, FaWhatsapp, FaSync, FaExpand } from 'react-icons/fa';
 import './Kilimanjaro.css';
 import { contactInfo } from '../../../config/contact';
 import '../../../shared/styles/BookingForm.css';
 
 const Kilimanjaro = () => {
+  const [activeViewpoint, setActiveViewpoint] = useState('summit');
+  const [isLoading, setIsLoading] = useState(true);
+
   const climbingRoutes = [
     {
       name: "Machame Route",
@@ -117,6 +120,72 @@ const Kilimanjaro = () => {
       "Sleep at lower altitude than highest point reached",
       "Take acclimatization days seriously"
     ]
+  };
+
+  const viewpoints = [
+    {
+      id: 'summit',
+      name: 'Uhuru Peak',
+      description: 'Experience the view from Africa\'s highest point at 5,895m',
+      embedCode: 'https://www.google.com/maps/embed?pb=!4v1710825433695!6m8!1m7!1sCAoSLEFGMVFpcE1aWUY4MHZfbXFYWnJKRGpqX0QtRWFhUDRQUmJqY0QtRHJERVNN!2m2!1d-3.0674245!2d37.3555908!3f180!4f0!5f0.7820865974627469'
+    },
+    {
+      id: 'machame',
+      name: 'Machame Route',
+      description: 'View the scenic Machame route through the rainforest',
+      embedCode: 'https://www.google.com/maps/embed?pb=!4v1710825433695!6m8!1m7!1sCAoSLEFGMVFpcE1aWUY4MHZfbXFYWnJKRGpqX0QtRWFhUDRQUmJqY0QtRHJERVNN!2m2!1d-3.1019!2d37.2687!3f220!4f0!5f0.7820865974627469'
+    },
+    {
+      id: 'shira',
+      name: 'Shira Plateau',
+      description: 'Explore the vast Shira Plateau with its unique alpine desert',
+      embedCode: 'https://www.google.com/maps/embed?pb=!4v1710825433695!6m8!1m7!1sCAoSLEFGMVFpcE1aWUY4MHZfbXFYWnJKRGpqX0QtRWFhUDRQUmJqY0QtRHJERVNN!2m2!1d-3.0486!2d37.2106!3f150!4f0!5f0.7820865974627469'
+    },
+    {
+      id: 'kibo',
+      name: 'Kibo Crater',
+      description: 'View the magnificent Kibo crater and its glaciers',
+      embedCode: 'https://www.google.com/maps/embed?pb=!4v1710825433695!6m8!1m7!1sCAoSLEFGMVFpcE1aWUY4MHZfbXFYWnJKRGpqX0QtRWFhUDRQUmJqY0QtRHJERVNN!2m2!1d-3.0675!2d37.3537!3f180!4f0!5f0.7820865974627469'
+    },
+    {
+      id: 'mawenzi',
+      name: 'Mawenzi Peak',
+      description: 'Discover Kilimanjaro\'s second highest peak',
+      embedCode: 'https://www.google.com/maps/embed?pb=!4v1710825433695!6m8!1m7!1sCAoSLEFGMVFpcE1aWUY4MHZfbXFYWnJKRGpqX0QtRWFhUDRQUmJqY0QtRHJERVNN!2m2!1d-3.0899!2d37.4538!3f180!4f0!5f0.7820865974627469'
+    }
+  ];
+
+  const toggleAutoRotate = () => {
+    // Implementation for auto-rotate functionality
+    const iframe = document.querySelector('.virtual-tour iframe');
+    if (iframe) {
+      const currentSrc = iframe.src;
+      if (currentSrc.includes('!3f')) {
+        const newSrc = currentSrc.replace(/!3f\d+/, '!3f' + ((parseInt(currentSrc.match(/!3f(\d+)/)[1]) + 90) % 360));
+        iframe.src = newSrc;
+      }
+    }
+  };
+
+  const toggleFullscreen = () => {
+    const tourContainer = document.querySelector('.virtual-tour');
+    if (!document.fullscreenElement) {
+      if (tourContainer.requestFullscreen) {
+        tourContainer.requestFullscreen();
+      } else if (tourContainer.webkitRequestFullscreen) {
+        tourContainer.webkitRequestFullscreen();
+      } else if (tourContainer.msRequestFullscreen) {
+        tourContainer.msRequestFullscreen();
+      }
+    } else {
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      } else if (document.webkitExitFullscreen) {
+        document.webkitExitFullscreen();
+      } else if (document.msExitFullscreen) {
+        document.msExitFullscreen();
+      }
+    }
   };
 
   return (
