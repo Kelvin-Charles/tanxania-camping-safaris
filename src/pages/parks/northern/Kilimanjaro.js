@@ -1,7 +1,9 @@
 import React from 'react';
 import '../western/ParkStyles.css';
-import { FaMapMarkerAlt, FaTree, FaLeaf, FaPaw, FaMountain, FaCamera, FaHiking, FaBinoculars, FaCalendarAlt, FaCheckCircle, FaInfoCircle, FaWater, FaArrowRight } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaTree, FaLeaf, FaPaw, FaMountain, FaCamera, FaHiking, FaBinoculars, FaCalendarAlt, FaCheckCircle, FaInfoCircle, FaWater, FaArrowRight, FaCalendarCheck, FaWhatsapp } from 'react-icons/fa';
 import './Kilimanjaro.css';
+import { contactInfo } from '../../../config/contact';
+import '../../../shared/styles/BookingForm.css';
 
 const Kilimanjaro = () => {
   const climbingRoutes = [
@@ -540,6 +542,88 @@ const Kilimanjaro = () => {
               <FaHiking />
               <h3>Essential Gear</h3>
               <p>Proper climbing gear, warm clothing, and high-altitude equipment required.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="experience-360">
+        <div className="container">
+          <h2>360° Virtual Experience</h2>
+          <div className="virtual-tour">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!4v1710144433695!6m8!1m7!1sCAoSLEFGMVFpcE1aWUY4MHZfbXFYWnJKRGpqX0QtRWFhUDRQUmJqY0QtRHJERVNN!2m2!1d-3.0674245!2d37.3555908!3f180!4f0!5f0.7820865974627469" 
+              width="100%" 
+              height="500" 
+              style={{border:0}} 
+              allowFullScreen 
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+          <div className="virtual-tour-info">
+            <p>Experience the majesty of Mount Kilimanjaro and its surrounding landscapes before your visit.</p>
+            <div className="tour-controls">
+              <span>💡 Tip: Use your mouse or touch to look around in 360°</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="booking-section">
+        <div className="container">
+          <h2>Plan Your Kilimanjaro Adventure</h2>
+          <div className="booking-container">
+            <div className="booking-form">
+              <h3>Inquire Now</h3>
+              <form>
+                <div className="form-group">
+                  <input type="text" placeholder="Your Name" required />
+                </div>
+                <div className="form-group">
+                  <input type="email" placeholder="Your Email" required />
+                </div>
+                <div className="form-row">
+                  <div className="form-group">
+                    <input type="date" required />
+                  </div>
+                  <div className="form-group">
+                    <select required>
+                      <option value="">Number of Climbers</option>
+                      <option value="1-2">1-2</option>
+                      <option value="3-5">3-5</option>
+                      <option value="6+">6+</option>
+                    </select>
+                  </div>
+                </div>
+                <div className="form-group select-wrapper">
+                  <select required>
+                    <option value="">Select Route</option>
+                    <option value="marangu">Marangu Route (5-6 days)</option>
+                    <option value="machame">Machame Route (6-7 days)</option>
+                    <option value="lemosho">Lemosho Route (7-8 days)</option>
+                    <option value="rongai">Rongai Route (6-7 days)</option>
+                  </select>
+                </div>
+                <div className="form-group">
+                  <textarea placeholder="Special Requirements or Questions" rows="4"></textarea>
+                </div>
+                <button type="submit" className="submit-btn">
+                  <FaCalendarCheck /> Request Booking
+                </button>
+              </form>
+            </div>
+            <div className="quick-contact">
+              <h3>Quick Contact</h3>
+              <div className="contact-options">
+                <a href={contactInfo.whatsappLink} className="whatsapp-btn">
+                  <FaWhatsapp /> Chat on WhatsApp
+                </a>
+                <div className="contact-info">
+                  <p>Email: {contactInfo.email}</p>
+                  <p>Phone: {contactInfo.phone}</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
