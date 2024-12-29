@@ -1,0 +1,1362 @@
+/* Hero Section */
+.park-hero {
+  height: 85vh;
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+              url('https://images.unsplash.com/photo-1516426122078-c23e76319801?w=1920') center/cover fixed;
+  position: relative;
+  overflow: hidden;
+}
+
+.park-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.6) 100%);
+}
+
+/* Wildlife Slider */
+.wildlife-slider {
+  position: relative;
+  height: 600px;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  background-size: cover;
+  background-position: center;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+.slide-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem;
+  background: linear-gradient(transparent, rgba(0,0,0,0.8));
+  color: white;
+}
+
+/* Activities Section */
+.activities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.activity-card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.activity-card:hover {
+  transform: translateY(-5px);
+}
+
+.activity-image {
+  height: 250px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.activity-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.activity-card:hover .activity-overlay {
+  opacity: 1;
+}
+
+/* Unique to Ngorongoro */
+.crater-facts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin: 3rem 0;
+  padding: 2rem;
+  background: #f8f9fa;
+  border-radius: 15px;
+}
+
+.crater-fact {
+  text-align: center;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.crater-fact h4 {
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+/* Cultural Section */
+.cultural-section {
+  background: linear-gradient(to bottom, #fff, #f8f9fa);
+  padding: 6rem 0;
+}
+
+.cultural-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+  align-items: center;
+}
+
+.cultural-image {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.cultural-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.cultural-content {
+  padding: 2rem;
+}
+
+/* Conservation Section */
+.conservation-section {
+  background: #f8f9fa;
+  padding: 6rem 0;
+}
+
+.conservation-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.conservation-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.conservation-icon {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .crater-facts {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cultural-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .conservation-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .crater-facts {
+    grid-template-columns: 1fr;
+  }
+
+  .conservation-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .wildlife-slider {
+    height: 400px;
+  }
+}
+
+/* Animation Classes */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Image Optimization */
+.lazy-image {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.lazy-image.loaded {
+  opacity: 1;
+}
+
+/* Custom Scrollbar */
+.park-page {
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-color) #f1f1f1;
+}
+
+.park-page::-webkit-scrollbar {
+  width: 8px;
+}
+
+.park-page::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.park-page::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 4px;
+}
+
+/* Best Time to Visit Section */
+.season-timeline {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+  margin-top: 3rem;
+}
+
+.season-card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.season-header {
+  padding: 2rem;
+  color: white;
+  text-align: center;
+}
+
+.season-header.dry {
+  background: linear-gradient(135deg, #ff7b25, #ff9a5a);
+}
+
+.season-header.wet {
+  background: linear-gradient(135deg, #4CAF50, #8BC34A);
+}
+
+/* Wildlife Guide Section */
+.wildlife-guide {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+  background: white;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.wildlife-map-container {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.map-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.hotspot {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: var(--primary-color);
+  border-radius: 50%;
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+}
+
+.hotspot-pulse {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 123, 37, 0.4);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+.hotspot.active .hotspot-pulse {
+  background: rgba(76, 175, 80, 0.4);
+}
+
+.hotspot-label {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.hotspot:hover .hotspot-label {
+  opacity: 1;
+}
+
+.zone-info {
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 15px;
+  height: 100%;
+}
+
+.zone-description {
+  margin: 1rem 0;
+  line-height: 1.6;
+}
+
+.zone-details {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.species-list ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+}
+
+.species-icon {
+  color: var(--primary-color);
+  margin-right: 0.5rem;
+}
+
+.photography-tips {
+  background: rgba(255, 123, 37, 0.1);
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .wildlife-guide {
+    grid-template-columns: 1fr;
+  }
+
+  .species-list ul {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Seasonal Wildlife Section */
+.seasonal-wildlife-section {
+  background: linear-gradient(to bottom, #fff, #f8f9fa);
+  padding: 6rem 0;
+}
+
+.season-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.season-tab {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 30px;
+  background: white;
+  color: #333;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.season-tab.active {
+  background: var(--primary-color);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.season-content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.season-highlights {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
+.highlight-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  animation: slideIn 0.5s ease forwards;
+}
+
+.highlight-icon {
+  color: var(--primary-color);
+}
+
+.species-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.species-tag {
+  padding: 0.5rem 1rem;
+  background: white;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.species-tag.rare {
+  background: var(--primary-color);
+  color: white;
+}
+
+/* Photography Guide Section */
+.photography-guide-section {
+  padding: 6rem 0;
+  background: #fff;
+}
+
+.photo-tips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.photo-tip-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.photo-tip-card:hover {
+  transform: translateY(-5px);
+}
+
+.tip-icon {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+/* Animations */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Enhanced Responsive Design */
+@media (max-width: 768px) {
+  .season-highlights {
+    grid-template-columns: 1fr;
+  }
+  
+  .photo-tips-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .season-tab {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Gallery Modal Styles */
+.gallery-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-gallery {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 10000;
+}
+
+.gallery-content {
+  position: relative;
+  width: 90%;
+  max-width: 1200px;
+  height: 80vh;
+}
+
+.gallery-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  padding: 1rem;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.gallery-nav:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.gallery-nav.prev {
+  left: 20px;
+}
+
+.gallery-nav.next {
+  right: 20px;
+}
+
+.gallery-image-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-image {
+  max-height: 80vh;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.gallery-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Enhanced Overview Section */
+.park-overview {
+  padding: 6rem 0;
+  background: linear-gradient(to bottom, #fff 0%, #f8f9fa 100%);
+}
+
+.overview-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 4rem;
+  margin-bottom: 4rem;
+}
+
+.overview-text {
+  padding-right: 2rem;
+}
+
+.lead-text {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #2c3e50;
+  margin-bottom: 3rem;
+  font-weight: 300;
+}
+
+.overview-features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.feature-item {
+  text-align: center;
+  padding: 2rem;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+}
+
+.feature-item:hover {
+  transform: translateY(-5px);
+}
+
+.feature-icon {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.feature-item h4 {
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.feature-item p {
+  color: #666;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.overview-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.stat-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 1rem;
+  color: #2c3e50;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.stat-desc {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.crater-highlights {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 4rem;
+}
+
+.highlight-card {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  height: 300px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.highlight-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.highlight-card:hover img {
+  transform: scale(1.1);
+}
+
+.highlight-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem;
+  background: linear-gradient(transparent, rgba(0,0,0,0.8));
+  color: white;
+}
+
+.highlight-content h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .overview-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .overview-text {
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 992px) {
+  .overview-features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .crater-highlights {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .overview-features,
+  .crater-highlights {
+    grid-template-columns: 1fr;
+  }
+
+  .overview-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .lead-text {
+    font-size: 1.1rem;
+  }
+}
+
+/* Wildlife & Attractions Section */
+.wildlife-attractions {
+  padding: 6rem 0;
+  background: linear-gradient(to bottom, #fff, #f8f9fa);
+}
+
+.category-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  backdrop-filter: blur(10px);
+}
+
+.tab-btn {
+  padding: 1.2rem 2.5rem;
+  border: none;
+  background: white;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.tab-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-color);
+  transform: translateX(-100%);
+  transition: transform 0.4s ease;
+  z-index: 0;
+}
+
+.tab-btn:hover::before,
+.tab-btn.active::before {
+  transform: translateX(0);
+}
+
+.tab-btn svg,
+.tab-btn span {
+  position: relative;
+  z-index: 1;
+  transition: all 0.4s ease;
+}
+
+.tab-btn:hover,
+.tab-btn.active {
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Wildlife Showcase */
+.wildlife-showcase {
+  opacity: 0;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.wildlife-hero {
+  position: relative;
+  height: 500px;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 3rem;
+}
+
+.hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem;
+  background: linear-gradient(transparent, rgba(0,0,0,0.8));
+  color: white;
+}
+
+.wildlife-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+  margin: 3rem 0;
+}
+
+.wildlife-card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: cardEntrance 0.6s ease forwards;
+}
+
+.wildlife-card:nth-child(1) { animation-delay: 0.1s; }
+.wildlife-card:nth-child(2) { animation-delay: 0.2s; }
+.wildlife-card:nth-child(3) { animation-delay: 0.3s; }
+.wildlife-card:nth-child(4) { animation-delay: 0.4s; }
+.wildlife-card:nth-child(5) { animation-delay: 0.5s; }
+.wildlife-card:nth-child(6) { animation-delay: 0.6s; }
+
+.wildlife-card:hover {
+  transform: translateY(-10px) rotateX(5deg);
+}
+
+.wildlife-card:hover .card-image-wrapper::after {
+  opacity: 0.3;
+}
+
+.wildlife-card .card-content {
+  padding: 1.5rem;
+  background: white;
+  transition: transform 0.3s ease;
+}
+
+.wildlife-card:hover .card-content {
+  transform: translateY(-5px);
+}
+
+.wildlife-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.wildlife-card:hover img {
+  transform: scale(1.1);
+}
+
+.card-content {
+  padding: 1.5rem;
+}
+
+.population-indicator {
+  margin-top: 1rem;
+  background: #f1f1f1;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.indicator-bar {
+  height: 6px;
+  background: var(--primary-color);
+  transition: width 1s ease;
+}
+
+/* Wildlife Facts Carousel */
+.wildlife-facts {
+  margin-top: 4rem;
+  position: relative;
+}
+
+.fact-carousel {
+  position: relative;
+  height: 400px;
+}
+
+.fact-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  display: flex;
+  gap: 2rem;
+}
+
+.fact-slide.active {
+  opacity: 1;
+}
+
+.fact-slide img {
+  width: 50%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.fact-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .category-tabs {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .wildlife-hero {
+    height: 300px;
+  }
+
+  .fact-slide {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .fact-slide img {
+    width: 100%;
+    height: 200px;
+  }
+}
+
+/* Fact Navigation Controls */
+.fact-navigation {
+  position: absolute;
+  bottom: -2rem;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.fact-indicators {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ddd;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.indicator.active {
+  background: var(--primary-color);
+  transform: scale(1.2);
+}
+
+.nav-btn {
+  background: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.nav-btn svg {
+  color: var(--primary-color);
+  font-size: 1.2rem;
+}
+
+/* Birds Section Styles */
+.birds-showcase,
+.landscapes-showcase {
+  opacity: 0;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.birds-hero,
+.landscapes-hero {
+  position: relative;
+  height: 400px;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 3rem;
+}
+
+.birds-hero img,
+.landscapes-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.birds-grid,
+.landscapes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.bird-card,
+.landscape-card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.bird-card:hover,
+.landscape-card:hover {
+  transform: translateY(-5px);
+}
+
+.bird-card img,
+.landscape-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.bird-card:hover img,
+.landscape-card:hover img {
+  transform: scale(1.1);
+}
+
+.bird-info {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.season-tag {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  background: var(--primary-color);
+  color: white;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+.highlights-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.highlight-tag {
+  padding: 0.3rem 0.8rem;
+  background: rgba(var(--primary-rgb), 0.1);
+  color: var(--primary-color);
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+.best-time {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #666;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .birds-hero,
+  .landscapes-hero {
+    height: 300px;
+  }
+
+  .birds-grid,
+  .landscapes-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Enhanced Cards Animation */
+.wildlife-card,
+.bird-card,
+.landscape-card {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-content {
+  padding: 2rem;
+  background: white;
+  transform: translateZ(20px);
+}
+
+.card-image-wrapper {
+  position: relative;
+  overflow: hidden;
+  height: 250px;
+}
+
+.card-image-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(0,0,0,0.2), transparent);
+  transition: opacity 0.3s ease;
+}
+
+.card-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Enhanced Hover Effects */
+.wildlife-card:hover,
+.bird-card:hover,
+.landscape-card:hover {
+  transform: translateY(-10px) rotateX(5deg);
+}
+
+.wildlife-card:hover .card-image-wrapper img,
+.bird-card:hover .card-image-wrapper img,
+.landscape-card:hover .card-image-wrapper img {
+  transform: scale(1.1) translateZ(0);
+}
+
+/* Enhanced Indicators */
+.population-indicator {
+  position: relative;
+  height: 8px;
+  background: #f0f0f0;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 1rem 0;
+}
+
+.indicator-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+  transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Enhanced Tags */
+.season-tag,
+.highlight-tag {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.season-tag {
+  background: linear-gradient(45deg, var(--primary-color), var(--primary-light));
+  color: white;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.highlight-tag {
+  background: rgba(var(--primary-rgb), 0.1);
+  color: var(--primary-color);
+}
+
+.highlight-tag:hover {
+  background: var(--primary-color);
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Loading Animation */
+@keyframes cardEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.wildlife-grid > *,
+.birds-grid > *,
+.landscapes-grid > * {
+  animation: cardEntrance 0.8s ease forwards;
+  opacity: 0;
+}
+
+/* Staggered Animation Delays */
+.wildlife-grid > *:nth-child(1),
+.birds-grid > *:nth-child(1),
+.landscapes-grid > *:nth-child(1) { animation-delay: 0.1s; }
+.wildlife-grid > *:nth-child(2) { animation-delay: 0.2s; }
+.wildlife-grid > *:nth-child(3) { animation-delay: 0.3s; }
+.wildlife-grid > *:nth-child(4) { animation-delay: 0.4s; }
+.wildlife-grid > *:nth-child(5) { animation-delay: 0.5s; }
+.wildlife-grid > *:nth-child(6) { animation-delay: 0.6s; }
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .wildlife-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .wildlife-grid {
+    grid-template-columns: 1fr;
+  }
+} 
