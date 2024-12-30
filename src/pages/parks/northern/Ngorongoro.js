@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import '../western/ParkStyles.css';
-import { FaMapMarkerAlt, FaTree, FaLeaf, FaPaw, FaSun, FaCamera, FaCar, FaBinoculars, FaCalendarAlt, FaCheckCircle, FaInfoCircle, FaWater, FaChevronLeft, FaChevronRight, FaCalendarCheck, FaWhatsapp, FaArrowRight, FaImages, FaTimes, FaSearchPlus, FaSync, FaExpand, FaUsers, FaGlobe, FaMountain, FaFeather, FaClock } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaTree, FaLeaf, FaPaw, FaSun, FaCamera, FaCar, FaBinoculars, FaCalendarAlt, FaCheckCircle, FaInfoCircle, FaWater, FaChevronLeft, FaChevronRight, FaCalendarCheck, FaWhatsapp, FaArrowRight, FaImages, FaTimes, FaSearchPlus, FaSync, FaExpand, FaUsers, FaGlobe, FaMountain, FaFeather, FaClock, FaStar, FaEye } from 'react-icons/fa';
 import './Ngorongoro.css';
 import { contactInfo } from '../../../config/contact';
 import '../../../shared/styles/BookingForm.css';
@@ -17,6 +17,8 @@ const Ngorongoro = () => {
   const [selectedSeason, setSelectedSeason] = useState('dry');
   const [showPhotoTips, setShowPhotoTips] = useState(false);
   const [activeFact, setActiveFact] = useState(0);
+  const [viewMode, setViewMode] = useState('aerial');
+  const modelViewerRef = useRef(null);
 
   const viewpoints = [
     {
@@ -484,6 +486,24 @@ const Ngorongoro = () => {
     });
   };
 
+  const handleHotspotClick = (hotspotId) => {
+    const modelViewer = modelViewerRef.current;
+    if (modelViewer) {
+      switch(hotspotId) {
+        case 'hotspot-1':
+          modelViewer.cameraOrbit = "0deg 75deg 50%";
+          modelViewer.fieldOfView = "30deg";
+          break;
+        case 'hotspot-2':
+          modelViewer.cameraOrbit = "-45deg 65deg 30%";
+          modelViewer.fieldOfView = "45deg";
+          break;
+        default:
+          break;
+      }
+    }
+  };
+
   useEffect(() => {
     const handleKeyPress = (e) => {
       if (!isGalleryOpen) return;
@@ -513,6 +533,31 @@ const Ngorongoro = () => {
     }, 5000);
 
     return () => clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    const modelViewer = modelViewerRef.current;
+    
+    if (modelViewer) {
+      modelViewer.addEventListener('load', () => {
+        setIsLoading(false);
+      });
+
+      modelViewer.addEventListener('progress', (e) => {
+        const progressBar = document.querySelector('.update-bar');
+        if (progressBar) {
+          progressBar.style.width = `${e.detail.totalProgress * 100}%`;
+        }
+      });
+
+      // Handle camera transitions
+      modelViewer.addEventListener('camera-change', () => {
+        const progress = document.querySelector('.progress-bar');
+        if (progress) {
+          progress.classList.add('hide');
+        }
+      });
+    }
   }, []);
 
   return (
@@ -644,8 +689,8 @@ const Ngorongoro = () => {
                     </div>
                   </div>
 
-                  <div className="wildlife-grid">
-                    <div className="wildlife-card">
+          <div className="wildlife-grid">
+            <div className="wildlife-card">
                       <div className="card-image-wrapper">
                         <img src="https://images.unsplash.com/photo-1682686580391-615b1f28e5ee" alt="Ngorongoro Lions" />
                       </div>
@@ -697,11 +742,11 @@ const Ngorongoro = () => {
                         <div className="population-indicator">
                           <div className="indicator-bar" style={{width: '90%'}}></div>
                           <span>Population Density: Very High</span>
-                        </div>
-                      </div>
-                    </div>
+              </div>
+              </div>
+            </div>
 
-                    <div className="wildlife-card">
+            <div className="wildlife-card">
                       <div className="card-image-wrapper">
                         <img src="https://images.unsplash.com/photo-1674828815544-775e1d31910d" alt="Ngorongoro Elephants" />
                       </div>
@@ -711,11 +756,11 @@ const Ngorongoro = () => {
                         <div className="population-indicator">
                           <div className="indicator-bar" style={{width: '70%'}}></div>
                           <span>Population Density: High</span>
-                        </div>
-                      </div>
-                    </div>
+              </div>
+              </div>
+            </div>
 
-                    <div className="wildlife-card">
+            <div className="wildlife-card">
                       <div className="card-image-wrapper">
                         <img src="https://images.unsplash.com/photo-1674244588432-7379a0e8c88e" alt="Ngorongoro Buffalo" />
                       </div>
@@ -828,9 +873,116 @@ const Ngorongoro = () => {
                         </div>
                       </div>
                     ))}
+              </div>
+              </div>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="wildlife-spotting-guide">
+        <div className="container">
+          <h2>Wildlife Spotting Guide</h2>
+          
+          <div className="season-selector">
+            <button 
+              className={`season-btn ${selectedSeason === 'dry' ? 'active' : ''}`}
+              onClick={() => setSelectedSeason('dry')}
+            >
+              <FaSun />
+              <span>Dry Season</span>
+              <small>June - October</small>
+            </button>
+            <button 
+              className={`season-btn ${selectedSeason === 'wet' ? 'active' : ''}`}
+              onClick={() => setSelectedSeason('wet')}
+            >
+              <FaLeaf />
+              <span>Green Season</span>
+              <small>November - May</small>
+            </button>
+          </div>
+
+          <div className="spotting-guide-content">
+            <div className="season-info">
+              <h3>{seasonalWildlife[selectedSeason].title}</h3>
+              <div className="season-highlights">
+                {seasonalWildlife[selectedSeason].highlights.map((highlight, index) => (
+                  <div key={index} className="highlight-item" data-aos="fade-up" data-aos-delay={index * 100}>
+                    <FaCheckCircle />
+                    <span>{highlight}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="species-grid">
+                <div className="common-species">
+                  <h4>Commonly Spotted</h4>
+                  <div className="species-list">
+                    {seasonalWildlife[selectedSeason].species.common.map((species, index) => (
+                      <div key={index} className="species-tag" data-aos="zoom-in" data-aos-delay={index * 50}>
+                        <FaPaw />
+                        <span>{species}</span>
+                      </div>
+                    ))}
                   </div>
                 </div>
-              )}
+
+                <div className="rare-species">
+                  <h4>Special Sightings</h4>
+                  <div className="species-list">
+                    {seasonalWildlife[selectedSeason].species.rare.map((species, index) => (
+                      <div key={index} className="species-tag rare" data-aos="zoom-in" data-aos-delay={index * 50}>
+                        <FaStar />
+                        <span>{species}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <div className="conditions-panel">
+                <h4>Viewing Conditions</h4>
+                <div className="conditions-grid">
+                  {Object.entries(seasonalWildlife[selectedSeason].conditions).map(([key, value], index) => (
+                    <div key={index} className="condition-card" data-aos="flip-left" data-aos-delay={index * 100}>
+                      <div className="condition-icon">
+                        {key === 'visibility' && <FaEye />}
+                        {key === 'photography' && <FaCamera />}
+                        {key === 'accessibility' && <FaCar />}
+                      </div>
+                      <h5>{key}</h5>
+                      <p>{value}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="interactive-map">
+              <h3>Wildlife Zones</h3>
+              <div className="map-container">
+                <div className="map-image">
+                  {/* Add your map image here */}
+                  {Object.keys(wildlifeZones).map(zone => (
+                    <div
+                      key={zone}
+                      className={`zone-marker ${selectedZone === zone ? 'active' : ''} ${isZoneHovered === zone ? 'hovered' : ''}`}
+                      style={{ top: wildlifeZones[zone].coordinates.split(',')[0] + 'px', left: wildlifeZones[zone].coordinates.split(',')[1] + 'px' }}
+                      onMouseEnter={() => setIsZoneHovered(zone)}
+                      onMouseLeave={() => setIsZoneHovered(null)}
+                      onClick={() => setSelectedZone(zone)}
+                    >
+                      <div className="marker-dot"></div>
+                      <div className="zone-tooltip">
+                        <h4>{wildlifeZones[zone].title}</h4>
+                        <p>{wildlifeZones[zone].description}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -1008,87 +1160,90 @@ const Ngorongoro = () => {
         </div>
       </section>
 
-      {/* Interactive Wildlife Guide */}
-      <section className="wildlife-guide-section">
-        <div className="container">
-          <h2>Wildlife Spotting Guide</h2>
-          <div className="wildlife-guide">
-            <div className="wildlife-map-container">
-              <div className="map-overlay">
-                {Object.entries(wildlifeZones).map(([id, zone]) => (
-                  <div
-                    key={id}
-                    className={`hotspot ${selectedZone === id ? 'active' : ''} ${isZoneHovered === id ? 'hovered' : ''}`}
-                    style={{
-                      left: zone.coordinates.split(',')[0] + 'px',
-                      top: zone.coordinates.split(',')[1] + 'px'
-                    }}
-                    onClick={() => showWildlifeInfo(id)}
-                    onMouseEnter={() => setIsZoneHovered(id)}
-                    onMouseLeave={() => setIsZoneHovered(null)}
-                  >
-                    <div className="hotspot-pulse"></div>
-                    <div className="hotspot-label">{zone.title}</div>
-                  </div>
-                ))}
-              </div>
-              <img 
-                src="/images/ngorongoro-map.jpg" 
-                alt="Ngorongoro Crater Map"
-                className="crater-map"
-              />
-            </div>
-            <div className="wildlife-info">
-              {selectedZone ? (
-                <div className="zone-info">
-                  <h3>{wildlifeZones[selectedZone].title}</h3>
-                  <p className="zone-description">{wildlifeZones[selectedZone].description}</p>
-                  <div className="zone-details">
-                    <div className="best-time">
-                      <h4>Best Time to Visit</h4>
-                      <p>{wildlifeZones[selectedZone].bestTime}</p>
-                    </div>
-                    <div className="species-list">
-                      <h4>Common Species</h4>
-                      <ul>
-                        {wildlifeZones[selectedZone].species.map(species => (
-                          <li key={species}>
-                            <FaPaw className="species-icon" />
-                            {species}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div className="photography-tips">
-                      <h4>Photography Tips</h4>
-                      <p>{wildlifeZones[selectedZone].tips}</p>
-                    </div>
-                  </div>
-                </div>
-              ) : (
-                <div className="zone-info-placeholder">
-                  <FaBinoculars className="placeholder-icon" />
-                  <p>Click on any hotspot on the map to learn about wildlife in that area</p>
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* 3D Crater Visualization */}
       <section className="crater-3d-section">
         <div className="container">
           <h2>Explore the Crater in 3D</h2>
-          <div className="crater-3d-viewer">
-            <model-viewer
-              src="/models/ngorongoro-crater.glb"
-              alt="3D model of Ngorongoro Crater"
-              camera-controls
-              auto-rotate
-              ar
-              ios-src="/models/ngorongoro-crater.usdz"
-            ></model-viewer>
+          <div className="crater-3d-content">
+            <div className="crater-3d-controls">
+              <button 
+                className={`view-control-btn ${viewMode === 'aerial' ? 'active' : ''}`}
+                onClick={() => setViewMode('aerial')}
+              >
+                <FaGlobe /> Aerial View
+              </button>
+              <button 
+                className={`view-control-btn ${viewMode === 'ground' ? 'active' : ''}`}
+                onClick={() => setViewMode('ground')}
+              >
+                <FaTree /> Ground Level
+              </button>
+              <button 
+                className={`view-control-btn ${viewMode === 'rim' ? 'active' : ''}`}
+                onClick={() => setViewMode('rim')}
+              >
+                <FaMountain /> Crater Rim
+              </button>
+            </div>
+
+            <div className="crater-3d-viewer">
+              <div className="viewer-container">
+                <model-viewer
+                  ref={modelViewerRef}
+                  src="/models/ngorongoro-crater.glb"
+                  alt="3D model of Ngorongoro Crater"
+                  camera-controls
+                  auto-rotate
+                  rotation-per-second="30deg"
+                  camera-orbit={viewMode === 'aerial' ? "0deg 90deg 100%" : 
+                               viewMode === 'ground' ? "0deg 0deg 100%" : 
+                               "45deg 45deg 100%"}
+                  exposure="1"
+                  shadow-intensity="1"
+                  environment-image="/images/ngorongoro-hdri.hdr"
+                  ar
+                  ar-modes="webxr scene-viewer quick-look"
+                  ios-src="/models/ngorongoro-crater.usdz"
+                >
+                  <button slot="ar-button" className="ar-button">
+                    <FaExpand /> View in AR
+                  </button>
+
+                  <div className={`progress-bar ${!isLoading ? 'hide' : ''}`}>
+                    <div className="update-bar"></div>
+                  </div>
+
+                  <button 
+                    className="hotspot" 
+                    slot="hotspot-1" 
+                    data-position="-1m 2m 1m"
+                    onClick={() => handleHotspotClick('hotspot-1')}
+                  >
+                    <div className="hotspot-annotation">Crater Floor</div>
+                  </button>
+                  <button 
+                    className="hotspot" 
+                    slot="hotspot-2" 
+                    data-position="2m 1m 0.5m"
+                    onClick={() => handleHotspotClick('hotspot-2')}
+                  >
+                    <div className="hotspot-annotation">Lake Magadi</div>
+                  </button>
+                </model-viewer>
+              </div>
+
+              <div className="viewer-info">
+                <div className="info-card">
+                  <h3>Interactive Controls</h3>
+                  <ul className="control-instructions">
+                    <li><FaSync /> Rotate: Click and drag</li>
+                    <li><FaSearchPlus /> Zoom: Scroll or pinch</li>
+                    <li><FaPaw /> Move: Right-click and drag</li>
+                    <li><FaExpand /> AR View: Click AR button</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

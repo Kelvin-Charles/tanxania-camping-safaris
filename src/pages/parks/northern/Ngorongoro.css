@@ -2,7 +2,7 @@
 .park-hero {
   height: 85vh;
   background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-              url('https://images.unsplash.com/photo-1516426122078-c23e76319801?w=1920') center/cover fixed;
+              url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7td3VBKS_RCIh92CEh1nZ09el64KpqgFdKA&s') center/cover fixed;
   position: relative;
   overflow: hidden;
 }
@@ -1359,4 +1359,510 @@
   .wildlife-grid {
     grid-template-columns: 1fr;
   }
-} 
+}
+
+/* Wildlife Spotting Guide */
+.wildlife-spotting-guide {
+  padding: 6rem 0;
+  background: linear-gradient(to bottom, #f8f9fa, #fff);
+}
+
+.season-selector {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.season-btn {
+  padding: 1.5rem 3rem;
+  border: none;
+  background: white;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.season-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-color);
+  transform: translateY(100%);
+  transition: transform 0.4s ease;
+  z-index: 0;
+}
+
+.season-btn.active::before,
+.season-btn:hover::before {
+  transform: translateY(0);
+}
+
+.season-btn svg,
+.season-btn span,
+.season-btn small {
+  position: relative;
+  z-index: 1;
+  transition: all 0.4s ease;
+}
+
+.season-btn svg {
+  font-size: 2rem;
+  color: var(--primary-color);
+}
+
+.season-btn span {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.season-btn small {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.season-btn:hover svg,
+.season-btn:hover span,
+.season-btn:hover small,
+.season-btn.active svg,
+.season-btn.active span,
+.season-btn.active small {
+  color: white;
+}
+
+.spotting-guide-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin-top: 3rem;
+}
+
+.season-highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.highlight-item {
+  background: white;
+  padding: 1.2rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+}
+
+.highlight-item:hover {
+  transform: translateY(-5px);
+}
+
+.highlight-item svg {
+  color: var(--primary-color);
+  font-size: 1.2rem;
+}
+
+.species-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.species-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.species-tag {
+  padding: 0.8rem 1.2rem;
+  background: white;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+}
+
+.species-tag.rare {
+  background: linear-gradient(45deg, var(--primary-color), var(--primary-light));
+  color: white;
+}
+
+.species-tag:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+.conditions-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.condition-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+}
+
+.condition-card:hover {
+  transform: translateY(-5px);
+}
+
+.condition-icon {
+  width: 60px;
+  height: 60px;
+  background: rgba(var(--primary-rgb), 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+}
+
+.condition-icon svg {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+}
+
+/* Interactive Map Styles */
+.map-container {
+  position: relative;
+  height: 500px;
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.zone-marker {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  z-index: 2;
+}
+
+.marker-dot {
+  width: 16px;
+  height: 16px;
+  background: var(--primary-color);
+  border-radius: 50%;
+  position: relative;
+  animation: pulse 2s infinite;
+}
+
+.zone-tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  width: 200px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.zone-marker:hover .zone-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(-10px);
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(var(--primary-rgb), 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(var(--primary-rgb), 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(var(--primary-rgb), 0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .spotting-guide-content {
+    grid-template-columns: 1fr;
+  }
+
+  .season-selector {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .season-btn {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .conditions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .species-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .conditions-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .map-container {
+    height: 400px;
+  }
+}
+
+/* 3D Crater Section */
+.crater-3d-section {
+  padding: 6rem 0;
+  background: linear-gradient(to bottom, #f8f9fa, #fff);
+  position: relative;
+  overflow: hidden;
+}
+
+.crater-3d-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  background: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+.crater-3d-content {
+  position: relative;
+  z-index: 1;
+}
+
+.crater-3d-controls {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.view-control-btn {
+  padding: 1rem 2rem;
+  border: none;
+  background: white;
+  border-radius: 30px;
+  font-size: 1rem;
+  color: #2c3e50;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.view-control-btn:hover {
+  transform: translateY(-2px);
+  background: var(--primary-color);
+  color: white;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.crater-3d-viewer {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.viewer-container {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  aspect-ratio: 16/9;
+  position: relative;
+}
+
+model-viewer {
+  width: 100%;
+  height: 100%;
+  background: #f8f9fa;
+  --poster-color: transparent;
+}
+
+.ar-button {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  padding: 0.8rem 1.5rem;
+  background: white;
+  border: none;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: #2c3e50;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.ar-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.hotspot {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  background: var(--primary-color);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.hotspot::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-radius: 50%;
+}
+
+.hotspot-annotation {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  padding: 0.5rem 1rem;
+  border-radius: 15px;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.hotspot:hover .hotspot-annotation {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(-10px);
+}
+
+.viewer-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.info-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.control-instructions {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+}
+
+.control-instructions li {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid #eee;
+  color: #666;
+}
+
+.control-instructions li:last-child {
+  border-bottom: none;
+}
+
+.control-instructions li svg {
+  color: var(--primary-color);
+}
+
+/* Progress Bar */
+.progress-bar {
+  width: 100%;
+  height: 4px;
+  background: #eee;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.update-bar {
+  height: 100%;
+  background: var(--primary-color);
+  transition: width 0.3s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .crater-3d-viewer {
+    grid-template-columns: 1fr;
+  }
+
+  .crater-3d-controls {
+    flex-wrap: wrap;
+  }
+
+  .view-control-btn {
+    flex: 1;
+    min-width: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .crater-3d-controls {
+    flex-direction: column;
+  }
+
+  .view-control-btn {
+    width: 100%;
+  }
+
+  .viewer-container {
+    aspect-ratio: 4/3;
+  }
+}
