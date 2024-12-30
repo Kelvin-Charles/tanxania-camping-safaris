@@ -325,84 +325,127 @@ const Ngorongoro = () => {
     {
       title: "Lion Pride Dynamics",
       description: "The Ngorongoro Crater is home to some of the densest known populations of lions in Africa. The unique enclosed ecosystem allows pride dynamics to be closely studied.",
-      image: "https://images.unsplash.com/photo-1682686580391-615b1f28e5ee"
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTomlT-moOM7FH7KyTm6ZoedaAvkTYcEL1O8g&s"
     },
     {
       title: "Black Rhino Sanctuary",
       description: "One of the last remaining sanctuaries for endangered black rhinos, the crater provides a safe haven for these magnificent creatures.",
-      image: "https://images.unsplash.com/photo-1679678691006-0ad24fae3ab5"
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSn3_HaSha6ERqqtBxlLY5n0eSA8cYaujKNwQ&s"
     },
     {
       title: "Hippo Pool Ecosystem",
       description: "The crater's hippo pools support a complex ecosystem, providing vital nutrients for other species and maintaining the wetland balance.",
-      image: "https://images.unsplash.com/photo-1674244588361-1a8ac9e4930e"
+      image: "https://live.staticflickr.com/4068/4407069560_a8c0abd27c_h.jpg"
     },
     {
       title: "Flamingo Flocks",
       description: "Lake Magadi, within the crater, turns pink during certain seasons as thousands of flamingos gather to feed on algae.",
-      image: "https://images.unsplash.com/photo-1676461602221-e6043b1a5143"
+      image: "https://www.amawaterways.au/Assets/Connections/Thumb/connections_africa_ngorongoro.jpg"
     }
   ];
 
   const birdSpecies = [
     {
       name: "Greater Flamingo",
-      image: "https://images.unsplash.com/photo-1676461602221-e6043b1a5143",
+      image: "https://img.freepik.com/premium-photo/duck-sea_1048944-16267701.jpg?ga=GA1.1.1877472401.1734570744&semt=ais_hybrid",
       description: "Thousands of flamingos gather at Lake Magadi, creating a stunning pink spectacle",
       population: "80%",
       bestSeason: "November to April"
     },
     {
       name: "Crowned Crane",
-      image: "https://images.unsplash.com/photo-1675467129869-d7848d2d6a37",
+      image: "https://img.freepik.com/free-photo/white-red-black-crane-with-large-feathery-crown-head_181624-11784.jpg?ga=GA1.1.1877472401.1734570744&semt=ais_hybrid",
       description: "These majestic birds can often be seen performing their distinctive mating dance on the crater floor",
       population: "65%",
       bestSeason: "Year-round"
     },
     {
       name: "Kori Bustard",
-      image: "https://images.unsplash.com/photo-1674828815544-775e1d31910d",
+      image: "https://img.freepik.com/free-photo/selective-focus-cape-vulture-standing-ground-with-two-black-billed-magpies-daytime_181624-47673.jpg?ga=GA1.1.1877472401.1734570744&semt=ais_hybrid",
       description: "Africa's heaviest flying bird roams the crater floor grasslands",
       population: "55%",
       bestSeason: "June to October"
     },
     {
       name: "Secretary Bird",
-      image: "https://images.unsplash.com/photo-1675889335685-4c67b8766cee",
+      image: "https://img.freepik.com/premium-photo/secretary-bird_127069-58.jpg?ga=GA1.1.1877472401.1734570744&semt=ais_hybrid",
       description: "These distinctive birds can be seen stalking through the grasslands hunting for prey",
       population: "45%",
       bestSeason: "Year-round"
     }
   ];
-
+  
   const landscapes = [
     {
       name: "Crater Rim",
-      image: "https://images.unsplash.com/photo-1674244588432-7379a0e8c88e",
+      image: "https://www.ngorongorocratertanzania.org/wp-content/uploads/2019/05/Ngorongoro-crater-weather-750x450.jpg",
       description: "The world's largest intact volcanic caldera, stretching 19km across",
       highlights: ["Panoramic Views", "Sunrise Spots", "Cloud Formations"],
       bestTime: "Early Morning"
     },
     {
       name: "Lake Magadi",
-      image: "https://images.unsplash.com/photo-1676461602198-9675e3a15fd0",
+      image: "https://img.freepik.com/premium-photo/scenic-view-lake-against-sky_1048944-13547526.jpg?ga=GA1.1.1877472401.1734570744&semt=ais_hybrid",
       description: "A shallow alkaline lake that turns pink with flamingos during wet season",
       highlights: ["Bird Life", "Salt Flats", "Dramatic Colors"],
       bestTime: "Late Afternoon"
     },
     {
       name: "Lerai Forest",
-      image: "https://images.unsplash.com/photo-1674828815499-c96c0eef3e88",
+      image: "https://img.freepik.com/free-photo/grassy-field-with-cactus-trees-sunny-day_181624-3310.jpg?ga=GA1.1.1877472401.1734570744&semt=ais_hybrid",
       description: "A yellow fever tree forest providing shade for elephants and other wildlife",
       highlights: ["Ancient Trees", "Wildlife Shelter", "Golden Light"],
       bestTime: "Midday"
     },
     {
       name: "Hippo Pool",
-      image: "https://images.unsplash.com/photo-1674244588361-1a8ac9e4930e",
+      image: "https://img.freepik.com/free-photo/hippo-family-water_167946-49.jpg?ga=GA1.1.1877472401.1734570744&semt=ais_hybrid",
       description: "A natural spring-fed pool where hundreds of hippos gather",
       highlights: ["Wildlife Activity", "Water Features", "Bird Life"],
       bestTime: "Early Morning/Late Afternoon"
+    }
+  ];
+  
+
+  const cameraPositions = {
+    aerial: {
+      orbit: "0deg 90deg 100%",
+      target: "0m 0m 0m",
+      fov: "45deg"
+    },
+    ground: {
+      orbit: "0deg 45deg 50%",
+      target: "0m 1m 0m",
+      fov: "60deg"
+    },
+    rim: {
+      orbit: "-45deg 65deg 75%",
+      target: "0m 2m 2m",
+      fov: "30deg"
+    }
+  };
+
+  const viewerHotspots = [
+    {
+      id: 'crater-floor',
+      position: "-1m 0m 1m",
+      normal: "0m 1m 0m",
+      text: "Crater Floor",
+      orbit: "0deg 45deg 50%"
+    },
+    {
+      id: 'lake-magadi',
+      position: "2m 0m 0.5m",
+      normal: "0m 1m 0m",
+      text: "Lake Magadi",
+      orbit: "-45deg 65deg 30%"
+    },
+    {
+      id: 'hippo-pool',
+      position: "0m 0m -1.5m",
+      normal: "0m 1m 0m",
+      text: "Hippo Pool",
+      orbit: "180deg 60deg 40%"
     }
   ];
 
@@ -488,19 +531,31 @@ const Ngorongoro = () => {
 
   const handleHotspotClick = (hotspotId) => {
     const modelViewer = modelViewerRef.current;
+    const hotspot = viewerHotspots.find(h => h.id === hotspotId);
+    
+    if (modelViewer && hotspot) {
+      modelViewer.cameraOrbit = hotspot.orbit;
+      modelViewer.cameraTarget = hotspot.position;
+      modelViewer.fieldOfView = "30deg";
+      
+      // Smooth camera transition
+      modelViewer.interpolationDecay = 100;
+    }
+  };
+
+  const handleModelInteraction = () => {
+    const modelViewer = modelViewerRef.current;
     if (modelViewer) {
-      switch(hotspotId) {
-        case 'hotspot-1':
-          modelViewer.cameraOrbit = "0deg 75deg 50%";
-          modelViewer.fieldOfView = "30deg";
-          break;
-        case 'hotspot-2':
-          modelViewer.cameraOrbit = "-45deg 65deg 30%";
-          modelViewer.fieldOfView = "45deg";
-          break;
-        default:
-          break;
-      }
+      modelViewer.addEventListener('load', () => {
+        setIsLoading(false);
+      });
+
+      modelViewer.addEventListener('progress', (e) => {
+        const progressBar = document.querySelector('.update-bar');
+        if (progressBar) {
+          progressBar.style.width = `${e.detail.totalProgress * 100}%`;
+        }
+      });
     }
   };
 
@@ -621,27 +676,37 @@ const Ngorongoro = () => {
             </div>
             
             <div className="crater-highlights">
-              <div className="highlight-card">
-                <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=800" alt="Wildlife" />
-                <div className="highlight-content">
-                  <h3>Rich Biodiversity</h3>
-                  <p>Experience one of the highest densities of wildlife in Africa</p>
-                </div>
-              </div>
-              <div className="highlight-card">
-                <img src="https://images.unsplash.com/photo-1623479322729-28b25c16b011?w=800" alt="Maasai Culture" />
-                <div className="highlight-content">
-                  <h3>Cultural Heritage</h3>
-                  <p>Home to traditional Maasai communities</p>
-                </div>
-              </div>
-              <div className="highlight-card">
-                <img src="https://images.unsplash.com/photo-1549366021-9f761d450615?w=800" alt="Landscape" />
-                <div className="highlight-content">
-                  <h3>Dramatic Landscapes</h3>
-                  <p>Witness breathtaking views and unique geology</p>
+            <div className="highlight-card">
+  <img
+    src="https://africasafaritravellers.com/wp-content/uploads/2023/02/ngorongoro-3.jpg"
+    alt="Wildlife"
+  />
+  <div className="highlight-content">
+    <h3>Rich Biodiversity</h3>
+    <p>Experience one of the highest densities of wildlife in Africa</p>
+  </div>
+</div>
+<div className="highlight-card">
+  <img
+    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSu92EciudsH59fFQ2P-w5iPk5FWu5aVwuAnQ&s"
+    alt="Maasai Culture"
+  />
+  <div className="highlight-content">
+    <h3>Cultural Heritage</h3>
+    <p>Home to traditional Maasai communities</p>
+  </div>
+</div>
+<div className="highlight-card">
+  <img
+    src="https://www.asiliaafrica.com/wp-content/uploads/2024/04/1-ngorongoro-crater.jpg"
+    alt="Landscape"
+  />
+  <div className="highlight-content">
+    <h3>Dramatic Landscapes</h3>
+    <p>Witness breathtaking views and unique geology</p>
             </div>
             </div>
+
             </div>
           </div>
         </div>
@@ -681,7 +746,7 @@ const Ngorongoro = () => {
                 <div className="wildlife-showcase">
                   <div className="wildlife-hero">
                     <video autoPlay muted loop className="hero-video">
-                      <source src="/videos/ngorongoro-wildlife.mp4" type="video/mp4" />
+                      <source src="/videos/wildlife-hero.mp4" type="video/mp4" />
                     </video>
                     <div className="hero-overlay">
                       <h3>Africa's Eden</h3>
@@ -692,7 +757,7 @@ const Ngorongoro = () => {
           <div className="wildlife-grid">
             <div className="wildlife-card">
                       <div className="card-image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1682686580391-615b1f28e5ee" alt="Ngorongoro Lions" />
+                        <img src="https://i0.wp.com/www.bestoftanzaniasafaris.com/wp-content/uploads/2023/08/Ngorongoro-crater-lions-4.jpg?fit=1600%2C1000&ssl=1" alt="Ngorongoro Lions" />
                       </div>
                       <div className="card-content">
                         <h4>Lions</h4>
@@ -706,7 +771,7 @@ const Ngorongoro = () => {
 
                     <div className="wildlife-card">
                       <div className="card-image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1679678691006-0ad24fae3ab5" alt="Ngorongoro Black Rhino" />
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSynbDyLqvjQbA3q6RnCy5Al21b1AMIcWe5pw&s" alt="Ngorongoro Black Rhino" />
                       </div>
                       <div className="card-content">
                         <h4>Black Rhino</h4>
@@ -720,7 +785,7 @@ const Ngorongoro = () => {
                     
                     <div className="wildlife-card">
                       <div className="card-image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1674244588361-1a8ac9e4930e" alt="Ngorongoro Hippos" />
+                        <img src="https://www.shutterstock.com/image-photo/hippopotamus-ngorongoro-crater-tanzania-260nw-2517172627.jpg" alt="Ngorongoro Hippos" />
                       </div>
                       <div className="card-content">
                         <h4>Hippos</h4>
@@ -734,7 +799,7 @@ const Ngorongoro = () => {
 
                     <div className="wildlife-card">
                       <div className="card-image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1676461602221-e6043b1a5143" alt="Ngorongoro Flamingos" />
+                        <img src="https://www.tarangirenationalparks.com/wp-content/uploads/2022/01/Flamongos-at-Lake-Manyara.jpg" alt="Ngorongoro Flamingos" />
                       </div>
                       <div className="card-content">
                         <h4>Flamingos</h4>
@@ -748,7 +813,7 @@ const Ngorongoro = () => {
 
             <div className="wildlife-card">
                       <div className="card-image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1674828815544-775e1d31910d" alt="Ngorongoro Elephants" />
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQw_ytTVCroCDQup4cAwY196qZD8Z1Nh25Bqg&s" alt="Ngorongoro Elephants" />
                       </div>
                       <div className="card-content">
                         <h4>African Elephants</h4>
@@ -762,7 +827,7 @@ const Ngorongoro = () => {
 
             <div className="wildlife-card">
                       <div className="card-image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1674244588432-7379a0e8c88e" alt="Ngorongoro Buffalo" />
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsbHy_NNVC0GhFC8EfHd25n4-A6d3CF1t8nA&s" alt="Ngorongoro Buffalo" />
                       </div>
                       <div className="card-content">
                         <h4>Cape Buffalo</h4>
@@ -817,7 +882,7 @@ const Ngorongoro = () => {
               {activeTab === 'birds' && (
                 <div className="birds-showcase">
                   <div className="birds-hero">
-                    <img src="https://images.unsplash.com/photo-1572381823924-ff1c7b3f9950" alt="Birds of Ngorongoro" />
+                    <img src="https://img.freepik.com/free-photo/bird-south-america-nature-habitat_475641-752.jpg?ga=GA1.1.1877472401.1734570744&semt=ais_hybrid" alt="Birds of Ngorongoro" />
                     <div className="hero-overlay">
                       <h3>Birding Paradise</h3>
                       <p>Over 500 bird species call the crater their home</p>
@@ -848,7 +913,7 @@ const Ngorongoro = () => {
               {activeTab === 'landscapes' && (
                 <div className="landscapes-showcase">
                   <div className="landscapes-hero">
-                    <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa" alt="Ngorongoro Landscapes" />
+                    <img src="https://img.freepik.com/free-photo/herd-wildebeest-crater-grassland-ngorongoro-conservation-area-tanzania-africa_181624-55027.jpg?ga=GA1.1.1877472401.1734570744&semt=ais_hybrid" alt="Ngorongoro Landscapes" />
                     <div className="hero-overlay">
                       <h3>Natural Wonder</h3>
                       <p>A UNESCO World Heritage Site with breathtaking geological features</p>
@@ -1190,20 +1255,21 @@ const Ngorongoro = () => {
               <div className="viewer-container">
                 <model-viewer
                   ref={modelViewerRef}
-                  src="/models/ngorongoro-crater.glb"
+                  src="/models/ngorongoro/crater.glb"
                   alt="3D model of Ngorongoro Crater"
                   camera-controls
                   auto-rotate
                   rotation-per-second="30deg"
-                  camera-orbit={viewMode === 'aerial' ? "0deg 90deg 100%" : 
-                               viewMode === 'ground' ? "0deg 0deg 100%" : 
-                               "45deg 45deg 100%"}
+                  camera-orbit={cameraPositions[viewMode].orbit}
+                  camera-target={cameraPositions[viewMode].target}
+                  field-of-view={cameraPositions[viewMode].fov}
                   exposure="1"
                   shadow-intensity="1"
-                  environment-image="/images/ngorongoro-hdri.hdr"
+                  environment-image="/images/environment/environment.hdr"
+                  skybox-image="/images/environment/environment.hdr"
                   ar
                   ar-modes="webxr scene-viewer quick-look"
-                  ios-src="/models/ngorongoro-crater.usdz"
+                  onMouseOver={handleModelInteraction}
                 >
                   <button slot="ar-button" className="ar-button">
                     <FaExpand /> View in AR
@@ -1213,22 +1279,18 @@ const Ngorongoro = () => {
                     <div className="update-bar"></div>
                   </div>
 
-                  <button 
-                    className="hotspot" 
-                    slot="hotspot-1" 
-                    data-position="-1m 2m 1m"
-                    onClick={() => handleHotspotClick('hotspot-1')}
-                  >
-                    <div className="hotspot-annotation">Crater Floor</div>
-                  </button>
-                  <button 
-                    className="hotspot" 
-                    slot="hotspot-2" 
-                    data-position="2m 1m 0.5m"
-                    onClick={() => handleHotspotClick('hotspot-2')}
-                  >
-                    <div className="hotspot-annotation">Lake Magadi</div>
-                  </button>
+                  {viewerHotspots.map(hotspot => (
+                    <button 
+                      key={hotspot.id}
+                      className="hotspot" 
+                      slot={`hotspot-${hotspot.id}`}
+                      data-position={hotspot.position}
+                      data-normal={hotspot.normal}
+                      onClick={() => handleHotspotClick(hotspot.id)}
+                    >
+                      <div className="hotspot-annotation">{hotspot.text}</div>
+                    </button>
+                  ))}
                 </model-viewer>
               </div>
 
@@ -1248,7 +1310,38 @@ const Ngorongoro = () => {
         </div>
       </section>
 
-      {/* Booking Section */}
+      {/* Enhanced Photography Tips Section */}
+      <section className="photography-guide-section">
+        <div className="container">
+          <h2>Photography Guide</h2>
+          <div className="photo-tips-grid">
+            {photographyTips.general.map((tip, index) => (
+              <div key={index} className="photo-tip-card">
+                <div className="tip-icon">
+                  {getIcon(tip.icon)}
+                </div>
+                <h4>{tip.title}</h4>
+                <p>{tip.tip}</p>
+              </div>
+            ))}
+            </div>
+          
+          <div className="location-specific-tips">
+            <h3>Location-Specific Tips</h3>
+            <div className="locations-grid">
+              {photographyTips.locations.map((location, index) => (
+                <div key={index} className="location-card">
+                  <h4>{location.spot}</h4>
+                  <p><strong>Best For:</strong> {location.bestFor}</p>
+                  <p><strong>Recommended:</strong> {location.equipment}</p>
+            </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Plan Your Visit Section - Now Last */}
       <section className="booking-section">
         <div className="container">
           <h2>Plan Your Visit</h2>
@@ -1303,92 +1396,6 @@ const Ngorongoro = () => {
                   <p>Phone: {contactInfo.phone}</p>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="seasonal-wildlife-section">
-        <div className="container">
-          <h2>Seasonal Wildlife Guide</h2>
-          <div className="season-tabs">
-            <button 
-              className={`season-tab ${selectedSeason === 'dry' ? 'active' : ''}`}
-              onClick={() => setSelectedSeason('dry')}
-            >
-              Dry Season
-            </button>
-            <button 
-              className={`season-tab ${selectedSeason === 'wet' ? 'active' : ''}`}
-              onClick={() => setSelectedSeason('wet')}
-            >
-              Green Season
-            </button>
-          </div>
-          
-          <div className="season-content">
-            <h3>{seasonalWildlife[selectedSeason].title}</h3>
-            <div className="season-highlights">
-              <div className="highlights-list">
-                <h4>Highlights</h4>
-                <ul>
-                  {seasonalWildlife[selectedSeason].highlights.map((highlight, index) => (
-                    <li key={index} className="highlight-item fade-in">
-                      <FaCheckCircle className="highlight-icon" />
-                      {highlight}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="species-overview">
-                <div className="common-species">
-                  <h4>Common Sightings</h4>
-                  <div className="species-tags">
-                    {seasonalWildlife[selectedSeason].species.common.map((species, index) => (
-                      <span key={index} className="species-tag">{species}</span>
-                    ))}
-                  </div>
-                </div>
-                <div className="rare-species">
-                  <h4>Special Sightings</h4>
-                  <div className="species-tags rare">
-                    {seasonalWildlife[selectedSeason].species.rare.map((species, index) => (
-                      <span key={index} className="species-tag rare">{species}</span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Enhanced Photography Tips Section */}
-      <section className="photography-guide-section">
-        <div className="container">
-          <h2>Photography Guide</h2>
-          <div className="photo-tips-grid">
-            {photographyTips.general.map((tip, index) => (
-              <div key={index} className="photo-tip-card">
-                <div className="tip-icon">
-                  {getIcon(tip.icon)}
-                </div>
-                <h4>{tip.title}</h4>
-                <p>{tip.tip}</p>
-              </div>
-            ))}
-            </div>
-          
-          <div className="location-specific-tips">
-            <h3>Location-Specific Tips</h3>
-            <div className="locations-grid">
-              {photographyTips.locations.map((location, index) => (
-                <div key={index} className="location-card">
-                  <h4>{location.spot}</h4>
-                  <p><strong>Best For:</strong> {location.bestFor}</p>
-                  <p><strong>Recommended:</strong> {location.equipment}</p>
-            </div>
-              ))}
             </div>
           </div>
         </div>
