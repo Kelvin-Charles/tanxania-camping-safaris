@@ -452,7 +452,7 @@ const LakeManyara = () => {
         <div className="container">
           <div className="overview-grid">
             <div className="overview-content">
-              <h2>About Lake Manyara</h2>
+          <h2>About Lake Manyara</h2>
               <p>Lake Manyara National Park is a compact yet diverse ecosystem where the Great Rift Valley escarpment meets an ancient soda lake. The park is renowned for its tree-climbing lions, vast flocks of flamingos, and diverse landscapes ranging from dense groundwater forest to acacia woodlands.</p>
               
               <div className="key-stats">
@@ -461,9 +461,9 @@ const LakeManyara = () => {
                     <div className="stat-number">{stat.number}</div>
                     <div className="stat-label">{stat.label}</div>
                     <p>{stat.description}</p>
-                  </div>
+            </div>
                 ))}
-              </div>
+            </div>
             </div>
             <div className="overview-image">
               <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801" alt="Lake Manyara Landscape" />
@@ -478,7 +478,7 @@ const LakeManyara = () => {
           <div className="wildlife-grid">
             {wildlife.map((animal, index) => (
               <div className="wildlife-card" key={index}>
-                <div className="wildlife-image">
+              <div className="wildlife-image">
                   <img src={animal.image} alt={animal.name} />
                 </div>
                 <div className="wildlife-info">
@@ -623,7 +623,7 @@ const LakeManyara = () => {
                 <div className="accommodation-type">
                   <FaBed />
                   <span>{lodge.type}</span>
-                </div>
+            </div>
                 <h3>{lodge.name}</h3>
                 <p>{lodge.description}</p>
                 <ul className="feature-list">
@@ -976,7 +976,7 @@ const LakeManyara = () => {
                   <p>Email: {contactInfo.email}</p>
                   <p>Phone: {contactInfo.phone}</p>
                 </div>
-              </div>
+            </div>
             </div>
           </div>
         </div>
