@@ -1,0 +1,579 @@
+/* Professional styling for Lake Manyara National Park page */
+
+:root {
+  --primary-color: #1a4f60;  /* Deep lake blue */
+  --secondary-color: #5b8c5a; /* Forest green */
+  --accent-color: #e6b17e;   /* Warm sunset */
+  --text-color: #333;
+  --light-text: #666;
+  --white: #ffffff;
+  --light-bg: #f8f9fa;
+  --border-radius: 12px;
+  --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --transition: all 0.3s ease;
+}
+
+/* Hero Section */
+.park-hero {
+  height: 80vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+              url('https://images.unsplash.com/photo-1516426122078-c23e76319801?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2068&q=80');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--white);
+  margin-bottom: 0;
+  position: relative;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-content p {
+  font-size: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Section Styling */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+section {
+  padding: 4rem 0;
+}
+
+section h2 {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+  text-align: center;
+  position: relative;
+}
+
+section h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: var(--accent-color);
+  margin: 1rem auto;
+}
+
+/* Key Features */
+.key-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.feature {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  text-align: center;
+  transition: var(--transition);
+}
+
+.feature:hover {
+  transform: translateY(-5px);
+}
+
+.feature svg {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+/* Wildlife Tracking Section */
+.wildlife-tracking-section {
+  background: linear-gradient(135deg, rgba(26, 79, 96, 0.05) 0%, rgba(91, 140, 90, 0.05) 100%);
+  padding: 6rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.tracking-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  position: relative;
+  z-index: 1;
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.tracking-card {
+  background: var(--white);
+  border-radius: 25px;
+  padding: 0;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.tracking-card:hover {
+  transform: translateY(-15px) scale(1.02);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+}
+
+.species-info {
+  padding: 2.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  position: relative;
+  background: linear-gradient(to right, rgba(26, 79, 96, 0.03), rgba(91, 140, 90, 0.03));
+}
+
+.species-info h3 {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-weight: 700;
+}
+
+.last-seen,
+.frequency {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--text-color);
+  font-size: 1.1rem;
+  padding: 1rem 1.5rem;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  margin-bottom: 1rem;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.tracking-map {
+  height: 220px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(26, 79, 96, 0.05), rgba(91, 140, 90, 0.05));
+  padding: 1.5rem;
+}
+
+.tracking-map img {
+  width: 160%;
+  height: 160%;
+  object-fit: cover;
+  border-radius: 12px;
+  opacity: 0.9;
+  mix-blend-mode: multiply;
+}
+
+.sighting-marker {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  z-index: 2;
+}
+
+.sighting-marker.recent {
+  background: #28a745;
+}
+
+.sighting-marker.today {
+  background: #17a2b8;
+}
+
+.sighting-marker.older {
+  background: #ffc107;
+}
+
+/* Seasonal Highlights */
+.seasonal-highlights {
+  background: linear-gradient(135deg, rgba(26, 79, 96, 0.03), rgba(91, 140, 90, 0.03));
+  padding: 8rem 0;
+  position: relative;
+}
+
+.season-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.season-tab {
+  padding: 1rem 2.5rem;
+  background: var(--white);
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border: 2px solid transparent;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.season-tab.active {
+  border-color: var(--accent-color);
+  transform: translateY(-5px);
+}
+
+.season-content {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+
+.season-content.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Photography Guide */
+.photography-guide-section {
+  background: linear-gradient(135deg, rgba(26, 79, 96, 0.03), rgba(91, 140, 90, 0.03));
+  padding: 8rem 0;
+  position: relative;
+}
+
+.photo-tips-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  margin-bottom: 4rem;
+}
+
+.photo-tip-card {
+  background: var(--white);
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s ease;
+}
+
+.photo-tip-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.12);
+}
+
+.tip-icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  color: var(--white);
+  font-size: 1.8rem;
+}
+
+.location-specific-tips {
+  margin-top: 4rem;
+}
+
+.locations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.location-card {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.location-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* Additional Media Queries */
+@media (max-width: 1200px) {
+  .season-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .photo-tips-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .photo-tips-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .season-tabs {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .location-card {
+    padding: 1.5rem;
+  }
+  
+  .photo-tip-card {
+    padding: 2rem;
+  }
+}
+
+/* New Modern Sections */
+.park-overview {
+  background: var(--white);
+  padding: 6rem 0;
+  position: relative;
+  z-index: 2;
+  margin-top: -60px;
+  border-radius: 60px 60px 0 0;
+}
+
+.overview-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.overview-content {
+  padding-right: 2rem;
+}
+
+.overview-image {
+  position: relative;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+}
+
+.overview-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.overview-image:hover img {
+  transform: scale(1.05);
+}
+
+.key-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.stat-item {
+  background: linear-gradient(135deg, rgba(26, 79, 96, 0.05), rgba(91, 140, 90, 0.05));
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(to bottom, var(--primary-color), var(--accent-color));
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  color: var(--light-text);
+  font-size: 1.1rem;
+}
+
+/* Wildlife Cards */
+.wildlife-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+  margin-top: 4rem;
+}
+
+.wildlife-card {
+  background: var(--white);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+  transition: var(--transition);
+  position: relative;
+}
+
+.wildlife-card:hover {
+  transform: translateY(-10px);
+}
+
+.wildlife-image {
+  height: 250px;
+  overflow: hidden;
+}
+
+.wildlife-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.wildlife-card:hover .wildlife-image img {
+  transform: scale(1.1);
+}
+
+.wildlife-info {
+  padding: 2rem;
+  background: linear-gradient(135deg, rgba(26, 79, 96, 0.02), rgba(91, 140, 90, 0.02));
+}
+
+.wildlife-info h3 {
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.wildlife-info p {
+  color: var(--light-text);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+/* Activities Section */
+.activities-section {
+  background: linear-gradient(135deg, rgba(26, 79, 96, 0.03), rgba(91, 140, 90, 0.03));
+  padding: 8rem 0;
+  position: relative;
+}
+
+.activity-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 4rem;
+}
+
+.activity-card {
+  background: var(--white);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+  transition: var(--transition);
+}
+
+.activity-card:hover {
+  transform: translateY(-8px);
+}
+
+.activity-image {
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+}
+
+.activity-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.activity-card:hover .activity-image img {
+  transform: scale(1.1);
+}
+
+.activity-content {
+  padding: 2rem;
+}
+
+.activity-content h3 {
+  color: var(--primary-color);
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.activity-content p {
+  color: var(--light-text);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .overview-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .overview-content {
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .park-overview {
+    margin-top: -40px;
+    border-radius: 40px 40px 0 0;
+  }
+  
+  .key-stats {
+    grid-template-columns: 1fr;
+  }
+  
+  .stat-item {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .park-overview {
+    margin-top: -30px;
+    border-radius: 30px 30px 0 0;
+  }
+  
+  .wildlife-card,
+  .activity-card {
+    margin: 0 1rem;
+  }
+} 

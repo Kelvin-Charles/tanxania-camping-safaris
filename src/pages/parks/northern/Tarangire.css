@@ -1392,8 +1392,8 @@ section h2::after {
   }
 
   .wildlife-list li, .activities-list li {
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
   }
 }
 
@@ -1623,8 +1623,8 @@ section h2::after {
   border-radius: 15px;
   display: flex;
   align-items: center;
-  gap: 1rem;
-}
+    gap: 1rem;
+  }
 
 .impact-badge svg {
   color: var(--primary-color);
@@ -1969,7 +1969,7 @@ section h2::after {
 }
 
 @media (max-width: 768px) {
-  .interactive-map-section {
+.interactive-map-section {
   padding: 6rem 0;
   }
 
@@ -2350,7 +2350,7 @@ section h2::after {
 }
 
 @media (max-width: 1400px) {
-  .tracking-grid {
+.tracking-grid {
     grid-template-columns: repeat(2, 1fr);
     justify-items: center;
   }
@@ -2360,9 +2360,9 @@ section h2::after {
   .tracking-grid {
     grid-template-columns: 1fr;
     justify-items: center;
-  }
+}
 
-  .tracking-card {
+.tracking-card {
     max-width: 450px;
   width: 100%;
   }
@@ -2370,7 +2370,7 @@ section h2::after {
 
 @media (max-width: 768px) {
   .wildlife-tracking-section {
-    padding: 6rem 0;
+  padding: 6rem 0;
   }
 
   .species-info {

@@ -1,42 +1,117 @@
-import React from 'react';
-import '../western/ParkStyles.css';
-import { FaMapMarkerAlt, FaTree, FaLeaf, FaPaw, FaWater, FaCamera, FaHiking, FaBinoculars } from 'react-icons/fa';
+import React, { useState } from 'react';
+import './LakeManyara.css';
+import {
+  FaMapMarkerAlt, FaTree, FaLeaf, FaPaw, FaWater, FaCamera, 
+  FaHiking, FaBinoculars, FaCompass, FaCalendarAlt, FaSun, 
+  FaCloudRain, FaMountain, FaDove, FaInfoCircle, FaMapMarked,
+  FaUsers, FaClock, FaRoute, FaShieldAlt
+} from 'react-icons/fa';
 
 const LakeManyara = () => {
+  const [activeTab, setActiveTab] = useState('overview');
+
+  // Park Statistics
+  const parkStats = [
+    {
+      number: "330",
+      label: "Square Kilometers",
+      description: "Total park area including the lake"
+    },
+    {
+      number: "1,000+",
+      label: "Bird Species",
+      description: "Including flamingos and pelicans"
+    },
+    {
+      number: "2-3",
+      label: "Days Recommended",
+      description: "Ideal duration for visit"
+    },
+    {
+      number: "670",
+      label: "Meters Elevation",
+      description: "Above sea level"
+    }
+  ];
+
+  // Wildlife Data
+  const wildlife = [
+    {
+      name: "Tree-Climbing Lions",
+      image: "https://images.unsplash.com/photo-1545406213-c22c0c5af303",
+      description: "Lake Manyara is famous for its tree-climbing lions, a behavior rarely seen in other locations.",
+      bestTime: "Early morning and late afternoon"
+    },
+    {
+      name: "Pink Flamingos",
+      image: "https://images.unsplash.com/photo-1584267385494-9fdd9a71ad75",
+      description: "Thousands of flamingos gather at the lake, creating a stunning pink spectacle.",
+      bestTime: "Year-round, best during wet season"
+    },
+    {
+      name: "African Elephants",
+      image: "https://images.unsplash.com/photo-1547970810-dc1eac37d174",
+      description: "Large herds of elephants can be seen in the groundwater forest.",
+      bestTime: "Dry season (June to October)"
+    }
+  ];
+
+  // Activities
+  const activities = [
+    {
+      title: "Game Drives",
+      icon: <FaRoute />,
+      image: "https://images.unsplash.com/photo-1516426122078-c23e76319801",
+      description: "Explore diverse landscapes and spot wildlife in open-sided vehicles.",
+      duration: "3-4 hours",
+      difficulty: "Easy"
+    },
+    {
+      title: "Bird Watching",
+      icon: <FaBinoculars />,
+      image: "https://images.unsplash.com/photo-1523805009345-7448845a9e53",
+      description: "Over 400 species of birds make this park a bird-watcher's paradise.",
+      duration: "2-3 hours",
+      difficulty: "Easy"
+    },
+    {
+      title: "Walking Safari",
+      icon: <FaHiking />,
+      image: "https://images.unsplash.com/photo-1516426122078-c23e76319801",
+      description: "Get close to nature with guided walks through the forest.",
+      duration: "2-3 hours",
+      difficulty: "Moderate"
+    }
+  ];
+
   return (
     <div className="park-page">
       <section className="park-hero">
         <div className="hero-content">
           <h1>Lake Manyara National Park</h1>
-          <p>Home of Tree-Climbing Lions and Pink Flamingos</p>
+          <p>Where Lions Climb Trees and Flamingos Paint the Lake Pink</p>
         </div>
       </section>
 
       <section className="park-overview">
         <div className="container">
-          <h2>About Lake Manyara</h2>
-          <p>Lake Manyara National Park is a compact gem of Tanzania's Rift Valley, combining an alkaline lake, dense woodlands, and grassy floodplains. Famous for its tree-climbing lions and large flocks of flamingos, the park offers a diverse safari experience.</p>
-          
-          <div className="key-features">
-            <div className="feature">
-              <FaMapMarkerAlt />
-              <h3>Location</h3>
-              <p>Northern Tanzania, part of the Northern Safari Circuit</p>
+          <div className="overview-grid">
+            <div className="overview-content">
+              <h2>About Lake Manyara</h2>
+              <p>Lake Manyara National Park is a compact yet diverse ecosystem where the Great Rift Valley escarpment meets an ancient soda lake. The park is renowned for its tree-climbing lions, vast flocks of flamingos, and diverse landscapes ranging from dense groundwater forest to acacia woodlands.</p>
+              
+              <div className="key-stats">
+                {parkStats.map((stat, index) => (
+                  <div className="stat-item" key={index}>
+                    <div className="stat-number">{stat.number}</div>
+                    <div className="stat-label">{stat.label}</div>
+                    <p>{stat.description}</p>
+                  </div>
+                ))}
+              </div>
             </div>
-            <div className="feature">
-              <FaTree />
-              <h3>Size</h3>
-              <p>330 square kilometers including the lake</p>
-            </div>
-            <div className="feature">
-              <FaWater />
-              <h3>Ecosystem</h3>
-              <p>Lake, groundwater forest, acacia woodland, and floodplains</p>
-            </div>
-            <div className="feature">
-              <FaPaw />
-              <h3>Wildlife</h3>
-              <p>Tree-climbing lions, elephants, and diverse birdlife</p>
+            <div className="overview-image">
+              <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801" alt="Lake Manyara Landscape" />
             </div>
           </div>
         </div>
@@ -44,92 +119,70 @@ const LakeManyara = () => {
 
       <section className="wildlife-section">
         <div className="container">
-          <h2>Wildlife & Nature</h2>
+          <h2>Incredible Wildlife</h2>
           <div className="wildlife-grid">
-            <div className="wildlife-card">
-              <div className="wildlife-image">
-                <img src="https://img.freepik.com/free-photo/tree-climbing-lions_181624-6359.jpg" alt="Tree-Climbing Lions" />
+            {wildlife.map((animal, index) => (
+              <div className="wildlife-card" key={index}>
+                <div className="wildlife-image">
+                  <img src={animal.image} alt={animal.name} />
+                </div>
+                <div className="wildlife-info">
+                  <h3><FaPaw /> {animal.name}</h3>
+                  <p>{animal.description}</p>
+                  <div className="best-time">
+                    <FaClock /> Best time: {animal.bestTime}
+                  </div>
+                </div>
               </div>
-              <div className="wildlife-content">
-                <h3>Tree-Climbing Lions</h3>
-                <p>Famous tree-climbing lions that rest in acacia trees during hot days.</p>
-              </div>
-            </div>
-            <div className="wildlife-card">
-              <div className="wildlife-image">
-                <img src="https://img.freepik.com/free-photo/flamingos-lake-manyara_181624-6360.jpg" alt="Flamingos" />
-              </div>
-              <div className="wildlife-content">
-                <h3>Flamingos</h3>
-                <p>Large flocks of flamingos and other water birds at the lake.</p>
-              </div>
-            </div>
-            <div className="wildlife-card">
-              <div className="wildlife-image">
-                <img src="https://img.freepik.com/free-photo/forest-elephants_181624-6361.jpg" alt="Forest Wildlife" />
-              </div>
-              <div className="wildlife-content">
-                <h3>Forest Wildlife</h3>
-                <p>Elephants, baboons, and diverse wildlife in the groundwater forest.</p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
       <section className="activities-section">
         <div className="container">
-          <h2>Activities & Attractions</h2>
-          <div className="activities-grid">
-            <div className="activity-card">
-              <div className="activity-image">
-                <img src="https://img.freepik.com/free-photo/game-drive-manyara_181624-6362.jpg" alt="Game Drives" />
+          <h2>Park Activities</h2>
+          <div className="activity-cards">
+            {activities.map((activity, index) => (
+              <div className="activity-card" key={index}>
+                <div className="activity-image">
+                  <img src={activity.image} alt={activity.title} />
+                </div>
+                <div className="activity-content">
+                  <h3>{activity.icon} {activity.title}</h3>
+                  <p>{activity.description}</p>
+                  <div className="activity-details">
+                    <span><FaClock /> {activity.duration}</span>
+                    <span><FaShieldAlt /> {activity.difficulty}</span>
+                  </div>
+                </div>
               </div>
-              <div className="activity-content">
-                <h3>Game Drives</h3>
-                <p>Explore diverse habitats and spot unique wildlife.</p>
-              </div>
-            </div>
-            <div className="activity-card">
-              <div className="activity-image">
-                <img src="https://img.freepik.com/free-photo/canopy-walkway_181624-6363.jpg" alt="Canopy Walkway" />
-              </div>
-              <div className="activity-content">
-                <h3>Canopy Walkway</h3>
-                <p>Treetop walk through the forest canopy.</p>
-              </div>
-            </div>
-            <div className="activity-card">
-              <div className="activity-image">
-                <img src="https://img.freepik.com/free-photo/bird-watching-manyara_181624-6364.jpg" alt="Bird Watching" />
-              </div>
-              <div className="activity-content">
-                <h3>Bird Watching</h3>
-                <p>Over 400 bird species including flamingos and pelicans.</p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
       <section className="visit-info">
         <div className="container">
-          <h2>Visitor Information</h2>
+          <h2>Essential Visit Information</h2>
           <div className="info-grid">
             <div className="info-card">
-              <FaMapMarkerAlt />
-              <h3>How to Get There</h3>
-              <p>126 km from Arusha. Accessible by road or flights to nearby airstrip.</p>
-            </div>
-            <div className="info-card">
-              <FaCamera />
+              <FaCalendarAlt />
               <h3>Best Time to Visit</h3>
-              <p>June to October (dry season) for wildlife viewing. November to December and March to May for birds.</p>
+              <p>Dry season (June to October) for wildlife viewing</p>
+              <p>Wet season (November to May) for bird watching</p>
             </div>
             <div className="info-card">
-              <FaBinoculars />
-              <h3>What to Bring</h3>
-              <p>Binoculars, camera, light clothing, and insect repellent.</p>
+              <FaClock />
+              <h3>Park Hours</h3>
+              <p>6:00 AM to 6:00 PM daily</p>
+              <p>Night game drives available with special permission</p>
+            </div>
+            <div className="info-card">
+              <FaRoute />
+              <h3>Getting There</h3>
+              <p>126 km west of Arusha</p>
+              <p>Accessible by road or air (Manyara Airstrip)</p>
             </div>
           </div>
         </div>
