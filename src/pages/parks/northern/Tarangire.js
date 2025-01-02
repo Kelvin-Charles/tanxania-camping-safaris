@@ -885,7 +885,7 @@ const Tarangire = () => {
           </div>
 
           <div className="tab-content">
-            {activeTab === 'wildlife' && (
+            {activeTab === 'birds' && (
               <div className="wildlife-content">
                 <div className="wildlife-facts">
                   <div className="facts-slider">
