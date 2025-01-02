@@ -1,0 +1,1583 @@
+/* Professional styling for Lake Manyara National Park page */
+
+:root {
+  --primary-color: #af5908ef;  /* Deep lake blue */
+  --secondary-color: #5b8c5a; /* Forest green */
+  --accent-color: #e6b17e;   /* Warm sunset */
+  --text-color: #333;
+  --light-text: #666;
+  --white: #ffffff;
+  --light-bg: #f8f9fa;
+  --border-radius: 12px;
+  --box-shadow: 0 4px 20px rgba(145, 82, 11, 0.08);
+  --transition: all 0.3s ease;
+}
+
+/* Hero Section */
+.park-hero {
+  height: 80vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+              url('https://images.unsplash.com/photo-1516426122078-c23e76319801?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2068&q=80');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--white);
+  margin-bottom: 0;
+  position: relative;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-content p {
+  font-size: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Section Styling */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+section {
+  padding: 4rem 0;
+}
+
+section h2 {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+  text-align: center;
+  position: relative;
+}
+
+section h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: var(--accent-color);
+  margin: 1rem auto;
+}
+
+/* Key Features */
+.key-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.feature {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  text-align: center;
+  transition: var(--transition);
+}
+
+.feature:hover {
+  transform: translateY(-5px);
+}
+
+.feature svg {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+/* Wildlife Tracking Section */
+.wildlife-tracking-section {
+  background: linear-gradient(135deg, rgba(26, 79, 96, 0.05) 0%, rgba(91, 140, 90, 0.05) 100%);
+  padding: 6rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.tracking-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  position: relative;
+  z-index: 1;
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.tracking-card {
+  background: var(--white);
+  border-radius: 25px;
+  padding: 0;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.tracking-card:hover {
+  transform: translateY(-15px) scale(1.02);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+}
+
+.species-info {
+  padding: 2.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  position: relative;
+  background: linear-gradient(to right, rgba(26, 79, 96, 0.03), rgba(91, 140, 90, 0.03));
+}
+
+.species-info h3 {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-weight: 700;
+}
+
+.last-seen,
+.frequency {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--text-color);
+  font-size: 1.1rem;
+  padding: 1rem 1.5rem;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  margin-bottom: 1rem;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.tracking-map {
+  height: 220px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(26, 79, 96, 0.05), rgba(91, 140, 90, 0.05));
+  padding: 1.5rem;
+}
+
+.tracking-map img {
+  width: 160%;
+  height: 160%;
+  object-fit: cover;
+  border-radius: 12px;
+  opacity: 0.9;
+  mix-blend-mode: multiply;
+}
+
+.sighting-marker {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  z-index: 2;
+}
+
+.sighting-marker.recent {
+  background: #28a745;
+}
+
+.sighting-marker.today {
+  background: #17a2b8;
+}
+
+.sighting-marker.older {
+  background: #ffc107;
+}
+
+/* Seasonal Highlights */
+.seasonal-highlights {
+  background: linear-gradient(135deg, rgba(26, 79, 96, 0.03), rgba(91, 140, 90, 0.03));
+  padding: 8rem 0;
+  position: relative;
+}
+
+.season-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.season-tab {
+  padding: 1rem 2.5rem;
+  background: var(--white);
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border: 2px solid transparent;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.season-tab.active {
+  border-color: var(--accent-color);
+  transform: translateY(-5px);
+}
+
+.season-content {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+
+.season-content.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Photography Guide */
+.photography-guide-section {
+  background: linear-gradient(135deg, rgba(26, 79, 96, 0.03), rgba(91, 140, 90, 0.03));
+  padding: 8rem 0;
+  position: relative;
+}
+
+.photo-tips-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  margin-bottom: 4rem;
+}
+
+.photo-tip-card {
+  background: var(--white);
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s ease;
+}
+
+.photo-tip-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.12);
+}
+
+.tip-icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  color: var(--white);
+  font-size: 1.8rem;
+}
+
+.location-specific-tips {
+  margin-top: 4rem;
+}
+
+.locations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.location-card {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.location-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* Additional Media Queries */
+@media (max-width: 1200px) {
+  .season-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .photo-tips-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .photo-tips-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .season-tabs {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .location-card {
+    padding: 1.5rem;
+  }
+  
+  .photo-tip-card {
+    padding: 2rem;
+  }
+}
+
+/* New Modern Sections */
+.park-overview {
+  background: var(--white);
+  padding: 6rem 0;
+  position: relative;
+  z-index: 2;
+  margin-top: -60px;
+  border-radius: 60px 60px 0 0;
+}
+
+.overview-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.overview-content {
+  padding-right: 2rem;
+}
+
+.overview-image {
+  position: relative;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+}
+
+.overview-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.overview-image:hover img {
+  transform: scale(1.05);
+}
+
+.key-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.stat-item {
+  background: linear-gradient(135deg, rgba(26, 79, 96, 0.05), rgba(91, 140, 90, 0.05));
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(to bottom, var(--primary-color), var(--accent-color));
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  color: var(--light-text);
+  font-size: 1.1rem;
+}
+
+/* Wildlife Cards */
+.wildlife-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+  margin-top: 4rem;
+}
+
+.wildlife-card {
+  background: var(--white);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+  transition: var(--transition);
+  position: relative;
+}
+
+.wildlife-card:hover {
+  transform: translateY(-10px);
+}
+
+.wildlife-image {
+  height: 250px;
+  overflow: hidden;
+}
+
+.wildlife-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.wildlife-card:hover .wildlife-image img {
+  transform: scale(1.1);
+}
+
+.wildlife-info {
+  padding: 2rem;
+  background: linear-gradient(135deg, rgba(26, 79, 96, 0.02), rgba(91, 140, 90, 0.02));
+}
+
+.wildlife-info h3 {
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.wildlife-info p {
+  color: var(--light-text);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+/* Activities Section */
+.activities-section {
+  background: linear-gradient(135deg, rgba(26, 79, 96, 0.03), rgba(91, 140, 90, 0.03));
+  padding: 8rem 0;
+  position: relative;
+}
+
+.activity-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 4rem;
+}
+
+.activity-card {
+  background: var(--white);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+  transition: var(--transition);
+}
+
+.activity-card:hover {
+  transform: translateY(-8px);
+}
+
+.activity-image {
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+}
+
+.activity-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.activity-card:hover .activity-image img {
+  transform: scale(1.1);
+}
+
+.activity-content {
+  padding: 2rem;
+}
+
+.activity-content h3 {
+  color: var(--primary-color);
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.activity-content p {
+  color: var(--light-text);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .overview-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .overview-content {
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .park-overview {
+    margin-top: -40px;
+    border-radius: 40px 40px 0 0;
+  }
+  
+  .key-stats {
+    grid-template-columns: 1fr;
+  }
+  
+  .stat-item {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .park-overview {
+    margin-top: -30px;
+    border-radius: 30px 30px 0 0;
+  }
+  
+  .wildlife-card,
+  .activity-card {
+    margin: 0 1rem;
+  }
+}
+
+/* Ecosystem Section */
+.ecosystems-section {
+  background: linear-gradient(135deg, rgba(26, 79, 96, 0.03), rgba(91, 140, 90, 0.03));
+  padding: 8rem 0;
+  position: relative;
+}
+
+.ecosystem-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.ecosystem-tab {
+  background: var(--white);
+  padding: 1.2rem 2.5rem;
+  border-radius: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: var(--box-shadow);
+}
+
+.ecosystem-tab svg {
+  font-size: 1.4rem;
+  color: var(--primary-color);
+}
+
+.ecosystem-tab.active {
+  background: var(--primary-color);
+  color: var(--white);
+}
+
+.ecosystem-tab.active svg {
+  color: var(--white);
+}
+
+.ecosystem-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.ecosystem-info h3 {
+  color: var(--primary-color);
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.ecosystem-info p {
+  color: var(--light-text);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.ecosystem-features {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.ecosystem-features li {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: var(--text-color);
+  font-size: 1.1rem;
+}
+
+.ecosystem-features li svg {
+  color: var(--accent-color);
+}
+
+.ecosystem-image {
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+}
+
+.ecosystem-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.ecosystem-image:hover img {
+  transform: scale(1.05);
+}
+
+/* Cultural Section */
+.cultural-section {
+  background: var(--white);
+  padding: 8rem 0;
+}
+
+.cultural-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+  margin-top: 4rem;
+}
+
+.cultural-card {
+  background: linear-gradient(135deg, rgba(26, 79, 96, 0.02), rgba(91, 140, 90, 0.02));
+  border-radius: 20px;
+  padding: 3rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.cultural-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.cultural-card:hover {
+  transform: translateY(-10px);
+}
+
+.cultural-card:hover::before {
+  transform: scaleX(1);
+}
+
+.cultural-icon {
+  width: 70px;
+  height: 70px;
+  background: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  color: var(--primary-color);
+  box-shadow: var(--box-shadow);
+}
+
+.cultural-card h3 {
+  color: var(--primary-color);
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.cultural-activities {
+  list-style: none;
+  padding: 0;
+  margin-top: 2rem;
+}
+
+.cultural-activities li {
+  padding: 0.8rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  color: var(--light-text);
+}
+
+/* Conservation Section */
+.conservation-section {
+  background: linear-gradient(135deg, rgba(26, 79, 96, 0.03), rgba(91, 140, 90, 0.03));
+  padding: 8rem 0;
+}
+
+.conservation-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+  margin-top: 4rem;
+}
+
+.conservation-card {
+  background: var(--white);
+  border-radius: 20px;
+  padding: 3rem;
+  box-shadow: var(--box-shadow);
+  transition: all 0.3s ease;
+}
+
+.conservation-card:hover {
+  transform: translateY(-10px);
+}
+
+.conservation-icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  color: var(--white);
+}
+
+.conservation-card h3 {
+  color: var(--primary-color);
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.achievement-badge {
+  background: linear-gradient(to right, rgba(26, 79, 96, 0.1), rgba(91, 140, 90, 0.1));
+  padding: 1.2rem;
+  border-radius: 12px;
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.achievement-badge svg {
+  color: var(--primary-color);
+}
+
+/* Accommodation Section */
+.accommodation-section {
+  background: var(--white);
+  padding: 8rem 0;
+}
+
+.accommodation-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 3rem;
+  margin-top: 4rem;
+}
+
+.accommodation-card {
+  background: linear-gradient(135deg, rgba(26, 79, 96, 0.02), rgba(91, 140, 90, 0.02));
+  border-radius: 20px;
+  padding: 3rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.accommodation-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--box-shadow);
+}
+
+.accommodation-type {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: var(--white);
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  margin-bottom: 2rem;
+  box-shadow: var(--box-shadow);
+}
+
+.accommodation-type svg {
+  color: var(--primary-color);
+}
+
+.accommodation-card h3 {
+  color: var(--primary-color);
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 2rem;
+}
+
+.feature-list li {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem 0;
+  color: var(--light-text);
+}
+
+.feature-list li svg {
+  color: var(--accent-color);
+}
+
+/* Responsive Design for New Sections */
+@media (max-width: 1200px) {
+  .ecosystem-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .ecosystem-image {
+    max-height: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .ecosystem-tabs {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .ecosystem-tab {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+  }
+  
+  .cultural-card,
+  .conservation-card,
+  .accommodation-card {
+    padding: 2rem;
+  }
+  
+  .cultural-icon,
+  .conservation-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .ecosystem-features {
+    grid-template-columns: 1fr;
+  }
+  
+  .accommodation-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .accommodation-card {
+    margin: 0 1rem;
+  }
+}
+
+/* Photo Gallery Section */
+.photo-gallery-section {
+  background: var(--white);
+  padding: 8rem 0;
+}
+
+.gallery-viewer {
+  position: relative;
+  transition: all 0.5s ease;
+}
+
+.gallery-viewer.expanded {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 1000;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.gallery-main {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.gallery-image {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  height: 500px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.gallery-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.gallery-nav {
+  background: var(--white);
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--box-shadow);
+}
+
+.gallery-nav:hover {
+  transform: scale(1.1);
+}
+
+.expand-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.gallery-info {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.gallery-thumbnails {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.thumbnail {
+  width: 100px;
+  height: 70px;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 0.6;
+}
+
+.thumbnail.active {
+  opacity: 1;
+  transform: scale(1.1);
+  box-shadow: var(--box-shadow);
+}
+
+.thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Weather Guide Section */
+.weather-guide-section {
+  background: linear-gradient(135deg, rgba(26, 79, 96, 0.03), rgba(91, 140, 90, 0.03));
+  padding: 8rem 0;
+}
+
+.season-selector {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.season-btn {
+  background: var(--white);
+  border: none;
+  padding: 1.2rem 2.5rem;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1.1rem;
+  box-shadow: var(--box-shadow);
+}
+
+.season-btn.active {
+  background: var(--primary-color);
+  color: var(--white);
+}
+
+.weather-details {
+  background: var(--white);
+  border-radius: 20px;
+  padding: 3rem;
+  box-shadow: var(--box-shadow);
+}
+
+.weather-overview {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.weather-stat {
+  text-align: center;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, rgba(26, 79, 96, 0.02), rgba(91, 140, 90, 0.02));
+  border-radius: 15px;
+}
+
+.weather-stat svg {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.season-highlights,
+.season-tips {
+  margin-top: 2rem;
+}
+
+.season-highlights ul,
+.season-tips ul {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.season-highlights li,
+.season-tips li {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem;
+  background: linear-gradient(135deg, rgba(26, 79, 96, 0.02), rgba(91, 140, 90, 0.02));
+  border-radius: 10px;
+}
+
+/* Practical Information Section */
+.practical-info-section {
+  background: var(--white);
+  padding: 8rem 0;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem;
+}
+
+.info-block {
+  background: linear-gradient(135deg, rgba(26, 79, 96, 0.02), rgba(91, 140, 90, 0.02));
+  border-radius: 20px;
+  padding: 2.5rem;
+  transition: all 0.3s ease;
+}
+
+.info-block:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--box-shadow);
+}
+
+.info-block h3 {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--primary-color);
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
+}
+
+.transport-option {
+  margin-bottom: 2rem;
+}
+
+.transport-option h4 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.tip {
+  color: var(--accent-color);
+  font-style: italic;
+  margin-top: 0.5rem;
+}
+
+/* Photography Viewpoints Section */
+.viewpoints-section {
+  background: linear-gradient(135deg, rgba(26, 79, 96, 0.03), rgba(91, 140, 90, 0.03));
+  padding: 8rem 0;
+}
+
+.viewpoints-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.viewpoint-card {
+  background: var(--white);
+  border-radius: 20px;
+  padding: 2.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--box-shadow);
+}
+
+.viewpoint-card:hover,
+.viewpoint-card.active {
+  transform: translateY(-10px);
+}
+
+.viewpoint-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.viewpoint-header h3 {
+  color: var(--primary-color);
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.best-time {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--accent-color);
+}
+
+.photo-tip {
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: linear-gradient(135deg, rgba(26, 79, 96, 0.02), rgba(91, 140, 90, 0.02));
+  border-radius: 10px;
+}
+
+/* Responsive Design for New Sections */
+@media (max-width: 1200px) {
+  .weather-overview {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery-image {
+    height: 300px;
+  }
+  
+  .season-selector {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .season-btn {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+  }
+  
+  .season-highlights ul,
+  .season-tips ul {
+    grid-template-columns: 1fr;
+  }
+  
+  .weather-overview {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-thumbnails {
+    display: none;
+  }
+  
+  .viewpoint-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .info-block {
+    padding: 1.5rem;
+  }
+}
+
+/* Plan Your Visit Section */
+.plan-visit-section {
+  background: var(--white);
+  padding: 8rem 0;
+  position: relative;
+}
+
+/* Trip Types */
+.trip-type-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.trip-type-card {
+  background: linear-gradient(135deg, rgba(26, 79, 96, 0.02), rgba(91, 140, 90, 0.02));
+  border-radius: 20px;
+  padding: 2.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.trip-type-card.active {
+  border-color: var(--primary-color);
+  transform: translateY(-5px);
+  box-shadow: var(--box-shadow);
+}
+
+.trip-type-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.trip-type-header h4 {
+  color: var(--primary-color);
+  font-size: 1.4rem;
+}
+
+.duration {
+  background: var(--accent-color);
+  color: var(--white);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+.trip-highlights {
+  margin-top: 1.5rem;
+  list-style: none;
+  padding: 0;
+}
+
+.trip-highlights li {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.5rem 0;
+  color: var(--text-color);
+}
+
+.trip-highlights li svg {
+  color: var(--accent-color);
+}
+
+/* Planning Tools */
+.planning-tools {
+  margin-top: 5rem;
+}
+
+/* Checklist Section */
+.checklist-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.checklist-category {
+  background: var(--white);
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: var(--box-shadow);
+}
+
+.category-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.category-header svg {
+  color: var(--primary-color);
+  font-size: 1.5rem;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.5rem 0;
+  cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--primary-color);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Budget Planner */
+.budget-planner {
+  margin-top: 4rem;
+}
+
+.budget-categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.budget-level {
+  background: var(--white);
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: var(--box-shadow);
+}
+
+.budget-level h4 {
+  color: var(--primary-color);
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+  text-transform: capitalize;
+}
+
+.budget-level ul {
+  list-style: none;
+  padding: 0;
+}
+
+.budget-level li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.budget-level li span.capitalize {
+  text-transform: capitalize;
+}
+
+.budget-level li span.cost {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+/* Travel Tips */
+.travel-tips {
+  margin-top: 4rem;
+}
+
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.tip-card {
+  background: var(--white);
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: var(--box-shadow);
+  transition: all 0.3s ease;
+}
+
+.tip-card:hover {
+  transform: translateY(-5px);
+}
+
+.tip-card svg {
+  color: var(--primary-color);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.tip-card h4 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+/* CTA Section */
+.cta-section {
+  text-align: center;
+  margin-top: 5rem;
+  padding: 4rem;
+  background: linear-gradient(135deg, rgba(26, 79, 96, 0.05), rgba(91, 140, 90, 0.05));
+  border-radius: 30px;
+}
+
+.cta-section h3 {
+  color: var(--primary-color);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.primary-btn,
+.secondary-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.primary-btn {
+  background: var(--primary-color);
+  color: var(--white);
+}
+
+.secondary-btn {
+  background: var(--white);
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+}
+
+.primary-btn:hover,
+.secondary-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--box-shadow);
+}
+
+/* Responsive Design for Plan Your Visit Section */
+@media (max-width: 768px) {
+  .trip-type-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .checklist-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .budget-categories {
+    grid-template-columns: 1fr;
+  }
+  
+  .tips-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .primary-btn,
+  .secondary-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .trip-type-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .checklist-category,
+  .budget-level,
+  .tip-card {
+    padding: 1.5rem;
+  }
+  
+  .cta-section {
+    padding: 2rem;
+  }
+} 
