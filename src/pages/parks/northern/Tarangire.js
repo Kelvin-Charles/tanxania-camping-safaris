@@ -868,13 +868,13 @@ const Tarangire = () => {
               className={`tab-btn ${activeTab === 'birds' ? 'active' : ''}`}
               onClick={() => handleTabChange('birds')}
             >
-              <FaPaw /> Wildlife
+              <FaPaw /> Birds
             </button>
             <button 
               className={`tab-btn ${activeTab === 'wildlife' ? 'active' : ''}`}
               onClick={() => handleTabChange('wildlife')}
             >
-              <FaFeather /> Birds
+              <FaFeather /> wildlife
             </button>
             <button 
               className={`tab-btn ${activeTab === 'landscapes' ? 'active' : ''}`}
