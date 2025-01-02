@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import '../western/ParkStyles.css';
 import './Tarangire.css';
-import { FaMapMarkerAlt, FaTree, FaLeaf, FaPaw, FaSun, FaCamera, FaCar, FaBinoculars, FaCalendarAlt, FaCheckCircle, FaInfoCircle, FaWater, FaChevronLeft, FaChevronRight, FaCalendarCheck, FaWhatsapp, FaArrowRight, FaImages, FaTimes, FaSearchPlus, FaSync, FaExpand, FaUsers, FaGlobe, FaMountain, FaFeather, FaClock, FaStar, FaEye } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaTree, FaLeaf, FaPaw, FaSun, FaCamera, FaCar, FaBinoculars, FaCalendarAlt, FaCheckCircle, FaInfoCircle, FaWater, FaChevronLeft, FaChevronRight, FaCalendarCheck, FaWhatsapp, FaArrowRight, FaImages, FaTimes, FaSearchPlus, FaSync, FaExpand, FaUsers, FaGlobe, FaMountain, FaFeather, FaClock, FaStar, FaEye, FaCloudRain, FaCompass } from 'react-icons/fa';
 import { contactInfo } from '../../../config/contact';
 import '../../../shared/styles/BookingForm.css';
 
@@ -30,27 +30,27 @@ const wildlifeFacts = [
   {
     title: "Elephant Paradise",
     description: "Home to one of Africa's largest elephant populations, with herds of up to 300 individuals during peak season",
-    image: "https://img.freepik.com/free-photo/african-elephant-walking-savanna_181624-48219.jpg"
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGpiueHfpO8R_Qzaai9aHYTPy-ChCPp-Pd4g&s"
   },
   {
     title: "Ancient Baobabs",
     description: "The park features some of Africa's oldest baobab trees, with specimens over 1,000 years old",
-    image: "https://img.freepik.com/free-photo/beautiful-african-savanna-with-trees_181624-48218.jpg"
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSz-r1XN4GgPSt3MWqtzDv6WY87xVwRl8j4Bg&s"
   },
   {
     title: "River Ecosystem",
     description: "The Tarangire River sustains diverse wildlife throughout the year, even during the driest months",
-    image: "https://img.freepik.com/free-photo/aerial-view-tarangire-river_181624-48217.jpg"
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNIkFueNUU6pGls9eWGpA_HAbIFdQxR0voFw&s"
   },
   {
     title: "Migration Patterns",
     description: "During the dry season, Tarangire hosts the second-largest wildlife migration in Tanzania, after the Serengeti",
-    image: "https://img.freepik.com/free-photo/wildebeest-migration-african-savanna_181624-48220.jpg"
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaUmsormK_CakofVRgMxkibM8Uc4uag1prOw&s"
   },
   {
     title: "Predator Paradise",
     description: "Lions, leopards, and spotted hyenas thrive here, following the seasonal movements of their prey",
-    image: "https://img.freepik.com/free-photo/lion-pride-tarangire_181624-48221.jpg"
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLPYcDQFZxxSmC9-27BqZw5seotrA4RZp0NA&s"
   },
   {
     title: "Python Pool",
@@ -132,6 +132,11 @@ const photographyTips = {
       title: "Baobab Compositions",
       tip: "Use ancient baobabs as dramatic backgrounds for wildlife shots",
       icon: "FaCamera"
+    },
+    {
+      title: "Tarangire River",
+      tip: "The park's lifeline, attracting diverse wildlife year-round as dramatic backgrounds for wildlife shots",
+      icon: "FaWater"
     }
   ],
   locations: [
@@ -226,14 +231,14 @@ const accommodationOptions = [
         description: "Unique treehouse-style rooms with elevated views",
         features: ["Private balconies", "En-suite bathrooms", "Air conditioning"],
         price: "Premium",
-        image: "https://img.freepik.com/free-photo/luxury-safari-lodge_181624-48227.jpg"
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVpmiA23JT-en8f-s7LlerCYPxJafp_PK3zA&s"
       },
       {
         name: "Oliver's Camp",
         description: "Authentic safari experience with luxury touches",
         features: ["Gourmet dining", "Guided walks", "Bush breakfast"],
         price: "Premium",
-        image: "https://img.freepik.com/free-photo/safari-camp-sunset_181624-48228.jpg"
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvnMLVBm8qetLLvBnxbiEDxCgeQDdMBKviKg&s"
       }
     ]
   },
@@ -245,7 +250,7 @@ const accommodationOptions = [
         description: "Eco-friendly camp with stunning views",
         features: ["Solar power", "Local guides", "Bush dinners"],
         price: "Moderate",
-        image: "https://img.freepik.com/free-photo/tented-camp-tarangire_181624-48229.jpg"
+        image: "https://images.ctfassets.net/p03x4m3svbfn/2Ynj9PhXnHVq3qvKHV9o2G/0df9bbc04b4a208c20f12a8f00ec570a/20210920_155125von.jpg?w=724&h=448&fit=fill&q=50"
       }
     ]
   }
@@ -260,14 +265,14 @@ const culturalExperiences = {
       description: "Learn about traditional Maasai life and customs",
       duration: "Half-day",
       highlights: ["Traditional dances", "Craft demonstrations", "Cultural talks"],
-      image: "https://img.freepik.com/free-photo/maasai-village-life_181624-48230.jpg"
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPs94iEU1-7a6F9LKc6YB1yxntlIimLDUblA&s"
     },
     {
       name: "Local Market Tours",
       description: "Visit authentic local markets and interact with communities",
       duration: "2-3 hours",
       highlights: ["Local produce", "Traditional crafts", "Community interaction"],
-      image: "https://img.freepik.com/free-photo/local-market-tanzania_181624-48231.jpg"
+      image: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0d/ce/b6/79/immer-was-los-hier.jpg?w=1200&h=-1&s=1"
     }
   ]
 };
@@ -276,24 +281,28 @@ const seasonalHighlights = {
   drySeasonJunOct: {
     title: "Dry Season (June-October)",
     highlights: [
-      "Large elephant herds gathering at Tarangire River",
-      "Excellent predator sightings",
-      "Clear skies perfect for photography"
+      "Massive elephant herds congregating along Tarangire River",
+      "Exceptional predator sightings as animals gather near water sources",
+      "Ancient baobabs creating dramatic landscapes",
+      "Perfect visibility for photography and game viewing"
     ],
-    wildlife: ["Elephants", "Lions", "Zebras", "Giraffes"],
-    activities: ["Game drives", "Walking safaris", "Night drives"],
-    image: "https://img.freepik.com/free-photo/dry-season-tarangire_181624-48232.jpg"
+    wildlife: ["Elephants", "Lions", "Leopards", "Giraffes", "Zebras", "Buffalo"],
+    activities: ["Game drives", "Walking safaris", "Night drives", "Photography"],
+    image: "https://safariavventura.com/wp-content/uploads/2017/03/PARCO-TARANGIRE-1.jpg",
+    icon: "FaSun"
   },
   wetSeasonNovMay: {
     title: "Green Season (November-May)",
     highlights: [
-      "Lush landscapes and migratory birds",
+      "Lush landscapes with vibrant wildflowers",
+      "Spectacular bird watching with migratory species",
       "Newborn animals and breeding season",
-      "Lower tourist numbers"
+      "Dramatic skies perfect for landscape photography"
     ],
-    wildlife: ["Migratory birds", "Young animals", "Resident predators"],
-    activities: ["Bird watching", "Photography", "Cultural visits"],
-    image: "https://img.freepik.com/free-photo/green-season-tarangire_181624-48233.jpg"
+    wildlife: ["Migratory birds", "Young animals", "Resident predators", "Antelope species"],
+    activities: ["Bird watching", "Photography", "Cultural visits", "Guided walks"],
+    image: "https://www.siyabona.com/images/olivers-camp-elephant-family-590x390.jpg",
+    icon: "FaCloudRain"
   }
 };
 
@@ -301,19 +310,19 @@ const parkHighlights = [
   {
     title: "Ancient Baobab Forest",
     description: "Home to some of Africa's oldest and largest baobab trees, some over 1,000 years old",
-    image: "https://img.freepik.com/free-photo/ancient-baobab-trees-african-savanna_181624-48235.jpg",
+    image: "https://www.tarangirenationalparks.com/wp-content/uploads/2023/10/tarangire-national-park-1.jpg",
     fact: "Some baobabs have trunks with circumferences of up to 36 meters"
   },
   {
     title: "Elephant Migration",
     description: "Hosts the largest concentration of elephants outside of Serengeti ecosystem",
-    image: "https://img.freepik.com/free-photo/elephant-herd-migration_181624-48236.jpg",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVqQMf3047qwZ8BMO13QfsJ1Qw2O92GmPuVQ&s",
     fact: "Up to 3,000 elephants gather during peak season"
   },
   {
     title: "Tarangire River",
     description: "The park's lifeline, attracting diverse wildlife year-round",
-    image: "https://img.freepik.com/free-photo/tarangire-river-wildlife_181624-48237.jpg",
+    image: "https://media-cdn.tripadvisor.com/media/photo-s/1a/41/6a/37/tarangire-national-park.jpg",
     fact: "Supports over 550 bird species"
   }
 ];
@@ -455,22 +464,40 @@ const interactiveElements = {
 
 const parkLocations = [
   {
-    name: "Tarangire River Viewpoint",
-    top: "35%",
-    left: "45%",
-    description: "Prime location for viewing elephants and other wildlife"
+    name: "Tarangire Safari Lodge",
+    description: "Panoramic views of the Tarangire River valley, perfect for game viewing",
+    top: 30,
+    left: 48
   },
   {
-    name: "Silale Plains",
-    top: "55%",
-    left: "65%",
-    description: "Vast grasslands with excellent game viewing opportunities"
+    name: "Silale Swamps",
+    description: "Large wetland area attracting diverse wildlife, especially during dry season",
+    top: 70,
+    left: 52
   },
   {
-    name: "Baobab Valley",
-    top: "25%",
-    left: "55%",
-    description: "Ancient baobab trees and diverse wildlife"
+    name: "Tarangire River",
+    description: "The park's lifeline, attracting wildlife year-round",
+    top: 50,
+    left: 45
+  },
+  {
+    name: "Boundary Hill",
+    description: "Excellent viewpoint offering panoramic views of the park",
+    top: 20,
+    left: 55
+  },
+  {
+    name: "Lemiyon",
+    description: "Rich wildlife viewing area with ancient baobab trees",
+    top: 40,
+    left: 65
+  },
+  {
+    name: "Gurusi Plains",
+    description: "Open savannah plains ideal for spotting large herds",
+    top: 80,
+    left: 40
   }
 ];
 
@@ -480,19 +507,32 @@ const wildlifeTracker = {
       name: "African Elephant",
       lastSeen: "Today at Tarangire River",
       frequency: "Very Common",
-      locations: ["River", "Silale Plains"]
+      locations: ["River", "Silale Plains"],
+      sightings: [
+        { top: 45, left: 40, time: "2 hours ago" },
+        { top: 50, left: 45, time: "Today morning" },
+        { top: 65, left: 52, time: "Yesterday" }
+      ]
     },
     {
       name: "Lion Pride",
       lastSeen: "Yesterday near Baobab Valley",
       frequency: "Regular",
-      locations: ["Grasslands", "River Area"]
+      locations: ["Grasslands", "River Area"],
+      sightings: [
+        { top: 35, left: 70, time: "Yesterday" },
+        { top: 40, left: 65, time: "2 days ago" }
+      ]
     },
     {
       name: "Leopard",
       lastSeen: "2 days ago",
       frequency: "Occasional",
-      locations: ["Baobab Valley"]
+      locations: ["Baobab Valley"],
+      sightings: [
+        { top: 20, left: 55, time: "2 days ago" },
+        { top: 30, left: 48, time: "Last week" }
+      ]
     }
   ]
 };
@@ -658,15 +698,7 @@ const Tarangire = () => {
   const [activeZone, setActiveZone] = useState(null);
   const [showEcosystemModal, setShowEcosystemModal] = useState(false);
   const [selectedSpecies, setSelectedSpecies] = useState(null);
-  const [timeOfDay, setTimeOfDay] = useState('morning');
   const [selectedLocation, setSelectedLocation] = useState(null);
-  const [seasonSlider, setSeasonSlider] = useState(50);
-  const [showSpotDetails, setShowSpotDetails] = useState(false);
-  const [activityLevels, setActivityLevels] = useState({
-    predators: "Low",
-    herbivores: "High",
-    birds: "Very High"
-  });
 
   const handleTabChange = (tab) => {
     setActiveTab(tab);
@@ -679,7 +711,7 @@ const Tarangire = () => {
       case 'FaCamera':
         return <FaCamera />;
       case 'FaCompass':
-        return <FaMapMarkerAlt />;
+        return <FaCompass />;
       default:
         return null;
     }
@@ -731,7 +763,6 @@ const Tarangire = () => {
       });
     }, observerOptions);
 
-    // Observe all sections
     document.querySelectorAll('section').forEach(section => {
       sectionObserver.observe(section);
     });
@@ -741,46 +772,6 @@ const Tarangire = () => {
 
   const handleHotspotClick = (location) => {
     setSelectedLocation(location);
-  };
-
-  useEffect(() => {
-    updateActivityLevels(timeOfDay);
-  }, [timeOfDay]);
-
-  useEffect(() => {
-    return () => {
-      const highlightedSpots = document.querySelectorAll('.spot-highlight');
-      highlightedSpots.forEach(spot => {
-        spot.classList.remove('spot-highlight');
-      });
-    };
-  }, [selectedSpecies]);
-
-  const handleSpotClick = (spot) => {
-    setSelectedSpecies(spot);
-    const spotElement = document.querySelector(`[data-species="${spot.species}"]`);
-    if (spotElement) {
-      spotElement.classList.add('spot-highlight');
-    }
-    setShowSpotDetails(true);
-  };
-
-  const handleTimeChange = (time) => {
-    setTimeOfDay(time);
-    const ecosystemView = document.querySelector('.ecosystem-view');
-    if (ecosystemView) {
-      ecosystemView.classList.add('time-transition');
-    }
-    updateActivityLevels(time);
-  };
-
-  const updateActivityLevels = (time) => {
-    const activityMap = {
-      morning: { predators: "Low", herbivores: "High", birds: "Very High" },
-      afternoon: { predators: "Very Low", herbivores: "Moderate", birds: "Moderate" },
-      evening: { predators: "High", herbivores: "High", birds: "Low" }
-    };
-    setActivityLevels(activityMap[time]);
   };
 
   return (
@@ -841,7 +832,7 @@ const Tarangire = () => {
           <div className="wildlife-grid">
             <div className="wildlife-card">
               <div className="wildlife-image">
-                <img src="https://img.freepik.com/free-photo/elephant-herd-tarangire_181624-6353.jpg" alt="Elephants" />
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTb-Axl8GRxHBuMrxILdnfQQy0Wcxp5RQRy1A&s" alt="Elephants" />
               </div>
               <div className="wildlife-content">
                 <h3>Elephant Herds</h3>
@@ -850,7 +841,7 @@ const Tarangire = () => {
             </div>
             <div className="wildlife-card">
               <div className="wildlife-image">
-                <img src="https://img.freepik.com/free-photo/baobab-trees_181624-6354.jpg" alt="Baobabs" />
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEnUc-jUFbHMq9en2UgWGMSksbA9htLUtYgQ&sg" alt="Baobabs" />
               </div>
               <div className="wildlife-content">
                 <h3>Ancient Baobabs</h3>
@@ -859,7 +850,7 @@ const Tarangire = () => {
             </div>
             <div className="wildlife-card">
               <div className="wildlife-image">
-                <img src="https://img.freepik.com/free-photo/predators-tarangire_181624-6355.jpg" alt="Predators" />
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTsp3QnkTXDXL5_K7-T44D4noYrigixtf1TA&s" alt="Predators" />
               </div>
               <div className="wildlife-content">
                 <h3>Predators</h3>
@@ -874,14 +865,14 @@ const Tarangire = () => {
         <div className="container">
           <div className="tab-navigation">
             <button 
-              className={`tab-btn ${activeTab === 'wildlife' ? 'active' : ''}`}
-              onClick={() => handleTabChange('wildlife')}
+              className={`tab-btn ${activeTab === 'birds' ? 'active' : ''}`}
+              onClick={() => handleTabChange('birds')}
             >
               <FaPaw /> Wildlife
             </button>
             <button 
-              className={`tab-btn ${activeTab === 'birds' ? 'active' : ''}`}
-              onClick={() => handleTabChange('birds')}
+              className={`tab-btn ${activeTab === 'wildlife' ? 'active' : ''}`}
+              onClick={() => handleTabChange('wildlife')}
             >
               <FaFeather /> Birds
             </button>
@@ -1007,7 +998,7 @@ const Tarangire = () => {
           <div className="activities-grid">
             <div className="activity-card">
               <div className="activity-image">
-                <img src="https://img.freepik.com/free-photo/game-drive-tarangire_181624-6356.jpg" alt="Game Drives" />
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwsdkn6ICYQeq_SGzkjqutqEcC5xZVwXbP7Q&s" alt="Game Drives" />
               </div>
               <div className="activity-content">
                 <h3>Game Drives</h3>
@@ -1016,7 +1007,7 @@ const Tarangire = () => {
             </div>
             <div className="activity-card">
               <div className="activity-image">
-                <img src="https://img.freepik.com/free-photo/walking-safari-tarangire_181624-6357.jpg" alt="Walking Safaris" />
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTdqTGg7wx8oGN6sNJgnSOYySvPiurAFxRCQ&s" alt="Walking Safaris" />
               </div>
               <div className="activity-content">
                 <h3>Walking Safaris</h3>
@@ -1025,7 +1016,7 @@ const Tarangire = () => {
             </div>
             <div className="activity-card">
               <div className="activity-image">
-                <img src="https://img.freepik.com/free-photo/bird-watching-tarangire_181624-6358.jpg" alt="Bird Watching" />
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXCS-Kt5zz_rxAR932ZG4EIEx-AZc3951pKQ&s" alt="Bird Watching" />
               </div>
               <div className="activity-content">
                 <h3>Bird Watching</h3>
@@ -1062,52 +1053,72 @@ const Tarangire = () => {
       <section className="seasonal-highlights">
         <div className="container">
           <h2>Seasonal Highlights</h2>
-          <div className="seasons-grid">
-            <div className="season-card">
-              <img src={seasonalHighlights.drySeasonJunOct.image} alt="Dry Season" />
-              <div className="season-content">
-                <h3>{seasonalHighlights.drySeasonJunOct.title}</h3>
-                <ul className="highlights-list">
-                  {seasonalHighlights.drySeasonJunOct.highlights.map((highlight, index) => (
-                    <li key={index}><FaCheckCircle /> {highlight}</li>
-                  ))}
-                </ul>
-                <div className="season-details">
-                  <div className="wildlife-tags">
-                    {seasonalHighlights.drySeasonJunOct.wildlife.map((animal, index) => (
-                      <span key={index} className="wildlife-tag"><FaPaw /> {animal}</span>
-                    ))}
+          <div className="season-tabs">
+            <div 
+              className={`season-tab ${selectedSeason === 'dry' ? 'active' : ''}`}
+              onClick={() => setSelectedSeason('dry')}
+            >
+              <FaSun />
+              Dry Season
+            </div>
+            <div 
+              className={`season-tab ${selectedSeason === 'wet' ? 'active' : ''}`}
+              onClick={() => setSelectedSeason('wet')}
+            >
+              <FaCloudRain />
+              Green Season
+            </div>
+          </div>
+
+          <div className={`season-content ${selectedSeason ? 'active' : ''}`}>
+            <div className="season-info">
+              <h3>
+                {selectedSeason === 'dry' 
+                  ? seasonalHighlights.drySeasonJunOct.title 
+                  : seasonalHighlights.wetSeasonNovMay.title}
+              </h3>
+              <div className="highlights-list">
+                {(selectedSeason === 'dry' 
+                  ? seasonalHighlights.drySeasonJunOct.highlights 
+                  : seasonalHighlights.wetSeasonNovMay.highlights).map((highlight, index) => (
+                  <div key={index} className="highlight-item">
+                    <FaStar />
+                    <span>{highlight}</span>
                   </div>
-                  <div className="activity-tags">
-                    {seasonalHighlights.drySeasonJunOct.activities.map((activity, index) => (
-                      <span key={index} className="activity-tag"><FaStar /> {activity}</span>
-                    ))}
+                ))}
+              </div>
+              <div className="season-details">
+                <div className="details-grid">
+                  <div className="detail-box">
+                    <h4><FaPaw /> Wildlife Highlights</h4>
+                    <ul>
+                      {(selectedSeason === 'dry' 
+                        ? seasonalHighlights.drySeasonJunOct.wildlife 
+                        : seasonalHighlights.wetSeasonNovMay.wildlife).map((animal, index) => (
+                        <li key={index}>{animal}</li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className="detail-box">
+                    <h4><FaCompass /> Activities</h4>
+                    <ul>
+                      {(selectedSeason === 'dry' 
+                        ? seasonalHighlights.drySeasonJunOct.activities 
+                        : seasonalHighlights.wetSeasonNovMay.activities).map((activity, index) => (
+                        <li key={index}>{activity}</li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="season-card">
-              <img src={seasonalHighlights.wetSeasonNovMay.image} alt="Green Season" />
-              <div className="season-content">
-                <h3>{seasonalHighlights.wetSeasonNovMay.title}</h3>
-                <ul className="highlights-list">
-                  {seasonalHighlights.wetSeasonNovMay.highlights.map((highlight, index) => (
-                    <li key={index}><FaCheckCircle /> {highlight}</li>
-                  ))}
-                </ul>
-                <div className="season-details">
-                  <div className="wildlife-tags">
-                    {seasonalHighlights.wetSeasonNovMay.wildlife.map((animal, index) => (
-                      <span key={index} className="wildlife-tag"><FaPaw /> {animal}</span>
-                    ))}
-                  </div>
-                  <div className="activity-tags">
-                    {seasonalHighlights.wetSeasonNovMay.activities.map((activity, index) => (
-                      <span key={index} className="activity-tag"><FaStar /> {activity}</span>
-                    ))}
-                  </div>
-                </div>
-              </div>
+            <div className="season-image">
+              <img 
+                src={selectedSeason === 'dry' 
+                  ? seasonalHighlights.drySeasonJunOct.image 
+                  : seasonalHighlights.wetSeasonNovMay.image} 
+                alt={selectedSeason === 'dry' ? "Dry Season" : "Green Season"}
+              />
             </div>
           </div>
         </div>
@@ -1207,7 +1218,229 @@ const Tarangire = () => {
         </div>
       </section>
 
-      <section className="booking-section">
+     
+
+      <section className="park-highlights">
+        <div className="container">
+          <h2>Park Highlights</h2>
+          <div className="highlights-slider">
+            {parkHighlights.map((highlight, index) => (
+              <div 
+                key={index} 
+                className={`highlight-slide ${index === activeHighlight ? 'active' : ''}`}
+                onClick={() => openGallery(highlight.image)}
+              >
+                <div className="highlight-image">
+                  <img src={highlight.image} alt={highlight.title} />
+                </div>
+                <div className="highlight-content">
+                  <h3>{highlight.title}</h3>
+                  <p>{highlight.description}</p>
+                  <div className="highlight-fact">
+                    <FaInfoCircle />
+                    <span>{highlight.fact}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+    
+
+      <section 
+        id="park-history" 
+        className={`park-history ${isTimelineVisible ? 'timeline-visible' : ''}`}
+        onMouseEnter={() => setIsTimelineVisible(true)}
+        onMouseLeave={() => setIsTimelineVisible(false)}
+      >
+        <div className="container">
+          <h2>{parkHistory.title}</h2>
+          <div className="timeline">
+            {parkHistory.timeline.map((item, index) => (
+              <div 
+                key={index} 
+                className={`timeline-item ${activeSection === 'park-history' ? 'animate-in' : ''}`}
+                style={{ animationDelay: `${index * 0.3}s` }}
+              >
+                <div className="timeline-year">{item.year}</div>
+                <div className="timeline-content">
+                  <h3>{item.event}</h3>
+                  <p>{item.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="conservation-initiatives">
+            <h3>{parkHistory.conservation.title}</h3>
+            <div className="initiatives-grid">
+              {parkHistory.conservation.initiatives.map((initiative, index) => (
+                <div 
+                  key={index} 
+                  className="initiative-card"
+                  style={{ animationDelay: `${index * 0.2}s` }}
+                >
+                  <h4>{initiative.name}</h4>
+                  <p>{initiative.description}</p>
+                  <div className="impact-badge">
+                    <FaCheckCircle />
+                    <span>{initiative.impact}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <section className="interactive-map-section">
+        <div className="container">
+          <h2>Park Map & Key Areas</h2>
+          <div className="map-container">
+            <div className="map-interactive">
+              <img src="https://africanscenicsafaris.com/images/tarangire-map.webp" alt="Tarangire National Park Map" />
+              {parkLocations.map((location, index) => (
+                <div 
+                  key={index}
+                  className="map-hotspot"
+                  style={{ top: `${location.top}%`, left: `${location.left}%` }}
+                  onClick={() => handleHotspotClick(location)}
+                >
+                  <div className="hotspot-content">
+                    <h3>{location.name}</h3>
+                    <p>{location.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="map-sidebar">
+              <h3>Key Locations</h3>
+              <ul className="location-list">
+                {parkLocations.map((location, index) => (
+                  <li 
+                    key={index}
+                    className={selectedLocation === location ? 'active' : ''}
+                    onClick={() => setSelectedLocation(location)}
+                  >
+                    <h4>{location.name}</h4>
+                    <p>{location.description}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="wildlife-tracking-section">
+        <div className="container">
+          <h2>Live Wildlife Tracking</h2>
+          <div className="tracking-grid">
+            {wildlifeTracker.species.map((species, index) => (
+              <div 
+                key={index}
+                className="tracking-card"
+                style={{ animationDelay: `${index * 0.2}s` }}
+              >
+                <div className="species-info">
+                  <h3>{species.name}</h3>
+                  <p className="last-seen">
+                    <FaClock /> Last seen: {species.lastSeen}
+                  </p>
+                  <p className="frequency">
+                    <FaSync /> Frequency: {species.frequency}
+                  </p>
+                </div>
+                <div className={`tracking-map ${species.name.toLowerCase().includes('elephant') ? 'elephant-view' : 
+                                      species.name.toLowerCase().includes('lion') ? 'lion-view' : 
+                                      'leopard-view'}`}>
+                  <img src="https://africanscenicsafaris.com/images/tarangire-map.webp" alt={`${species.name} sightings map`} />
+                  {species.sightings.map((sighting, idx) => {
+                    const getMarkerClass = (time) => {
+                      if (time.includes('hours ago')) return 'recent';
+                      if (time.includes('Today') || time.includes('morning')) return 'today';
+                      return 'older';
+                    };
+                    
+                    return (
+                      <div
+                        key={idx}
+                        className={`sighting-marker ${getMarkerClass(sighting.time)}`}
+                        style={{ top: `${sighting.top}%`, left: `${sighting.left}%` }}
+                      >
+                        <div className="sighting-info">
+                          {sighting.time}
+                        </div>
+                      </div>
+                    );
+                  })}
+                  <div className="tracking-legend">
+                    <div className="legend-item">
+                      <span className="legend-dot recent-dot"></span>
+                      <span>Recent (within 6h)</span>
+                    </div>
+                    <div className="legend-item">
+                      <span className="legend-dot today-dot"></span>
+                      <span>Today</span>
+                    </div>
+                    <div className="legend-item">
+                      <span className="legend-dot older-dot"></span>
+                      <span>Older</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="park-zones-section">
+        <div className="container">
+          <h2>Explore Park Zones</h2>
+          <div className="zones-grid">
+            {parkZones.map(zone => (
+              <div 
+                key={zone.id}
+                className={`zone-card ${activeZone === zone.id ? 'active' : ''}`}
+                onClick={() => setActiveZone(zone.id)}
+              >
+                <div className="zone-header">
+                  <h3>{zone.name}</h3>
+                  <p className="zone-description">{zone.description}</p>
+                </div>
+                <div className="zone-details">
+                  <div className="wildlife-list">
+                    <h4>Key Wildlife</h4>
+                    <ul>
+                      {zone.wildlife.map((animal, index) => (
+                        <li key={index}>{animal}</li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className="activities-list">
+                    <h4>Activities</h4>
+                    <ul>
+                      {zone.activities.map((activity, index) => (
+                        <li key={index}>{activity}</li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className="zone-info">
+                    <p><FaClock /> Best time: {zone.bestTime}</p>
+                    <p><FaTree /> {zone.vegetation}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+       <section className="booking-section">
         <div className="container">
           <h2>Plan Your Visit</h2>
           <div className="booking-container">
@@ -1263,385 +1496,6 @@ const Tarangire = () => {
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section className="park-highlights">
-        <div className="container">
-          <h2>Park Highlights</h2>
-          <div className="highlights-slider">
-            {parkHighlights.map((highlight, index) => (
-              <div 
-                key={index} 
-                className={`highlight-slide ${index === activeHighlight ? 'active' : ''}`}
-                onClick={() => openGallery(highlight.image)}
-              >
-                <div className="highlight-image">
-                  <img src={highlight.image} alt={highlight.title} />
-                </div>
-                <div className="highlight-content">
-                  <h3>{highlight.title}</h3>
-                  <p>{highlight.description}</p>
-                  <div className="highlight-fact">
-                    <FaInfoCircle />
-                    <span>{highlight.fact}</span>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="park-map-section">
-        <div className="container">
-          <h2>Explore Park Zones</h2>
-          <div className="park-map">
-            <img src="/images/tarangire-map.jpg" alt="Tarangire Park Map" />
-            {parkZones.map((zone, index) => (
-              <div
-                key={index}
-                className="map-hotspot"
-                style={{ left: `${zone.coordinates.x}%`, top: `${zone.coordinates.y}%` }}
-                onMouseEnter={() => setSelectedZone(zone)}
-                onMouseLeave={() => setSelectedZone(null)}
-              >
-                {selectedZone === zone && (
-                  <div className="map-tooltip">
-                    <h4>{zone.name}</h4>
-                    <p>{zone.description}</p>
-                    <div className="zone-details">
-                      <p><FaClock /> Best time: {zone.bestTime}</p>
-                      <div className="zone-wildlife">
-                        {zone.wildlife.map((animal, i) => (
-                          <span key={i} className="wildlife-tag">
-                            <FaPaw /> {animal}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section 
-        id="park-history" 
-        className={`park-history ${isTimelineVisible ? 'timeline-visible' : ''}`}
-        onMouseEnter={() => setIsTimelineVisible(true)}
-        onMouseLeave={() => setIsTimelineVisible(false)}
-      >
-        <div className="container">
-          <h2>{parkHistory.title}</h2>
-          <div className="timeline">
-            {parkHistory.timeline.map((item, index) => (
-              <div 
-                key={index} 
-                className={`timeline-item ${activeSection === 'park-history' ? 'animate-in' : ''}`}
-                style={{ animationDelay: `${index * 0.3}s` }}
-              >
-                <div className="timeline-year">{item.year}</div>
-                <div className="timeline-content">
-                  <h3>{item.event}</h3>
-                  <p>{item.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="conservation-initiatives">
-            <h3>{parkHistory.conservation.title}</h3>
-            <div className="initiatives-grid">
-              {parkHistory.conservation.initiatives.map((initiative, index) => (
-                <div 
-                  key={index} 
-                  className="initiative-card"
-                  style={{ animationDelay: `${index * 0.2}s` }}
-                >
-                  <h4>{initiative.name}</h4>
-                  <p>{initiative.description}</p>
-                  <div className="impact-badge">
-                    <FaCheckCircle />
-                    <span>{initiative.impact}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="virtual-tour" className="virtual-tour-section">
-        <div className="container">
-          <h2>{interactiveElements.virtualTour.title}</h2>
-          <div className="virtual-tour-container">
-            {virtualTourActive && currentVirtualLocation && (
-              <div className="virtual-viewer">
-                <iframe
-                  title={currentVirtualLocation.name}
-                  src={currentVirtualLocation.embedCode}
-                  frameBorder="0"
-                  allowFullScreen
-                ></iframe>
-                <button 
-                  className="close-viewer"
-                  onClick={() => setVirtualTourActive(false)}
-                >
-                  <FaTimes />
-                </button>
-              </div>
-            )}
-            <div className="location-selector">
-              {interactiveElements.virtualTour.locations.map((location, index) => (
-                <button
-                  key={index}
-                  className={`location-btn ${currentVirtualLocation?.name === location.name ? 'active' : ''}`}
-                  onClick={() => {
-                    setCurrentVirtualLocation(location);
-                    setVirtualTourActive(true);
-                  }}
-                >
-                  <FaEye />
-                  <span>{location.name}</span>
-                </button>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="wildlife-tracker" className="wildlife-tracker-section">
-        <div className="container">
-          <h2>{interactiveElements.wildlifeTracker.title}</h2>
-          <div className="tracker-grid">
-            {interactiveElements.wildlifeTracker.species.map((species, index) => (
-              <div 
-                key={index} 
-                className="tracker-card"
-                style={{ animationDelay: `${index * 0.2}s` }}
-              >
-                <h3>{species.name}</h3>
-                <div className="sighting-info">
-                  <p><FaClock /> {species.lastSeen}</p>
-                  <p><FaSync /> Frequency: {species.frequency}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="interactive-map-section">
-        <div className="container">
-          <h2>Park Map & Key Areas</h2>
-          <div className="map-container">
-            <div className="map-interactive">
-              {/* Add map hotspots */}
-              {parkLocations.map((location, index) => (
-                <div 
-                  key={index}
-                  className="map-hotspot"
-                  style={{ top: location.top, left: location.left }}
-                  onClick={() => handleHotspotClick(location)}
-                >
-                  <div className="hotspot-content">
-                    <h3>{location.name}</h3>
-                    <p>{location.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div className="map-sidebar">
-              <h3>Key Locations</h3>
-              <ul className="location-list">
-                {parkLocations.map((location, index) => (
-                  <li 
-                    key={index}
-                    className={selectedLocation === location ? 'active' : ''}
-                    onClick={() => setSelectedLocation(location)}
-                  >
-                    <h4>{location.name}</h4>
-                    <p>{location.description}</p>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="wildlife-tracking-section">
-        <div className="container">
-          <h2>Live Wildlife Tracking</h2>
-          <div className="tracking-grid">
-            {wildlifeTracker.species.map((species, index) => (
-              <div 
-                key={index}
-                className="tracking-card"
-                style={{ animationDelay: `${index * 0.2}s` }}
-              >
-                <div className="species-info">
-                  <h3>{species.name}</h3>
-                  <p className="last-seen">
-                    <FaClock /> Last seen: {species.lastSeen}
-                  </p>
-                  <p className="frequency">
-                    <FaSync /> Frequency: {species.frequency}
-                  </p>
-                </div>
-                <div className="tracking-map">
-                  {/* Add mini map showing recent sightings */}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="seasonal-changes">
-        <div className="container">
-          <h2>Seasonal Landscape Changes</h2>
-          <div className="season-comparison">
-            <div className="season-slider">
-              <input 
-                type="range" 
-                min="0" 
-                max="100" 
-                value={seasonSlider} 
-                onChange={(e) => setSeasonSlider(e.target.value)}
-              />
-              <div className="slider-labels">
-                <span>Dry Season</span>
-                <span>Green Season</span>
-              </div>
-            </div>
-            <div className="season-image-container">
-              <img 
-                src={seasonalImages.dry} 
-                alt="Dry Season" 
-                className="season-image dry"
-                style={{ opacity: 1 - (seasonSlider / 100) }}
-              />
-              <img 
-                src={seasonalImages.green} 
-                alt="Green Season" 
-                className="season-image green"
-                style={{ opacity: seasonSlider / 100 }}
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="park-zones-section">
-        <div className="container">
-          <h2>Explore Park Zones</h2>
-          <div className="zones-grid">
-            {parkZones.map(zone => (
-              <div 
-                key={zone.id}
-                className={`zone-card ${activeZone === zone.id ? 'active' : ''}`}
-                onClick={() => setActiveZone(zone.id)}
-              >
-                <div className="zone-header">
-                  <h3>{zone.name}</h3>
-                  <p className="zone-description">{zone.description}</p>
-                </div>
-                <div className="zone-details">
-                  <div className="wildlife-list">
-                    <h4>Key Wildlife</h4>
-                    <ul>
-                      {zone.wildlife.map((animal, index) => (
-                        <li key={index}>{animal}</li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div className="activities-list">
-                    <h4>Activities</h4>
-                    <ul>
-                      {zone.activities.map((activity, index) => (
-                        <li key={index}>{activity}</li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div className="zone-info">
-                    <p><FaClock /> Best time: {zone.bestTime}</p>
-                    <p><FaTree /> {zone.vegetation}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="ecosystem-explorer">
-        <div className="container">
-          <h2>Interactive Ecosystem Explorer</h2>
-          <div className="time-selector">
-            <button 
-              className={timeOfDay === 'morning' ? 'active' : ''}
-              onClick={() => handleTimeChange('morning')}
-            >
-              Morning
-            </button>
-            <button 
-              className={timeOfDay === 'afternoon' ? 'active' : ''}
-              onClick={() => handleTimeChange('afternoon')}
-            >
-              Afternoon
-            </button>
-            <button 
-              className={timeOfDay === 'evening' ? 'active' : ''}
-              onClick={() => handleTimeChange('evening')}
-            >
-              Evening
-            </button>
-          </div>
-          <div className={`ecosystem-view ${timeOfDay}`}>
-            {wildlifeSpots[timeOfDay].map((spot, index) => (
-              <div
-                key={index}
-                className="wildlife-spot"
-                style={{ top: spot.top, left: spot.left }}
-                onClick={() => handleSpotClick(spot)}
-                data-species={spot.species}
-              >
-                <div className="spot-indicator"></div>
-                <div className="spot-tooltip">
-                  <h4>{spot.species}</h4>
-                  <p>{spot.behavior}</p>
-                  <p className="spot-details">{spot.details}</p>
-                  <div className="spot-meta">
-                    <span className={`activity-indicator activity-${spot.activity.toLowerCase()}`}></span>
-                    <span>Activity: {spot.activity}</span>
-                  </div>
-                  <p className="group-size">Group: {spot.group}</p>
-                  <p className="photo-tip"><FaCamera /> {spot.bestPhoto}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-          
-          {showSpotDetails && selectedSpecies && (
-            <div className="spot-details-panel">
-              <h3>{selectedSpecies.species}</h3>
-              <p>{selectedSpecies.details}</p>
-              <div className="activity-levels">
-                <h4>Current Activity Levels</h4>
-                {Object.entries(activityLevels).map(([category, level]) => (
-                  <div key={category} className="activity-level">
-                    <span>{category}</span>
-                    <span className={`activity-indicator activity-${level.toLowerCase()}`}></span>
-                    <span>{level}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
         </div>
       </section>
     </div>
