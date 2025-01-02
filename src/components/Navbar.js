@@ -144,9 +144,15 @@ const Navbar = () => {
           {navLinks.map((link) => (
             <div key={link.path} className="nav-item">
               <Link
-                to={link.path}
+                to={link.submenu ? '#' : link.path}
                 className={`nav-link ${location.pathname === link.path ? 'active' : ''}`}
-                onClick={() => !link.submenu && setIsMenuOpen(false)}
+                onClick={(e) => {
+                  if (link.submenu) {
+                    e.preventDefault();
+                  } else {
+                    setIsMenuOpen(false);
+                  }
+                }}
               >
                 {link.text}
                 {link.submenu && <FaChevronDown className="dropdown-icon" />}
@@ -157,7 +163,12 @@ const Navbar = () => {
                     <div key={subItem.path} className="dropdown-item">
                       {subItem.nestedSubmenu ? (
                         <div className="dropdown-item-content">
-                          <span>{subItem.text}</span>
+                          <Link
+                            to={subItem.path}
+                            onClick={() => setIsMenuOpen(false)}
+                          >
+                            {subItem.text}
+                          </Link>
                           <FaChevronRight className="nested-arrow" />
                           <div className="nested-dropdown">
                             {subItem.nestedSubmenu.map((nestedItem) => (

@@ -88,72 +88,160 @@
   position: absolute;
   top: 100%;
   left: 0;
-  min-width: 200px;
+  min-width: 250px;
   background: white;
-  border-radius: 4px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
   opacity: 0;
   visibility: hidden;
-  transition: all 0.3s ease;
-  padding: 0.8rem 0;
+  transform: translateY(10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 1rem 0;
   z-index: 10000;
+  border: 1px solid rgba(0,0,0,0.05);
 }
 
-/* Update nested dropdown positioning and visibility */
+/* Nested dropdown styling */
 .nested-dropdown {
   position: absolute;
   left: 100%;
   top: 0;
-  min-width: 200px;
+  min-width: 250px;
   background: white;
-  border-radius: 4px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
   opacity: 0;
   visibility: hidden;
-  transition: all 0.3s ease;
+  transform: translateX(10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 1rem 0;
+  border: 1px solid rgba(0,0,0,0.05);
 }
 
-/* Show dropdowns on hover */
-.nav-item:hover > .dropdown-menu,
+/* Show dropdowns on hover with animation */
+.nav-item:hover > .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
 .dropdown-item:hover > .nested-dropdown {
   opacity: 1;
   visibility: visible;
+  transform: translateX(0);
 }
 
-/* Update dropdown item styles */
+/* Dropdown item styling */
 .dropdown-item {
   position: relative;
   display: block;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
+  padding: 0.5rem 0;
+  transition: all 0.2s ease;
 }
 
-/* Update dropdown item content styles */
+.dropdown-item a {
+  color: #333;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0.5rem 1.5rem;
+  display: block;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.dropdown-item:hover > a {
+  color: var(--primary-color);
+  background: rgba(255, 123, 37, 0.05);
+}
+
+/* Dropdown item content styling */
 .dropdown-item-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.5rem;
+  padding: 0.5rem 1.5rem;
   color: #333;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.dropdown-item-content:hover {
+  color: var(--primary-color);
+  background: rgba(255, 123, 37, 0.05);
+}
+
+.dropdown-item-content a {
+  color: inherit;
   text-decoration: none;
-  transition: all 0.3s ease;
+  flex-grow: 1;
 }
 
-/* Show nested dropdown on hover */
-.dropdown-item:hover .nested-dropdown,
-.dropdown-item-content:hover + .nested-dropdown {
-  opacity: 1;
-  visibility: visible;
-}
-
-/* Dropdown icons */
+/* Dropdown icons styling */
 .dropdown-icon {
-  transform: rotate(-90deg);
-  transition: transform 0.3s ease;
+  font-size: 0.8rem;
+  margin-left: 0.5rem;
+  transition: transform 0.2s ease;
 }
 
 .nested-arrow {
-  transform: rotate(-90deg);
+  font-size: 0.8rem;
+  margin-left: 0.5rem;
+  color: #666;
+  transition: transform 0.2s ease;
+}
+
+.dropdown-item:hover .nested-arrow {
+  transform: translateX(3px);
+  color: var(--primary-color);
+}
+
+/* Scrolled state dropdown styling */
+.navbar.scrolled .dropdown-menu,
+.navbar.scrolled .nested-dropdown {
+  background: white;
+  border: none;
+}
+
+.navbar.scrolled .dropdown-item a {
+  color: #333;
+}
+
+.navbar.scrolled .dropdown-item:hover > a {
+  color: var(--primary-color);
+  background: rgba(255, 123, 37, 0.05);
+}
+
+/* Active states */
+.dropdown-item a.active {
+  color: var(--primary-color);
+  font-weight: 600;
+  background: rgba(255, 123, 37, 0.08);
+}
+
+/* Mobile dropdown adjustments */
+@media (max-width: 992px) {
+  .dropdown-menu,
+  .nested-dropdown {
+    position: static;
+    box-shadow: none;
+    transform: none;
+    border-radius: 4px;
+    background: rgba(255, 123, 37, 0.03);
+    border: none;
+    padding: 0.5rem 0;
+    margin: 0.5rem 0;
+  }
+
+  .dropdown-item-content,
+  .dropdown-item a {
+    padding: 0.75rem 1.5rem;
+  }
+
+  .nested-dropdown {
+    margin-left: 1.5rem;
+    border-left: 2px solid rgba(255, 123, 37, 0.2);
+  }
 }
 
 /* Mobile menu button */
@@ -224,19 +312,6 @@
   }
 }
 
-/* Update dropdown styles for scrolled state */
-.navbar.scrolled .dropdown-menu {
-  background: var(--primary-color);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.navbar.scrolled .dropdown-item a {
-  color: white;
-}
-
-.navbar.scrolled .dropdown-item:hover {
-  background: rgba(255, 255, 255, 0.1);
-  }
 /* jaribu ongezea */
 
 .nav-link.active {
