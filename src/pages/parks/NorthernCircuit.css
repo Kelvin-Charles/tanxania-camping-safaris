@@ -124,52 +124,143 @@
 .circuit-features {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2.5rem;
-  margin-top: 4rem;
-}
-
-.feature {
-  text-align: center;
-  padding: 3rem 2rem;
-  background: var(--white);
-  border-radius: var(--border-radius);
-  box-shadow: var(--shadow-md);
-  transition: var(--transition);
+  gap: 2rem;
+  padding: 4rem 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  background: linear-gradient(to bottom, var(--background-light) 0%, var(--white) 100%);
   position: relative;
-  overflow: hidden;
+  z-index: 1;
 }
 
-.feature::before {
+.circuit-features::before {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: 4px;
-  background: var(--primary-color);
-  transform: scaleX(0);
-  transition: transform 0.3s ease;
+  height: 100%;
+  background: radial-gradient(circle at 50% 0%, rgba(45, 90, 39, 0.05) 0%, transparent 70%);
+  z-index: -1;
 }
 
-.feature:hover {
-  transform: translateY(-10px);
+.feature-card {
+  background: var(--white);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
   box-shadow: var(--shadow-lg);
 }
 
-.feature:hover::before {
-  transform: scaleX(1);
-}
-
-.feature svg {
-  font-size: 3rem;
-  color: var(--primary-color);
-  margin-bottom: 1.5rem;
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent-color), var(--primary-color));
+  opacity: 0;
   transition: var(--transition);
 }
 
-.feature:hover svg {
-  transform: scale(1.2);
+.feature-card:hover::before {
+  opacity: 1;
+}
+
+.feature-card .icon {
+  font-size: 2.5rem;
   color: var(--accent-color);
+  margin-bottom: 1.5rem;
+  display: inline-block;
+  transition: var(--transition);
+}
+
+.feature-card:hover .icon {
+  transform: scale(1.1) rotate(5deg);
+  color: var(--primary-color);
+}
+
+.feature-card h3 {
+  font-size: 1.5rem;
+  color: var(--text-color);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.feature-card p {
+  color: var(--text-light);
+  line-height: 1.6;
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.feature-card .feature-footer {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.feature-card .learn-more {
+  color: var(--primary-color);
+  font-weight: 500;
+  font-size: 0.9rem;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: var(--transition);
+}
+
+.feature-card:hover .learn-more {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.feature-card .arrow-icon {
+  color: var(--primary-color);
+  font-size: 1rem;
+  transform: translateX(-10px);
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.feature-card:hover .arrow-icon {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.feature-card:hover .arrow-icon.active {
+  animation: bounceRight 1s infinite;
+}
+
+@keyframes bounceRight {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+}
+
+@media (max-width: 768px) {
+  .circuit-features {
+    grid-template-columns: 1fr;
+    padding: 2rem 1rem;
+  }
+  
+  .feature-card {
+    padding: 1.5rem;
+  }
 }
 
 /* Enhanced Parks Grid */
