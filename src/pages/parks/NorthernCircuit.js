@@ -448,8 +448,8 @@ const NorthernCircuit = () => {
               <div className="stat-content">
                 <h3>Big Five Territory</h3>
                 <p>Home to lion, leopard, elephant, rhino, and buffalo</p>
-              </div>
-            </div>
+        </div>
+      </div>
 
             <div className="stat-card" data-stat="route">
               <div className="stat-icon">
@@ -696,54 +696,54 @@ const NorthernCircuit = () => {
         <div className="container">
           <h2>Explore Our Iconic Parks</h2>
           <div className="parks-cards-grid">
-            {northernParks.map(park => (
-              <div 
-                key={park.id} 
+        {northernParks.map(park => (
+          <div 
+            key={park.id} 
                 className={`park-card ${hoveredCard === park.id ? 'hovered' : ''}`}
                 onMouseEnter={() => setHoveredCard(park.id)}
                 onMouseLeave={() => setHoveredCard(null)}
-                onClick={() => navigate(`/parks-reserves/northern/${park.id}`)}
-              >
-                <div className="park-image">
-                  <img src={park.image} alt={park.name} />
+            onClick={() => navigate(`/parks-reserves/northern/${park.id}`)}
+          >
+            <div className="park-image">
+              <img src={park.image} alt={park.name} />
                   <div className="image-overlay">
                     <span className="park-difficulty">{park.difficulty}</span>
                   </div>
-                </div>
-                <div className="park-content">
-                  <h3>{park.name}</h3>
-                  <p className="park-description">{park.description}</p>
-                  
-                  <div className="park-highlights">
-                    <h4>Highlights</h4>
-                    <ul>
-                      {park.highlights.map((highlight, index) => (
-                        <li key={index}>{highlight}</li>
-                      ))}
-                    </ul>
-                  </div>
+            </div>
+            <div className="park-content">
+              <h3>{park.name}</h3>
+              <p className="park-description">{park.description}</p>
+              
+              <div className="park-highlights">
+                <h4>Highlights</h4>
+                <ul>
+                  {park.highlights.map((highlight, index) => (
+                    <li key={index}>{highlight}</li>
+                  ))}
+                </ul>
+              </div>
 
-                  <div className="park-meta">
-                    <div className="best-time">
-                      <FaClock />
-                      <span>Best Time: {park.bestTime}</span>
-                    </div>
+              <div className="park-meta">
+                <div className="best-time">
+                  <FaClock />
+                  <span>Best Time: {park.bestTime}</span>
+                </div>
                     <div className="duration">
                       <FaCalendarAlt />
                       <span>Duration: {park.duration}</span>
-                    </div>
-                  </div>
-
-                  <Link 
-                    to={`/parks-reserves/northern/${park.id}`} 
-                    className="view-details-btn"
-                  >
-                    Explore More <FaInfoCircle />
-                  </Link>
                 </div>
               </div>
-            ))}
+
+              <Link 
+                to={`/parks-reserves/northern/${park.id}`} 
+                className="view-details-btn"
+              >
+                    Explore More <FaInfoCircle />
+              </Link>
+            </div>
           </div>
+        ))}
+      </div>
         </div>
       </section>
     </div>
