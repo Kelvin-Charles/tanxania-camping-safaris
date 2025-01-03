@@ -4,7 +4,7 @@ import {
   FaMapMarkerAlt, FaTree, FaPaw, FaClock, FaInfoCircle, FaCalendarAlt,
   FaUsers, FaCamera, FaStar, FaCompass, FaLeaf, FaMountain, FaSun,
   FaCloudRain, FaPlane, FaCar, FaHotel, FaBinoculars, FaRoute,
-  FaGlobe, FaUmbrellaBeach, FaChild, FaDollarSign, FaHeart
+  FaGlobe, FaUmbrellaBeach, FaChild, FaDollarSign, FaHeart, FaChevronRight
 } from 'react-icons/fa';
 import './NorthernCircuit.css';
 
@@ -421,12 +421,13 @@ const NorthernCircuit = () => {
 
   return (
     <div className="northern-circuit">
-      <section className="circuit-hero">
+      <div className="circuit-hero">
         <div className="hero-content">
-          <h1>Northern Safari Circuit</h1>
-          <p>Discover Tanzania's Crown Jewel of Safari Destinations</p>
+          <h1>Northern Circuit Safari</h1>
+          <p>Experience Tanzania's most iconic wildlife destinations</p>
         </div>
-      </section>
+      </div>
+
 
       <section className="circuit-stats">
         <div className="container">
@@ -471,15 +472,26 @@ const NorthernCircuit = () => {
             Welcome to Tanzania's legendary Northern Safari Circuit, the crown jewel of African wildlife experiences. This masterfully crafted route connects the continent's most spectacular wildlife sanctuaries, offering an unparalleled journey through Earth's last great wilderness. From the endless plains of the Serengeti to the ancient caldera of Ngorongoro, every moment brings new wonders and unforgettable encounters with Africa's most iconic wildlife.
           </p>
           
+
           <div className="circuit-features">
-            {circuitFeatures.map((feature, index) => (
-              <div className="feature" key={index}>
-                {feature.icon}
-                <h3>{feature.title}</h3>
-                <p>{feature.description}</p>
-              </div>
-            ))}
+        {circuitFeatures.map((feature, index) => (
+          <div 
+            key={index} 
+            className="feature-card"
+            onMouseEnter={() => setHoveredCard(index)}
+            onMouseLeave={() => setHoveredCard(null)}
+          >
+            <span className="icon">{feature.icon}</span>
+            <h3>{feature.title}</h3>
+            <p>{feature.description}</p>
+            <div className="feature-footer">
+              <span className="learn-more">Learn More</span>
+              <FaChevronRight className={`arrow-icon ${hoveredCard === index ? 'active' : ''}`} />
+            </div>
           </div>
+        ))}
+      </div>
+
         </div>
       </section>
 
