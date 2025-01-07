@@ -265,24 +265,34 @@
 
 /* Enhanced Parks Grid */
 .parks-grid {
-  max-width: 1400px;
-  margin: 6rem auto;
-  padding: 0 2rem;
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.parks-cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-  gap: 3.5rem;
-  perspective: 2000px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
 }
 
 .park-card {
-  background: var(--white);
-  border-radius: 25px;
+  background: #ffffff;
+  border-radius: 15px;
   overflow: hidden;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
   position: relative;
-  transform-style: preserve-3d;
-  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .park-card::before {
@@ -313,8 +323,7 @@
 }
 
 .park-image {
-  height: 350px;
-  overflow: hidden;
+  flex: 1;
   position: relative;
 }
 
@@ -338,16 +347,9 @@
 
 .park-image img {
   width: 100%;
-  height: 100%;
+  height: 200px;
   object-fit: cover;
-  transition: transform 1.5s cubic-bezier(0.23, 1, 0.32, 1);
-  transform-origin: center;
-  filter: brightness(1.05) contrast(1.05);
-}
-
-.park-card:hover .park-image img {
-  transform: scale(1.2) rotate(-5deg);
-  filter: brightness(1.1) contrast(1.1) saturate(1.1);
+  transition: transform 0.3s ease;
 }
 
 .image-overlay {
@@ -387,16 +389,8 @@
 }
 
 .park-content {
-  padding: 2.8rem;
-  background: linear-gradient(
-    to bottom,
-    var(--white) 0%,
-    rgba(249, 249, 249, 0.98) 100%
-  );
-  position: relative;
-  z-index: 2;
-  transform: translateY(0);
-  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  padding: 1rem;
+  text-align: center;
 }
 
 .park-card:hover .park-content {
@@ -614,42 +608,13 @@
 
 @media (max-width: 768px) {
   .parks-grid {
-    grid-template-columns: 1fr;
-    padding: 0 1.5rem;
-    gap: 3rem;
-  }
-
-  .park-card.hovered {
-    transform: translateY(-15px) rotateX(5deg) rotateY(5deg);
-  }
-
-  .park-image {
-    height: 300px;
-  }
-
-  .park-content {
-    padding: 2.2rem;
-  }
-
-  .park-content h3 {
-    font-size: 2rem;
-  }
-
-  .park-meta {
-    flex-direction: column;
-    gap: 1.5rem;
-    padding: 1.5rem;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (hover: none) {
-  .park-card.hovered {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-  }
-
-  .park-card:hover .park-image img {
-    transform: scale(1.1);
+@media (max-width: 480px) {
+  .parks-grid {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -1629,9 +1594,7 @@
 
 .weather-info p {
   font-size: 1.3rem;
-  color: var(--text-color);
-  line-height: 1.6;
-  flex: 1;
+  margin-bottom: 0.5rem;
 }
 
 .season-details {
@@ -1663,44 +1626,17 @@
   margin-bottom: 2rem;
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.5rem;
   position: relative;
 }
 
-.advantages h4::before,
-.considerations h4::before {
-  font-size: 2rem;
-  transition: transform 0.4s ease;
+.season-card .activities {
+  margin-top: 0.5rem;
 }
 
-.advantages h4::before {
-  content: '✓';
-  color: #48bb78;
-}
-
-.considerations h4::before {
-  content: '!';
-  color: #ed8936;
-}
-
-.season-card:hover .advantages h4::before,
-.season-card:hover .considerations h4::before {
-  transform: scale(1.2) rotate(10deg);
-}
-
-.advantages ul, .considerations ul {
-  display: grid;
-  gap: 1.2rem;
-}
-
-.advantages li, .considerations li {
-  padding: 1.5rem 2rem;
-  background: rgba(255, 255, 255, 0.6);
-  border-radius: 15px;
-  color: var(--text-color);
-  font-size: 1.1rem;
-  line-height: 1.6;
-  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+.season-card .activities li {
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
   display: flex;
   align-items: center;
   gap: 1rem;

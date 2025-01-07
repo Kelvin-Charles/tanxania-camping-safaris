@@ -66,12 +66,6 @@ const NorthernCircuit = () => {
       name: 'Mount Kilimanjaro',
       image: 'https://img.freepik.com/free-photo/giraffe-wild_23-2151708974.jpg?semt=ais_hybrid',
       description: "Embark on the adventure of a lifetime to conquer Africa's highest peak. Experience five distinct climate zones as you journey from lush rainforest to arctic snow, culminating in the most spectacular sunrise view across Africa.",
-      highlights: [
-        'Summit at 5,895 meters (19,341 ft)',
-        'Trek through 5 distinct climate zones',
-        'Witness stunning sunrise above clouds',
-        'Multiple routes for all skill levels'
-      ],
       bestTime: 'January-March, June-October',
       duration: '5-9 days',
       difficulty: 'Challenging',
@@ -711,9 +705,9 @@ const NorthernCircuit = () => {
         {northernParks.map(park => (
           <div 
             key={park.id} 
-                className={`park-card ${hoveredCard === park.id ? 'hovered' : ''}`}
-                onMouseEnter={() => setHoveredCard(park.id)}
-                onMouseLeave={() => setHoveredCard(null)}
+            className={`park-card ${hoveredCard === park.id ? 'hovered' : ''}`}
+            onMouseEnter={() => setHoveredCard(park.id)}
+            onMouseLeave={() => setHoveredCard(null)}
             onClick={() => navigate(`/parks-reserves/northern/${park.id}`)}
           >
             <div className="park-image">
@@ -726,15 +720,6 @@ const NorthernCircuit = () => {
               <h3>{park.name}</h3>
               <p className="park-description">{park.description}</p>
               
-              <div className="park-highlights">
-                <h4>Highlights</h4>
-                <ul>
-                  {park.highlights.map((highlight, index) => (
-                    <li key={index}>{highlight}</li>
-                  ))}
-                </ul>
-              </div>
-
               <div className="park-meta">
                 <div className="best-time">
                   <FaClock />
