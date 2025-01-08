@@ -126,11 +126,12 @@ const ContactUs = () => {
                 <h3>Facebook</h3>
               </div>
               <div className="social-content">
-                <div className="fb-page" 
-                  data-href="https://www.facebook.com/TanzaniaCamping"
+                <div 
+                  className="fb-page" 
+                  data-href="https://web.facebook.com/TanzaniaCamping/photos"
                   data-tabs="timeline"
-                  data-width=""
-                  data-height="400"
+                  data-width="500"
+                  data-height="500"
                   data-small-header="false"
                   data-adapt-container-width="true"
                   data-hide-cover="false"
@@ -164,8 +165,8 @@ const ContactUs = () => {
               <div className="youtube-feed">
                 <iframe
                   width="100%"
-                  height="315"
-                  src="https://www.youtube.com/embed/?listType=user_uploads&list=UCA6R4Y-IlH2Rmk5tGRbEzvw"
+                  height="400px"
+                  src="https://www.youtube.com/embed/lq2g2MggY3E?si=4obCql8gK5BHnOYb"
                   title="YouTube video player"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -192,21 +193,60 @@ const ContactUs = () => {
         </section>
 
         <div className="map-section">
-          <div className="map-overlay">
-            <h2>Find Us Here</h2>
-            <p>Visit our office in Arusha, Tanzania</p>
-          </div>
           <div className="map-container">
             <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3982.9178849726104!2d36.67960347694172!3d-3.3702485414591887!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x18371c8efdbfbb95%3A0xce9ccc491ed2912a!2sGofan%20Safaris%20%26%20Travel%20Africa!5e0!3m2!1sen!2sus!4v1733868752152!5m2!1sen!2sus"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3982.9178849726104!2d36.67960347694172!3d-3.3702485414591887!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x18371c8efdbfbb95%3A0xce9ccc491ed2912a!2sGofan%20Safaris%20%26%20Travel%20Africa!5e1!3m2!1sen!2sus!4v1733868752152!5m2!1sen!2sus"
               width="100%"
-              height="450"
+              height="100%"
               style={{ border: 0 }}
               allowFullScreen=""
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               title="Office Location"
             ></iframe>
+          </div>
+          
+          <div className="map-overlay">
+            <h2>Find Us Here</h2>
+            <p>Visit our office in Arusha, Tanzania</p>
+            
+            <div className="directions-info">
+              <div className="direction-item">
+                <h3>From Kilimanjaro International Airport (JRO)</h3>
+                <ul>
+                  <li>Distance: ~45 km (45-60 minutes drive)</li>
+                  <li>Take Arusha-Moshi Highway towards Arusha</li>
+                  <li>Enter Arusha city via Moshi Road</li>
+                  <li>Turn right at Levolosi Junction</li>
+                  <li>Our office is located at Plot 18F</li>
+                </ul>
+              </div>
+              
+              <div className="direction-item">
+                <h3>From Arusha Airport (ARK)</h3>
+                <ul>
+                  <li>Distance: ~8 km (15-20 minutes drive)</li>
+                  <li>Head north on Sokoine Road</li>
+                  <li>Continue to Levolosi area</li>
+                  <li>Office is visible from main road</li>
+                </ul>
+              </div>
+
+              <div className="transport-options">
+                <h3>Transport Options</h3>
+                <ul>
+                  <li>Airport Shuttle Service (pre-book)</li>
+                  <li>Local Taxi Services</li>
+                  <li>Uber/Bolt available</li>
+                </ul>
+              </div>
+
+              <div className="landmark-info">
+                <h3>Notable Landmarks</h3>
+                <p>Near Levolosi Secondary School</p>
+                <p>5 minutes from Clock Tower</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
