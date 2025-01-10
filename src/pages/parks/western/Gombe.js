@@ -627,7 +627,7 @@ const Gombe = () => {
             <div className="stat-card">
               <h3>Research History</h3>
               <p>{parkInfo.parkStatistics.researchPublications} publications</p>
-            </div>
+              </div>
             <div className="stat-card">
               <h3>Annual Visitors</h3>
               <p>{parkInfo.parkStatistics.annualVisitors}</p>
@@ -691,7 +691,7 @@ const Gombe = () => {
                     <h4>{point.name}</h4>
                     <span className="poi-type">{point.type}</span>
                     <p>{point.description}</p>
-                  </div>
+              </div>
                 ))}
               </div>
             </div>
@@ -802,7 +802,7 @@ const Gombe = () => {
                   <p>Email: info@tanzaniasafaris.com</p>
                   <p>Phone: +255 123 456 789</p>
                 </div>
-              </div>
+            </div>
             </div>
           </div>
         </div>
