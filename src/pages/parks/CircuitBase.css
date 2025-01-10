@@ -332,4 +332,66 @@
 
 .highlight-item:hover {
   transform: translateY(-5px);
+}
+
+/* Update or add this style */
+.container {
+  max-width: 1800px; /* Increased from 1600px */
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Add this for the parks section specifically */
+.parks-grid .container {
+  max-width: 2000px; /* Increased from 1800px */
+  width: 95%; /* This ensures some margin from screen edges */
+}
+
+/* Update the parks grid layout */
+.parks-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* Increased from 280px */
+  gap: 2.5rem;
+  padding: 2rem 0;
+}
+
+.park-card {
+  min-width: 400px; /* Increased from 280px */
+  height: 100%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1800px) {
+  .parks-cards-grid {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
+  
+  .park-card {
+    min-width: 350px;
+  }
+}
+
+@media (max-width: 1400px) {
+  .parks-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .park-card {
+    min-width: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .parks-cards-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .park-card {
+    min-width: 100%;
+  }
+  
+  .parks-grid .container {
+    width: 100%;
+    padding: 0 1rem;
+  }
 } 

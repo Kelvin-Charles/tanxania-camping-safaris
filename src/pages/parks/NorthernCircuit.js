@@ -4,7 +4,8 @@ import {
   FaMapMarkerAlt, FaTree, FaPaw, FaClock, FaInfoCircle, FaCalendarAlt,
   FaUsers, FaCamera, FaStar, FaCompass, FaLeaf, FaMountain, FaSun,
   FaCloudRain, FaPlane, FaCar, FaHotel, FaBinoculars, FaRoute,
-  FaGlobe, FaUmbrellaBeach, FaChild, FaDollarSign, FaHeart, FaChevronRight
+  FaGlobe, FaUmbrellaBeach, FaChild, FaDollarSign, FaHeart, FaChevronRight,
+  FaChevronLeft
 } from 'react-icons/fa';
 import './NorthernCircuit.css';
 
@@ -413,6 +414,17 @@ const NorthernCircuit = () => {
     }
   ];
 
+  const scrollParks = (direction) => {
+    const container = document.querySelector('.parks-cards-grid');
+    const scrollAmount = 400;
+    if (container) {
+      container.scrollBy({
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <div className="northern-circuit">
       <div className="circuit-hero">
@@ -700,7 +712,14 @@ const NorthernCircuit = () => {
 
       <section className="parks-grid">
         <div className="container">
-          <h2>Explore Our Iconic Parks</h2>
+          <h2>Explore Our Parks</h2>
+          <button 
+            className="scroll-indicator scroll-left" 
+            onClick={() => scrollParks('left')}
+            aria-label="Scroll left"
+          >
+            <FaChevronLeft />
+          </button>
           <div className="parks-cards-grid">
         {northernParks.map(park => (
           <div 
@@ -741,6 +760,13 @@ const NorthernCircuit = () => {
           </div>
         ))}
       </div>
+          <button 
+            className="scroll-indicator scroll-right" 
+            onClick={() => scrollParks('right')}
+            aria-label="Scroll right"
+          >
+            <FaChevronRight />
+          </button>
         </div>
       </section>
     </div>

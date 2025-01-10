@@ -1,36 +1,87 @@
 @import './CircuitBase.css';
 
+:root {
+  --primary-color: #2c5282;
+  --primary-dark: #1a365d;
+  --accent-color: #4299e1;
+  --text-color: #333;
+  --text-light: #666;
+  --background-light: #f9f9f9;
+  --white: #ffffff;
+}
+
 .western-circuit {
   padding-top: 80px;
+  background-color: var(--background-light);
 }
 
+/* Hero Section */
 .circuit-hero {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-              url('https://images.unsplash.com/photo-1516426122078-c23e76301801') center/cover;
+              url('https://img.freepik.com/free-photo/chimpanzee-sitting-branch-forest_475641-137.jpg?w=1800') center/cover fixed;
 }
 
-/* Custom styles for western circuit */
-.feature svg {
-  color: #2c5282; /* Unique color for western circuit icons */
+/* Feature Cards */
+.feature-card::before {
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
 }
 
-.view-details-btn {
-  background: #2c5282;
+.feature-card .icon {
+  color: var(--primary-color);
 }
 
-.view-details-btn:hover {
-  background: #1a365d;
+/* Park Cards */
+.park-card:hover {
+  border-color: var(--primary-color);
 }
 
-.highlight-item strong {
-  color: #2c5282;
+.park-difficulty {
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
 }
 
-/* Additional western-specific animations */
-.park-card:hover .park-image img {
-  transform: scale(1.1);
+/* Stats Section */
+.stat-icon {
+  color: var(--primary-color);
 }
 
-.feature:hover {
-  border-color: #2c5282;
+/* Continue with other specific Western Circuit styling... */
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 3rem;
+  }
+}
+
+/* Add or update these styles */
+.parks-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns for Western Circuit */
+  gap: 2rem;
+  padding: 2rem 0;
+  overflow-x: auto; /* Allows horizontal scroll if needed */
+}
+
+.park-card {
+  min-width: 280px; /* Ensures minimum card width */
+}
+
+/* Responsive adjustments */
+@media (max-width: 1400px) {
+  .parks-cards-grid {
+    grid-template-columns: repeat(4, minmax(280px, 1fr));
+    padding: 2rem 1rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .parks-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .parks-cards-grid {
+    grid-template-columns: 1fr;
+  }
 } 

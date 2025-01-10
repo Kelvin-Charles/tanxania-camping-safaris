@@ -1,27 +1,102 @@
 @import './CircuitBase.css';
 
+:root {
+  --primary-color: #805ad5;
+  --primary-dark: #6b46c1;
+  --accent-color: #9f7aea;
+  --text-color: #333;
+  --text-light: #666;
+  --background-light: #f9f9f9;
+  --white: #ffffff;
+}
+
 .southern-circuit {
   padding-top: 80px;
+  background-color: var(--background-light);
 }
 
+/* Hero Section */
 .circuit-hero {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-              url('https://images.unsplash.com/photo-1516426122078-c23e76301801') center/cover;
+              url('/public/images/westernCirciut/gorilla.jpg') center/cover fixed;
 }
 
-/* Custom styles for southern circuit */
-.feature svg {
-  color: #805ad5; /* Unique color for southern circuit icons */
+/* Feature Cards */
+.feature-card::before {
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+}
+
+.feature-card .icon {
+  color: var(--primary-color);
+}
+
+/* Park Cards */
+.park-card:hover {
+  border-color: var(--primary-color);
+}
+
+.park-difficulty {
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+}
+
+/* Stats Section */
+.stat-icon {
+  color: var(--primary-color);
 }
 
 .view-details-btn {
-  background: #805ad5;
+  background: var(--primary-color);
 }
 
 .view-details-btn:hover {
-  background: #6b46c1;
+  background: var(--primary-dark);
 }
 
-.highlight-item strong {
-  color: #805ad5;
+/* Season Cards */
+.season-card {
+  border-color: var(--primary-color);
+}
+
+.season-icon {
+  color: var(--primary-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 3rem;
+  }
+}
+
+/* Add or update these styles */
+.parks-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns for Southern Circuit */
+  gap: 2rem;
+  padding: 2rem 0;
+  overflow-x: auto;
+}
+
+.park-card {
+  min-width: 280px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1400px) {
+  .parks-cards-grid {
+    grid-template-columns: repeat(4, minmax(280px, 1fr));
+    padding: 2rem 1rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .parks-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .parks-cards-grid {
+    grid-template-columns: 1fr;
+  }
 } 

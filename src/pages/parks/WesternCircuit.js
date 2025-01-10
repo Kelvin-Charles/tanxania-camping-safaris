@@ -1,171 +1,366 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { FaMapMarkerAlt, FaTree, FaPaw, FaClock, FaInfoCircle } from 'react-icons/fa';
+import { 
+  FaMapMarkerAlt, FaTree, FaPaw, FaClock, FaInfoCircle, FaRoute, 
+  FaGlobe, FaUsers, FaCalendarAlt, FaSun, FaCloudRain, FaChevronRight,
+  FaStar, FaHeart, FaPlane, FaHotel, FaWhatsapp
+} from 'react-icons/fa';
 import './westernCircuit.css';
 
 const WesternCircuit = () => {
   const navigate = useNavigate();
+  const [hoveredCard, setHoveredCard] = useState(null);
+
+  const circuitFeatures = [
+    {
+      icon: <FaPaw />,
+      title: "Primate Paradise",
+      description: "Home to some of Africa's most studied chimpanzee populations"
+    },
+    {
+      icon: <FaTree />,
+      title: "Pristine Wilderness",
+      description: "Remote and untouched landscapes along Lake Tanganyika"
+    },
+    {
+      icon: <FaGlobe />,
+      title: "Unique Ecosystems",
+      description: "Blend of rainforest, mountains, and lakeside environments"
+    },
+    {
+      icon: <FaRoute />,
+      title: "Adventure Safari",
+      description: "Off-the-beaten-path experiences in Tanzania's wild west"
+    }
+  ];
+
+  const circuitHighlights = {
+    uniqueFeatures: [
+      "Chimpanzee tracking in natural habitat",
+      "Lake Tanganyika's crystal waters",
+      "Remote wilderness experiences",
+      "Mountain forest hiking trails",
+      "Pristine beaches along the lake",
+      "Rich biodiversity hotspots"
+    ],
+    activities: [
+      "Chimp trekking adventures",
+      "Sport fishing expeditions",
+      "Forest hiking and nature walks",
+      "Beach activities on Lake Tanganyika",
+      "Bird watching in pristine forests",
+      "Cultural village visits"
+    ]
+  };
+
+  const practicalInfo = {
+    bestTime: {
+      icon: <FaClock />,
+      title: "Best Time to Visit",
+      details: [
+        "Dry Season: May to October",
+        "Chimp Tracking: July to October",
+        "Green Season: November to April",
+        "Lake Activities: Year-round"
+      ]
+    },
+    access: {
+      icon: <FaPlane />,
+      title: "Getting There",
+      details: [
+        "Flights to Kigoma Airport",
+        "Charter flights available",
+        "Road access from Arusha/Dar",
+        "Boat transfers on Lake Tanganyika"
+      ]
+    },
+    accommodation: {
+      icon: <FaHotel />,
+      title: "Where to Stay",
+      details: [
+        "Luxury lakeside lodges",
+        "Tented forest camps",
+        "Mountain retreats",
+        "Eco-friendly resorts"
+      ]
+    }
+  };
+
+  const seasonalHighlights = {
+    drySeasonJunOct: [
+      "Peak chimpanzee tracking season",
+      "Clear forest trails",
+      "Excellent photography conditions",
+      "Perfect lake activities weather"
+    ],
+    wetSeasonNovMay: [
+      "Lush forest landscapes",
+      "Abundant birdlife",
+      "Fewer visitors",
+      "Dramatic forest scenery"
+    ]
+  };
+
   const westernParks = [
     {
       id: 'gombe',
       name: 'Gombe National Park',
       image: 'https://images.unsplash.com/photo-1516426122078-c23e76319801',
-      description: "Famous for Jane Goodall's chimpanzee research and pristine forest habitat.",
+      description: "Famous for Jane Goodall's chimpanzee research, offering intimate primate encounters.",
+      difficulty: "Moderate",
+      bestTime: "July-October",
+      duration: "2-3 days",
       highlights: [
         'Chimpanzee tracking',
         'Pristine forest trails',
         'Lake Tanganyika shores',
         'Bird watching'
-      ],
-      bestTime: 'July-October, December-February'
+      ]
     },
     {
       id: 'mahale',
       name: 'Mahale Mountains',
       image: 'https://images.unsplash.com/photo-1516426122078-c23e76319801',
       description: 'Remote paradise combining mountains, rainforest, and beach along Lake Tanganyika.',
+      difficulty: "Moderate-Challenging",
+      bestTime: "May-October",
+      duration: "3-4 days",
       highlights: [
         'Chimpanzee trekking',
         'Beach activities',
         'Mountain hiking',
         'Pristine forest'
-      ],
-      bestTime: 'May-October'
+      ]
     },
     {
       id: 'katavi',
       name: 'Katavi National Park',
-      image: 'https://images.unsplash.com/photo-1516426122078-c23e76301801',
-      description: "One of Tanzania's most untouched wilderness areas.",
+      image: 'https://img.freepik.com/free-photo/beautiful-shot-african-safari-wildlife_181624-19806.jpg?w=1800',
+      description: "One of Tanzania's most untouched wilderness areas, famous for large hippo pods and buffalo herds.",
+      difficulty: "Moderate",
+      bestTime: "June-October",
+      duration: "3-4 days",
       highlights: [
-        'Large hippo pods',
+        'Large hippo concentrations',
         'Vast grasslands',
         'Remote safaris',
         'Authentic wilderness'
-      ],
-      bestTime: 'June-October'
+      ]
     },
     {
       id: 'rubondo',
       name: 'Rubondo Island',
-      image: 'https://images.unsplash.com/photo-1516426122078-c23e76301801',
-      description: 'A unique island national park in Lake Victoria.',
+      image: 'https://img.freepik.com/free-photo/beautiful-landscape-with-trees-lake_23-2149666138.jpg?w=1800',
+      description: 'A unique island national park in Lake Victoria offering pristine forest and water experiences.',
+      difficulty: "Easy",
+      bestTime: "June-August",
+      duration: "2-3 days",
       highlights: [
         'Forest chimpanzees',
         'Sport fishing',
         'Bird watching',
         'Island activities'
-      ],
-      bestTime: 'June-August'
-    }
+      ]
+    },
+    // Add other parks...
   ];
 
   return (
     <div className="western-circuit">
-      <div className="circuit-hero">
+      <section className="circuit-hero">
         <div className="hero-content">
           <h1>Western Safari Circuit</h1>
-          <p>Discover Tanzania's primate paradise and hidden wilderness</p>
+          <p>Discover Tanzania's hidden gems and primate paradise</p>
         </div>
-      </div>
+      </section>
 
-      <div className="circuit-overview">
-        <div className="overview-content">
-          <h2>Circuit Overview</h2>
-          <p>The Western Circuit offers unique wildlife experiences, focusing on primate encounters 
-             and untouched wilderness areas along Lake Tanganyika.</p>
-          
-          <div className="circuit-features">
-            <div className="feature">
-              <FaMapMarkerAlt />
-              <h3>Unique Location</h3>
-              <p>Pristine lakeside and mountain environments</p>
+      {/* Stats Section */}
+      <section className="circuit-stats">
+        <div className="container">
+          <div className="stats-grid">
+            <div className="stat-card">
+              <div className="stat-icon">
+                <FaPaw />
+              </div>
+              <div className="stat-content">
+                <h3>Primate Haven</h3>
+                <p>Home to Tanzania's largest chimpanzee populations</p>
+              </div>
             </div>
-            <div className="feature">
-              <FaPaw />
-              <h3>Primate Focus</h3>
-              <p>Best chimpanzee viewing in Africa</p>
-            </div>
-            <div className="feature">
-              <FaTree />
-              <h3>Remote Beauty</h3>
-              <p>Untouched wilderness experiences</p>
-            </div>
-            <div className="feature">
-              <FaClock />
-              <h3>Adventure Safari</h3>
-              <p>Combine wildlife with unique activities</p>
-            </div>
-          </div>
 
-          <div className="circuit-introduction">
-            <div className="intro-content">
-              <h2>Why Visit the Western Circuit?</h2>
-              <p>
-                The Western Circuit provides a unique combination of primate tracking, 
-                traditional safaris, and lakeside activities. It's perfect for adventurous 
-                travelers seeking off-the-beaten-path experiences.
-              </p>
-              <p>
-                From tracking chimpanzees in Gombe to exploring the remote wilderness of 
-                Katavi, the Western Circuit offers unforgettable wildlife encounters.
-              </p>
-              <div className="intro-highlights">
-                <div className="highlight-item">
-                  <strong>Best Time to Visit:</strong> June to October
-                </div>
-                <div className="highlight-item">
-                  <strong>Duration:</strong> 7-10 days recommended
-                </div>
-                <div className="highlight-item">
-                  <strong>Starting Point:</strong> Kigoma
-                </div>
+            <div className="stat-card">
+              <div className="stat-icon">
+                <FaGlobe />
+              </div>
+              <div className="stat-content">
+                <h3>Unique Landscape</h3>
+                <p>Mountains meet Lake Tanganyika's crystal waters</p>
+              </div>
+            </div>
+
+            <div className="stat-card">
+              <div className="stat-icon">
+                <FaRoute />
+              </div>
+              <div className="stat-content">
+                <h3>Remote Adventure</h3>
+                <p>Off-the-beaten-path wilderness experiences</p>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div className="parks-grid">
-        {westernParks.map(park => (
-          <div 
-            key={park.id} 
-            className="park-card"
-            onClick={() => navigate(`/parks-reserves/western/${park.id}`)}
-          >
-            <div className="park-image">
-              <img src={park.image} alt={park.name} />
+      {/* Circuit Overview */}
+      <section className="circuit-overview">
+        <div className="overview-content">
+          <h2>Tanzania's Wild West Adventure</h2>
+          <p className="overview-intro">
+            Experience the untamed beauty of Tanzania's Western Circuit, where pristine 
+            forests meet the crystal waters of Lake Tanganyika. This remote paradise 
+            offers unique wildlife encounters and breathtaking landscapes far from the 
+            beaten path.
+          </p>
+
+          <div className="circuit-features">
+            {circuitFeatures.map((feature, index) => (
+              <div 
+                key={index} 
+                className="feature-card"
+                onMouseEnter={() => setHoveredCard(index)}
+                onMouseLeave={() => setHoveredCard(null)}
+              >
+                <span className="icon">{feature.icon}</span>
+                <h3>{feature.title}</h3>
+                <p>{feature.description}</p>
+                <div className="feature-footer">
+                  <span className="learn-more">Learn More</span>
+                  <FaChevronRight className={`arrow-icon ${hoveredCard === index ? 'active' : ''}`} />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Add the highlights section */}
+      <section className="circuit-highlights">
+        <div className="container">
+          <h2>What Makes It Special</h2>
+          <div className="highlights-grid">
+            <div className="highlights-card">
+              <h3><FaStar /> Unique Features</h3>
+              <ul>
+                {circuitHighlights.uniqueFeatures.map((feature, index) => (
+                  <li key={index}>{feature}</li>
+                ))}
+              </ul>
             </div>
-            <div className="park-content">
-              <h3>{park.name}</h3>
-              <p className="park-description">{park.description}</p>
-              
-              <div className="park-highlights">
-                <h4>Highlights</h4>
+            <div className="highlights-card">
+              <h3><FaHeart /> Signature Activities</h3>
+              <ul>
+                {circuitHighlights.activities.map((activity, index) => (
+                  <li key={index}>{activity}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Add the practical info section */}
+      <section className="practical-info">
+        <div className="container">
+          <h2>Essential Information</h2>
+          <div className="info-grid">
+            {Object.values(practicalInfo).map((info, index) => (
+              <div className="info-card" key={index}>
+                <div className="info-icon">{info.icon}</div>
+                <h3>{info.title}</h3>
                 <ul>
-                  {park.highlights.map((highlight, index) => (
-                    <li key={index}>{highlight}</li>
+                  {info.details.map((detail, idx) => (
+                    <li key={idx}>{detail}</li>
                   ))}
                 </ul>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-              <div className="park-meta">
-                <div className="best-time">
-                  <FaClock />
-                  <span>Best Time: {park.bestTime}</span>
-                </div>
-              </div>
-
-              <Link 
-                to={`/parks-reserves/western/${park.id}`} 
-                className="view-details-btn"
-              >
-                View Details <FaInfoCircle />
-              </Link>
+      {/* Add the seasonal highlights section */}
+      <section className="seasonal-highlights">
+        <div className="container">
+          <h2>Seasonal Highlights</h2>
+          <div className="season-grid">
+            <div className="season-card">
+              <div className="season-icon"><FaSun /></div>
+              <h3>Dry Season (May-October)</h3>
+              <ul>
+                {seasonalHighlights.drySeasonJunOct.map((highlight, index) => (
+                  <li key={index}>{highlight}</li>
+                ))}
+              </ul>
+            </div>
+            <div className="season-card">
+              <div className="season-icon"><FaCloudRain /></div>
+              <h3>Green Season (November-April)</h3>
+              <ul>
+                {seasonalHighlights.wetSeasonNovMay.map((highlight, index) => (
+                  <li key={index}>{highlight}</li>
+                ))}
+              </ul>
             </div>
           </div>
-        ))}
-      </div>
+        </div>
+      </section>
+
+      {/* Parks Grid */}
+      <section className="parks-grid">
+        <div className="container">
+          <h2>Explore Our Parks</h2>
+          <div className="parks-cards-grid">
+            {westernParks.map(park => (
+              <div 
+                key={park.id} 
+                className={`park-card ${hoveredCard === park.id ? 'hovered' : ''}`}
+                onMouseEnter={() => setHoveredCard(park.id)}
+                onMouseLeave={() => setHoveredCard(null)}
+                onClick={() => navigate(`/parks-reserves/western/${park.id}`)}
+              >
+                <div className="park-image">
+                  <img src={park.image} alt={park.name} />
+                  <div className="image-overlay">
+                    <span className="park-difficulty">{park.difficulty}</span>
+                  </div>
+                </div>
+                <div className="park-content">
+                  <h3>{park.name}</h3>
+                  <p className="park-description">{park.description}</p>
+                  
+                  <div className="park-meta">
+                    <div className="best-time">
+                      <FaClock />
+                      <span>Best Time: {park.bestTime}</span>
+                    </div>
+                    <div className="duration">
+                      <FaCalendarAlt />
+                      <span>Duration: {park.duration}</span>
+                    </div>
+                  </div>
+
+                  <Link 
+                    to={`/parks-reserves/western/${park.id}`} 
+                    className="view-details-btn"
+                  >
+                    Explore More <FaInfoCircle />
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
