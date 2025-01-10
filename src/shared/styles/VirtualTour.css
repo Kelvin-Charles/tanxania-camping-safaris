@@ -179,4 +179,23 @@
     width: 100%;
     text-align: center;
   }
+}
+
+:root {
+  /* Primary Colors */
+  --primary-color: #ff7b25;
+  --primary-dark: #e66000;
+  --primary-light: #ffa366;
+}
+
+.tour-controls button:hover {
+  background-color: var(--primary-color);
+}
+
+.hotspot-marker {
+  background-color: var(--primary-color);
+}
+
+.hotspot-info h3 {
+  color: var(--primary-color);
 } 
