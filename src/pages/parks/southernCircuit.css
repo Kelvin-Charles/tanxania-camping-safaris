@@ -1,8 +1,9 @@
 @import './CircuitBase.css';
 
 :root {
-  --primary-color: #805ad5;
-  --primary-dark: #6b46c1;
+  --primary-color: #ff7b25;
+  --primary-dark: #e66000;
+  --primary-light: #ffa366;
   --accent-color: #9f7aea;
   --text-color: #333;
   --text-light: #666;

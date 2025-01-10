@@ -1,10 +1,8 @@
 :root {
-  --primary-color-northern: #38a169;
-  --primary-color-southern: #805ad5;
-  --primary-color-western: #2c5282;
-  --primary-hover-northern: #2f855a;
-  --primary-hover-southern: #6b46c1;
-  --primary-hover-western: #1a365d;
+  /* Primary Colors */
+  --primary-color: #ff7b25;
+  --primary-dark: #e66000;
+  --primary-light: #ffa366;
 }
 
 /* Hero Section */
@@ -109,12 +107,14 @@
 .feature:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  border-color: var(--primary-color);
 }
 
 .feature svg {
   font-size: 2.5rem;
   margin-bottom: 1.5rem;
   transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  color: var(--primary-color);
 }
 
 .feature:hover svg {
@@ -151,6 +151,7 @@
 .park-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  border-color: var(--primary-color);
 }
 
 .park-image {

@@ -1,4 +1,5 @@
 :root {
+  /* Primary Colors */
   --primary-color: #ff7b25;
   --primary-dark: #e66000;
   --primary-light: #ffa366;
@@ -383,4 +384,16 @@
 .navbar.scrolled .dropdown-item a.active {
   color: white;
   background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-link:hover {
+  color: var(--primary-color);
+}
+
+.nav-link.active {
+  color: var(--primary-color);
+}
+
+.dropdown-menu a:hover {
+  background-color: var(--primary-color);
 }
