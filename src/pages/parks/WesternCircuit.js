@@ -162,6 +162,81 @@ const WesternCircuit = () => {
         'Island activities'
       ]
     },
+    {
+      id: 'saanane',
+      name: 'Saanane Island National Park',
+      image: 'https://img.freepik.com/free-photo/beautiful-landscape-lake-victoria_23-2149666137.jpg?w=1800',
+      description: "Tanzania's smallest national park, offering a unique blend of wildlife and Lake Victoria views.",
+      difficulty: "Easy",
+      bestTime: "June-September",
+      duration: "1-2 days",
+      highlights: [
+        'Lake Victoria views',
+        'Small wildlife',
+        'Bird watching',
+        'City proximity'
+      ]
+    },
+    {
+      id: 'burigi-chato',
+      name: 'Burigi-Chato National Park',
+      image: 'https://img.freepik.com/free-photo/african-savanna-landscape_23-2149666144.jpg?w=1800',
+      description: "A newly established park with diverse landscapes and emerging wildlife populations.",
+      difficulty: "Moderate",
+      bestTime: "June-October",
+      duration: "2-3 days",
+      highlights: [
+        'Scenic landscapes',
+        'Growing wildlife',
+        'Lake Burigi',
+        'Remote safaris'
+      ]
+    },
+    {
+      id: 'ibanda-kyerwa',
+      name: 'Ibanda-Kyerwa National Park',
+      image: 'https://img.freepik.com/free-photo/african-landscape-sunset_23-2149666140.jpg?w=1800',
+      description: "Rich in biodiversity and cultural heritage, offering unique wildlife corridors.",
+      difficulty: "Moderate",
+      bestTime: "June-September",
+      duration: "2-3 days",
+      highlights: [
+        'Cultural sites',
+        'Wildlife corridors',
+        'River systems',
+        'Local communities'
+      ]
+    },
+    {
+      id: 'rumanyika',
+      name: 'Rumanyika-Karagwe National Park',
+      image: 'https://img.freepik.com/free-photo/beautiful-african-savanna_23-2149666143.jpg?w=1800',
+      description: "Historical landscapes combined with natural beauty and cultural significance.",
+      difficulty: "Easy-Moderate",
+      bestTime: "June-September",
+      duration: "2-3 days",
+      highlights: [
+        'Historical sites',
+        'Cultural heritage',
+        'Scenic views',
+        'Traditional kingdoms'
+      ]
+    },
+    {
+      id: 'ugalla',
+      name: 'Ugalla River National Park',
+      image: 'https://img.freepik.com/free-photo/river-forest-landscape_23-2149666139.jpg?w=1800',
+      description: "A pristine wilderness area along the Ugalla River system, perfect for adventurous travelers.",
+      difficulty: "Moderate",
+      bestTime: "July-October",
+      duration: "2-4 days",
+      highlights: [
+        'River ecosystem',
+        'Sport fishing',
+        'Remote safaris',
+        'Bird diversity'
+      ]
+    }
     // Add other parks...
   ];
 

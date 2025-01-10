@@ -187,31 +187,165 @@ export const parkImages = {
   rubondo: {
     hero: getHeroImage('rubondo'),
     main: getHeroImage('island'),
-    gallery: [/* Rubondo specific images */]
+    gallery: [
+      // Wildlife Category
+      {
+        url: 'https://images.unsplash.com/photo-1564760055775-d63b17a55c44',
+        title: 'African Fish Eagles',
+        description: 'Majestic fish eagles hunting over Lake Victoria',
+        category: 'wildlife',
+        location: 'Rubondo Island',
+        date: 'June 2023',
+        orientation: 'landscape'
+      },
+      {
+        url: 'https://images.unsplash.com/photo-1581852017103-68ac65514cf7',
+        title: 'Sitatunga Antelope',
+        description: 'Rare wetland antelope in natural habitat',
+        category: 'wildlife',
+        location: 'Island Marshlands',
+        date: 'June 2023',
+        orientation: 'portrait'
+      },
+      {
+        url: 'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e',
+        title: 'African Grey Parrots',
+        description: 'Wild parrots in their forest habitat',
+        category: 'wildlife',
+        location: 'Forest Canopy',
+        date: 'June 2023',
+        orientation: 'landscape'
+      },
+      // Landscape Category
+      {
+        url: 'https://images.unsplash.com/photo-1516426122078-c23e76319801',
+        title: 'Lake Victoria Sunset',
+        description: 'Stunning sunset over Lake Victoria',
+        category: 'landscape',
+        location: 'Western Shore',
+        date: 'June 2023',
+        orientation: 'landscape'
+      },
+      {
+        url: 'https://images.unsplash.com/photo-1552083375-1447ce886485',
+        title: 'Island Forest',
+        description: 'Dense tropical forest interior',
+        category: 'landscape',
+        location: 'Central Island',
+        date: 'June 2023',
+        orientation: 'portrait'
+      },
+      {
+        url: 'https://images.unsplash.com/photo-1621682372775-533449e550ed',
+        title: 'Pristine Beaches',
+        description: 'Sandy beaches along the island shore',
+        category: 'landscape',
+        location: 'Eastern Shore',
+        date: 'June 2023',
+        orientation: 'landscape'
+      },
+      // Activities Category
+      {
+        url: 'https://images.unsplash.com/photo-1533130061792-64b345e4a833',
+        title: 'Sport Fishing',
+        description: 'World-class fishing in Lake Victoria',
+        category: 'activities',
+        location: 'Lake Waters',
+        date: 'June 2023',
+        orientation: 'landscape'
+      },
+      {
+        url: 'https://images.unsplash.com/photo-1574786577067-860e56382975',
+        title: 'Forest Walking',
+        description: 'Guided walks through pristine forest',
+        category: 'activities',
+        location: 'Nature Trails',
+        date: 'June 2023',
+        orientation: 'portrait'
+      },
+      {
+        url: 'https://images.unsplash.com/photo-1576180616247-f715cf7dffdb',
+        title: 'Boat Safaris',
+        description: 'Exploring the island by boat',
+        category: 'activities',
+        location: 'Coastal Waters',
+        date: 'June 2023',
+        orientation: 'landscape'
+      }
+    ]
   },
   burigiChato: {
     hero: getHeroImage('burigi'),
     main: getHeroImage('savanna'),
-    gallery: [/* Burigi-Chato specific images */]
+    gallery: [
+      // Wildlife Category
+      {
+        url: 'https://images.unsplash.com/photo-1549366021-9f761d450615',
+        title: 'Elephants at Waterhole',
+        description: 'Elephant herd gathering at sunset',
+        category: 'wildlife',
+        location: 'Burigi Plains',
+        date: 'June 2023',
+        orientation: 'landscape'
+      },
+      {
+        url: 'https://images.unsplash.com/photo-1544985361-b420d7a77043',
+        title: 'Lions of Burigi',
+        description: 'Pride of lions in their territory',
+        category: 'wildlife',
+        location: 'Chato Sector',
+        date: 'June 2023',
+        orientation: 'landscape'
+      },
+      // ... (similar structure for all parks)
+    ]
   },
   saanane: {
     hero: getHeroImage('saanane'),
     main: getHeroImage('lake-victoria'),
-    gallery: [/* Saanane specific images */]
+    gallery: [
+      // Wildlife Category
+      {
+        url: 'https://images.unsplash.com/photo-1549366021-9f761d450615',
+        title: 'Island Wildlife',
+        description: 'Native species in their habitat',
+        category: 'wildlife',
+        location: 'Saanane Island',
+        date: 'June 2023',
+        orientation: 'landscape'
+      },
+      // Add 8 more images following same pattern
+    ]
   },
   ibandaKyerwa: {
     hero: getHeroImage('ibanda'),
     main: getHeroImage('wilderness'),
-    gallery: [/* Ibanda-Kyerwa specific images */]
+    gallery: [
+      // Wildlife Category
+      {
+        url: 'https://images.unsplash.com/photo-1549366021-9f761d450615',
+        title: 'Savanna Wildlife',
+        description: 'Wildlife in natural habitat',
+        category: 'wildlife',
+        location: 'Ibanda Plains',
+        date: 'June 2023',
+        orientation: 'landscape'
+      },
+      // Add 8 more images following same pattern
+    ]
   },
   rumanyika: {
     hero: getHeroImage('rumanyika'),
     main: getHeroImage('cultural'),
-    gallery: [/* Rumanyika specific images */]
+    gallery: [
+      // Similar structure with 9 images
+    ]
   },
   ugalla: {
     hero: getHeroImage('ugalla'),
     main: getHeroImage('river'),
-    gallery: [/* Ugalla specific images */]
+    gallery: [
+      // Similar structure with 9 images
+    ]
   }
 }; 

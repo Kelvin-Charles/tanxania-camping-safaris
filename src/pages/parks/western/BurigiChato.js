@@ -1,8 +1,10 @@
 import React from 'react';
 import { 
   FaLeaf, FaPaw, FaTree, FaClock, FaMapMarkerAlt, FaCalendarAlt,
-  FaTemperatureHigh, FaCloudRain, FaCamera, FaShip, FaWater,
-  FaBinoculars, FaCheck, FaUsers, FaCalendarCheck, FaWhatsapp
+  FaTemperatureHigh, FaCloudRain, FaCamera, FaShip, FaMountain,
+  FaSwimmer, FaBinoculars, FaUserGraduate, FaChartLine, FaCheck,
+  FaUsers, FaCalendarCheck, FaWhatsapp, FaBed, FaUtensils, FaWifi,
+  FaHiking, FaBookReader, FaHandHoldingHeart, FaGlobeAfrica
 } from 'react-icons/fa';
 import TrailMap from '../../../components/TrailMap';
 import ParkGallery from '../../../components/ParkGallery';
@@ -12,89 +14,137 @@ import './WesternParks.css';
 const BurigiChato = () => {
   const parkInfo = {
     name: "Burigi-Chato National Park",
-    tagline: "Tanzania's Newest Wilderness Frontier",
-    description: `Burigi-Chato National Park, established in 2019, represents Tanzania's 
-    commitment to conservation with vast savannas, wetlands, and diverse wildlife. This 
-    emerging destination offers authentic safari experiences away from crowded circuits.`,
+    tagline: "Tanzania's Newest Wildlife Paradise",
+    description: `A pristine wilderness area offering exceptional wildlife viewing 
+    opportunities and stunning landscapes. This newly established park combines savanna, 
+    woodland, and lake habitats to create a unique ecosystem.`,
     
     highlights: [
-      "Untouched wilderness",
-      "Rich biodiversity",
-      "Lake Burigi scenery",
-      "Authentic safari experience",
-      "Diverse ecosystems",
-      "Cultural heritage"
+      "Diverse wildlife populations",
+      "Scenic savanna landscapes",
+      "Lake Victoria shoreline",
+      "Pristine wilderness",
+      "Excellent bird watching",
+      "Cultural experiences"
     ],
 
     activities: [
       {
         name: "Game Drives",
-        description: "Explore vast savanna plains and spot diverse wildlife",
+        description: "Explore vast savanna plains",
         duration: "Full day/Half day",
         difficulty: "Easy",
         bestTime: "Early morning/Late afternoon",
-        includes: ["4x4 vehicle", "Expert guide", "Refreshments"]
+        price: "From $150 per person",
+        includes: ["Vehicle", "Guide", "Refreshments"]
+      },
+      {
+        name: "Walking Safaris",
+        description: "Guided nature walks",
+        duration: "2-3 hours",
+        difficulty: "Moderate",
+        bestTime: "Morning",
+        includes: ["Armed ranger", "Water", "First aid"]
       },
       {
         name: "Boat Safaris",
-        description: "Navigate Lake Burigi's pristine waters",
-        duration: "2-3 hours",
+        description: "Lake Victoria excursions",
+        duration: "3-4 hours",
         difficulty: "Easy",
-        includes: ["Boat ride", "Guide", "Safety equipment"]
+        includes: ["Boat", "Guide", "Life jackets"]
       }
     ],
 
+    parkStatistics: {
+      size: "4,707 square kilometers",
+      established: "2019",
+      elevation: "1,100-1,750 meters",
+      annualVisitors: "Growing",
+      wildlife: "Big Five present",
+      birdSpecies: "350+"
+    },
+
     trails: [
       {
-        name: "Savanna Circuit",
-        distance: "15 km",
+        name: "Savanna Trail",
+        distance: "5 km",
         difficulty: "Moderate",
-        description: "Game viewing circuit through savanna",
-        startPoint: [31.5000, -2.1500],
-        type: "Loop",
-        features: ["Wildlife viewing", "Scenic vistas", "Grasslands"]
+        description: "Walking safari through game-rich areas",
+        features: ["Wildlife viewing", "Bird watching", "Scenic views"]
+      },
+      {
+        name: "Lake Shore Trail",
+        distance: "3 km",
+        difficulty: "Easy",
+        description: "Scenic walk along Lake Victoria",
+        features: ["Water birds", "Lake views", "Fishing spots"]
       }
     ],
 
     pointsOfInterest: [
       {
-        name: "Lake Burigi",
-        coordinates: [31.4800, -2.1400],
-        type: "Landscape",
-        description: "Scenic lake with abundant wildlife"
+        name: "Game Viewing Area",
+        type: "Wildlife",
+        description: "Prime location for spotting big game"
       },
       {
-        name: "Ranger Post",
-        coordinates: [31.5100, -2.1600],
-        type: "Facility",
-        description: "Park headquarters and information center"
+        name: "Bird Watching Point",
+        type: "Wildlife",
+        description: "Excellent spot for birding enthusiasts"
+      },
+      {
+        name: "Lake Victoria Viewpoint",
+        type: "Landscape",
+        description: "Panoramic views of the lake"
       }
     ],
 
+    seasonalHighlights: {
+      drySeasonJunOct: [
+        "Peak wildlife viewing",
+        "Comfortable temperatures",
+        "Best photography conditions",
+        "Easy road access"
+      ],
+      wetSeasonNovMay: [
+        "Lush landscapes",
+        "Migratory birds",
+        "Fewer visitors",
+        "Dramatic skies"
+      ],
+      yearRound: [
+        "Game drives",
+        "Bird watching",
+        "Boat safaris",
+        "Cultural visits"
+      ]
+    },
+
     practicalInfo: {
-      bestTime: {
-        peak: "June to September",
-        shoulder: "January to February",
-        avoid: "March to May (Heavy rains)"
-      },
+      bestTime: "June to October (Dry Season)",
       climate: {
         drySeasonTemp: "20-30°C",
         wetSeasonTemp: "22-32°C",
-        rainfall: "Bimodal pattern"
+        rainfall: "Heaviest from March to May"
       },
       gettingThere: [
-        {
-          method: "Road",
-          details: "Access from Bukoba or Kahama",
-          duration: "4-6 hours drive"
-        }
+        "Road access from Mwanza",
+        "Charter flights available",
+        "4x4 vehicle recommended",
+        "Transfer services"
       ]
     }
   };
 
+  const parkHeroStyle = {
+    backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                     url(${parkImages.burigiChato.hero})`
+  };
+
   return (
     <div className="park-page">
-      <section className="park-hero burigi-hero">
+      {/* Hero Section */}
+      <section className="park-hero" style={parkHeroStyle}>
         <div className="hero-content">
           <h1>{parkInfo.name}</h1>
           <p>{parkInfo.tagline}</p>
@@ -108,49 +158,13 @@ const BurigiChato = () => {
             <h2>Park Overview</h2>
             <p>{parkInfo.description}</p>
             
-            <div className="key-highlights">
-              <h3>Key Highlights</h3>
-              <div className="highlights-grid">
-                {parkInfo.highlights.map((highlight, index) => (
-                  <div key={index} className="highlight-item">
-                    <FaLeaf className="highlight-icon" />
-                    <span>{highlight}</span>
-                  </div>
-                ))}
-              </div>
+            <div className="highlights-grid">
+              {parkInfo.highlights.map((highlight, index) => (
+                <div key={index} className="highlight-item">
+                  <FaCheck className="highlight-icon" />
+                  <span>{highlight}</span>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Wildlife Section */}
-      <section className="wildlife-section">
-        <div className="container">
-          <h2>Wildlife & Nature</h2>
-          <div className="wildlife-grid">
-            <div className="wildlife-category">
-              <h3>Mammals</h3>
-              <ul>
-                {parkInfo.wildlife.mammals.map((animal, index) => (
-                  <li key={index}>{animal}</li>
-                ))}
-              </ul>
-            </div>
-            <div className="wildlife-category">
-              <h3>Birds</h3>
-              <ul>
-                {parkInfo.wildlife.birds.map((bird, index) => (
-                  <li key={index}>{bird}</li>
-                ))}
-              </ul>
-            </div>
-            <div className="wildlife-category">
-              <h3>Aquatic Life</h3>
-              <ul>
-                {parkInfo.wildlife.aquatic.map((species, index) => (
-                  <li key={index}>{species}</li>
-                ))}
-              </ul>
+              ))}
             </div>
           </div>
         </div>
@@ -159,7 +173,7 @@ const BurigiChato = () => {
       {/* Activities Section */}
       <section className="park-activities">
         <div className="container">
-          <h2>Activities & Experiences</h2>
+          <h2>Park Activities</h2>
           <div className="activities-grid">
             {parkInfo.activities.map((activity, index) => (
               <div key={index} className="activity-card">
@@ -167,96 +181,113 @@ const BurigiChato = () => {
                 <p>{activity.description}</p>
                 <div className="activity-meta">
                   <span><FaClock /> {activity.duration}</span>
-                  <span><FaMapMarkerAlt /> {activity.difficulty}</span>
+                  <span><FaHiking /> {activity.difficulty}</span>
                 </div>
+                <ul className="activity-includes">
+                  {activity.includes.map((item, idx) => (
+                    <li key={idx}><FaCheck /> {item}</li>
+                  ))}
+                </ul>
               </div>
             ))}
+          </div>
+              </div>
+      </section>
+
+      {/* Park Statistics */}
+      <section className="park-statistics">
+        <div className="container">
+          <h2><FaChartLine /> Park Statistics</h2>
+          <div className="stats-grid">
+            <div className="stat-card">
+              <h3>Park Size</h3>
+              <p>{parkInfo.parkStatistics.size}</p>
+            </div>
+            <div className="stat-card">
+              <h3>Established</h3>
+              <p>{parkInfo.parkStatistics.established}</p>
+              </div>
+            <div className="stat-card">
+              <h3>Elevation</h3>
+              <p>{parkInfo.parkStatistics.elevation}</p>
+              </div>
+            <div className="stat-card">
+              <h3>Wildlife</h3>
+              <p>{parkInfo.parkStatistics.wildlife}</p>
+            </div>
+            <div className="stat-card">
+              <h3>Bird Species</h3>
+              <p>{parkInfo.parkStatistics.birdSpecies}</p>
+              </div>
+            <div className="stat-card">
+              <h3>Annual Visitors</h3>
+              <p>{parkInfo.parkStatistics.annualVisitors}</p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Practical Information */}
-      <section className="practical-info">
+      {/* Trails & Points of Interest */}
+      <section className="park-trails">
         <div className="container">
-          <h2>Plan Your Visit</h2>
-          <div className="info-grid">
-            <div className="info-card">
-              <h3><FaCalendarAlt /> Best Time to Visit</h3>
-              <p>{parkInfo.practicalInfo.bestTime}</p>
+          <h2><FaMapMarkerAlt /> Park Trails & Points of Interest</h2>
+          <div className="trails-grid">
+            <div className="trails-list">
+              <h3>Hiking Trails</h3>
+              <div className="trail-cards">
+                {parkInfo.trails.map((trail, index) => (
+                  <div key={index} className="trail-card">
+                    <h4>{trail.name}</h4>
+                    <div className="trail-info">
+                      <span><FaHiking /> {trail.distance}</span>
+                      <span><FaMapMarkerAlt /> {trail.difficulty}</span>
+              </div>
+                    <p>{trail.description}</p>
+                    <div className="trail-features">
+                      {trail.features.map((feature, idx) => (
+                        <span key={idx} className="feature-tag">{feature}</span>
+                      ))}
+              </div>
             </div>
-            <div className="info-card">
-              <h3><FaTemperatureHigh /> Climate</h3>
-              <ul>
-                <li>Dry Season: {parkInfo.practicalInfo.climate.drySeasonTemp}</li>
-                <li>Wet Season: {parkInfo.practicalInfo.climate.wetSeasonTemp}</li>
-                <li>{parkInfo.practicalInfo.climate.rainfall}</li>
-              </ul>
-            </div>
-            <div className="info-card">
-              <h3><FaMapMarkerAlt /> Getting There</h3>
-              <ul>
-                {parkInfo.practicalInfo.gettingThere.map((item, index) => (
-                  <li key={index}>{item}</li>
                 ))}
-              </ul>
+              </div>
+            </div>
+            
+            <div className="points-list">
+              <h3>Points of Interest</h3>
+              <div className="poi-cards">
+                {parkInfo.pointsOfInterest.map((point, index) => (
+                  <div key={index} className="poi-card">
+                    <h4>{point.name}</h4>
+                    <span className="poi-type">{point.type}</span>
+                    <p>{point.description}</p>
+              </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Conservation Section */}
-      <section className="conservation">
-        <div className="container">
-          <h2>Conservation & Research</h2>
-          <p>{parkInfo.conservation.significance}</p>
-          <div className="conservation-initiatives">
-            {parkInfo.conservation.initiatives.map((initiative, index) => (
-              <div key={index} className="initiative-item">
-                <FaTree className="initiative-icon" />
-                <span>{initiative}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Gallery */}
+      <ParkGallery images={parkImages.burigiChato.gallery} />
 
-      {/* Gallery Section */}
-      <section className="park-gallery">
-        <div className="container">
-          <h2>Photo Gallery</h2>
-          <div className="gallery-grid">
-            {parkInfo.gallery.map((image, index) => (
-              <div key={index} className="gallery-item">
-                <img src={image.url} alt={image.title} />
-                <div className="gallery-caption">
-                  <h4>{image.title}</h4>
-                  <p>{image.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Booking Section */}
+      {/* Book Your Visit */}
       <section className="book-visit">
         <div className="container">
           <h2>Book Your Visit</h2>
           <div className="booking-grid">
             <div className="booking-info">
-              <h3>Plan Your {parkInfo.name} Adventure</h3>
-              <p>Experience the untamed wilderness of Tanzania's newest national park. Let us help you plan your perfect safari adventure.</p>
+              <h3>Plan Your Safari Adventure</h3>
+              <p>Experience the untamed wilderness of Burigi-Chato. Let us help you plan your perfect safari adventure.</p>
               <ul className="booking-highlights">
-                <li><FaCheck /> Personalized itineraries</li>
-                <li><FaCheck /> Expert local guides</li>
-                <li><FaCheck /> Comfortable accommodation</li>
-                <li><FaCheck /> Authentic experiences</li>
+                <li><FaCheck /> Customized itineraries</li>
+                <li><FaCheck /> Professional guides</li>
+                <li><FaCheck /> Quality accommodations</li>
+                <li><FaCheck /> Transport arrangements</li>
               </ul>
-              <div className="booking-cta">
-                <button className="btn-primary">Start Planning</button>
-                <button className="btn-secondary">Contact Us</button>
-              </div>
             </div>
+            
             <div className="booking-form">
               <h3>Inquire Now</h3>
               <form>
@@ -274,38 +305,21 @@ const BurigiChato = () => {
                     <select required>
                       <option value="">Number of Visitors</option>
                       <option value="1-2">1-2</option>
-                      <option value="3-5">3-5</option>
-                      <option value="6+">6+</option>
+                      <option value="3-4">3-4</option>
+                      <option value="5+">5+</option>
                     </select>
                   </div>
                 </div>
-                <div className="form-group select-wrapper">
-                  <select required>
-                    <option value="">Select Activity</option>
-                    {parkInfo.activities.map((activity, index) => (
-                      <option key={index} value={activity.name}>{activity.name}</option>
-                    ))}
-                  </select>
-                </div>
                 <div className="form-group">
-                  <textarea placeholder="Special Requirements or Questions" rows="4"></textarea>
-                </div>
+                  <textarea 
+                    placeholder="Special Requirements" 
+                    rows="4"
+                  ></textarea>
+            </div>
                 <button type="submit" className="submit-btn">
                   <FaCalendarCheck /> Request Booking
                 </button>
               </form>
-            </div>
-            <div className="quick-contact">
-              <h3>Quick Contact</h3>
-              <div className="contact-options">
-                <a href="https://wa.me/yournumber" className="whatsapp-btn">
-                  <FaWhatsapp /> Chat on WhatsApp
-                </a>
-                <div className="contact-info">
-                  <p>Email: info@tanzaniasafaris.com</p>
-                  <p>Phone: +255 123 456 789</p>
-                </div>
-              </div>
             </div>
           </div>
         </div>
