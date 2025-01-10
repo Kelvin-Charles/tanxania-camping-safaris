@@ -46,6 +46,7 @@ import TripsRouter from './components/TripsRouter';
 import NorthernCircuit from './pages/parks/NorthernCircuit';
 import SouthernCircuit from './pages/parks/SouthernCircuit';
 import WesternCircuit from './pages/parks/WesternCircuit';
+import CoastalCircuit from './pages/parks/CoastalCircuit';
 
 import './App.css';
 
@@ -116,6 +117,7 @@ function App() {
             } />
             <Route path="/contact-us" element={<ContactUs />} />
             <Route path="/trips/*" element={<TripsRouter />} />
+            <Route path="/parks-reserves/coastal" element={<CoastalCircuit />} />
           </Routes>
         </main>
         <Footer />
