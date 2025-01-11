@@ -116,14 +116,14 @@
 
 .destination-card {
   height: auto;
-  min-height: 180px;
+  min-height: 160px;
   background: white;
   border-radius: 12px;
   position: relative;
   cursor: pointer;
   border: 1px solid #e2e8f0;
   transition: all 0.3s ease;
-  padding: 16px;
+  padding: 12px;
   display: flex;
   flex-direction: column;
 }
@@ -736,66 +736,107 @@
 }
 
 .destination-card.large-card {
-  grid-column: span 2;
-  min-height: 200px;
-  padding: 20px;
+  grid-column: span 3;
+  min-height: 240px;
+  padding: 24px;
+  background: linear-gradient(to bottom right, #ffffff, #f8fafc);
 }
 
 .destination-card.large-card .destination-title {
-  font-size: 1.25rem;
-  padding-right: 60px;
-  margin-bottom: 4px;
+  font-size: 1.4rem;
+  padding-right: 70px;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.destination-card.large-card .destination-title svg {
+  font-size: 1.4rem;
 }
 
 .destination-card.large-card .park-info {
-  padding: 12px;
-  margin: 12px 0;
-  gap: 12px;
+  padding: 16px;
+  margin: 16px 0;
+  gap: 16px;
+  background: white;
 }
 
 .destination-card.large-card .info-row {
-  font-size: 1rem;
+  font-size: 1.1rem;
+  gap: 8px;
+}
+
+.destination-card.large-card .info-row svg {
+  font-size: 1.2rem;
 }
 
 .destination-card.large-card .highlights {
-  padding: 12px;
-  margin: 12px 0;
+  padding: 16px;
+  margin: 16px 0;
+  background: white;
 }
 
 .destination-card.large-card .highlight-content {
-  font-size: 1rem;
-  gap: 8px;
+  font-size: 1.1rem;
+  gap: 12px;
+}
+
+.destination-card.large-card .highlight-item {
+  gap: 6px;
+}
+
+.destination-card.large-card .highlight-item svg {
+  font-size: 1.1rem;
+}
+
+.destination-card.large-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+@media (max-width: 1200px) {
+  .destination-card.large-card {
+    grid-column: span 2;
+    min-height: 220px;
+    padding: 20px;
+  }
 }
 
 @media (max-width: 767px) {
   .destination-card.large-card {
-    grid-column: span 1;
-    min-height: 180px;
+    grid-column: span 2;
+    min-height: 200px;
     padding: 16px;
   }
   
   .destination-card.large-card .destination-title {
-    font-size: 1.1rem;
-    padding-right: 45px;
+    font-size: 1.2rem;
+    padding-right: 50px;
   }
   
   .destination-card.large-card .park-info {
-    padding: 10px;
-    margin: 8px 0;
-    gap: 8px;
+    padding: 12px;
+    margin: 12px 0;
+    gap: 10px;
   }
   
   .destination-card.large-card .info-row {
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
   
   .destination-card.large-card .highlights {
-    padding: 10px;
-    margin: 8px 0;
+    padding: 12px;
+    margin: 12px 0;
   }
   
   .destination-card.large-card .highlight-content {
-    font-size: 0.9rem;
-    gap: 6px;
+    font-size: 1rem;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 575px) {
+  .destination-card.large-card {
+    grid-column: span 2;
+    min-height: 180px;
   }
 } 
