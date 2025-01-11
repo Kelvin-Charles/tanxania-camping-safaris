@@ -4,172 +4,175 @@ import './CustomTripBuilder.css';
 
 const destinations = {
   northern: {
-    title: 'Northern Circuit',
+    title: "Northern Circuit",
     parks: [
       {
-        id: 'serengeti',
-        name: 'Serengeti National Park',
-        description: 'Home to the Great Migration and endless plains',
-        image: 'https://images.unsplash.com/photo-1516426122078-c23e76319801',
-        activities: ['Game drives', 'Hot air balloon safaris', 'Walking safaris', 'Cultural visits'],
-        recommendedDays: '3-5',
-        bestTime: 'June to October',
-        highlights: [
-          'Great Migration',
-          'Big Five sightings',
-          'Endless plains',
-          'Balloon safaris'
-        ]
+        id: "serengeti",
+        name: "Serengeti National Park",
+        description: "Home to the Great Migration and endless plains",
+        activities: ["Game drives", "Hot air balloon safaris", "Walking safaris"],
+        recommendedDays: "3-5",
+        bestTime: "June-October",
+        highlights: ["Great Migration", "Big Five", "Endless Plains", "Kopjes", "Mara River"]
       },
       {
-        id: 'ngorongoro',
-        name: 'Ngorongoro Crater',
-        description: 'A UNESCO World Heritage site with incredible wildlife density',
-        image: 'https://images.unsplash.com/photo-1549366021-9f761d450615',
-        activities: ['Crater game drives', 'Hiking', 'Cultural visits', 'Photography'],
-        recommendedDays: '2-3',
-        bestTime: 'June to October',
-        highlights: [
-          'Crater views',
-          'Big Five sightings',
-          'Maasai culture',
-          'Ancient crater'
-        ]
+        id: "ngorongoro",
+        name: "Ngorongoro Conservation Area",
+        description: "World's largest intact volcanic caldera",
+        activities: ["Game drives", "Cultural visits", "Hiking"],
+        recommendedDays: "2-3",
+        bestTime: "June-October",
+        highlights: ["Crater Floor Safari", "Big Five", "Maasai Culture", "Olduvai Gorge"]
       },
       {
-        id: 'tarangire',
-        name: 'Tarangire National Park',
-        description: 'Famous for its ancient baobab trees and large elephant herds',
-        image: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa',
-        activities: ['Game drives', 'Walking safaris', 'Night drives', 'Bird watching'],
-        recommendedDays: '2-3',
-        bestTime: 'July to October',
-        highlights: [
-          'Elephant herds',
-          'Baobab trees',
-          'River valleys',
-          'Bird species'
-        ]
+        id: "tarangire",
+        name: "Tarangire National Park",
+        description: "Famous for its ancient baobab trees and elephants",
+        activities: ["Game drives", "Walking safaris", "Night safaris"],
+        recommendedDays: "2-3",
+        bestTime: "July-October",
+        highlights: ["Elephant Herds", "Ancient Baobabs", "River Valley", "Bird Species"]
       },
       {
-        id: 'manyara',
-        name: 'Lake Manyara National Park',
-        description: 'Known for tree-climbing lions and flamingo-filled lake',
-        image: 'https://images.unsplash.com/photo-1518709766631-a6a7f45921c3',
-        activities: ['Game drives', 'Bird watching', 'Canopy walks', 'Night drives'],
-        recommendedDays: '1-2',
-        bestTime: 'July to October',
-        highlights: [
-          'Tree-climbing lions',
-          'Flamingos',
-          'Forest walks',
-          'Lake views'
-        ]
+        id: "manyara",
+        name: "Lake Manyara National Park",
+        description: "Tree-climbing lions and flamingo-lined lake",
+        activities: ["Game drives", "Bird watching", "Canopy walkway"],
+        recommendedDays: "1-2",
+        bestTime: "July-October",
+        highlights: ["Tree-climbing Lions", "Flamingos", "Ground Water Forest", "Lake Views"]
+      },
+      {
+        id: "kilimanjaro",
+        name: "Kilimanjaro National Park",
+        description: "Africa's highest peak and snow-capped mountain",
+        activities: ["Mountain climbing", "Nature walks", "Cultural visits"],
+        recommendedDays: "5-9",
+        bestTime: "January-March, June-October",
+        highlights: ["Summit Climb", "Diverse Climate Zones", "Unique Flora", "Spectacular Views"]
+      },
+      {
+        id: "arusha",
+        name: "Arusha National Park",
+        description: "Home to Mount Meru and diverse wildlife",
+        activities: ["Walking safaris", "Canoeing", "Mountain climbing"],
+        recommendedDays: "1-2",
+        bestTime: "June-February",
+        highlights: ["Mount Meru", "Momella Lakes", "Colobus Monkeys", "Crater Views"]
       }
     ]
   },
   southern: {
-    title: 'Southern Circuit',
+    title: "Southern Circuit",
     parks: [
       {
-        id: 'ruaha',
-        name: 'Ruaha National Park',
-        description: 'Tanzania\'s largest national park with diverse landscapes',
-        image: 'https://images.unsplash.com/photo-1549366021-45c88722b551',
-        activities: ['Game drives', 'Walking safaris', 'Bird watching', 'Photography'],
-        recommendedDays: '3-4',
-        bestTime: 'June to October',
-        highlights: [
-          'Large elephant herds',
-          'Diverse predators',
-          'Baobab valleys',
-          'Remote wilderness'
-        ]
+        id: "nyerere",
+        name: "Nyerere (Selous) National Park",
+        description: "Africa's largest game reserve",
+        activities: ["Boat safaris", "Game drives", "Walking safaris"],
+        recommendedDays: "3-5",
+        bestTime: "June-October",
+        highlights: ["Rufiji River", "Wild Dogs", "Boat Safaris", "Remote Wilderness"]
       },
       {
-        id: 'selous',
-        name: 'Selous Game Reserve',
-        description: 'Africa\'s largest game reserve and a UNESCO site',
-        image: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa',
-        activities: ['Boat safaris', 'Game drives', 'Walking safaris', 'Fly camping'],
-        recommendedDays: '3-4',
-        bestTime: 'June to October',
-        highlights: [
-          'Boat safaris',
-          'Wild dogs',
-          'River ecosystems',
-          'Remote safaris'
-        ]
+        id: "ruaha",
+        name: "Ruaha National Park",
+        description: "Tanzania's largest national park",
+        activities: ["Game drives", "Walking safaris", "Bird watching"],
+        recommendedDays: "3-4",
+        bestTime: "June-October",
+        highlights: ["Large Elephant Herds", "Greater Kudu", "Ruaha River", "Predator Sightings"]
+      },
+      {
+        id: "mikumi",
+        name: "Mikumi National Park",
+        description: "Tanzania's fourth-largest national park",
+        activities: ["Game drives", "Walking safaris", "Bird watching"],
+        recommendedDays: "2-3",
+        bestTime: "June-October",
+        highlights: ["Mkata Plains", "Wildlife Corridor", "Accessible Location", "Bird Species"]
+      },
+      {
+        id: "udzungwa",
+        name: "Udzungwa Mountains National Park",
+        description: "Primate paradise and hiking destination",
+        activities: ["Hiking", "Primate tracking", "Bird watching"],
+        recommendedDays: "2-3",
+        bestTime: "June-October",
+        highlights: ["Endemic Primates", "Waterfalls", "Hiking Trails", "Bird Species"]
       }
     ]
   },
   western: {
-    title: 'Western Circuit',
+    title: "Western Circuit",
     parks: [
       {
-        id: 'katavi',
-        name: 'Katavi National Park',
-        description: 'Remote wilderness with incredible wildlife concentrations',
-        image: 'https://images.unsplash.com/photo-1516426122078-c23e76319801',
-        activities: ['Game drives', 'Walking safaris', 'Bird watching', 'Photography'],
-        recommendedDays: '3-4',
-        bestTime: 'June to October',
-        highlights: [
-          'Hippo pools',
-          'Remote location',
-          'Few tourists',
-          'Authentic safari'
-        ]
+        id: "katavi",
+        name: "Katavi National Park",
+        description: "Remote wilderness with abundant wildlife",
+        activities: ["Game drives", "Walking safaris", "Camping"],
+        recommendedDays: "3-4",
+        bestTime: "June-October",
+        highlights: ["Hippo Pools", "Remote Location", "Large Buffalo Herds", "Paradise Plains"]
       },
       {
-        id: 'mahale',
-        name: 'Mahale Mountains National Park',
-        description: 'Home to chimpanzees and pristine Lake Tanganyika',
-        image: 'https://images.unsplash.com/photo-1549366021-9f761d450615',
-        activities: ['Chimp trekking', 'Hiking', 'Beach activities', 'Boat trips'],
-        recommendedDays: '3-4',
-        bestTime: 'July to October',
-        highlights: [
-          'Chimpanzees',
-          'Lake beaches',
-          'Forest hikes',
-          'Mountain views'
-        ]
+        id: "mahale",
+        name: "Mahale Mountains National Park",
+        description: "Chimpanzee tracking along Lake Tanganyika",
+        activities: ["Chimp tracking", "Hiking", "Beach activities"],
+        recommendedDays: "3-4",
+        bestTime: "July-October",
+        highlights: ["Chimpanzees", "Lake Tanganyika", "Mountain Forest", "Beach Activities"]
+      },
+      {
+        id: "gombe",
+        name: "Gombe National Park",
+        description: "Jane Goodall's famous chimpanzee research site",
+        activities: ["Chimp tracking", "Hiking", "Swimming"],
+        recommendedDays: "2-3",
+        bestTime: "July-October",
+        highlights: ["Chimpanzees", "Research History", "Lake Activities", "Forest Walks"]
       }
     ]
   },
   coastal: {
-    title: 'Coastal Circuit',
+    title: "Coastal Circuit",
     parks: [
       {
-        id: 'saadani',
-        name: 'Saadani National Park',
-        description: 'Where the beach meets the bush',
-        image: 'https://images.unsplash.com/photo-1518709766631-a6a7f45921c3',
-        activities: ['Game drives', 'Beach activities', 'Boat trips', 'Village visits'],
-        recommendedDays: '2-3',
-        bestTime: 'June to September',
-        highlights: [
-          'Beach safaris',
-          'River cruises',
-          'Coastal wildlife',
-          'Village culture'
-        ]
+        id: "saadani",
+        name: "Saadani National Park",
+        description: "Where beach meets bush",
+        activities: ["Game drives", "Boat safaris", "Beach activities"],
+        recommendedDays: "2-3",
+        bestTime: "June-September",
+        highlights: ["Beach Safari", "Wami River", "Coastal Forest", "Marine Life"]
       },
       {
-        id: 'zanzibar',
-        name: 'Zanzibar Archipelago',
-        description: 'Tropical paradise with rich culture and history',
-        image: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa',
-        activities: ['Beach activities', 'Snorkeling', 'Cultural tours', 'Spice tours'],
-        recommendedDays: '4-7',
-        bestTime: 'June to October',
-        highlights: [
-          'White beaches',
-          'Coral reefs',
-          'Spice farms',
-          'Stone Town'
-        ]
+        id: "mafia",
+        name: "Mafia Island Marine Park",
+        description: "Premier diving and marine life destination",
+        activities: ["Diving", "Snorkeling", "Whale watching"],
+        recommendedDays: "3-4",
+        bestTime: "October-March",
+        highlights: ["Coral Reefs", "Whale Sharks", "Marine Life", "Beach Activities"]
+      },
+      {
+        id: "zanzibar",
+        name: "Zanzibar Island",
+        description: "Spice island with pristine beaches",
+        activities: ["Beach activities", "Spice tours", "Cultural visits"],
+        recommendedDays: "4-7",
+        bestTime: "June-October",
+        highlights: ["Stone Town", "Spice Tours", "Beaches", "Marine Life"]
+      },
+      {
+        id: "pemba",
+        name: "Pemba Island",
+        description: "Untouched island paradise",
+        activities: ["Diving", "Snorkeling", "Cultural visits"],
+        recommendedDays: "3-5",
+        bestTime: "July-March",
+        highlights: ["Pristine Reefs", "Diving Sites", "Local Culture", "Remote Beaches"]
       }
     ]
   }
@@ -320,7 +323,7 @@ const CustomTripBuilder = ({ onClose }) => {
   return (
                 <div
                   key={park.id}
-                  className={`destination-card ${isSelected ? 'selected' : ''}`}
+                  className={`destination-card ${isSelected ? 'selected' : ''} ${park.id === 'arusha' || park.id === 'kilimanjaro' ? 'large-card' : ''}`}
                   onClick={() => handleDestinationSelect(park)}
                 >
                   {isFeatured && (
