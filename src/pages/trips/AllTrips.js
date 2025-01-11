@@ -1,14 +1,15 @@
 import React, { useState, useMemo } from 'react';
-import { Link } from 'react-router-dom';
 import { FaFilter, FaSortAmountDown, FaCalendarAlt, FaClock, FaMapMarkerAlt } from 'react-icons/fa';
 import { safariPackages } from '../../data/safariPackages';
 import CustomTripBuilder from '../../components/CustomTripBuilder';
+import PackageDetailsModal from '../../components/PackageDetailsModal';
 import './AllTrips.css';
 
 const AllTrips = () => {
   const [activeCategory, setActiveCategory] = useState('all');
   const [showCustomBuilder, setShowCustomBuilder] = useState(false);
   const [sortBy, setSortBy] = useState('recommended');
+  const [selectedPackage, setSelectedPackage] = useState(null);
 
   const categories = [
     { id: 'all', name: 'All Trips' },
@@ -113,17 +114,24 @@ const AllTrips = () => {
                   <p className="trip-description">{trip.description}</p>
                   <div className="trip-footer">
                     <div className="trip-price">{trip.price}</div>
-                    <Link 
-                      to={`/trips/${trip.parkId ? `parks/${trip.parkId}/${trip.id}` : `${trip.id}`}`} 
+                    <button 
                       className="view-trip-btn"
+                      onClick={() => setSelectedPackage(trip)}
                     >
                       View Details
-                    </Link>
+                    </button>
                   </div>
                 </div>
               </div>
             ))}
           </div>
+
+          {selectedPackage && (
+            <PackageDetailsModal 
+              package={selectedPackage} 
+              onClose={() => setSelectedPackage(null)} 
+            />
+          )}
         </>
       )}
     </div>
