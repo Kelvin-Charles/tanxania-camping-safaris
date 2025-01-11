@@ -4022,9 +4022,9 @@ export const parkPackages = {
           },
           accommodation: "Same lodge",
           included: [
-            "Game drives",
+        "Game drives",
             "Expert guide",
-            "All meals",
+        "All meals",
             "Activities"
           ]
         },
