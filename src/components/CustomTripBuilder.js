@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from 'react';
-import { FaTimes, FaCalendarAlt, FaUsers, FaSun, FaMapMarkerAlt, FaCheck, FaInfoCircle, FaArrowRight, FaCompass, FaMapMarked, FaRoute, FaUmbrellaBeach, FaTree, FaMountain, FaWater, FaHippo, FaStar } from 'react-icons/fa';
+import { FaTimes, FaCalendarAlt, FaUsers, FaSun, FaMapMarkerAlt, FaCheck, FaInfoCircle, FaArrowRight, FaCompass, FaMapMarked, FaRoute, FaUmbrellaBeach, FaTree, FaMountain, FaWater, FaHippo, FaStar, FaHotel, FaHome, FaMoneyBillWave, FaComments, FaClock, FaCampground, FaEnvelope, FaCheckCircle } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 import './CustomTripBuilder.css';
 
 const destinations = {
@@ -132,6 +133,60 @@ const destinations = {
         recommendedDays: "2-3",
         bestTime: "July-October",
         highlights: ["Chimpanzees", "Research History", "Lake Activities", "Forest Walks"]
+      },
+      {
+        id: "rubondo",
+        name: "Rubondo Island National Park",
+        description: "Unique island wildlife sanctuary in Lake Victoria",
+        activities: ["Game drives", "Bird watching", "Sport fishing"],
+        recommendedDays: "2-3",
+        bestTime: "June-October",
+        highlights: ["Chimpanzees", "Lake Victoria", "Forest Wildlife", "Sport Fishing"]
+      },
+      {
+        id: "saanane",
+        name: "Saanane Island National Park",
+        description: "Tanzania's smallest national park on Lake Victoria",
+        activities: ["Nature walks", "Bird watching", "Rock hiking"],
+        recommendedDays: "1-2",
+        bestTime: "June-October",
+        highlights: ["Rock Formations", "Lake Views", "Bird Species", "City Proximity"]
+      },
+      {
+        id: "burigi-chato",
+        name: "Burigi-Chato National Park",
+        description: "Newly established park with diverse landscapes",
+        activities: ["Game drives", "Boat safaris", "Bird watching"],
+        recommendedDays: "2-3",
+        bestTime: "June-October",
+        highlights: ["Lake Burigi", "Wildlife Corridors", "Scenic Views", "Pristine Nature"]
+      },
+      {
+        id: "ibanda-kyerwa",
+        name: "Ibanda-Kyerwa National Park",
+        description: "Rich biodiversity and cultural heritage",
+        activities: ["Game drives", "Cultural visits", "Nature walks"],
+        recommendedDays: "2-3",
+        bestTime: "June-October",
+        highlights: ["Wildlife Diversity", "Cultural Sites", "Scenic Landscapes", "Bird Species"]
+      },
+      {
+        id: "rumanyika",
+        name: "Rumanyika-Karagwe National Park",
+        description: "Historical sites and diverse ecosystems",
+        activities: ["Game viewing", "Historical tours", "Nature walks"],
+        recommendedDays: "2-3",
+        bestTime: "June-October",
+        highlights: ["Historical Ruins", "Wildlife Viewing", "Cultural Heritage", "Scenic Hills"]
+      },
+      {
+        id: "ugalla",
+        name: "Ugalla River National Park",
+        description: "Remote wilderness along Ugalla River",
+        activities: ["Game drives", "River safaris", "Bird watching"],
+        recommendedDays: "2-3",
+        bestTime: "June-October",
+        highlights: ["River Ecosystem", "Migratory Birds", "Remote Safari", "Pristine Nature"]
       }
     ]
   },
@@ -206,6 +261,7 @@ const accommodationTypes = [
 ];
 
 const CustomTripBuilder = ({ onClose }) => {
+  const navigate = useNavigate();
   const [step, setStep] = useState(1);
   const [selectedDestinations, setSelectedDestinations] = useState([]);
   const [selectedAccommodation, setSelectedAccommodation] = useState(null);
@@ -217,6 +273,44 @@ const CustomTripBuilder = ({ onClose }) => {
     specialRequests: ''
   });
   const [selectedPark, setSelectedPark] = useState(null);
+  const [showEmailPopup, setShowEmailPopup] = useState(false);
+  const [email, setEmail] = useState('');
+  const [showSuccessPopup, setShowSuccessPopup] = useState(false);
+
+  const handleSubmitTrip = () => {
+    const tripSummary = {
+      destinations: selectedDestinations,
+      accommodation: selectedAccommodation,
+      details: tripDetails,
+      estimatedCost: calculateEstimatedCost()
+    };
+    console.log('Trip Summary:', tripSummary);
+    setShowSuccessPopup(true);
+  };
+
+  const handleEmailSubmit = (e) => {
+    e.preventDefault();
+    const tripSummary = {
+      destinations: selectedDestinations,
+      accommodation: accommodationTypes.find(t => t.id === selectedAccommodation),
+      details: {
+        ...tripDetails,
+        email,
+        estimatedCost: calculateEstimatedCost()
+      }
+    };
+    
+    console.log('Trip Summary:', tripSummary);
+    setShowEmailPopup(false);
+    setShowSuccessPopup(true);
+  };
+
+  const handleSuccessClose = () => {
+    setShowSuccessPopup(false);
+    onClose();
+    // Navigate to Contact Us page
+    navigate('/contact');
+  };
 
   const handleDestinationSelect = (park) => {
     setSelectedDestinations(prev => {
@@ -323,7 +417,13 @@ const CustomTripBuilder = ({ onClose }) => {
   return (
                 <div
                   key={park.id}
-                  className={`destination-card ${isSelected ? 'selected' : ''} ${park.id === 'arusha' || park.id === 'kilimanjaro' ? 'large-card' : ''}`}
+                  className={`destination-card ${isSelected ? 'selected' : ''} ${
+                    park.id === 'arusha' || 
+                    park.id === 'kilimanjaro' || 
+                    park.id === 'serengeti' || 
+                    park.id === 'ngorongoro' ? 'large-card' : ''
+                  } ${circuit === 'western' ? 'western-card' : ''}`}
+                  data-circuit={circuit}
                   onClick={() => handleDestinationSelect(park)}
                 >
                   {isFeatured && (
@@ -385,108 +485,148 @@ const CustomTripBuilder = ({ onClose }) => {
   );
 
   const renderAccommodation = () => (
-      <div className="builder-section">
-      <h2>Choose Your Accommodation Style</h2>
-      <p className="section-description">Select your preferred type of accommodation</p>
+    <div className="builder-section">
+      <div className="section-header">
+        <h2>Choose Your Perfect Stay</h2>
+        <p>Select the accommodation style that matches your preferences</p>
+      </div>
       
-      <div className="destination-grid">
+      <div className="accommodation-grid">
         {accommodationTypes.map(type => (
           <div
             key={type.id}
-            className={`destination-card ${selectedAccommodation === type.id ? 'selected' : ''}`}
+            className={`accommodation-card ${selectedAccommodation === type.id ? 'selected' : ''}`}
             onClick={() => setSelectedAccommodation(type.id)}
           >
-            <div className="destination-info">
-              <h4>{type.name}</h4>
-              <p>{type.description}</p>
-              <ul>
-                {type.features.map(feature => (
-                  <li key={feature}><FaCheck /> {feature}</li>
-                ))}
-              </ul>
+            <h3 className="accommodation-title">
+              {type.id === 'luxury' && <FaStar />}
+              {type.id === 'midrange' && <FaHotel />}
+              {type.id === 'budget' && <FaHome />}
+              {type.id === 'camping' && <FaCampground />}
+              {type.name}
+            </h3>
+            
+            <p className="accommodation-description">{type.description}</p>
+            
+            <div className="features-list">
+              {type.features.map((feature, index) => (
+                <div key={index} className="feature-item">
+                  <FaCheck /> {feature}
+                </div>
+              ))}
             </div>
-            </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
+    </div>
   );
 
   const renderTripDetails = () => (
-      <div className="builder-section">
-      <h2>Trip Details</h2>
-      <p className="section-description">Tell us more about your travel plans</p>
+    <div className="trip-details-section">
+      <div className="section-header">
+        <h2>Customize Your Journey</h2>
+        <p>Help us tailor the perfect safari experience for you</p>
+      </div>
       
       <form className="trip-details-form" onSubmit={handleDetailsSubmit}>
-        <div className="form-group">
-          <label><FaCalendarAlt /> Start Date</label>
+        <div className="form-row">
+          <div className="form-group">
+            <label>
+              <FaCalendarAlt /> Start Date
+            </label>
             <input 
               type="date" 
               value={tripDetails.startDate}
-            onChange={e => setTripDetails(prev => ({ ...prev, startDate: e.target.value }))}
-            required
+              onChange={e => setTripDetails(prev => ({ ...prev, startDate: e.target.value }))}
+              required
+              min={new Date().toISOString().split('T')[0]}
             />
           </div>
-        
-        <div className="form-group">
-          <label><FaCalendarAlt /> Duration (days)</label>
-            <input 
-              type="number" 
-              min="1"
-              value={tripDetails.duration}
-            onChange={e => setTripDetails(prev => ({ ...prev, duration: e.target.value }))}
-            required
-            />
+          
+          <div className="form-group">
+            <label>
+              <FaClock /> Duration
+            </label>
+            <div className="input-with-icon">
+              <input 
+                type="number" 
+                min="1"
+                value={tripDetails.duration}
+                onChange={e => setTripDetails(prev => ({ ...prev, duration: e.target.value }))}
+                required
+                placeholder="Number of days"
+              />
+              <span>days</span>
+            </div>
           </div>
+        </div>
         
-        <div className="form-group">
-            <label><FaUsers /> Group Size</label>
+        <div className="form-row">
+          <div className="form-group">
+            <label>
+              <FaUsers /> Group Size
+            </label>
             <input 
               type="number"
               min="1"
               value={tripDetails.groupSize}
-            onChange={e => setTripDetails(prev => ({ ...prev, groupSize: e.target.value }))}
-            required
+              onChange={e => setTripDetails(prev => ({ ...prev, groupSize: e.target.value }))}
+              required
+              placeholder="Number of travelers"
             />
           </div>
-        
-        <div className="form-group">
-          <label>Budget Range (USD)</label>
-          <select
-            value={tripDetails.budget}
-            onChange={e => setTripDetails(prev => ({ ...prev, budget: e.target.value }))}
-            required
-          >
-            <option value="">Select budget range</option>
-            <option value="budget">$200-500 per day</option>
-            <option value="midrange">$500-800 per day</option>
-            <option value="luxury">$800+ per day</option>
-          </select>
+          
+          <div className="form-group">
+            <label>
+              <FaMoneyBillWave /> Budget Range
+            </label>
+            <select
+              value={tripDetails.budget}
+              onChange={e => setTripDetails(prev => ({ ...prev, budget: e.target.value }))}
+              required
+            >
+              <option value="">Select budget range</option>
+              <option value="budget">$200-500 per day</option>
+              <option value="midrange">$500-800 per day</option>
+              <option value="luxury">$800+ per day</option>
+            </select>
+          </div>
         </div>
         
         <div className="form-group">
-          <label>Special Requests</label>
+          <label>
+            <FaComments /> Special Requests
+          </label>
           <textarea
             value={tripDetails.specialRequests}
             onChange={e => setTripDetails(prev => ({ ...prev, specialRequests: e.target.value }))}
-            placeholder="Any special requirements or preferences?"
+            placeholder="Tell us about any special requirements or preferences..."
             rows="4"
           />
         </div>
       </form>
-      </div>
+    </div>
   );
 
   const renderSummary = () => (
     <div className="trip-summary">
       <div className="summary-section">
-        <h3>Selected Destinations</h3>
+        <h3>
+          <FaMapMarked /> Selected Destinations
+        </h3>
         <div className="selected-destinations">
           {selectedDestinations.map(destination => (
             <div key={destination.id} className="selected-destination-card">
-              <img src={destination.image} alt={destination.name} />
               <div className="destination-details">
-                <h4>{destination.name}</h4>
-                <p>{destination.recommendedDays} days recommended</p>
+                <h4>
+                  {getParkIcon(destination.id)} {destination.name}
+                </h4>
+                <p>
+                  <FaCalendarAlt /> {destination.recommendedDays} recommended
+                </p>
+                <p>
+                  <FaSun /> Best time: {destination.bestTime}
+                </p>
               </div>
             </div>
           ))}
@@ -494,7 +634,9 @@ const CustomTripBuilder = ({ onClose }) => {
       </div>
 
       <div className="summary-section">
-        <h3>Trip Details</h3>
+        <h3>
+          <FaInfoCircle /> Trip Details
+        </h3>
         <div className="details-grid">
           <div className="detail-item">
             <FaCalendarAlt />
@@ -502,7 +644,7 @@ const CustomTripBuilder = ({ onClose }) => {
             <strong>{new Date(tripDetails.startDate).toLocaleDateString()}</strong>
           </div>
           <div className="detail-item">
-            <FaCalendarAlt />
+            <FaClock />
             <span>Duration:</span>
             <strong>{tripDetails.duration} days</strong>
           </div>
@@ -512,18 +654,64 @@ const CustomTripBuilder = ({ onClose }) => {
             <strong>{tripDetails.groupSize} people</strong>
           </div>
           <div className="detail-item">
-            <FaMapMarkerAlt />
+            <FaHotel />
             <span>Accommodation:</span>
             <strong>{accommodationTypes.find(t => t.id === selectedAccommodation)?.name}</strong>
-            </div>
+          </div>
+          <div className="detail-item">
+            <FaMoneyBillWave />
+            <span>Budget Range:</span>
+            <strong>
+              {tripDetails.budget === 'budget' && '$200-500 per day'}
+              {tripDetails.budget === 'midrange' && '$500-800 per day'}
+              {tripDetails.budget === 'luxury' && '$800+ per day'}
+            </strong>
+          </div>
         </div>
+
+        {tripDetails.specialRequests && (
+          <div className="detail-item" style={{ marginTop: '20px', display: 'block' }}>
+            <div style={{ marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <FaComments />
+              <span>Special Requests:</span>
+            </div>
+            <p style={{ color: '#1a2b3c', lineHeight: '1.5' }}>{tripDetails.specialRequests}</p>
+          </div>
+        )}
       </div>
 
-      <button className="submit-btn" onClick={() => console.log('Submit trip request')}>
-        Request Quote
+      <div className="trip-cost">
+        <h4>Estimated Trip Cost</h4>
+        <div className="price">
+          ${calculateEstimatedCost().toLocaleString()}*
+        </div>
+        <div className="price-note">*Final price may vary based on specific accommodations and activities</div>
+      </div>
+
+      <button className="submit-btn" onClick={() => {
+        const tripSummary = {
+          destinations: selectedDestinations,
+          accommodation: selectedAccommodation,
+          details: {
+            ...tripDetails,
+            estimatedCost: calculateEstimatedCost()
+          }
+        };
+        console.log('Trip Summary:', tripSummary);
+        handleSubmitTrip();
+      }}>
+        Request Detailed Quote <FaArrowRight />
       </button>
     </div>
   );
+
+  const calculateEstimatedCost = () => {
+    const baseRate = tripDetails.budget === 'luxury' ? 800 : 
+                    tripDetails.budget === 'midrange' ? 500 : 200;
+    const days = parseInt(tripDetails.duration) || 0;
+    const people = parseInt(tripDetails.groupSize) || 0;
+    return baseRate * days * people;
+  };
 
   const renderStep = () => {
     switch (step) {
@@ -539,6 +727,65 @@ const CustomTripBuilder = ({ onClose }) => {
         return null;
     }
   };
+
+  const renderEmailPopup = () => (
+    <div className="popup-overlay">
+      <div className="popup-content">
+        <button className="popup-close" onClick={() => setShowEmailPopup(false)}>
+          <FaTimes />
+        </button>
+        <div className="popup-header">
+          <FaEnvelope className="popup-icon" />
+          <h2>Almost There!</h2>
+          <p>Please provide your email address to receive your detailed safari quote</p>
+        </div>
+        <form onSubmit={handleEmailSubmit} className="popup-form">
+          <div className="form-group">
+            <label>
+              <FaEnvelope /> Email Address
+            </label>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Enter your email address"
+              required
+            />
+          </div>
+          <button type="submit" className="submit-btn">
+            Submit Request <FaArrowRight />
+          </button>
+        </form>
+      </div>
+    </div>
+  );
+
+  const handleContinueToContact = () => {
+    if (typeof onClose === 'function') {
+      onClose();
+    }
+    navigate('/contact-us');
+  };
+
+  const renderSuccessPopup = () => (
+    <div className="popup-overlay">
+      <div className="popup-content success">
+        <div className="popup-header success">
+          <div className="success-icon">
+            <FaCheckCircle />
+          </div>
+          <h3>Thank You for Your Request!</h3>
+          <p>Our team will review your preferences and contact you shortly with a detailed quote tailored to your dream adventure.</p>
+          <button 
+            className="popup-btn"
+            onClick={() => navigate('/contact-us')}
+          >
+            Continue to Contact Us <FaArrowRight />
+          </button>
+        </div>
+      </div>
+    </div>
+  );
 
   return (
     <div className="custom-trip-builder">
@@ -613,6 +860,8 @@ const CustomTripBuilder = ({ onClose }) => {
           </button>
         )}
       </div>
+      {showEmailPopup && renderEmailPopup()}
+      {showSuccessPopup && renderSuccessPopup()}
     </div>
   );
 };
