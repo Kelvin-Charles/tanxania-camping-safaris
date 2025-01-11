@@ -1,70 +1,96 @@
-# Getting Started with Create React App
+# Tanzania Safari Circuits Explorer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A comprehensive web application showcasing Tanzania's diverse safari circuits, national parks, and wildlife experiences.
 
-## Available Scripts
+## Overview
 
-In the project directory, you can run:
+This website provides detailed information about Tanzania's safari circuits, including:
+- Northern Circuit (Serengeti, Ngorongoro, etc.)
+- Southern Circuit (Ruaha, Selous, etc.)
+- Western Circuit (Gombe, Mahale, etc.)
+- Eastern Circuit (Saadani, etc.)
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Interactive Circuit Maps**: Explore different safari circuits with interactive maps
+- **Park Information**: Detailed information about each national park including:
+  - Best times to visit
+  - Wildlife highlights
+  - Activities available
+  - Accommodation options
+  - Travel tips
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Seasonal Guides**: Comprehensive information about:
+  - Weather patterns
+  - Wildlife migration
+  - Best times for specific activities
+  - Seasonal highlights
 
-### `npm test`
+- **Practical Information**:
+  - Getting there
+  - Accommodation options
+  - Safari planning tips
+  - Travel requirements
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Getting Started
 
-### `npm run build`
+### Prerequisites
+- Node.js (v14 or higher)
+- npm (v6 or higher)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Installation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Clone the repository:
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+2. Install dependencies:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+3. Start the development server:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+4. Open [http://localhost:3000](http://localhost:3000) to view it in your browser
 
-## Learn More
+## Project Structure
+src/
+├── components/
+├── pages/
+│ ├── circuits/
+│ ├── parks/
+│ └── shared/
+├── assets/
+│ ├── images/
+│ └── icons/
+└── styles/
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Technologies Used
 
-### Code Splitting
+- React.js
+- React Router
+- CSS Modules
+- React Icons
+- Other relevant libraries...
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Contributing
 
-### Analyzing the Bundle Size
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## License
 
-### Making a Progressive Web App
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Contact
 
-### Advanced Configuration
+Your Name - your.email@example.com
+Project Link: [https://github.com/Kelvin-Charles/tanzania-safari-circuits](https://github.com/Kelvin-Charles/tanzania-safari-circuits)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Acknowledgments
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Tanzania National Parks Authority
+- Wildlife Conservation Society
