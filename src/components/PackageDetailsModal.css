@@ -4,7 +4,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.85);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,23 +15,42 @@
 
 .modal-content {
   background: white;
-  border-radius: 12px;
+  border-radius: 16px;
   width: 100%;
-  max-width: 900px;
+  max-width: 1000px;
   max-height: 90vh;
   overflow-y: auto;
   position: relative;
   animation: slideIn 0.3s ease-out;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.modal-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 .modal-close {
   position: absolute;
   top: 20px;
   right: 20px;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.95);
   border: none;
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -41,11 +60,13 @@
   font-size: 1.2rem;
   transition: all 0.3s;
   z-index: 2;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 .modal-close:hover {
   background: #fff;
   transform: rotate(90deg);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 .modal-header {
@@ -54,8 +75,19 @@
 
 .modal-image {
   position: relative;
-  height: 300px;
+  height: 400px;
   overflow: hidden;
+}
+
+.modal-image::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 70%;
+  background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.8));
+  pointer-events: none;
 }
 
 .modal-image img {
@@ -71,80 +103,129 @@
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
+  z-index: 1;
 }
 
 .modal-category {
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.8);
   color: white;
-  padding: 6px 12px;
-  border-radius: 20px;
+  padding: 8px 16px;
+  border-radius: 25px;
   font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .modal-title {
-  padding: 20px 30px;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0));
+  padding: 30px 40px;
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
   color: white;
+  z-index: 1;
 }
 
 .modal-title h2 {
-  margin: 0 0 10px 0;
-  font-size: 2rem;
+  margin: 0 0 15px 0;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  line-height: 1.2;
 }
 
 .modal-meta {
   display: flex;
-  gap: 20px;
+  gap: 25px;
   flex-wrap: wrap;
-  font-size: 0.9rem;
+  font-size: 1rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .modal-meta span {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 6px 12px;
+  border-radius: 20px;
+}
+
+.modal-meta svg {
+  font-size: 1.1rem;
 }
 
 .modal-body {
-  padding: 30px;
+  padding: 40px;
+  background: #fff;
 }
 
 .modal-description {
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
 
 .modal-description h3,
 .modal-highlights h3,
 .modal-itinerary h3 {
-  color: #333;
-  margin-bottom: 15px;
-  font-size: 1.5rem;
+  color: #222;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.modal-description h3::after,
+.modal-highlights h3::after,
+.modal-itinerary h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: #4CAF50;
+  border-radius: 2px;
+}
+
+.modal-description p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #444;
 }
 
 .modal-highlights ul {
   list-style: none;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 15px;
-  margin-bottom: 30px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
 }
 
 .modal-highlights li {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 10px;
+  gap: 12px;
+  padding: 15px;
   background: #f8f9fa;
-  border-radius: 8px;
+  border-radius: 10px;
+  font-size: 1.05rem;
+  color: #333;
+  border: 1px solid #eee;
+  transition: all 0.3s;
+}
+
+.modal-highlights li:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .modal-highlights li svg {
   color: #4CAF50;
+  font-size: 1.2rem;
+  flex-shrink: 0;
 }
 
 .itinerary-timeline {
@@ -153,54 +234,73 @@
 
 .itinerary-day {
   position: relative;
-  padding: 20px;
-  margin-bottom: 20px;
+  padding: 25px;
+  margin-bottom: 25px;
   background: #f8f9fa;
   border-radius: 12px;
   border-left: 4px solid #4CAF50;
+  transition: all 0.3s;
+}
+
+.itinerary-day:hover {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transform: translateX(5px);
 }
 
 .day-header {
   display: flex;
   align-items: center;
   gap: 15px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .day-number {
   background: #4CAF50;
   color: white;
-  padding: 5px 10px;
+  padding: 8px 16px;
   border-radius: 20px;
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: bold;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 6px rgba(76, 175, 80, 0.3);
 }
 
 .day-header h4 {
   margin: 0;
-  color: #333;
-  font-size: 1.2rem;
+  color: #222;
+  font-size: 1.4rem;
+  font-weight: 600;
 }
 
 .day-description {
-  color: #666;
-  margin-bottom: 20px;
+  color: #444;
+  margin-bottom: 25px;
+  font-size: 1.1rem;
+  line-height: 1.6;
 }
 
 .day-activities,
 .day-meals,
 .day-accommodation,
 .day-included {
-  margin-top: 15px;
+  margin-top: 20px;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .day-activities h5,
 .day-meals h5,
 .day-accommodation h5,
 .day-included h5 {
-  color: #555;
-  margin-bottom: 10px;
-  font-size: 1rem;
+  color: #333;
+  margin-bottom: 15px;
+  font-size: 1.15rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .day-activities ul,
@@ -211,33 +311,59 @@
 }
 
 .day-activities li {
-  padding: 8px 0;
+  padding: 12px 0;
   border-bottom: 1px solid #eee;
+  color: #444;
+  font-size: 1.05rem;
 }
 
 .day-activities li:last-child {
   border-bottom: none;
+  padding-bottom: 0;
+}
+
+.day-meals li {
+  padding: 8px 0;
+  color: #444;
+  font-size: 1.05rem;
+}
+
+.day-meals li strong {
+  color: #333;
+  text-transform: capitalize;
+}
+
+.day-accommodation p {
+  color: #444;
+  font-size: 1.05rem;
 }
 
 .day-included li {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 4px 0;
+  gap: 10px;
+  padding: 6px 0;
+  color: #444;
+  font-size: 1.05rem;
 }
 
 .day-included svg {
   color: #4CAF50;
+  font-size: 1.1rem;
+  flex-shrink: 0;
 }
 
 .modal-footer {
-  padding: 20px 30px;
+  padding: 25px 40px;
   background: #f8f9fa;
   border-top: 1px solid #eee;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-radius: 0 0 12px 12px;
+  border-radius: 0 0 16px 16px;
+  position: sticky;
+  bottom: 0;
+  backdrop-filter: blur(10px);
 }
 
 .price-section {
@@ -246,29 +372,36 @@
 }
 
 .price-label {
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: #666;
+  margin-bottom: 5px;
 }
 
 .price-amount {
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: bold;
   color: #4CAF50;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .book-now-btn {
   background: #4CAF50;
   color: white;
   border: none;
-  padding: 12px 30px;
-  border-radius: 25px;
-  font-size: 1.1rem;
+  padding: 15px 40px;
+  border-radius: 30px;
+  font-size: 1.2rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+  letter-spacing: 0.5px;
 }
 
 .book-now-btn:hover {
   background: #45a049;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
 }
 
 @keyframes fadeIn {
@@ -282,7 +415,7 @@
 
 @keyframes slideIn {
   from {
-    transform: translateY(30px);
+    transform: translateY(50px);
     opacity: 0;
   }
   to {
@@ -294,32 +427,58 @@
 @media (max-width: 768px) {
   .modal-content {
     max-height: 95vh;
+    margin: 0;
+    border-radius: 0;
+  }
+
+  .modal-image {
+    height: 300px;
+  }
+
+  .modal-title {
+    padding: 20px;
   }
 
   .modal-title h2 {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
   }
 
   .modal-meta {
     gap: 10px;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
 
   .modal-body {
     padding: 20px;
   }
 
+  .modal-description h3,
+  .modal-highlights h3,
+  .modal-itinerary h3 {
+    font-size: 1.5rem;
+  }
+
   .modal-highlights ul {
     grid-template-columns: 1fr;
   }
 
+  .day-header h4 {
+    font-size: 1.2rem;
+  }
+
   .modal-footer {
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
     text-align: center;
+    padding: 20px;
+  }
+
+  .price-amount {
+    font-size: 1.8rem;
   }
 
   .book-now-btn {
     width: 100%;
+    padding: 12px 30px;
   }
 } 
