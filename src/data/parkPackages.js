@@ -3367,7 +3367,7 @@ export const parkPackages = {
           },
           accommodation: "Same resort",
           included: [
-            "Water sports",
+        "Water sports",
             "Snorkeling gear",
             "Sunset cruise",
             "All meals"
@@ -3588,7 +3588,7 @@ export const parkPackages = {
           },
           accommodation: "Same camp",
           included: [
-            "Boat trip",
+        "Boat trip",
             "Beach access",
             "Expert guide",
             "All meals"
@@ -4190,7 +4190,7 @@ export const parkPackages = {
           },
           accommodation: "Same camp",
           included: [
-            "Game drives",
+        "Game drives",
             "Expert guide",
             "All meals",
             "Activities"
@@ -4360,6 +4360,282 @@ export const parkPackages = {
             "Flight to Arusha",
             "Image review",
             "Meals as specified"
+          ]
+        }
+      ]
+    }
+  ],
+
+  cultural: [
+    {
+      id: 1,
+      title: "Maasai Cultural Experience",
+      image: "https://images.unsplash.com/photo-1612338192105-4f0f4568b0c0?ixlib=rb-4.0.1&auto=format&fit=crop&w=800&q=80",
+      price: 250,
+      duration: "2 Days / 1 Night",
+      groupSize: "2-8 people",
+      categories: ["Cultural Tours"],
+      description: "Immerse yourself in authentic Maasai culture near Ngorongoro Conservation Area.",
+      highlights: [
+        "Traditional dance performances",
+        "Village visit",
+        "Cultural workshops",
+        "Local cuisine",
+        "Craft making",
+        "Story telling sessions"
+      ],
+      itinerary: [
+        {
+          day: 1,
+          title: "Village Welcome & Cultural Activities",
+          description: "Experience traditional Maasai lifestyle",
+          activities: [
+            "08:00 - Pickup from Arusha",
+            "10:30 - Welcome ceremony at Maasai village",
+            "11:00-13:00 - Village tour & cultural orientation",
+            "13:00-14:00 - Traditional lunch",
+            "14:30-16:30 - Beadwork & craft workshop",
+            "17:00-18:30 - Evening dance ceremony",
+            "19:00 - Traditional dinner"
+          ],
+          meals: {
+            breakfast: "Not included",
+            lunch: "Traditional lunch",
+            dinner: "Traditional dinner"
+          },
+          accommodation: "Cultural Boma Stay",
+          included: [
+            "Transportation",
+            "Cultural activities",
+            "Meals",
+            "Accommodation"
+          ]
+        },
+        {
+          day: 2,
+          title: "Daily Life & Traditions",
+          description: "Learn about Maasai traditions and lifestyle",
+          activities: [
+            "06:30 - Morning rituals",
+            "07:30-08:30 - Traditional breakfast",
+            "09:00-11:00 - Cattle herding experience",
+            "11:30-13:00 - Traditional medicine walk",
+            "13:30 - Farewell lunch",
+            "15:00 - Return to Arusha"
+          ],
+          meals: {
+            breakfast: "Traditional breakfast",
+            lunch: "Farewell lunch"
+          },
+          included: [
+            "Morning activities",
+            "Cultural guide",
+            "Meals",
+            "Return transfer"
+          ]
+        }
+      ]
+    },
+    {
+      id: 2,
+      title: "Hadzabe Tribe Experience",
+      image: "https://images.unsplash.com/photo-1523805009345-7448845a9e53?ixlib=rb-4.0.1&auto=format&fit=crop&w=800&q=80",
+      price: 300,
+      duration: "2 Days / 1 Night",
+      groupSize: "2-6 people",
+      categories: ["Cultural Tours"],
+      description: "Unique opportunity to learn about the ancient hunter-gatherer lifestyle of the Hadzabe tribe near Lake Eyasi.",
+      highlights: [
+        "Hunter-gatherer experience",
+        "Bush walks",
+        "Traditional hunting methods",
+        "Ancient rock art",
+        "Evening storytelling",
+        "Traditional healing"
+      ],
+      itinerary: [
+        {
+          day: 1,
+          title: "Journey to Lake Eyasi",
+          description: "Meet the Hadzabe community",
+          activities: [
+            "07:00 - Depart from Arusha",
+            "11:00 - Arrival at Lake Eyasi",
+            "12:00-13:00 - Welcome ceremony",
+            "13:30-14:30 - Traditional lunch",
+            "15:00-17:00 - Community introduction",
+            "17:30-19:00 - Evening cultural activities",
+            "19:30 - Dinner and stories"
+          ],
+          meals: {
+            breakfast: "Not included",
+            lunch: "Traditional lunch",
+            dinner: "Camp dinner"
+          },
+          accommodation: "Tented Camp",
+          included: [
+            "Transportation",
+            "Activities",
+            "Meals",
+            "Accommodation"
+          ]
+        },
+        {
+          day: 2,
+          title: "Hunter-Gatherer Experience",
+          description: "Learn traditional survival skills",
+          activities: [
+            "05:30 - Early morning hunt",
+            "09:00-10:00 - Bush breakfast",
+            "10:30-12:00 - Traditional skills workshop",
+            "12:30 - Farewell lunch",
+            "14:00 - Depart for Arusha"
+          ],
+          meals: {
+            breakfast: "Bush breakfast",
+            lunch: "Traditional lunch"
+          },
+          included: [
+            "Morning hunt",
+            "Traditional guide",
+            "Meals",
+            "Return transfer"
+          ]
+        }
+      ]
+    }
+  ],
+
+  daytrips: [
+    {
+      id: 1,
+      title: "Arusha National Park Day Safari",
+      image: "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?ixlib=rb-4.0.1&auto=format&fit=crop&w=800&q=80",
+      price: 180,
+      duration: "1 Day",
+      groupSize: "2-6 people",
+      categories: ["Day Trips", "Wildlife Safaris"],
+      description: "Perfect introduction to Tanzania's wildlife just a short drive from Arusha.",
+      highlights: [
+        "Mount Meru views",
+        "Colobus monkeys",
+        "Momella Lakes",
+        "Ngurdoto Crater",
+        "Buffalo herds",
+        "Waterfall walk"
+      ],
+      itinerary: [
+        {
+          day: 1,
+          title: "Arusha National Park Explorer",
+          description: "Full day wildlife and nature experience",
+          activities: [
+            "06:30 - Hotel pickup in Arusha",
+            "07:30 - Park arrival and briefing",
+            "08:00-10:30 - Morning game drive",
+            "11:00-12:00 - Guided waterfall walk",
+            "12:30-13:30 - Picnic lunch",
+            "14:00-16:30 - Afternoon game drive",
+            "17:00 - Return to Arusha"
+          ],
+          meals: {
+            breakfast: "Not included",
+            lunch: "Picnic lunch"
+          },
+          included: [
+            "Park fees",
+            "Game drives",
+            "Walking safari",
+            "Picnic lunch",
+            "Guide"
+          ]
+        }
+      ]
+    },
+    {
+      id: 2,
+      title: "Materuni Waterfalls & Coffee Tour",
+      image: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?ixlib=rb-4.0.1&auto=format&fit=crop&w=800&q=80",
+      price: 120,
+      duration: "1 Day",
+      groupSize: "2-8 people",
+      categories: ["Day Trips", "Cultural Tours"],
+      description: "Experience local coffee culture and beautiful waterfalls on the slopes of Kilimanjaro.",
+      highlights: [
+        "Coffee plantation tour",
+        "Traditional coffee making",
+        "Waterfall hike",
+        "Local lunch",
+        "Chagga culture",
+        "Mountain views"
+      ],
+      itinerary: [
+        {
+          day: 1,
+          title: "Coffee & Waterfalls Adventure",
+          description: "Cultural and nature experience",
+          activities: [
+            "08:00 - Pickup from Moshi",
+            "09:00-11:00 - Coffee plantation tour & workshop",
+            "11:30-13:00 - Waterfall hike",
+            "13:30-14:30 - Traditional lunch",
+            "15:00-16:00 - Village walk",
+            "16:30 - Return to Moshi"
+          ],
+          meals: {
+            breakfast: "Not included",
+            lunch: "Traditional lunch"
+          },
+          included: [
+            "Transportation",
+            "Coffee tour",
+            "Waterfall fees",
+            "Local guide",
+            "Traditional lunch"
+          ]
+        }
+      ]
+    },
+    {
+      id: 3,
+      title: "Moshi Hot Springs Escape",
+      image: "https://images.unsplash.com/photo-1585123388867-3bfe6dd4bdbf?ixlib=rb-4.0.1&auto=format&fit=crop&w=800&q=80",
+      price: 90,
+      duration: "1 Day",
+      groupSize: "2-10 people",
+      categories: ["Day Trips"],
+      description: "Relax in natural hot springs surrounded by beautiful forest scenery.",
+      highlights: [
+        "Natural hot springs",
+        "Swimming",
+        "Forest walk",
+        "Picnic lunch",
+        "Bird watching",
+        "Local village visit"
+      ],
+      itinerary: [
+        {
+          day: 1,
+          title: "Hot Springs Relaxation",
+          description: "Day of relaxation and nature",
+          activities: [
+            "09:00 - Pickup from Moshi",
+            "10:00 - Arrival at hot springs",
+            "10:30-12:30 - Swimming and relaxation",
+            "12:30-13:30 - Picnic lunch",
+            "14:00-15:00 - Optional forest walk",
+            "15:30 - Return to Moshi"
+          ],
+          meals: {
+            breakfast: "Not included",
+            lunch: "Picnic lunch"
+          },
+          included: [
+            "Transportation",
+            "Entrance fees",
+            "Picnic lunch",
+            "Guide",
+            "Swimming"
           ]
         }
       ]
