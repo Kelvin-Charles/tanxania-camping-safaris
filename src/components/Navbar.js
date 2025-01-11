@@ -24,6 +24,7 @@ const Navbar = () => {
       text: 'All Trips',
       path: '/trips',
       submenu: [
+        { path: '/trips', text: 'All Trips' },
         { path: '/trips/wildlife-safaris', text: 'Wildlife Safaris' },
         { path: '/trips/mountain-climbing', text: 'Mountain Climbing' },
         { path: '/trips/beach-holidays', text: 'Beach Holidays' },
