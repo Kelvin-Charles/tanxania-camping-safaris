@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from 'react';
-import { FaTimes, FaCalendarAlt, FaUsers, FaSun, FaMapMarkerAlt, FaCheck, FaInfoCircle, FaArrowRight, FaCompass, FaMapMarked, FaRoute, FaUmbrellaBeach, FaTree, FaMountain, FaWater, FaHippo, FaStar, FaHotel, FaHome, FaMoneyBillWave, FaComments, FaClock, FaCampground } from 'react-icons/fa';
+import { FaTimes, FaCalendarAlt, FaUsers, FaSun, FaMapMarkerAlt, FaCheck, FaInfoCircle, FaArrowRight, FaCompass, FaMapMarked, FaRoute, FaUmbrellaBeach, FaTree, FaMountain, FaWater, FaHippo, FaStar, FaHotel, FaHome, FaMoneyBillWave, FaComments, FaClock, FaCampground, FaEnvelope, FaCheckCircle } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 import './CustomTripBuilder.css';
 
 const destinations = {
@@ -260,6 +261,7 @@ const accommodationTypes = [
 ];
 
 const CustomTripBuilder = ({ onClose }) => {
+  const navigate = useNavigate();
   const [step, setStep] = useState(1);
   const [selectedDestinations, setSelectedDestinations] = useState([]);
   const [selectedAccommodation, setSelectedAccommodation] = useState(null);
@@ -271,6 +273,44 @@ const CustomTripBuilder = ({ onClose }) => {
     specialRequests: ''
   });
   const [selectedPark, setSelectedPark] = useState(null);
+  const [showEmailPopup, setShowEmailPopup] = useState(false);
+  const [email, setEmail] = useState('');
+  const [showSuccessPopup, setShowSuccessPopup] = useState(false);
+
+  const handleSubmitTrip = () => {
+    const tripSummary = {
+      destinations: selectedDestinations,
+      accommodation: selectedAccommodation,
+      details: tripDetails,
+      estimatedCost: calculateEstimatedCost()
+    };
+    console.log('Trip Summary:', tripSummary);
+    setShowSuccessPopup(true);
+  };
+
+  const handleEmailSubmit = (e) => {
+    e.preventDefault();
+    const tripSummary = {
+      destinations: selectedDestinations,
+      accommodation: accommodationTypes.find(t => t.id === selectedAccommodation),
+      details: {
+        ...tripDetails,
+        email,
+        estimatedCost: calculateEstimatedCost()
+      }
+    };
+    
+    console.log('Trip Summary:', tripSummary);
+    setShowEmailPopup(false);
+    setShowSuccessPopup(true);
+  };
+
+  const handleSuccessClose = () => {
+    setShowSuccessPopup(false);
+    onClose();
+    // Navigate to Contact Us page
+    navigate('/contact');
+  };
 
   const handleDestinationSelect = (park) => {
     setSelectedDestinations(prev => {
@@ -648,7 +688,18 @@ const CustomTripBuilder = ({ onClose }) => {
         <div className="price-note">*Final price may vary based on specific accommodations and activities</div>
       </div>
 
-      <button className="submit-btn" onClick={handleSubmitTrip}>
+      <button className="submit-btn" onClick={() => {
+        const tripSummary = {
+          destinations: selectedDestinations,
+          accommodation: selectedAccommodation,
+          details: {
+            ...tripDetails,
+            estimatedCost: calculateEstimatedCost()
+          }
+        };
+        console.log('Trip Summary:', tripSummary);
+        handleSubmitTrip();
+      }}>
         Request Detailed Quote <FaArrowRight />
       </button>
     </div>
@@ -676,6 +727,65 @@ const CustomTripBuilder = ({ onClose }) => {
         return null;
     }
   };
+
+  const renderEmailPopup = () => (
+    <div className="popup-overlay">
+      <div className="popup-content">
+        <button className="popup-close" onClick={() => setShowEmailPopup(false)}>
+          <FaTimes />
+        </button>
+        <div className="popup-header">
+          <FaEnvelope className="popup-icon" />
+          <h2>Almost There!</h2>
+          <p>Please provide your email address to receive your detailed safari quote</p>
+        </div>
+        <form onSubmit={handleEmailSubmit} className="popup-form">
+          <div className="form-group">
+            <label>
+              <FaEnvelope /> Email Address
+            </label>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Enter your email address"
+              required
+            />
+          </div>
+          <button type="submit" className="submit-btn">
+            Submit Request <FaArrowRight />
+          </button>
+        </form>
+      </div>
+    </div>
+  );
+
+  const handleContinueToContact = () => {
+    if (typeof onClose === 'function') {
+      onClose();
+    }
+    navigate('/contact-us');
+  };
+
+  const renderSuccessPopup = () => (
+    <div className="popup-overlay">
+      <div className="popup-content success">
+        <div className="popup-header success">
+          <div className="success-icon">
+            <FaCheckCircle />
+          </div>
+          <h3>Thank You for Your Request!</h3>
+          <p>Our team will review your preferences and contact you shortly with a detailed quote tailored to your dream adventure.</p>
+          <button 
+            className="popup-btn"
+            onClick={() => navigate('/contact-us')}
+          >
+            Continue to Contact Us <FaArrowRight />
+          </button>
+        </div>
+      </div>
+    </div>
+  );
 
   return (
     <div className="custom-trip-builder">
@@ -750,6 +860,8 @@ const CustomTripBuilder = ({ onClose }) => {
           </button>
         )}
       </div>
+      {showEmailPopup && renderEmailPopup()}
+      {showSuccessPopup && renderSuccessPopup()}
     </div>
   );
 };
