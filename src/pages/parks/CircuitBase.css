@@ -1,0 +1,545 @@
+:root {
+  /* Primary Colors */
+  --primary-color: #ff7b25;
+  --primary-dark: #e66000;
+  --primary-light: #ffa366;
+}
+
+/* Hero Section */
+.circuit-hero {
+  height: 60vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  margin-top: -80px;
+  padding-top: 80px;
+}
+
+.circuit-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0.4) 50%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s ease forwards;
+}
+
+.hero-content h1 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  font-weight: 700;
+}
+
+.hero-content p {
+  font-size: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Overview Section */
+.circuit-overview {
+  padding: 4rem 2rem;
+  background: #f8f9fa;
+  position: relative;
+}
+
+.overview-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 0.2s;
+}
+
+.overview-content h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+/* Features Grid */
+.circuit-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 0.3s;
+}
+
+.feature {
+  text-align: center;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.feature:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  border-color: var(--primary-color);
+}
+
+.feature svg {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  color: var(--primary-color);
+}
+
+.feature:hover svg {
+  transform: scale(1.2);
+}
+
+.feature h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #2d3748;
+}
+
+/* Parks Grid */
+.parks-grid {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 1.5rem;
+  padding: 2rem 1rem;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  cursor: grab;
+  width: 100%;
+  -ms-overflow-style: none;
+}
+
+.parks-grid::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Chrome/Safari */
+}
+
+.parks-grid:active {
+  cursor: grabbing;
+}
+
+/* Fixed width for park cards */
+.park-card {
+  flex: 0 0 350px;
+  min-width: 350px;
+  height: 300px;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  margin-right: 1rem;
+}
+
+.park-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  border-color: var(--primary-color);
+}
+
+.park-image {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.park-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.park-content {
+  padding: 2rem;
+}
+
+.park-content h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #2d3748;
+}
+
+.park-description {
+  color: #4a5568;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+/* Highlights Section */
+.park-highlights {
+  margin: 1.5rem 0;
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.park-highlights h4 {
+  color: #2d3748;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.park-highlights ul {
+  list-style: none;
+  padding: 0;
+}
+
+.park-highlights li {
+  padding: 0.5rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+  color: #4a5568;
+}
+
+.park-highlights li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+}
+
+/* Meta Information */
+.park-meta {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin: 1.5rem 0;
+  color: #718096;
+}
+
+.best-time {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Button Styles */
+.view-details-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.view-details-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .circuit-hero {
+    height: 60vh;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-content p {
+    font-size: 1.2rem;
+  }
+
+  .parks-grid {
+    padding: 1rem;
+  }
+
+  .park-card {
+    flex: 0 0 300px;
+    height: 250px;
+  }
+}
+
+/* Circuit Introduction */
+.circuit-introduction {
+  background: white;
+  padding: 4rem 2rem;
+  margin-top: -2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.intro-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.intro-content h2 {
+  color: #2d3748;
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+}
+
+.intro-content p {
+  color: #4a5568;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.intro-highlights {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 3rem;
+  flex-wrap: wrap;
+}
+
+.highlight-item {
+  background: #f8f9fa;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.highlight-item:hover {
+  transform: translateY(-5px);
+}
+
+/* Update or add this style */
+.container {
+  max-width: 1800px; /* Increased from 1600px */
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Add this for the parks section specifically */
+.parks-grid .container {
+  max-width: 2000px; /* Increased from 1800px */
+  width: 95%; /* This ensures some margin from screen edges */
+}
+
+/* Update the parks grid layout */
+.parks-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* Increased from 280px */
+  gap: 2.5rem;
+  /* overflow-x: auto; */
+  overflow-x: scroll;
+  padding: 2rem 0;
+}
+
+.park-card {
+  min-width: 400px; /* Increased from 280px */
+  height: 100%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1800px) {
+  .parks-cards-grid {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
+  
+  .park-card {
+    min-width: 350px;
+  }
+}
+
+@media (max-width: 1400px) {
+  .parks-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .park-card {
+    min-width: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .parks-cards-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .park-card {
+    min-width: 100%;
+  }
+  
+  .parks-grid .container {
+    width: 100%;
+    padding: 0 1rem;
+  }
+}
+
+/* Optional: Add scroll buttons */
+.parks-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 0 1rem;
+}
+
+.scroll-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scroll-left {
+  left: 10px;
+}
+
+.scroll-right {
+  right: 10px;
+}
+
+/* Park Overlay Styles */
+.park-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  background: linear-gradient(transparent, rgba(0,0,0,0.9));
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.park-overlay h3 {
+  font-size: 1.2rem;
+  margin: 0;
+  line-height: 1.1;
+  padding-bottom: 0.2rem;
+}
+
+.park-overlay p {
+  font-size: 0.85rem;
+  margin: 0;
+  line-height: 1.3;
+  opacity: 0.9;
+  padding-bottom: 0.2rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.park-meta {
+  display: flex;
+  gap: 0.8rem;
+  font-size: 0.8rem;
+  opacity: 0.8;
+  padding-bottom: 0.3rem;
+}
+
+.explore-btn {
+  width: fit-content;
+  margin: 0.3rem auto 0;
+  padding: 0.35rem 1rem;
+  background: rgba(255,255,255,0.2);
+  border-radius: 20px;
+  font-size: 0.8rem;
+  transition: background 0.3s ease;
+  align-self: center;
+}
+
+.park-card:hover .explore-btn {
+  background: rgba(255,255,255,0.3);
+}
+
+/* Container for the scrollable area */
+.parks-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 0 1rem;
+}
+
+/* Scroll indicator */
+.parks-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 80px;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.9));
+  pointer-events: none;
+}
+
+/* Scroll hint text */
+.parks-container::before {
+  content: 'Scroll →';
+  position: absolute;
+  right: 1rem;
+  bottom: 0;
+  font-size: 0.9rem;
+  color: #666;
+  animation: fadeInOut 2s ease-in-out infinite;
+}
+
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+} 

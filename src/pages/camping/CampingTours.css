@@ -1,0 +1,41 @@
+/* Duration Badge Styles */
+
+/* .duration-badge {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 1px 4px;
+  border-radius: 2px;
+  font-size: 0.55rem;
+  font-weight: 500;
+  color: #333;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  line-height: 1;
+  white-space: nowrap;
+  height: 3px;
+} */
+
+.duration-badge svg {
+  font-size: 0.5rem;
+  color: var(--primary-color);
+}
+
+/* Card Styles */
+.camping-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.camping-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+} 

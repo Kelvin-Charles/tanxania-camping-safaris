@@ -1,0 +1,2313 @@
+/* Root Variables */
+:root {
+  --primary-color: #2d5a27;
+  --primary-dark: #1a3517;
+  --accent-color: #ffa41b;
+  --text-color: #333;
+  --text-light: #666;
+  --background-light: #f9f9f9;
+  --white: #ffffff;
+  --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
+  --shadow-md: 0 4px 8px rgba(0,0,0,0.1);
+  --shadow-lg: 0 8px 16px rgba(0,0,0,0.1);
+  --border-radius: 12px;
+  --transition: all 0.3s ease;
+}
+
+.northern-circuit {
+  padding-top: 80px;
+  background-color: var(--background-light);
+}
+
+/* Enhanced Hero Section */
+.circuit-hero {
+  height: 80vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)),
+              url('https://images.unsplash.com/photo-1516426122078-c23e76319801') center/cover fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  text-align: center;
+  margin-top: -80px;
+  padding-top: 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.circuit-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle, transparent 20%, rgba(0,0,0,0.4) 100%);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-content h1 {
+  font-size: 4.5rem;
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.hero-content p {
+  font-size: 1.8rem;
+  max-width: 800px;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+  line-height: 1.6;
+}
+
+/* Enhanced Overview Section */
+.circuit-overview {
+  padding: 6rem 2rem;
+  background: var(--white);
+  position: relative;
+}
+
+.circuit-overview::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: var(--white);
+  clip-path: polygon(0 50%, 100% 0, 100% 100%, 0% 100%);
+}
+
+.overview-content {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.overview-content h2 {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 3rem;
+  color: var(--text-color);
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.overview-content h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: var(--accent-color);
+  border-radius: 2px;
+}
+
+/* Enhanced Features Section */
+.circuit-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 4rem 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  background: linear-gradient(to bottom, var(--background-light) 0%, var(--white) 100%);
+  position: relative;
+  z-index: 1;
+}
+
+.circuit-features::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background: radial-gradient(circle at 50% 0%, rgba(45, 90, 39, 0.05) 0%, transparent 70%);
+  z-index: -1;
+}
+
+.feature-card {
+  background: var(--white);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent-color), var(--primary-color));
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.feature-card:hover::before {
+  opacity: 1;
+}
+
+.feature-card .icon {
+  font-size: 2.5rem;
+  color: var(--accent-color);
+  margin-bottom: 1.5rem;
+  display: inline-block;
+  transition: var(--transition);
+}
+
+.feature-card:hover .icon {
+  transform: scale(1.1) rotate(5deg);
+  color: var(--primary-color);
+}
+
+.feature-card h3 {
+  font-size: 1.5rem;
+  color: var(--text-color);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.feature-card p {
+  color: var(--text-light);
+  line-height: 1.6;
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.feature-card .feature-footer {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.feature-card .learn-more {
+  color: var(--primary-color);
+  font-weight: 500;
+  font-size: 0.9rem;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: var(--transition);
+}
+
+.feature-card:hover .learn-more {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.feature-card .arrow-icon {
+  color: var(--primary-color);
+  font-size: 1rem;
+  transform: translateX(-10px);
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.feature-card:hover .arrow-icon {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.feature-card:hover .arrow-icon.active {
+  animation: bounceRight 1s infinite;
+}
+
+@keyframes bounceRight {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+}
+
+@media (max-width: 768px) {
+  .circuit-features {
+    grid-template-columns: 1fr;
+    padding: 2rem 1rem;
+  }
+  
+  .feature-card {
+    padding: 1.5rem;
+  }
+}
+
+/* Enhanced Parks Grid */
+.parks-grid {
+  max-width: 80%;
+  margin: 4rem auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.parks-grid .container {
+  position: relative;
+  padding: 0 40px;
+}
+
+.parks-cards-grid {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem 0;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.parks-cards-grid::-webkit-scrollbar {
+  display: none;
+}
+
+.park-card {
+  flex: 0 0 400px;
+  max-width: 400px;
+  margin-bottom: 1rem;
+}
+
+.park-card {
+  background: #ffffff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.park-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    45deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 100%
+  );
+  transform: translateX(-100%) rotate(45deg);
+  transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  z-index: 2;
+}
+
+.park-card:hover::before {
+  transform: translateX(100%) rotate(45deg);
+}
+
+.park-card.hovered {
+  transform: translateY(-25px) rotateX(10deg) rotateY(10deg);
+  box-shadow: 
+    35px 35px 70px rgba(0, 0, 0, 0.15),
+    -5px -5px 20px rgba(255, 255, 255, 0.8),
+    inset 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+.park-image {
+  flex: 1;
+  position: relative;
+}
+
+.park-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.2) 40%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.park-card:hover .park-image::after {
+  opacity: 1;
+}
+
+.park-image img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.image-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1.5rem;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.park-card:hover .image-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.park-difficulty {
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+  transform: translateY(0);
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.park-card:hover .park-difficulty {
+  transform: translateY(5px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.park-content {
+  padding: 1rem;
+  text-align: center;
+}
+
+.park-card:hover .park-content {
+  transform: translateY(-10px);
+}
+
+.park-content h3 {
+  font-size: 2.4rem;
+  color: var(--text-color);
+  margin-bottom: 1.8rem;
+  position: relative;
+  padding-bottom: 15px;
+  transition: all 0.4s ease;
+}
+
+.park-content h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    var(--primary-color) 0%,
+    var(--accent-color) 100%
+  );
+  border-radius: 2px;
+  transition: width 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.park-card:hover .park-content h3::after {
+  width: 140px;
+}
+
+.park-description {
+  color: var(--text-light);
+  line-height: 1.9;
+  font-size: 1.15rem;
+  margin-bottom: 2.5rem;
+  transition: color 0.4s ease;
+}
+
+.park-highlights, .park-features {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 2rem;
+  border-radius: 20px;
+  margin: 2.5rem 0;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  transform: translateY(0);
+}
+
+.park-card:hover .park-highlights,
+.park-card:hover .park-features {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.park-highlights h4,
+.park-features h4 {
+  color: var(--text-color);
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.3s ease;
+}
+
+.park-highlights h4::before,
+.park-features h4::before {
+  transition: transform 0.4s ease;
+}
+
+.park-card:hover .park-highlights h4::before,
+.park-card:hover .park-features h4::before {
+  transform: scale(1.2) rotate(15deg);
+}
+
+.park-highlights ul,
+.park-features ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.park-highlights li,
+.park-features li {
+  padding: 1rem 1.5rem;
+  position: relative;
+  color: var(--text-light);
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 12px;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  transform: translateX(0);
+}
+
+.park-highlights li:hover,
+.park-features li:hover {
+  color: var(--primary-color);
+  transform: translateX(10px);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.park-meta {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  margin: 2.5rem 0;
+  padding: 1.8rem;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  transform: translateY(0);
+}
+
+.park-card:hover .park-meta {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+.best-time,
+.duration {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.15rem;
+  color: var(--text-light);
+  transition: all 0.4s ease;
+}
+
+.best-time svg,
+.duration svg {
+  font-size: 1.4rem;
+  color: var(--accent-color);
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.park-card:hover .best-time svg,
+.park-card:hover .duration svg {
+  transform: scale(1.3) rotate(20deg);
+}
+
+.view-details-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.4rem 2.8rem;
+  background: linear-gradient(
+    135deg,
+    var(--primary-color) 0%,
+    var(--primary-dark) 100%
+  );
+  color: var(--white);
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  transform: translateY(0);
+}
+
+.view-details-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 100%
+  );
+  transform: translateX(-100%) rotate(45deg);
+  transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  z-index: -1;
+}
+
+.view-details-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.2),
+    0 15px 25px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(
+    135deg,
+    var(--accent-color) 0%,
+    var(--primary-color) 100%
+  );
+}
+
+.view-details-btn:hover::before {
+  transform: translateX(100%) rotate(45deg);
+}
+
+.view-details-btn svg {
+  transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.view-details-btn:hover svg {
+  transform: translateX(8px) scale(1.2);
+}
+
+@media (max-width: 768px) {
+  .parks-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .parks-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Enhanced Introduction Section */
+.circuit-introduction {
+  background: var(--white);
+  padding: 6rem 2rem;
+  position: relative;
+}
+
+.intro-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.intro-content h2 {
+  color: var(--text-color);
+  font-size: 2.8rem;
+  margin-bottom: 3rem;
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.intro-content h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: var(--accent-color);
+  border-radius: 2px;
+}
+
+.intro-content p {
+  color: var(--text-light);
+  line-height: 1.9;
+  margin-bottom: 2rem;
+  font-size: 1.2rem;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.intro-highlights {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 4rem;
+  flex-wrap: wrap;
+}
+
+.highlight-item {
+  background: var(--background-light);
+  padding: 1.5rem 2.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.highlight-item:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.highlight-item strong {
+  color: var(--primary-color);
+  margin-right: 0.8rem;
+  font-size: 1.1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .parks-grid {
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .circuit-hero {
+    height: 60vh;
+  }
+
+  .hero-content h1 {
+    font-size: 3rem;
+  }
+
+  .hero-content p {
+    font-size: 1.4rem;
+  }
+
+  .parks-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .park-image {
+    height: 250px;
+  }
+
+  .intro-highlights {
+    gap: 2rem;
+  }
+
+  .highlight-item {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-content p {
+    font-size: 1.2rem;
+  }
+
+  .overview-content h2,
+  .intro-content h2 {
+    font-size: 2rem;
+  }
+}
+
+/* Practical Information Section */
+.practical-info {
+  padding: 6rem 2rem;
+  background: var(--background-light);
+  position: relative;
+}
+
+.practical-info h2 {
+  text-align: center;
+  font-size: 2.8rem;
+  margin-bottom: 3rem;
+  color: var(--text-color);
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.practical-info h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: var(--accent-color);
+  border-radius: 2px;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.info-card {
+  background: var(--white);
+  padding: 2.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.info-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--primary-color);
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
+  transform-origin: top;
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.info-card:hover::before {
+  transform: scaleY(1);
+}
+
+.info-icon {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  transition: var(--transition);
+}
+
+.info-card:hover .info-icon {
+  transform: scale(1.1);
+  color: var(--accent-color);
+}
+
+.info-card h3 {
+  font-size: 1.5rem;
+  color: var(--text-color);
+  margin-bottom: 1.5rem;
+}
+
+.info-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.info-card li {
+  padding: 0.8rem 0;
+  color: var(--text-light);
+  position: relative;
+  padding-left: 1.5rem;
+  transition: var(--transition);
+}
+
+.info-card li::before {
+  content: "•";
+  color: var(--accent-color);
+  position: absolute;
+  left: 0;
+  transition: var(--transition);
+}
+
+.info-card li:hover {
+  color: var(--primary-color);
+  transform: translateX(5px);
+}
+
+/* Seasonal Highlights Section */
+.seasonal-highlights {
+  padding: 6rem 2rem;
+  background: var(--white);
+  position: relative;
+}
+
+.seasonal-highlights h2 {
+  text-align: center;
+  font-size: 2.8rem;
+  margin-bottom: 3rem;
+  color: var(--text-color);
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.seasonal-highlights h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: var(--accent-color);
+  border-radius: 2px;
+}
+
+.season-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 3rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.season-card {
+  background: var(--background-light);
+  padding: 3rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.season-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--accent-color);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.season-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.season-card:hover::after {
+  transform: scaleX(1);
+}
+
+.season-icon {
+  font-size: 3rem;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  transition: var(--transition);
+}
+
+.season-card:hover .season-icon {
+  transform: scale(1.1);
+  color: var(--accent-color);
+}
+
+.season-card h3 {
+  font-size: 1.8rem;
+  color: var(--text-color);
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.season-card h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: var(--primary-color);
+  border-radius: 2px;
+}
+
+.season-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.season-card li {
+  padding: 1rem 0;
+  color: var(--text-light);
+  position: relative;
+  padding-left: 2rem;
+  transition: var(--transition);
+}
+
+.season-card li::before {
+  content: "→";
+  color: var(--accent-color);
+  position: absolute;
+  left: 0;
+  transition: var(--transition);
+}
+
+.season-card li:hover {
+  color: var(--primary-color);
+  transform: translateX(5px);
+}
+
+.season-card li:hover::before {
+  transform: translateX(5px);
+}
+
+/* Additional Responsive Adjustments */
+@media (max-width: 768px) {
+  .info-grid,
+  .season-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .practical-info h2,
+  .seasonal-highlights h2 {
+    font-size: 2.2rem;
+  }
+
+  .season-card {
+    padding: 2rem;
+  }
+
+  .season-card h3 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Container Styles */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Duration Styles */
+.duration {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1.1rem;
+}
+
+.duration svg {
+  color: var(--accent-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .parks-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .park-image {
+    height: 250px;
+  }
+
+  .park-card:hover {
+    transform: translateY(-10px) rotateX(2deg);
+  }
+}
+
+@media (hover: none) {
+  .park-card:hover {
+    transform: none;
+  }
+  
+  .park-card:hover .park-image img {
+    transform: none;
+  }
+}
+
+/* Enhanced Hero Section */
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem 2rem;
+  border-radius: var(--border-radius);
+  backdrop-filter: blur(10px);
+  transition: var(--transition);
+}
+
+.stat-item:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.stat-icon {
+  font-size: 1.5rem;
+  color: var(--accent-color);
+}
+
+/* Circuit Highlights Section */
+.circuit-highlights {
+  padding: 6rem 2rem;
+  background: var(--white);
+  position: relative;
+}
+
+.highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 3rem;
+  margin-top: 3rem;
+}
+
+.highlights-card {
+  background: var(--background-light);
+  padding: 2.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.highlights-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--accent-color);
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
+}
+
+.highlights-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-lg);
+}
+
+.highlights-card:hover::before {
+  transform: scaleY(1);
+}
+
+.highlights-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--text-color);
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+}
+
+.highlights-card h3 svg {
+  color: var(--accent-color);
+}
+
+.highlights-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.highlights-card li {
+  padding: 1rem 0;
+  padding-left: 2rem;
+  position: relative;
+  color: var(--text-light);
+  transition: var(--transition);
+}
+
+.highlights-card li::before {
+  content: "→";
+  color: var(--accent-color);
+  position: absolute;
+  left: 0;
+  transition: transform 0.3s ease;
+}
+
+.highlights-card li:hover {
+  color: var(--primary-color);
+  transform: translateX(10px);
+}
+
+.highlights-card li:hover::before {
+  transform: translateX(5px);
+}
+
+/* Enhanced Park Cards */
+.park-card {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.park-card.hovered {
+  transform: translateY(-15px) rotateX(3deg) rotateY(3deg);
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 1.5rem;
+}
+
+.park-card:hover .image-overlay {
+  opacity: 1;
+}
+
+.park-difficulty {
+  background: var(--accent-color);
+  color: var(--white);
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  font-size: 0.9rem;
+  transform: translateY(-20px);
+  opacity: 0;
+  transition: all 0.4s ease 0.2s;
+}
+
+.park-card:hover .park-difficulty {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.park-features {
+  margin: 2rem 0;
+  background: var(--background-light);
+  padding: 1.8rem;
+  border-radius: var(--border-radius);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.park-features h4 {
+  color: var(--text-color);
+  margin-bottom: 1.2rem;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.park-features h4::before {
+  content: '✦';
+  color: var(--primary-color);
+}
+
+.park-features ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+}
+
+.park-features li {
+  padding: 0.8rem;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: var(--border-radius);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: var(--transition);
+}
+
+.park-features li:hover {
+  transform: translateX(5px);
+  background: var(--white);
+  box-shadow: var(--shadow-sm);
+}
+
+.park-features li::before {
+  content: "•";
+  color: var(--accent-color);
+  font-size: 1.5rem;
+  line-height: 0;
+}
+
+/* Enhanced Overview Section */
+.overview-intro {
+  font-size: 1.3rem;
+  line-height: 1.8;
+  color: var(--text-light);
+  max-width: 1000px;
+  margin: 0 auto 4rem;
+  text-align: center;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .hero-stats {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .stat-item {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .highlights-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .park-features ul {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (hover: none) {
+  .park-card.hovered {
+    transform: none;
+  }
+}
+
+.circuit-advantages {
+  padding: 4rem 0;
+  background-color: #f8f9fa;
+}
+
+.advantages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.advantage-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.advantage-card:hover {
+  transform: translateY(-5px);
+}
+
+.advantage-icon {
+  font-size: 2.5rem;
+  color: #2c5282;
+  margin-bottom: 1rem;
+}
+
+.advantage-card h3 {
+  color: #2d3748;
+  margin-bottom: 1rem;
+}
+
+.advantage-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.advantage-card li {
+  margin: 0.5rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.advantage-card li:before {
+  content: "•";
+  color: #2c5282;
+  position: absolute;
+  left: 0;
+}
+
+.safari-experiences {
+  padding: 4rem 0;
+  background: linear-gradient(to bottom, #ffffff, #f8f9fa);
+}
+
+.experiences-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.experience-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.experience-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.duration-badge {
+  display: inline-flex;
+  align-items: center;
+  background: #ebf4ff;
+  color: #2c5282;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  margin: 1rem 0;
+}
+
+.duration-badge svg {
+  margin-right: 0.5rem;
+}
+
+.experience-description {
+  color: #4a5568;
+  margin: 1rem 0;
+  line-height: 1.6;
+}
+
+.experience-includes h4 {
+  color: #2d3748;
+  margin-bottom: 1rem;
+}
+
+.experience-includes ul {
+  list-style: none;
+  padding: 0;
+}
+
+.experience-includes li {
+  margin: 0.5rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.experience-includes li:before {
+  content: "✓";
+  color: #48bb78;
+  position: absolute;
+  left: 0;
+}
+
+/* Enhanced Seasonal Travel Guide */
+.seasonal-guide {
+  padding: 8rem 0;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 50%, #f8f9fa 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.seasonal-guide::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 20%, rgba(var(--primary-rgb), 0.05) 0%, transparent 25%),
+    radial-gradient(circle at 80% 80%, rgba(var(--accent-rgb), 0.05) 0%, transparent 25%);
+  pointer-events: none;
+}
+
+.seasonal-guide h2 {
+  text-align: center;
+  font-size: 3.2rem;
+  margin-bottom: 5rem;
+  color: var(--text-color);
+  position: relative;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.seasonal-guide h2::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+  border-radius: 4px;
+}
+
+.seasons-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  perspective: 2000px;
+}
+
+.season-card {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 3.5rem;
+  border-radius: 30px;
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(255, 255, 255, 0.5);
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  transform-style: preserve-3d;
+  transform: translateZ(0);
+}
+
+.season-card[data-season="dry"] {
+  background: linear-gradient(135deg, rgba(255, 248, 225, 0.95), rgba(255, 255, 255, 0.95));
+}
+
+.season-card[data-season="wet"] {
+  background: linear-gradient(135deg, rgba(225, 245, 255, 0.95), rgba(255, 255, 255, 0.95));
+}
+
+.season-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(255, 255, 255, 0.5),
+    transparent
+  );
+  transform: translateX(-100%) rotate(45deg);
+  transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.season-card:hover {
+  transform: translateY(-15px) rotateX(5deg);
+  box-shadow: 
+    0 35px 70px rgba(0, 0, 0, 0.15),
+    0 0 0 2px var(--accent-color);
+}
+
+.season-card:hover::before {
+  transform: translateX(100%) rotate(45deg);
+}
+
+.season-card h3 {
+  font-size: 2.4rem;
+  color: var(--text-color);
+  margin-bottom: 2.5rem;
+  position: relative;
+  padding-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.season-card h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+  border-radius: 2px;
+  transition: width 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.season-card:hover h3::after {
+  width: 100%;
+}
+
+.weather-info {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+  margin: 2.5rem 0;
+  border-radius: 25px;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.season-card[data-season="dry"] .weather-info {
+  background: linear-gradient(135deg, rgba(255, 236, 179, 0.3), rgba(255, 248, 225, 0.3));
+}
+
+.season-card[data-season="wet"] .weather-info {
+  background: linear-gradient(135deg, rgba(179, 229, 255, 0.3), rgba(225, 245, 255, 0.3));
+}
+
+.season-card:hover .weather-info {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.weather-info svg {
+  font-size: 3rem;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.season-card[data-season="dry"] .weather-info svg {
+  color: #f6ad55;
+}
+
+.season-card[data-season="wet"] .weather-info svg {
+  color: #63b3ed;
+}
+
+.season-card:hover .weather-info svg {
+  transform: scale(1.2) rotate(15deg);
+}
+
+.weather-info p {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.season-details {
+  display: grid;
+  gap: 3rem;
+  margin-top: 3rem;
+}
+
+.advantages, .considerations {
+  background: rgba(255, 255, 255, 0.7);
+  padding: 2.5rem;
+  border-radius: 25px;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.season-card:hover .advantages,
+.season-card:hover .considerations {
+  transform: translateY(-8px);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.advantages h4, .considerations h4 {
+  font-size: 1.8rem;
+  color: var(--text-color);
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+}
+
+.season-card .activities {
+  margin-top: 0.5rem;
+}
+
+.season-card .activities li {
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.advantages li::before,
+.considerations li::before {
+  content: '→';
+  font-size: 1.2rem;
+  transition: all 0.4s ease;
+}
+
+.advantages li::before {
+  color: #48bb78;
+}
+
+.considerations li::before {
+  color: #ed8936;
+}
+
+.advantages li:hover,
+.considerations li:hover {
+  background: rgba(255, 255, 255, 0.95);
+  transform: translateX(10px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border-color: var(--accent-color);
+}
+
+.advantages li:hover::before,
+.considerations li:hover::before {
+  transform: translateX(5px) scale(1.2);
+}
+
+/* Season-specific animations */
+@keyframes sunRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes rainDrop {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(5px); }
+  100% { transform: translateY(0); }
+}
+
+.season-card[data-season="dry"] .weather-info svg {
+  animation: sunRotate 20s linear infinite;
+}
+
+.season-card[data-season="wet"] .weather-info svg {
+  animation: rainDrop 2s ease-in-out infinite;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .seasons-grid {
+    grid-template-columns: 1fr;
+    max-width: 800px;
+  }
+}
+
+@media (max-width: 768px) {
+  .seasonal-guide h2 {
+    font-size: 2.6rem;
+    margin-bottom: 4rem;
+  }
+
+  .season-card {
+    padding: 2.5rem;
+  }
+
+  .season-card h3 {
+    font-size: 2rem;
+  }
+
+  .weather-info {
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .weather-info svg {
+    font-size: 2.5rem;
+  }
+
+  .weather-info p {
+    font-size: 1.1rem;
+  }
+
+  .advantages, .considerations {
+    padding: 2rem;
+  }
+
+  .advantages h4, .considerations h4 {
+    font-size: 1.6rem;
+  }
+
+  .advantages li, .considerations li {
+    padding: 1.2rem 1.5rem;
+  }
+}
+
+/* Unique Experiences Section */
+.unique-experiences {
+  padding: 6rem 0;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.unique-experiences::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+}
+
+.unique-experiences h2 {
+  text-align: center;
+  font-size: 2.8rem;
+  margin-bottom: 4rem;
+  color: var(--text-color);
+  position: relative;
+}
+
+.unique-experiences h2::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: var(--accent-color);
+  border-radius: 2px;
+}
+
+.experiences-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 3rem;
+  padding: 2rem;
+}
+
+.experience-card {
+  background: white;
+  border-radius: 20px;
+  padding: 3rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.experience-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, transparent, rgba(255, 255, 255, 0.2));
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.experience-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.experience-card:hover::before {
+  transform: translateX(100%);
+}
+
+.experience-icon {
+  font-size: 3rem;
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+  transition: transform 0.4s ease;
+}
+
+.experience-card:hover .experience-icon {
+  transform: scale(1.2) rotate(10deg);
+  color: var(--accent-color);
+}
+
+.experience-card h3 {
+  font-size: 1.8rem;
+  color: var(--text-color);
+  margin-bottom: 2rem;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.experience-card h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: var(--primary-color);
+  transition: width 0.4s ease;
+}
+
+.experience-card:hover h3::after {
+  width: 100px;
+}
+
+.experience-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.experience-card li {
+  padding: 1rem 0;
+  padding-left: 2rem;
+  position: relative;
+  color: var(--text-light);
+  transition: all 0.3s ease;
+}
+
+.experience-card li::before {
+  content: "✦";
+  color: var(--accent-color);
+  position: absolute;
+  left: 0;
+  transition: transform 0.3s ease;
+}
+
+.experience-card li:hover {
+  color: var(--primary-color);
+  transform: translateX(10px);
+}
+
+.experience-card li:hover::before {
+  transform: scale(1.2);
+}
+
+/* Cultural Section */
+.cultural-section {
+  padding: 6rem 0;
+  background: linear-gradient(to bottom, #ffffff, #f8f9fa);
+  position: relative;
+}
+
+.cultural-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+  padding: 2rem;
+}
+
+.cultural-card {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.cultural-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+
+.cultural-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.cultural-card:hover::after {
+  transform: scaleX(1);
+}
+
+.cultural-icon {
+  font-size: 3.5rem;
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+  transition: transform 0.4s ease;
+}
+
+.cultural-card:hover .cultural-icon {
+  transform: scale(1.2) rotate(10deg);
+  color: var(--accent-color);
+}
+
+.cultural-card h3 {
+  font-size: 1.8rem;
+  color: var(--text-color);
+  margin-bottom: 1.5rem;
+}
+
+.cultural-card p {
+  color: var(--text-light);
+  line-height: 1.8;
+  font-size: 1.1rem;
+}
+
+/* Practical Advantages Section */
+.practical-advantages {
+  padding: 6rem 0;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  position: relative;
+}
+
+.practical-advantages h2 {
+  text-align: center;
+  font-size: 2.8rem;
+  margin-bottom: 4rem;
+  color: var(--text-color);
+  position: relative;
+}
+
+.practical-advantages h2::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: var(--accent-color);
+  border-radius: 2px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .experiences-grid,
+  .cultural-grid {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+
+  .experience-card,
+  .cultural-card {
+    padding: 2rem;
+  }
+
+  .unique-experiences h2,
+  .cultural-section h2,
+  .practical-advantages h2 {
+    font-size: 2.2rem;
+    margin-bottom: 3rem;
+  }
+
+  .experience-icon,
+  .cultural-icon {
+    font-size: 2.5rem;
+  }
+}
+
+/* Special styling for the last six cards */
+.park-card:nth-last-child(-n+6) {
+  display: flex;
+  flex-direction: column;
+  min-height: 900px;
+  height: auto;
+}
+
+.park-card:nth-last-child(-n+6) .park-image {
+  height: 320px;
+  flex-shrink: 0;
+}
+
+.park-card:nth-last-child(-n+6) .park-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2.8rem;
+}
+
+.park-card:nth-last-child(-n+6) .park-description {
+  height: auto;
+  overflow: visible;
+  display: block;
+  line-height: 1.8;
+  color: var(--text-light);
+}
+
+.park-card:nth-last-child(-n+6) .park-highlights,
+.park-card:nth-last-child(-n+6) .park-features {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 2rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.park-card:nth-last-child(-n+6) .park-highlights ul,
+.park-card:nth-last-child(-n+6) .park-features ul {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.park-card:nth-last-child(-n+6) .park-highlights li,
+.park-card:nth-last-child(-n+6) .park-features li {
+  padding: 1rem 1.5rem;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.park-card:nth-last-child(-n+6) .park-meta {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  margin: 1rem 0;
+}
+
+.park-card:nth-last-child(-n+6) .view-details-btn {
+  margin-top: 1.5rem;
+  width: 100%;
+  justify-content: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .park-card:nth-last-child(-n+6) {
+    min-height: 850px;
+  }
+}
+
+@media (max-width: 768px) {
+  .park-card:nth-last-child(-n+6) {
+    min-height: auto;
+  }
+
+  .park-card:nth-last-child(-n+6) .park-image {
+    height: 280px;
+  }
+
+  .park-card:nth-last-child(-n+6) .park-content {
+    padding: 2rem;
+    gap: 1.5rem;
+  }
+
+  .park-card:nth-last-child(-n+6) .park-meta {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+.circuit-stats {
+  padding: 4rem 0;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.95), rgba(255,255,255,0.98));
+  position: relative;
+  overflow: hidden;
+}
+
+.circuit-stats::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('https://img.freepik.com/free-photo/beautiful-african-landscape-during-sunset_181624-6708.jpg?w=1800') center/cover no-repeat;
+  opacity: 0.1;
+  z-index: -1;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.stat-card {
+  background: white;
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  border: 1px solid rgba(255,123,37,0.1);
+}
+
+.stat-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 30px rgba(255,123,37,0.15);
+  border-color: rgba(255,123,37,0.2);
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--primary-color);
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+
+.stat-card:hover::before {
+  transform: scaleX(1);
+}
+
+.stat-icon {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+.stat-icon::after {
+  content: '';
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: rgba(255,123,37,0.1);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover .stat-icon::after {
+  width: 60px;
+  height: 60px;
+  background: rgba(255,123,37,0.15);
+}
+
+.stat-content h3 {
+  color: #333;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  transition: color 0.3s ease;
+}
+
+.stat-card:hover .stat-content h3 {
+  color: var(--primary-color);
+}
+
+.stat-content p {
+  color: #666;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.stat-card:hover .stat-content p {
+  color: #444;
+}
+
+@media (max-width: 992px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .stat-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .stat-content h3 {
+    font-size: 1.6rem;
+  }
+
+  .stat-content p {
+    font-size: 1rem;
+  }
+}
+
+/* Scroll Indicators */
+.scroll-indicator {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+}
+
+.scroll-indicator:hover {
+  opacity: 1;
+}
+
+.scroll-left {
+  left: 0;
+}
+
+.scroll-right {
+  right: 0;
+}
+
+/* Gradient indicators */
+.parks-grid .container::before,
+.parks-grid .container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.parks-grid .container::before {
+  left: 0;
+  background: linear-gradient(to right, rgba(249, 249, 249, 0.9), transparent);
+}
+
+.parks-grid .container::after {
+  right: 0;
+  background: linear-gradient(to left, rgba(249, 249, 249, 0.9), transparent);
+} 

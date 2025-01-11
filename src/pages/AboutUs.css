@@ -36,11 +36,11 @@
   max-width: 800px;
   padding: 0 2rem;
   z-index: 2;
-  animation: fadeIn 1s ease-out;
+  /* animation: fadeIn 1s ease-out; */
 }
 
 .hero-content h1 {
-  font-size: 4rem;
+  font-size: 3.5rem;
   margin-bottom: 1.5rem;
   font-weight: 800;
   text-transform: uppercase;
@@ -50,7 +50,7 @@
 }
 
 .hero-content p {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   line-height: 1.6;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
   font-weight: 500;
@@ -280,7 +280,7 @@
   font-size: 1rem;
   font-weight: 600;
   text-align: center;
-  color: white;
+  color: var(--primary-color);
 }
 
 @media (max-width: 992px) {

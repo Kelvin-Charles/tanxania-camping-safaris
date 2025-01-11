@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaFacebookF, FaTwitter, FaInstagram, FaWhatsapp, FaChevronRight } from 'react-icons/fa';
 import './Footer.css';
+import { contactInfo } from '../config/contact';
 
 const Footer = () => {
   return (
@@ -15,16 +16,16 @@ const Footer = () => {
               combining luxury camping with authentic wildlife experiences.
             </p>
             <div className="social-links">
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="facebook">
+              <a href="https://www.facebook.com/TanzaniaCamping" target="_blank" rel="noopener noreferrer" className="facebook">
                 <FaFacebookF />
               </a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="twitter">
+              {/* <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="twitter">
                 <FaTwitter />
-              </a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="instagram">
+              </a> */}
+              <a href="https://www.instagram.com/gofansafaris" target="_blank" rel="noopener noreferrer" className="instagram">
                 <FaInstagram />
               </a>
-              <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" className="whatsapp">
+              <a href="https://wa.me/255622403223" target="_blank" rel="noopener noreferrer" className="whatsapp">
                 <FaWhatsapp />
               </a>
             </div>
@@ -66,7 +67,7 @@ const Footer = () => {
                 <FaPhone />
                 <div>
                   <strong>Call Us:</strong>
-                  <p>+255 123 456 789</p>
+                  <p>+255 622 403 223</p>
                 </div>
               </li>
               <li>

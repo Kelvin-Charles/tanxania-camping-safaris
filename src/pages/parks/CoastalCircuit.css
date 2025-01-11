@@ -1,0 +1,156 @@
+@import './CircuitBase.css';
+
+:root {
+  --primary-color: #0891b2;
+  --primary-dark: #0e7490;
+  --accent-color: #06b6d4;
+  --text-color: #333;
+  --text-light: #666;
+  --background-light: #f9f9f9;
+  --white: #ffffff;
+}
+
+.coastal-circuit {
+  padding-top: 80px;
+  background-color: var(--background-light);
+}
+
+/* Hero Section */
+.circuit-hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+              url('https://img.freepik.com/free-photo/aerial-view-beautiful-beach-sea_74190-7516.jpg') center/cover fixed;
+}
+
+/* Feature Cards */
+.feature-card::before {
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+}
+
+.feature-card .icon {
+  color: var(--primary-color);
+}
+
+/* Park Cards */
+.park-card:hover {
+  border-color: var(--primary-color);
+}
+
+.park-difficulty {
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+}
+
+/* Stats Section */
+.stat-icon {
+  color: var(--primary-color);
+}
+
+.view-details-btn {
+  background: var(--primary-color);
+}
+
+.view-details-btn:hover {
+  background: var(--primary-dark);
+}
+
+/* Season Cards */
+.season-card {
+  border-color: var(--primary-color);
+}
+
+.season-icon {
+  color: var(--primary-color);
+}
+
+/* Update Parks Grid Layout */
+.parks-grid .container {
+  position: relative;
+  padding: 0 40px; /* Space for scroll indicators */
+}
+
+.parks-cards-grid {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem 0;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+/* Hide default scrollbar */
+.parks-cards-grid::-webkit-scrollbar {
+  display: none;
+}
+
+.park-card {
+  flex: 0 0 400px; /* Fixed width, no shrinking */
+  max-width: 400px;
+  margin-bottom: 1rem;
+}
+
+/* Scroll Indicators */
+.scroll-indicator {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+}
+
+.scroll-indicator:hover {
+  opacity: 1;
+}
+
+.scroll-left {
+  left: 0;
+}
+
+.scroll-right {
+  right: 0;
+}
+
+/* Gradient indicators for scroll */
+.parks-grid .container::before,
+.parks-grid .container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.parks-grid .container::before {
+  left: 0;
+  background: linear-gradient(to right, rgba(249, 249, 249, 0.9), transparent);
+}
+
+.parks-grid .container::after {
+  right: 0;
+  background: linear-gradient(to left, rgba(249, 249, 249, 0.9), transparent);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .parks-grid .container {
+    padding: 0 20px;
+  }
+
+  .park-card {
+    flex: 0 0 300px;
+    max-width: 300px;
+  }
+} 

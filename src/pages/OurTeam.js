@@ -82,6 +82,13 @@ const OurTeam = () => {
       </section>
 
       <div className="team-container">
+        {/* 
+        
+        social Media Panel
+        And Team Member Panel also 
+        
+        
+        */}
         {teamMembers.map((member) => (
           <div key={member.id} className="team-member">
             <div className="member-image">
@@ -119,7 +126,7 @@ const OurTeam = () => {
 
       <section className="team-testimonials">
         <div className="container">
-          <h2>What Our Team Delivers</h2>
+          <h2>What Our Clients Says</h2>
           <div className="testimonials-grid">
             {testimonials.map((testimonial) => (
               <div key={testimonial.id} className="testimonial-card">

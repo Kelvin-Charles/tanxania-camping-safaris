@@ -1,0 +1,84 @@
+{"navBarTab":["Home",
+    {"Camping Safaris":[
+        "Day trip",
+        "luxury Camping Safaris",
+        "Mid-range Camping Safaris",
+        "Budget Camping Safaris",
+        "Game Packages Safaris",
+        "Mountain Camping Trek",
+        "Photography Safaris",
+        "Beach Camping safaris"
+    ]},
+    {"Experiences":[
+        "Balloon Ride",
+        "Canoeing",
+        "Nature Walk",
+        "City Tour",
+        "Golfing",
+        "City Tour",
+        "Biking Tours",
+        "Birding Tours",
+        "Gem Stone Tour"
+    ]},
+    
+    {"Cultural":[
+        "WaterFalls",
+        "Hot Spring water",
+        "Coffee Tour",
+        "Giving Tour"
+    ]},
+
+    {"Where to GO":[
+    {"Western Zone":[
+        {"Saanane Island National Park":"https://arcg.is/0CPqCf"},
+        {"Burigi-Chato National Park": "https://storymaps.arcgis.com/stories/81a97eea609f41e78613e86002eed7cc"},
+        {"Rubondo National Park":"https://storymaps.arcgis.com/stories/c076693eb30045dcb4cfd43af27d30ab"},
+        {"Gombe National Park":"https://storymaps.arcgis.com/stories/4530ed5edb924a2d991d2b6ef4bf2b53"},
+        {"Mahale Mountains National Park":"https://arcg.is/0Ca8zK"},
+        {"Ibanda-Kyerwa National Park":"https://arcg.is/4y1T"},
+        {"Rumanyika-Karagwe National Park":"https://storymaps.arcgis.com/stories/637071f0ccff4d17adb07db371c25b1a"},
+        {"Ugalla River National Park":"https://www.tanzaniaparks.go.tz/pages/mt-kilimanjaro-geopark#"}
+    ]},
+    {"Northern Zone":[
+        {"Tarangire National Park":"https://arcg.is/0G8Ka4"},
+        {"Arusha National Park":"https://arcg.is/1LKu84"},
+        {"Mkomazi National Park":"https://arcg.is/194mHD"},
+        {"Lake Manyara National Park":"https://arcg.is/yvvHn"},
+        {"Kilimanjaro National Park":"https://arcg.is/1bnnuz"},
+        {"Serengeti National Park":"https://arcg.is/0u8Wyr"},
+        {"Ngorongoro Conservation Area authority":""}
+    ]},
+    {"Southern Zone":[
+        {"Ruaha National park":"https://arcg.is/1SC1GT"},
+        {"Katavi National Park":"https://storymaps.arcgis.com/stories/5544d3e6e0444bcbba37f6663f08c8bf"},
+        {"Kitulo National Par":"https://storymaps.arcgis.com/stories/0edef52ad0e441cc997f80848a17ae4f"},
+        {"Nyerere National Park":"https://arcg.is/rHH8j"}
+    ]},
+    {"Eastern Zone":[
+        {"Saadani National Park":"https://storymaps.arcgis.com/stories/b4e6adcc88d848b7b7684f393e1ce221"},
+        {"Mikumi National Park":"https://arcg.is/1SGerL0"},
+        {"Udzungwa Mountains National Park":"https://storymaps.arcgis.com/stories/c54db9ae048049c5a41b9c3e01f477f5"}
+    ]},
+    {"Other places":[
+        {"Lake Natron":""},
+        {"Lake Eyasi":""}
+    ]}
+]},
+
+{"Accomodation":[
+    "Luxury tented Camps",
+    "Moderate Tented Camps",
+    "Budget tented camps",
+    "Ground Camping sites"
+]},
+{"About Us":[
+    "About us",
+    "Our Team",
+    "Our Team",
+    "terms & Conditons",
+    "Travel Advice",
+    "Blog",
+    "FAQs"
+]},
+"Contact Us"]
+}
