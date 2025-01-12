@@ -8,7 +8,7 @@
   text-align: center;
   margin-bottom: 3rem;
   padding: 4rem 0;
-  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1516426122078-c23e76319801');
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("/public/images/tripBanner.jpeg");
   background-size: cover;
   background-position: center;
   color: white;

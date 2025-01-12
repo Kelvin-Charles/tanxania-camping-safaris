@@ -3,7 +3,7 @@ export const parkPackages = {
     {
       id: 1,
       title: "3 Days Classic Safari",
-      image: "/images/serengeti/classic-safari.jpg",
+      image: "https://images.pexels.com/photos/34098/south-africa-hluhluwe-giraffes-pattern.jpg?auto=compress&cs=tinysrgb&w=1600",
       price: 800,
       duration: "3 Days / 2 Nights",
       groupSize: "2-6 people",
@@ -103,7 +103,7 @@ export const parkPackages = {
     {
       id: 2,
       title: "5 Days Migration Safari",
-      image: "/images/serengeti/migration-safari.jpg",
+      image: "https://www.ngorongorocratertanzania.org/wp-content/uploads/2022/06/5-Days-Tanzania-Northern-Circuit-Wildlife-Safari-1170x450-1-750x450.jpg",
       price: 1500,
       duration: "5 Days / 4 Nights",
       groupSize: "2-6 people",
@@ -177,7 +177,7 @@ export const parkPackages = {
     {
       id: 3,
       title: "7 Days Photography Safari",
-      image: "/images/serengeti/photo-safari.jpg",
+      image: "/images/Photography.jpeg",
       price: 2200,
       duration: "7 Days / 6 Nights",
       groupSize: "4-8 people",
@@ -380,7 +380,7 @@ export const parkPackages = {
     {
       id: 4,
       title: "4 Days Balloon Safari Special",
-      image: "/images/serengeti/balloon-safari.jpg",
+      image: "https://www.africanaturaltours.com/images/best-hot-air-ballon-safari-in-tanzania-serengeti-tarangire-and-masai-mara.jpg",
       price: 1800,
       duration: "4 Days / 3 Nights",
       groupSize: "2-8 people",
@@ -506,7 +506,7 @@ export const parkPackages = {
     {
       id: 1,
       title: "7 Days Machame Route",
-      image: "/images/kilimanjaro/machame.jpg",
+      image: "https://www.pelago.com/img/products/TZ-Tanzania/kilimanjaro-machame-route-climb-7days-whiskey-route/03a25e63-b711-43e4-a8e7-9c1b723bad3e_kilimanjaro-machame-route-climb-7days-whiskey-route-xlarge.webp",
       price: 2500,
       duration: "7 Days / 6 Nights",
       groupSize: "2-10 people",
@@ -601,7 +601,7 @@ export const parkPackages = {
     {
       id: 2,
       title: "6 Days Marangu Route",
-      image: "/images/kilimanjaro/marangu.jpg",
+      image: "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/12/89/68/8d.jpg",
       price: 2200,
       duration: "6 Days / 5 Nights",
       groupSize: "2-12 people",
@@ -619,7 +619,7 @@ export const parkPackages = {
     {
       id: 3,
       title: "8 Days Lemosho Route",
-      image: "/images/kilimanjaro/lemosho.jpg",
+      image: "https://ascendtanzania.com/assest/images/8-days-lemosho-route-map.webp",
       price: 2800,
       duration: "8 Days / 7 Nights",
       groupSize: "2-8 people",
@@ -637,7 +637,7 @@ export const parkPackages = {
     {
       id: 4,
       title: "9 Days Northern Circuit",
-      image: "/images/kilimanjaro/northern.jpg",
+      image: "https://www.easytravel.co.tz/wp-content/uploads/2021/03/8-Days-Discover-Tarangire-Serengeti-Ngorongoro-22-comfort-plus-scaled.jpg",
       price: 3200,
       duration: "9 Days / 8 Nights",
       groupSize: "2-8 people",
@@ -658,7 +658,7 @@ export const parkPackages = {
     {
       id: 1,
       title: "2 Days Crater Explorer",
-      image: "/images/ngorongoro/crater-explorer.jpg",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSK6DQmVtweQvZWmKrrggXILM6SD09PQYRyfQ&s",
       price: 800,
       duration: "2 Days / 1 Night",
       groupSize: "2-6 people",
@@ -735,7 +735,7 @@ export const parkPackages = {
     {
       id: 2,
       title: "3 Days Cultural & Wildlife",
-      image: "/images/ngorongoro/cultural.jpg",
+      image: "https://www.ngorongorocratertanzania.org/wp-content/uploads/2022/03/1540222037-boma-1.jpg",
       price: 1200,
       duration: "3 Days / 2 Nights",
       groupSize: "2-8 people",
@@ -836,7 +836,7 @@ export const parkPackages = {
     {
       id: 3,
       title: "4 Days Photography Special",
-      image: "/images/ngorongoro/photo-safari.jpg",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSgnBMV2QO7gU5VxPhmKo25kTpQxvojmqkUw&s",
       price: 1600,
       duration: "4 Days / 3 Nights",
       groupSize: "2-4 people",
@@ -962,7 +962,7 @@ export const parkPackages = {
     {
       id: 4,
       title: "5 Days Ultimate Crater Safari",
-      image: "/images/ngorongoro/ultimate-safari.jpg",
+      image: "https://cdn-knhpl.nitrocdn.com/ffanUvkKeGbwONGcZPZvzlHomBxgWIze/assets/images/optimized/rev-e823d5c/gie.co.tz/wp-content/uploads/2024/03/ngorongoro-crater.jpg",
       price: 2000,
       duration: "5 Days / 4 Nights",
       groupSize: "2-6 people",
@@ -1114,10 +1114,10 @@ export const parkPackages = {
   tarangire: [
     {
       id: 1,
-      title: "2 Days Elephant Paradise",
-      image: "/images/tarangire/elephants.jpg",
+      title: "3 Days Tarangire Safari",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7gR2sqWqMCPVeg10ccjYGr4kojF-n3CcOAA&s",
       price: 700,
-      duration: "2 Days / 1 Night",
+      duration: "3 Days / 2 Nights",
       groupSize: "2-6 people",
       categories: ["Wildlife Safaris"],
       description: "Experience Tanzania's elephant haven and ancient baobab forests.",
@@ -1190,7 +1190,7 @@ export const parkPackages = {
     {
       id: 2,
       title: "3 Days Tarangire Explorer",
-      image: "/images/tarangire/explorer.jpg",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTC6BNWdKlW9NWIxQQtEAfb0esqsgc8biFElw&s",
       price: 1100,
       duration: "3 Days / 2 Nights",
       groupSize: "2-6 people",
@@ -1289,7 +1289,7 @@ export const parkPackages = {
     {
       id: 3,
       title: "4 Days Wildlife & Wilderness",
-      image: "/images/tarangire/wilderness.jpg",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUk6WonG4joQes3qK_ATJfO8ZRTVfvN6Fy_Q&s",
       price: 1600,
       duration: "4 Days / 3 Nights",
       groupSize: "2-8 people",
@@ -1413,7 +1413,7 @@ export const parkPackages = {
     {
       id: 4,
       title: "5 Days Ultimate Tarangire",
-      image: "/images/tarangire/ultimate.jpg",
+      image: "https://cdn.getyourguide.com/img/tour/cf86ff19029678635d6dbfd8dd7e2da1bf07c3ecf6241a4c955783d71745807e.jpeg/146.jpg",
       price: 2000,
       duration: "5 Days / 4 Nights",
       groupSize: "2-6 people",
@@ -1562,8 +1562,8 @@ export const parkPackages = {
   lakemanyara: [
     {
       id: 1,
-      title: "1 Day Tree-Climbing Lions Safari",
-      image: "/images/manyara/lions-safari.jpg",
+      title: "2 Days Lake Manyara",
+      image: "https://wildlifesafaritanzania.com/wp-content/uploads/2020/09/2-Days-Lake-Manyara-and-Ngorongoro-Crater-Safari--750x400.jpg",
       price: 400,
       duration: "Full Day",
       groupSize: "2-7 people",
@@ -1611,7 +1611,7 @@ export const parkPackages = {
     {
       id: 2,
       title: "2 Days Lake Manyara & Birdwatching",
-      image: "/images/manyara/birdwatching.jpg",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHIla7RAIa2j_88OcMfUkkmGSDH60qkmV54Q&s",
       price: 750,
       duration: "2 Days / 1 Night",
       groupSize: "2-6 people",
@@ -1683,7 +1683,7 @@ export const parkPackages = {
     {
       id: 3,
       title: "3 Days Wildlife & Culture",
-      image: "/images/manyara/culture.jpg",
+      image: "https://www.andbeyond.com/wp-content/uploads/sites/5/Lion-in-a-tree-in-Lake-Manyara-National-Park.jpg",
       price: 1100,
       duration: "3 Days / 2 Nights",
       groupSize: "2-8 people",
@@ -1778,7 +1778,7 @@ export const parkPackages = {
     {
       id: 4,
       title: "4 Days Photography Special",
-      image: "/images/manyara/photo.jpg",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHIYivDhFFjrQDgc5Ju9rwMAqfzSWB3PiTKA&s",
       price: 1500,
       duration: "4 Days / 3 Nights",
       groupSize: "2-4 people",
@@ -1925,10 +1925,10 @@ export const parkPackages = {
   zanzibar: [
     {
       id: 1,
-      title: "3 Days Stone Town & Beach",
-      image: "/images/zanzibar/stone-town.jpg",
+      title: "5 Days Beach Holiday",
+      image: "https://images.pexels.com/photos/1032650/pexels-photo-1032650.jpeg?auto=compress&cs=tinysrgb&w=1600",
       price: 600,
-      duration: "3 Days / 2 Nights",
+      duration: "5 Days / 4 Nights",
       groupSize: "2-8 people",
       categories: ["Beach Holidays", "Culture Tour"],
       description: "Experience the historic Stone Town and pristine beaches of Zanzibar.",
@@ -2022,131 +2022,182 @@ export const parkPackages = {
     },
     {
       id: 2,
-      title: "5 Days Island Explorer",
-      image: "/images/zanzibar/explorer.jpg",
+      title: "7 Days Paradise Beach",
+      image: "https://images.pexels.com/photos/1450353/pexels-photo-1450353.jpeg?auto=compress&cs=tinysrgb&w=1600",
       price: 1200,
-      duration: "5 Days / 4 Nights",
+      duration: "7 Days / 6 Nights",
       groupSize: "2-6 people",
       categories: ["Beach Holidays", "Culture Tour"],
-      description: "Comprehensive exploration of Zanzibar's highlights.",
+      description: "Experience the best of Zanzibar's beaches and culture.",
       highlights: [
-        "Stone Town heritage",
-        "Multiple beaches",
-        "Spice tours",
-        "Jozani Forest",
-        "Dolphin watching",
-        "Local village visits"
+        "Relax on pristine beaches",
+        "Visit historical sites",
+        "Experience local culture",
+        "Snorkeling and diving",
+        "Sunset cruises",
+        "Local cuisine"
       ],
       itinerary: [
         {
           day: 1,
-          title: "Stone Town Discovery",
-          description: "Immerse yourself in Zanzibar's historic capital",
+          title: "Arrival & Beach Relaxation",
+          description: "Begin your beach holiday with a day of relaxation",
           activities: [
-            "08:00 - Airport arrival and transfer",
-            "09:30-12:30 - Stone Town heritage walk",
-            "13:00-14:30 - Lunch at rooftop restaurant",
-            "15:00-17:00 - Visit historical sites",
-            "17:30-19:00 - Sunset dhow cruise",
-            "19:30 - Welcome dinner with local music"
+            "07:00-08:00 - Beach yoga",
+            "08:30-09:30 - Breakfast",
+            "10:00-12:00 - Beach activities",
+            "12:30-14:00 - Beach lunch",
+            "14:30-16:00 - Snorkeling",
+            "17:00-18:00 - Sunset cruise",
+            "19:00 - Seafood dinner"
           ],
           meals: {
-            breakfast: "Not included",
-            lunch: "Rooftop lunch",
-            dinner: "Welcome dinner"
+            breakfast: "Resort breakfast",
+            lunch: "Beach lunch",
+            dinner: "Dinner on the beach"
           },
-          accommodation: "Heritage Hotel Stone Town",
+          accommodation: "Beach Resort",
           included: [
-            "Guided tours",
-            "Dhow cruise",
             "All meals",
-            "Transfers"
+            "Beach activities",
+            "Snorkeling equipment",
+            "Sunset cruise"
           ]
         },
         {
           day: 2,
-          title: "Spice & Jozani Forest",
-          description: "Explore Zanzibar's natural and cultural heritage",
+          title: "Stone Town Heritage",
+          description: "Explore Zanzibar's historic capital",
           activities: [
-            "08:00 - Breakfast at hotel",
-            "09:00-11:30 - Spice plantation tour",
-            "12:00-13:00 - Spice lunch experience",
-            "14:00-16:30 - Jozani Forest tour",
-            "17:00 - Transfer to beach resort",
-            "19:00 - Dinner at resort"
+            "08:00 - Transfer to Stone Town",
+            "09:00-12:00 - Guided walking tour",
+            "12:30-14:00 - Traditional lunch",
+            "14:30-16:00 - Visit historical sites",
+            "17:00-18:00 - Sunset dhow cruise",
+            "19:00 - Rooftop dinner with local music"
           ],
           meals: {
-            breakfast: "Hotel breakfast",
-            lunch: "Spice plantation lunch",
-            dinner: "Resort dinner"
+            breakfast: "Resort breakfast",
+            lunch: "Traditional lunch",
+            dinner: "Dinner in Stone Town"
           },
-          accommodation: "Beach Resort",
+          accommodation: "Boutique Hotel",
           included: [
-            "Spice tour",
-            "Forest guide",
-            "All transfers",
-            "Meals"
+            "Walking tour",
+            "Traditional lunch",
+            "Local guide",
+            "All meals"
           ]
         },
         {
           day: 3,
-          title: "Marine Adventure",
-          description: "Discover Zanzibar's marine life",
+          title: "Spice Plantation & Beach",
+          description: "Discover Zanzibar's spice heritage and relax on the beach",
           activities: [
-            "07:00 - Breakfast at resort",
-            "08:00-12:00 - Snorkeling trip",
-            "12:30-13:30 - Beach picnic lunch",
-            "14:00-16:00 - Dolphin watching",
-            "16:30-18:00 - Beach relaxation",
+            "07:00 - Breakfast",
+            "08:00-12:00 - Spice plantation tour",
+            "12:30-14:00 - Beach picnic lunch",
+            "14:30-16:00 - Beach relaxation",
+            "17:00-18:00 - Sunset cruise",
             "19:00 - Seafood dinner"
           ],
           meals: {
             breakfast: "Resort breakfast",
             lunch: "Beach picnic",
-            dinner: "Seafood dinner"
+            dinner: "Dinner on the beach"
           },
-          accommodation: "Same resort",
+          accommodation: "Beach Resort",
           included: [
-            "Snorkeling equipment",
-            "Boat trips",
-            "Marine guide",
+            "Spice tour",
+            "Beach activities",
+            "Snorkeling",
             "All meals"
           ]
         },
         {
           day: 4,
-          title: "Village & Culture",
-          description: "Experience local life and traditions",
+          title: "Jozani Forest",
+          description: "Explore the natural beauty of Jozani Forest",
           activities: [
-            "08:00 - Breakfast at resort",
-            "09:00-12:00 - Village tour",
-            "12:30-14:00 - Local home lunch",
-            "14:30-16:30 - Traditional crafts",
-            "17:00-18:30 - Cooking class",
-            "19:00 - Traditional dinner"
+            "07:00 - Breakfast",
+            "08:00-12:00 - Forest hike",
+            "12:30-14:00 - Picnic lunch",
+            "14:30-16:00 - Wildlife spotting",
+            "17:00-18:00 - Sunset cruise",
+            "19:00 - Seafood dinner"
           ],
           meals: {
             breakfast: "Resort breakfast",
-            lunch: "Home-cooked lunch",
-            dinner: "Traditional dinner"
+            lunch: "Forest picnic",
+            dinner: "Dinner in Jozani Forest"
           },
-          accommodation: "Same resort",
+          accommodation: "Beach Resort",
           included: [
-            "Village guide",
-            "Cooking class",
-            "Cultural activities",
-            "All meals"
+            "Forest tour",
+            "Local guide",
+            "All meals",
+            "Snorkeling gear"
           ]
         },
         {
           day: 5,
-          title: "Beach & Departure",
-          description: "Final day of relaxation",
+          title: "Stone Town & Beach",
+          description: "Explore Stone Town and relax on the beach",
           activities: [
-            "07:00-08:00 - Sunrise yoga",
-            "08:30-10:00 - Breakfast",
-            "10:00-12:00 - Beach time",
-            "12:30-14:00 - Final lunch",
+            "07:00 - Breakfast",
+            "08:00-12:00 - Stone Town walking tour",
+            "12:30-14:00 - Beach time",
+            "14:30-16:00 - Beach relaxation",
+            "17:00-18:00 - Sunset cruise",
+            "19:00 - Seafood dinner"
+          ],
+          meals: {
+            breakfast: "Resort breakfast",
+            lunch: "Stone Town lunch",
+            dinner: "Dinner in Stone Town"
+          },
+          accommodation: "Boutique Hotel",
+          included: [
+            "Walking tour",
+            "Beach activities",
+            "Snorkeling",
+            "All meals"
+          ]
+        },
+        {
+          day: 6,
+          title: "Diving & Snorkeling",
+          description: "Discover the underwater world of Zanzibar",
+          activities: [
+            "07:00 - Breakfast",
+            "08:00-12:00 - Snorkeling trip",
+            "12:30-14:00 - Beach picnic",
+            "14:30-16:00 - Snorkeling",
+            "17:00-18:00 - Sunset cruise",
+            "19:00 - Seafood dinner"
+          ],
+          meals: {
+            breakfast: "Resort breakfast",
+            lunch: "Beach picnic",
+            dinner: "Dinner on the beach"
+          },
+          accommodation: "Beach Resort",
+          included: [
+            "Snorkeling equipment",
+            "Boat trips",
+            "Local guide",
+            "All meals"
+          ]
+        },
+        {
+          day: 7,
+          title: "Farewell & Departure",
+          description: "Final day of relaxation and cultural experiences",
+          activities: [
+            "07:00-08:00 - Beach yoga",
+            "08:30-09:30 - Breakfast",
+            "10:00-12:00 - Cultural activities",
+            "12:30-14:00 - Farewell lunch",
             "14:30 - Resort checkout",
             "15:00 - Airport transfer",
             "17:00 - Departure"
@@ -2157,8 +2208,8 @@ export const parkPackages = {
           },
           included: [
             "Morning yoga",
-            "Beach activities",
-            "Airport transfer",
+            "Cultural activities",
+            "Transfer",
             "Meals as specified"
           ]
         }
@@ -2167,7 +2218,7 @@ export const parkPackages = {
     {
       id: 3,
       title: "7 Days Ultimate Zanzibar",
-      image: "/images/zanzibar/ultimate.jpg",
+      image: "https://www.africanaturaltours.com/images/znz-7days1-b.jpg",
       price: 1800,
       duration: "7 Days / 6 Nights",
       groupSize: "2-8 people",
@@ -2363,7 +2414,7 @@ export const parkPackages = {
     {
       id: 4,
       title: "4 Days Water Sports Special",
-      image: "/images/zanzibar/water-sports.jpg",
+      image: "https://images.pexels.com/photos/1645028/pexels-photo-1645028.jpeg?auto=compress&cs=tinysrgb&w=1600",
       price: 900,
       duration: "4 Days / 3 Nights",
       groupSize: "2-6 people",
@@ -2484,8 +2535,8 @@ export const parkPackages = {
   mafia: [
     {
       id: 1,
-      title: "4 Days Whale Shark Experience",
-      image: "/images/mafia/whale-sharks.jpg",
+      title: "3 Days Marine Safari",
+      image: "https://waybird.imgix.net/experiences/kodak_images/000/000/054/original/Tanzania-Zanzibar-Snorkelling-Whale-Sharks-Timbuktu-Travel.jpg?w=1400&h=960",
       price: 1200,
       duration: "4 Days / 3 Nights",
       groupSize: "2-6 people",
@@ -2604,7 +2655,7 @@ export const parkPackages = {
     {
       id: 2,
       title: "6 Days Diving Paradise",
-      image: "/images/mafia/diving-paradise.jpg",
+      image: "https://images.pexels.com/photos/3046582/pexels-photo-3046582.jpeg?auto=compress&cs=tinysrgb&w=1600",
       price: 1500,
       duration: "6 Days / 5 Nights",
       groupSize: "2-6 people",
@@ -2775,7 +2826,7 @@ export const parkPackages = {
     {
       id: 3,
       title: "3 Days Island Escape",
-      image: "/images/mafia/island-escape.jpg",
+      image: "https://images.pexels.com/photos/1021073/pexels-photo-1021073.jpeg?auto=compress&cs=tinysrgb&w=1600",
       price: 1000,
       duration: "3 Days / 2 Nights",
       groupSize: "2-6 people",
@@ -2872,8 +2923,8 @@ export const parkPackages = {
   pemba: [
     {
       id: 1,
-      title: "5 Days Diving Paradise",
-      image: "/images/pemba/diving-paradise.jpg",
+      title: "4 Days Diving Adventure",
+      image: "https://images.pexels.com/photos/3046582/pexels-photo-3046582.jpeg?auto=compress&cs=tinysrgb&w=1600",
       price: 1500,
       duration: "5 Days / 4 Nights",
       groupSize: "2-6 people",
@@ -3017,127 +3068,8 @@ export const parkPackages = {
     },
     {
       id: 2,
-      title: "4 Days Cultural Experience",
-      image: "/images/pemba/cultural-experience.jpg",
-      price: 1200,
-      duration: "4 Days / 3 Nights",
-      groupSize: "2-6 people",
-      categories: ["Culture Tour"],
-      description: "Experience the rich cultural heritage of Pemba Island.",
-      highlights: [
-        "Traditional village visits",
-        "Cultural activities",
-        "Cooking class",
-        "Local interaction"
-      ],
-      itinerary: [
-        {
-          day: 1,
-          title: "Arrival & Cultural Introduction",
-          description: "Begin your cultural journey in Pemba",
-          activities: [
-            "09:00 - Arrival at Pemba Airport",
-            "10:00 - Transfer to cultural lodge",
-            "11:00-12:00 - Welcome ceremony",
-            "12:30-14:00 - Traditional lunch",
-            "14:30-16:30 - Village orientation walk",
-            "17:00-18:30 - Cultural presentation",
-            "19:00 - Welcome dinner with local music"
-          ],
-          meals: {
-            breakfast: "Not included",
-            lunch: "Traditional lunch",
-            dinner: "Cultural dinner"
-          },
-          accommodation: "Cultural Lodge",
-          included: [
-            "Airport transfer",
-            "Cultural activities",
-            "Local guide",
-            "All meals"
-          ]
-        },
-        {
-          day: 2,
-          title: "Village Life & Traditions",
-          description: "Immerse in local daily life",
-          activities: [
-            "07:00 - Traditional breakfast",
-            "08:00-11:00 - Village activities",
-            "11:30-13:00 - Cooking class",
-            "13:30-14:30 - Lunch with families",
-            "15:00-17:00 - Craft workshops",
-            "17:30-18:30 - Evening rituals",
-            "19:00 - Community dinner"
-          ],
-          meals: {
-            breakfast: "Local breakfast",
-            lunch: "Home-cooked lunch",
-            dinner: "Community feast"
-          },
-          accommodation: "Same lodge",
-          included: [
-            "Village activities",
-            "Cooking class",
-            "Craft materials",
-            "All meals"
-          ]
-        },
-        {
-          day: 3,
-          title: "Spice & Heritage",
-          description: "Explore Pemba's rich heritage",
-          activities: [
-            "07:30 - Breakfast",
-            "08:30-11:30 - Spice plantation tour",
-            "12:00-13:30 - Spice-infused lunch",
-            "14:00-16:00 - Historical sites visit",
-            "16:30-18:00 - Traditional medicine walk",
-            "19:00 - Special dinner"
-          ],
-          meals: {
-            breakfast: "Lodge breakfast",
-            lunch: "Plantation lunch",
-            dinner: "Traditional dinner"
-          },
-          accommodation: "Same lodge",
-          included: [
-            "Spice tour",
-            "Heritage guide",
-            "All activities",
-            "All meals"
-          ]
-        },
-        {
-          day: 4,
-          title: "Final Cultural Day & Departure",
-          description: "Last cultural experiences",
-          activities: [
-            "07:00 - Morning ritual",
-            "08:00-09:00 - Traditional breakfast",
-            "09:30-11:00 - Final village visit",
-            "11:30-12:30 - Farewell ceremony",
-            "13:00 - Light lunch",
-            "14:00 - Airport transfer",
-            "16:00 - Departure"
-          ],
-          meals: {
-            breakfast: "Traditional breakfast",
-            lunch: "Light lunch"
-          },
-          included: [
-            "Morning activities",
-            "Farewell ceremony",
-            "Transfer",
-            "Meals as specified"
-          ]
-        }
-      ]
-    },
-    {
-      id: 3,
-      title: "6 Days Island Explorer",
-      image: "/images/pemba/island-explorer.jpg",
+      title: "6 Days Island Paradise",
+      image: "https://www.fundulagoon.com/blog/wp-content/uploads/2023/03/Anthias-On-Reef-1024x768.jpg",
       price: 1800,
       duration: "6 Days / 5 Nights",
       groupSize: "2-6 people",
@@ -3304,9 +3236,9 @@ export const parkPackages = {
       ]
     },
     {
-      id: 4,
+      id: 3,
       title: "3 Days Beach Escape",
-      image: "/images/pemba/beach-escape.jpg",
+      image: "https://images.pexels.com/photos/1188473/pexels-photo-1188473.jpeg?auto=compress&cs=tinysrgb&w=1600",
       price: 1000,
       duration: "3 Days / 2 Nights",
       groupSize: "2-6 people",
@@ -3404,8 +3336,8 @@ export const parkPackages = {
   saadani: [
     {
       id: 1,
-      title: "3 Days Bush & Beach",
-      image: "/images/saadani/bush-beach.jpg",
+      title: "4 Days Beach and Bush",
+      image: "https://tanzania-specialist.com/wp-content/uploads/2023/07/Saadani3.jpg",
       price: 1200,
       duration: "3 Days / 2 Nights",
       groupSize: "2-6 people",
@@ -3501,7 +3433,7 @@ export const parkPackages = {
     {
       id: 2,
       title: "4 Days Photography Special",
-      image: "/images/saadani/photo-safari.jpg",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSgnBMV2QO7gU5VxPhmKo25kTpQxvojmqkUw&s",
       price: 1600,
       duration: "4 Days / 3 Nights",
       groupSize: "2-4 people",
@@ -3623,7 +3555,7 @@ export const parkPackages = {
     {
       id: 3,
       title: "5 Days Ultimate Saadani",
-      image: "/images/saadani/ultimate.jpg",
+      image: "https://africanspicesafaris.com/wp-content/uploads/2020/08/saadani-national-park.gif",
       price: 2000,
       duration: "5 Days / 4 Nights",
       groupSize: "2-6 people",
@@ -3771,7 +3703,7 @@ export const parkPackages = {
     {
       id: 4,
       title: "2 Days Quick Escape",
-      image: "/images/saadani/quick-escape.jpg",
+      image: "https://www.familiesworldwide.co.uk/images/teasers/africa_tanzania_saadani_beach_palm_trees_thumbnail.jpg",
       price: 800,
       duration: "2 Days / 1 Night",
       groupSize: "2-6 people",
@@ -3843,7 +3775,7 @@ export const parkPackages = {
     {
       id: 1,
       title: "4 Days Wilderness Safari",
-      image: "https://images.unsplash.com/photo-1516426122078-c23e76319801?ixlib=rb-4.0.1&auto=format&fit=crop&w=800&q=80",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_LyuYNEE8Chb3i0Tl9c2xvrg5CpI8MoKgKQ&s",
       price: 1200,
       duration: "4 Days / 3 Nights",
       groupSize: "2-6 people",
@@ -3962,7 +3894,7 @@ export const parkPackages = {
     {
       id: 2,
       title: "6 Days Ultimate Katavi",
-      image: "https://images.unsplash.com/photo-1549366021-9f761d450615?ixlib=rb-4.0.1&auto=format&fit=crop&w=800&q=80",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXKIsLdhx8iAFFY8sdknhQFZjywbXPq-JeOWqZWyjNEDjhC5rXTycCX2F6HCkhfM44WtI&usqp=CAU",
       price: 1800,
       duration: "6 Days / 5 Nights",
       groupSize: "2-6 people",
@@ -4131,7 +4063,7 @@ export const parkPackages = {
     {
       id: 3,
       title: "3 Days Fly-in Safari",
-      image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?ixlib=rb-4.0.1&auto=format&fit=crop&w=800&q=80",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRv2BwAa5iGs0oqfiL7qWgPNzfJCySJQ-b-ig&s",
       price: 1500,
       duration: "3 Days / 2 Nights",
       groupSize: "2-6 people",
@@ -4224,7 +4156,7 @@ export const parkPackages = {
     {
       id: 4,
       title: "5 Days Photography Special",
-      image: "https://images.unsplash.com/photo-1518709766631-a6a7f45921c3?ixlib=rb-4.0.1&auto=format&fit=crop&w=800&q=80",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-6lxpCxvmOKDYBjrDnY45EDa3nW-otDRwew&s",
       price: 1800,
       duration: "5 Days / 4 Nights",
       groupSize: "2-6 people",
@@ -4370,7 +4302,7 @@ export const parkPackages = {
     {
       id: 1,
       title: "Maasai Cultural Experience",
-      image: "https://images.unsplash.com/photo-1612338192105-4f0f4568b0c0?ixlib=rb-4.0.1&auto=format&fit=crop&w=800&q=80",
+      image: "https://img.freepik.com/free-photo/shallow-focus-shot-three-african-males-holding-sticks_181624-46377.jpg?ga=GA1.1.1877472401.1734570744&semt=ais_hybrid",
       price: 250,
       duration: "2 Days / 1 Night",
       groupSize: "2-8 people",
@@ -4439,7 +4371,7 @@ export const parkPackages = {
     {
       id: 2,
       title: "Hadzabe Tribe Experience",
-      image: "https://images.unsplash.com/photo-1523805009345-7448845a9e53?ixlib=rb-4.0.1&auto=format&fit=crop&w=800&q=80",
+      image: "/images/culturalTours/HadzabeTribeexperience.jpg",
       price: 300,
       duration: "2 Days / 1 Night",
       groupSize: "2-6 people",
@@ -4510,7 +4442,7 @@ export const parkPackages = {
     {
       id: 1,
       title: "Arusha National Park Day Safari",
-      image: "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?ixlib=rb-4.0.1&auto=format&fit=crop&w=800&q=80",
+      image: "https://images.pexels.com/photos/34098/south-africa-hluhluwe-giraffes-pattern.jpg?auto=compress&cs=tinysrgb&w=1600",
       price: 180,
       duration: "1 Day",
       groupSize: "2-6 people",
@@ -4555,7 +4487,7 @@ export const parkPackages = {
     {
       id: 2,
       title: "Materuni Waterfalls & Coffee Tour",
-      image: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?ixlib=rb-4.0.1&auto=format&fit=crop&w=800&q=80",
+      image: "https://www.exploretanzaniatours.com/wp-content/uploads/2022/08/materuni-waterfalls-day-trip-fig.jpg",
       price: 120,
       duration: "1 Day",
       groupSize: "2-8 people",
@@ -4599,7 +4531,7 @@ export const parkPackages = {
     {
       id: 3,
       title: "Moshi Hot Springs Escape",
-      image: "https://images.unsplash.com/photo-1585123388867-3bfe6dd4bdbf?ixlib=rb-4.0.1&auto=format&fit=crop&w=800&q=80",
+      image: "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-674x446/06/75/be/bb.jpg",
       price: 90,
       duration: "1 Day",
       groupSize: "2-10 people",
