@@ -264,7 +264,7 @@ export const northernParks = {
   'serengeti': {
     name: 'Serengeti National Park',
     title: 'Home of the Great Migration',
-    heroImage: 'https://images.unsplash.com/photo-1516426122078-c23e76319801',
+    heroImage: '/images/Photography.jpeg',
     introduction: [
       "The Serengeti is Tanzania's oldest and most popular national park.",
       'Home to the spectacular wildebeest migration and offers excellent wildlife viewing year round.',

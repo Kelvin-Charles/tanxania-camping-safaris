@@ -424,9 +424,9 @@ const ArushaPark = () => {
 
   // Contact Information
   const contactInfo = {
-    whatsappLink: "https://wa.me/255123456789",
-    email: "info@arushapark.com",
-    phone: "+255 123 456 789"
+    whatsappLink: "https://wa.me/255622403223",
+    email: "info@tanzaniacampingsafaris.com",
+    phone: "+255 622 403 223"
   };
 
   // Hiking Trails Data
