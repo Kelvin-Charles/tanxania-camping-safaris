@@ -485,7 +485,7 @@ const CustomTripBuilder = ({ onClose }) => {
   );
 
   const renderAccommodation = () => (
-    <div className="builder-section">
+      <div className="builder-section">
       <div className="section-header">
         <h2>Choose Your Perfect Stay</h2>
         <p>Select the accommodation style that matches your preferences</p>
@@ -515,9 +515,9 @@ const CustomTripBuilder = ({ onClose }) => {
                 </div>
               ))}
             </div>
-          </div>
-        ))}
-      </div>
+            </div>
+          ))}
+        </div>
     </div>
   );
 
@@ -527,7 +527,7 @@ const CustomTripBuilder = ({ onClose }) => {
         <h2>Customize Your Journey</h2>
         <p>Help us tailor the perfect safari experience for you</p>
       </div>
-      
+
       <form className="trip-details-form" onSubmit={handleDetailsSubmit}>
         <div className="form-row">
           <div className="form-group">
@@ -548,14 +548,14 @@ const CustomTripBuilder = ({ onClose }) => {
               <FaClock /> Duration
             </label>
             <div className="input-with-icon">
-              <input 
-                type="number" 
-                min="1"
-                value={tripDetails.duration}
+            <input 
+              type="number" 
+              min="1"
+              value={tripDetails.duration}
                 onChange={e => setTripDetails(prev => ({ ...prev, duration: e.target.value }))}
                 required
                 placeholder="Number of days"
-              />
+            />
               <span>days</span>
             </div>
           </div>
@@ -605,7 +605,7 @@ const CustomTripBuilder = ({ onClose }) => {
           />
         </div>
       </form>
-    </div>
+      </div>
   );
 
   const renderSummary = () => (
