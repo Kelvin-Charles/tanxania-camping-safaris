@@ -195,7 +195,7 @@ const ContactUs = () => {
         <div className="map-section">
           <div className="map-container">
             <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3982.9178849726104!2d36.67960347694172!3d-3.3702485414591887!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x18371c8efdbfbb95%3A0xce9ccc491ed2912a!2sGofan%20Safaris%20%26%20Travel%20Africa!5e1!3m2!1sen!2sus!4v1733868752152!5m2!1sen!2sus"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d17695.953691183702!2d36.6715602356772!3d-3.3636012214400357!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x18371d3570b6c277%3A0x6cf32424a5115d7f!2sTanzania%20Camping%20Safaris!5e1!3m2!1sen!2snl!4v1736645073322!5m2!1sen!2snl"
               width="100%"
               height="100%"
               style={{ border: 0 }}
