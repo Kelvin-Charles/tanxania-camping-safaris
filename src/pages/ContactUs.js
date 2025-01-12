@@ -65,7 +65,7 @@ const ContactUs = () => {
                 <FaEnvelope />
                 <div>
                   <h3>Email</h3>
-                  <p>Meena Tegemea: meena@gofansafaris.com</p>
+                  <p>Meena Tegemea: info@tanzaniacampingsafaris.com</p>
                 </div>
               </div>
 
@@ -128,7 +128,7 @@ const ContactUs = () => {
               <div className="social-content">
                 <div 
                   className="fb-page" 
-                  data-href="https://web.facebook.com/TanzaniaCamping/photos"
+                  data-href="https://web.facebook.com/TanzaniaCamping"
                   data-tabs="timeline"
                   data-width="500"
                   data-height="500"

@@ -1,7 +1,7 @@
 .park-hero {
   height: 85vh;
   background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-              url('https://cdn-aihel.nitrocdn.com/dAXICLOGpxwOkWFDApgttrOYwQwTRwgX/assets/images/optimized/rev-3c6785e/tanzaniaspecialist.com/wp-content/uploads/sites/7/2023/07/Jonge-leeuw-Serengeti.jpg') center/cover fixed;
+              url('/public/images/tripBanner.jpeg') center/cover fixed;
   position: relative;
   overflow: hidden;
 }
