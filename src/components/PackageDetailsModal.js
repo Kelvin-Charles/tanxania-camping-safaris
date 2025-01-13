@@ -1,9 +1,34 @@
 import React from 'react';
 import { FaTimes, FaClock, FaUsers, FaCalendarAlt, FaMapMarkerAlt, FaCheck } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 import './PackageDetailsModal.css';
 
 const PackageDetailsModal = ({ package: pkg, onClose }) => {
+  const navigate = useNavigate();
+  
   if (!pkg) return null;
+
+  const handleBookNow = () => {
+    // Extract numeric price value and determine budget range
+    const priceStr = pkg.price.replace(/[^0-9]/g, '');
+    const price = parseInt(priceStr);
+    
+    let budgetRange;
+    if (price <= 1000) budgetRange = "Under $1,000";
+    else if (price <= 2000) budgetRange = "$1,000 - $2,000";
+    else if (price <= 3000) budgetRange = "$2,000 - $3,000";
+    else if (price <= 5000) budgetRange = "$3,000 - $5,000";
+    else budgetRange = "Above $5,000";
+
+    // Navigate to enquiry form with pre-filled data
+    navigate('/enquiry', {
+      state: {
+        tripName: pkg.title,
+        budgetRange: budgetRange
+      }
+    });
+    onClose();
+  };
 
   return (
     <div className="modal-overlay" onClick={onClose}>
@@ -11,6 +36,13 @@ const PackageDetailsModal = ({ package: pkg, onClose }) => {
         <button className="modal-close" onClick={onClose}>
           <FaTimes />
         </button>
+
+        <div className="logo-circle">
+          <img 
+            src="/images/logo.png" 
+            alt="Tanzania Camping Logo" 
+          />
+        </div>
 
         <div className="modal-header">
           <div className="modal-image">
@@ -108,7 +140,7 @@ const PackageDetailsModal = ({ package: pkg, onClose }) => {
             <span className="price-label">Price per person</span>
             <span className="price-amount">{pkg.price}</span>
           </div>
-          <button className="book-now-btn">Book Now</button>
+          <button className="book-now-btn" onClick={handleBookNow}>Book Now</button>
         </div>
       </div>
     </div>
