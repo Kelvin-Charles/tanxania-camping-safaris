@@ -418,15 +418,17 @@
   position: relative;
   margin: 4rem auto;
   max-width: 1200px;
+
   padding: 0 2rem;
   display: grid;
+  
   grid-template-columns: 1fr 400px;
   gap: 2rem;
   align-items: start;
 }
 
 .map-overlay {
-  position: sticky;
+  position: relative;
   top: 2rem;
   background: white;
   padding: 2rem;
@@ -437,7 +439,7 @@
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255,255,255,0.2);
   overflow-y: auto;
-  max-height: calc(100vh - 4rem);
+  height: 750px;
   order: 2;
 }
 
@@ -550,6 +552,7 @@
 .map-container {
   position: relative;
   height: 600px;
+  height: 350px;
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 20px 40px rgba(0,0,0,0.15);

@@ -333,35 +333,91 @@
 
 /* Destinations Section */
 .destinations {
-  padding: 6rem 2rem;
-  background: #fff;
+  padding: 8rem 2rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #fff 100%);
+  position: relative;
+}
+
+.destinations::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(0,0,0,0.1), transparent);
+}
+
+.destinations .section-title {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin-bottom: 1rem;
+  position: relative;
+  padding-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.destinations .section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--primary-dark));
+  border-radius: 2px;
 }
 
 .destination-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2.5rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
   max-width: 1400px;
-  margin: 0 auto;
+  margin: 4rem auto 0;
+  padding: 0 1rem;
 }
 
 .destination-card {
   position: relative;
-  border-radius: 15px;
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  transition: all 0.3s ease;
+  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  height: 550px;
+  background: #fff;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.destination-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.1));
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 1;
 }
 
 .destination-card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-15px) rotateX(3deg);
+  box-shadow: 0 35px 70px -12px rgba(0,0,0,0.2);
+}
+
+.destination-card:hover::before {
+  opacity: 1;
 }
 
 .destination-card img {
   width: 100%;
-  height: 300px;
+  height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center;
 }
 
 .destination-card:hover img {
@@ -373,27 +429,188 @@
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 2rem;
-  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  padding: 3.5rem;
+  background: linear-gradient(to top, 
+    rgba(0,0,0,0.95) 0%, 
+    rgba(0,0,0,0.8) 30%, 
+    rgba(0,0,0,0.4) 60%, 
+    transparent 100%);
   color: white;
+  transform: translateY(60px);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 2;
+}
+
+.destination-card:hover .destination-content {
+  transform: translateY(0);
+  background: linear-gradient(to top, 
+    rgba(0,0,0,0.98) 0%, 
+    rgba(0,0,0,0.85) 30%, 
+    rgba(0,0,0,0.5) 60%, 
+    transparent 100%);
 }
 
 .destination-content h3 {
-  font-size: 1.8rem;
-  margin-bottom: 0.5rem;
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  letter-spacing: 0.5px;
+  transform: translateY(20px);
+  opacity: 0.9;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.1s;
+}
+
+.destination-card:hover .destination-content h3 {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.destination-meta {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.2s;
+}
+
+.destination-card:hover .destination-meta {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1rem;
+  color: rgba(255,255,255,0.95);
+  font-weight: 500;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.meta-item i {
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.3));
+}
+
+.destination-content p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  color: rgba(255,255,255,0.9);
+  font-weight: 400;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.3s;
+}
+
+.destination-card:hover .destination-content p {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .learn-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
   color: white;
   text-decoration: none;
   font-weight: 600;
-  display: inline-block;
-  margin-top: 1rem;
-  transition: color 0.3s ease;
+  padding: 1rem 2rem;
+  background: rgba(255,255,255,0.1);
+  border-radius: 50px;
+  border: 2px solid rgba(255,255,255,0.2);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  opacity: 0;
+  transform: translateY(20px);
+  backdrop-filter: blur(5px);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.4s;
+}
+
+.destination-card:hover .learn-more {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .learn-more:hover {
-  color: var(--primary-color);
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  gap: 1.2rem;
+  transform: translateX(5px);
+  box-shadow: 0 5px 15px rgba(255,123,37,0.4);
+}
+
+@media (max-width: 1200px) {
+  .destination-grid {
+    gap: 2rem;
+  }
+  
+  .destination-card {
+    height: 500px;
+  }
+  
+  .destination-content {
+    padding: 2.5rem;
+  }
+  
+  .destination-content h3 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .destination-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .destination-card {
+    height: 450px;
+  }
+
+  .destination-content {
+    transform: translateY(0);
+  }
+
+  .destination-content h3,
+  .destination-meta,
+  .destination-content p,
+  .learn-more {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .destinations {
+    padding: 6rem 1rem;
+  }
+  
+  .destinations .section-title {
+    font-size: 2.4rem;
+  }
+  
+  .destination-content {
+    padding: 2rem;
+  }
+  
+  .destination-content h3 {
+    font-size: 1.8rem;
+  }
+  
+  .destination-content p {
+    font-size: 1rem;
+  }
+  
+  .learn-more {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
 }
 
 /* Testimonials Section */
@@ -568,14 +785,23 @@
 .adventure-types {
   padding: 6rem 2rem;
   background: #fff;
+  position: relative;
 }
 
 .adventure-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  display: flex;
   gap: 2rem;
   max-width: 1400px;
   margin: 0 auto;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 1rem 0;
+}
+
+.adventure-grid::-webkit-scrollbar {
+  display: none;
 }
 
 .adventure-card {
@@ -584,6 +810,8 @@
   overflow: hidden;
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
   transition: all 0.3s ease;
+  min-width: 350px;
+  scroll-snap-align: start;
 }
 
 .adventure-card img {
@@ -613,25 +841,113 @@
   transform: scale(1.1);
 }
 
+.adventure-content h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.adventure-content p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+}
+
+.adventure-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.adventure-link:hover {
+  color: var(--primary-color);
+  gap: 1rem;
+}
+
+.adventure-types .scroll-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: white;
+  border: none;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.adventure-types .scroll-button:hover {
+  background: var(--primary-color);
+  color: white;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.adventure-types .scroll-left {
+  left: 1rem;
+}
+
+.adventure-types .scroll-right {
+  right: 1rem;
+}
+
+@media (max-width: 768px) {
+  .adventure-card {
+    min-width: 300px;
+  }
+  
+  .adventure-content {
+    transform: translateY(0);
+  }
+  
+  .adventure-types .scroll-button {
+    display: none;
+  }
+}
+
 /* Stats Section */
 .stats-section {
-  padding: 4rem 2rem;
-  background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)),
-              url('https://img.freepik.com/premium-photo/couple-selfie-having-breakfast-camping-outdoors-morning-cold_107467-1043.jpg?semt=ais_hybrid') center/cover fixed;
+  padding: 6rem 2rem;
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+              url('/public/images/tripBanner.jpeg') center/cover fixed;
   color: white;
+  position: relative;
+  z-index: 2;
 }
 
 .stats-container {
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 3rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
   text-align: center;
 }
 
 .stat-item {
-  padding: 2rem;
+  padding: 2.5rem 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: var(--primary-color);
 }
 
 .stat-icon {
@@ -641,9 +957,41 @@
 }
 
 .stat-item h3 {
-  font-size: 2.5rem;
-  margin: 1rem 0;
-  color: var(--primary-color);
+  font-size: 2.8rem;
+  margin-bottom: 0.5rem;
+  color: white;
+  font-weight: 800;
+}
+
+.stat-item p {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+}
+
+@media (max-width: 992px) {
+  .stats-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .stat-item {
+    padding: 2rem 1.5rem;
+  }
+  
+  .stat-item h3 {
+    font-size: 2.4rem;
+  }
+  
+  .stat-item p {
+    font-size: 1.1rem;
+  }
 }
 
 /* Gallery Section */
