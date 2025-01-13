@@ -1,214 +1,358 @@
-import React, { useState } from 'react';
-import { FaTree, FaCity, FaBiking, FaDove, FaCamera, FaUtensils, FaMountain, FaWater, 
-         FaChevronDown, FaChevronUp, FaCalendarAlt, FaDollarSign, FaClock, FaUsers,
-         FaMapMarkerAlt, FaPaw, FaLeaf } from 'react-icons/fa';
-import PhotoLearningModule from '../components/PhotoLearningModule';
-import WildlifeQuizModule from '../components/WildlifeQuizModule';
+import React, { useState, useEffect } from 'react';
+import { FaTree, FaClock, FaDollarSign, FaUsers, FaChevronDown, FaChevronUp, FaStar, FaCheck, FaMapMarkerAlt, FaCalendarAlt, FaHeart, FaCamera, FaGlobe, FaLeaf, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import './Experience.css';
 
 const Experience = () => {
-  const [expandedCard, setExpandedCard] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState('all');
-  const [activeSpot, setActiveSpot] = useState(null);
-  const [showPhotoModule, setShowPhotoModule] = useState(false);
-  const [showQuizModule, setShowQuizModule] = useState(false);
+  const [expandedCard, setExpandedCard] = useState(null);
+  const [animatedStats, setAnimatedStats] = useState(false);
+  const [selectedGalleryCategory, setSelectedGalleryCategory] = useState('all');
+  const [selectedImage, setSelectedImage] = useState(null);
 
-  const adventureSpots = [
+  const scrollExperiences = (direction) => {
+    const container = document.querySelector('.experiences-grid');
+    const scrollAmount = direction === 'left' ? -400 : 400;
+    container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+  };
+
+  const experiences = [
     {
       id: 1,
-      name: "Serengeti National Park",
-      description: "Home to the great wildebeest migration and endless plains",
-      icon: <FaPaw />,
-      top: "28%",
-      left: "38%",
-      images: [
-        "/images/westernCirciut/serengeti1.jpg",
-        "/images/westernCirciut/serengeti2.jpg"
+      title: "Safari Adventure",
+      description: "Experience the thrill of wildlife up close",
+      image: "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=800",
+      icon: "🦁",
+      duration: "3 Days",
+      price: 299,
+      groupSize: "Max 6",
+      categories: ["nature", "popular"],
+      highlights: [
+        "Game drives in Serengeti",
+        "Luxury camping",
+        "Professional guides",
+        "All meals included"
+      ],
+      included: [
+        "Transportation",
+        "Accommodation",
+        "Meals & Drinks",
+        "Expert Guide"
+      ],
+      schedule: [
+        { time: "Day 1", activity: "Arrival and evening game drive" },
+        { time: "Day 2", activity: "Full day safari experience" },
+        { time: "Day 3", activity: "Morning drive and departure" }
+      ],
+      pricingOptions: [
+        {
+          name: "Standard Package",
+          price: 299,
+          description: "Perfect for small groups"
+        },
+        {
+          name: "Premium Package",
+          price: 499,
+          description: "Luxury accommodation included"
+        }
       ]
     },
     {
       id: 2,
-      name: "Mount Kilimanjaro",
-      description: "Africa's highest peak and the world's highest free-standing mountain",
-      icon: <FaMountain />,
-      top: "38%",
-      left: "65%",
-      images: [
-        "/images/westernCirciut/kilimanjaro1.jpg",
-        "/images/westernCirciut/kilimanjaro2.jpg"
+      title: "Cultural Experience",
+      description: "Immerse in Maasai traditions",
+      image: "https://images.unsplash.com/photo-1504432842672-1a79f78e4084?auto=format&fit=crop&w=800",
+      icon: "👥",
+      duration: "2 Days",
+      price: 199,
+      groupSize: "Max 8",
+      categories: ["culture"],
+      highlights: [
+        "Traditional dance performances",
+        "Craft workshops",
+        "Local cuisine tasting",
+        "Village tour"
+      ],
+      included: [
+        "Cultural guide",
+        "Traditional meals",
+        "Craft materials",
+        "Village donations"
+      ],
+      schedule: [
+        { time: "Day 1", activity: "Village welcome and activities" },
+        { time: "Day 2", activity: "Workshops and farewell" }
+      ],
+      pricingOptions: [
+        {
+          name: "Basic Experience",
+          price: 199,
+          description: "Full cultural immersion"
+        },
+        {
+          name: "Extended Stay",
+          price: 299,
+          description: "Including overnight in traditional housing"
+        }
       ]
     },
     {
       id: 3,
-      name: "Ngorongoro Crater",
-      description: "World's largest intact volcanic caldera and wildlife haven",
-      icon: <FaLeaf />,
-      top: "35%",
-      left: "48%",
-      images: [
-        "/images/westernCirciut/ngorongoro1.jpg",
-        "/images/westernCirciut/ngorongoro2.jpg"
+      title: "Mountain Trek",
+      description: "Climb Mount Kilimanjaro",
+      image: "https://images.unsplash.com/photo-1489392191049-fc10c97e64b6?auto=format&fit=crop&w=800",
+      icon: "🗻",
+      duration: "7 Days",
+      price: 999,
+      groupSize: "Max 10",
+      categories: ["adventure", "popular"],
+      highlights: [
+        "Professional climbing guides",
+        "Quality equipment",
+        "Summit certificate",
+        "Safety briefings"
+      ],
+      included: [
+        "Climbing gear",
+        "Mountain meals",
+        "Camping equipment",
+        "Emergency support"
+      ],
+      schedule: [
+        { time: "Day 1-2", activity: "Acclimatization and base camp" },
+        { time: "Day 3-5", activity: "Ascending the mountain" },
+        { time: "Day 6-7", activity: "Summit and descent" }
+      ],
+      pricingOptions: [
+        {
+          name: "Group Climb",
+          price: 999,
+          description: "Join other climbers"
+        },
+        {
+          name: "Private Expedition",
+          price: 1499,
+          description: "Personalized climbing experience"
+        }
       ]
     },
     {
       id: 4,
-      name: "Tarangire National Park",
-      description: "Famous for its large elephant herds and ancient baobab trees",
-      icon: <FaTree />,
-      top: "42%",
-      left: "55%",
-      images: [
-        "/images/westernCirciut/tarangire1.jpg",
-        "/images/westernCirciut/tarangire2.jpg"
+      title: "Beach Paradise",
+      description: "Relax on Zanzibar's pristine beaches",
+      image: "https://images.unsplash.com/photo-1548813435-a23412df3e27?auto=format&fit=crop&w=800",
+      icon: "🏖️",
+      duration: "5 Days",
+      price: 799,
+      groupSize: "Max 12",
+      categories: ["beach", "popular"],
+      highlights: [
+        "White sandy beaches",
+        "Snorkeling adventures",
+        "Sunset cruises",
+        "Local seafood dining"
+      ],
+      included: [
+        "Beach accommodation",
+        "Water activities",
+        "Island tours",
+        "Airport transfers"
+      ],
+      schedule: [
+        { time: "Day 1", activity: "Arrival and beach relaxation" },
+        { time: "Day 2-3", activity: "Water sports and island exploration" },
+        { time: "Day 4-5", activity: "Leisure and departure" }
+      ],
+      pricingOptions: [
+        { name: "Standard Package", price: 799, description: "Beachfront resort stay" },
+        { name: "Luxury Package", price: 1299, description: "Premium villa with private beach" }
       ]
     },
     {
       id: 5,
-      name: "Zanzibar",
-      description: "Pristine beaches and historic Stone Town",
-      icon: <FaWater />,
-      top: "48%",
-      left: "75%",
-      images: [
-        "/images/Beaches/zanzibar.jpg",
-        "/images/Beaches/zanzibar-beach.jpg"
+      title: "Photography Tour",
+      description: "Capture Tanzania's stunning moments",
+      image: "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=800",
+      icon: "📸",
+      duration: "6 Days",
+      price: 899,
+      groupSize: "Max 8",
+      categories: ["photography"],
+      highlights: [
+        "Professional photography guides",
+        "Wildlife photography",
+        "Landscape shots",
+        "Cultural portraits"
+      ],
+      included: [
+        "Photography workshops",
+        "Transport in photo-friendly vehicle",
+        "Accommodation",
+        "Park fees"
+      ],
+      schedule: [
+        { time: "Day 1-2", activity: "Serengeti wildlife photography" },
+        { time: "Day 3-4", activity: "Cultural and landscape photography" },
+        { time: "Day 5-6", activity: "Advanced techniques and departure" }
+      ],
+      pricingOptions: [
+        { name: "Basic Package", price: 899, description: "Group photography tour" },
+        { name: "Private Package", price: 1499, description: "One-on-one photography guidance" }
+      ]
+    },
+    {
+      id: 6,
+      title: "Birdwatching Safari",
+      description: "Discover Tanzania's exotic birds",
+      image: "https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&w=800",
+      icon: "🦜",
+      duration: "4 Days",
+      price: 599,
+      groupSize: "Max 6",
+      categories: ["nature"],
+      highlights: [
+        "Expert bird guides",
+        "Lake Manyara birds",
+        "Photography opportunities",
+        "Bird species identification"
+      ],
+      included: [
+        "Birding equipment",
+        "Specialized guides",
+        "Accommodation",
+        "All meals"
+      ],
+      schedule: [
+        { time: "Day 1", activity: "Introduction to birdwatching" },
+        { time: "Day 2-3", activity: "Bird spotting and photography" },
+        { time: "Day 4", activity: "Final expedition and departure" }
+      ],
+      pricingOptions: [
+        { name: "Group Tour", price: 599, description: "Shared birding experience" },
+        { name: "Private Tour", price: 899, description: "Customized birding adventure" }
       ]
     }
+  ];
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const stats = document.querySelector('.hero-stats');
+      if (stats && !animatedStats) {
+        const rect = stats.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          setAnimatedStats(true);
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [animatedStats]);
+
+  const filterCategories = [
+    { id: 'all', name: 'All Experiences' },
+    { id: 'nature', name: 'Nature & Wildlife' },
+    { id: 'culture', name: 'Cultural' },
+    { id: 'adventure', name: 'Adventure' },
+    { id: 'popular', name: 'Most Popular' }
   ];
 
   const toggleCard = (id) => {
     setExpandedCard(expandedCard === id ? null : id);
   };
 
-  const filterCategories = [
-    { id: 'all', name: 'All Experiences' },
-    { id: 'popular', name: 'Most Popular' },
-    { id: 'adventure', name: 'Adventure' },
-    { id: 'culture', name: 'Culture' },
-    { id: 'nature', name: 'Nature' },
+  const filteredExperiences = experiences.filter(exp => 
+    selectedCategory === 'all' || exp.categories.includes(selectedCategory)
+  );
+
+  const stats = [
+    { number: '1000+', label: 'Happy Travelers' },
+    { number: '50+', label: 'Unique Experiences' },
+    { number: '100%', label: 'Satisfaction Rate' },
+    { number: '10+', label: 'Years of Excellence' }
   ];
 
-  const filteredExperiences = selectedCategory === 'all' 
-    ? experiences 
-    : experiences.filter(exp => exp.categories.includes(selectedCategory));
-
-  const mapHotspots = [
+  const galleryImages = [
     {
       id: 1,
-      name: "Serengeti National Park",
-      position: { top: "20%", left: "90%" },
-      description: "Home to the Great Migration and endless plains of wildlife. Experience the world's most spectacular wildlife show.",
-      images: [
-        "/images/serengeti/wildebeest.jpg",
-        "/images/serengeti/lion.jpg"
-      ]
+      src: "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=800",
+      title: "Wildlife Encounters",
+      description: "Up close with nature's finest",
+      category: "wildlife",
+      location: "Serengeti National Park",
+      date: "June 2023"
     },
     {
       id: 2,
-      name: "Mount Kilimanjaro",
-      position: { top: "25%", left: "100%" },
-      description: "Africa's highest peak and the world's highest free-standing mountain. Challenge yourself to reach Uhuru Peak.",
-      images: [
-        "/images/kilimanjaro/summit.jpg",
-        "/images/kilimanjaro/climbers.jpg"
-      ]
+      src: "https://images.unsplash.com/photo-1489392191049-fc10c97e64b6?auto=format&fit=crop&w=800",
+      title: "Cultural Immersion",
+      description: "Connect with local traditions",
+      category: "culture",
+      location: "Maasai Village",
+      date: "July 2023"
     },
     {
       id: 3,
-      name: "Ngorongoro Crater",
-      position: { top: "30%", left: "95%" },
-      description: "World's largest intact volcanic caldera and a UNESCO World Heritage site. Spot the Big Five in their natural habitat.",
-      images: [
-        "/images/ngorongoro/crater.jpg",
-        "/images/ngorongoro/wildlife.jpg"
-      ]
+      src: "https://images.unsplash.com/photo-1548813435-a23412df3e27?auto=format&fit=crop&w=800",
+      title: "Coastal Paradise",
+      description: "Relax on pristine beaches",
+      category: "beach",
+      location: "Zanzibar",
+      date: "August 2023"
     },
     {
       id: 4,
-      name: "Zanzibar Archipelago",
-      position: { top: "55%", left: "100%" },
-      description: "Pristine beaches, historic Stone Town, and spice plantations. Experience the perfect blend of culture and relaxation.",
-      images: [
-        "/images/zanzibar/beach.jpg",
-        "/images/zanzibar/stonetown.jpg"
-      ]
+      src: "https://images.unsplash.com/photo-1515205244153-fce4e5d8bc49?auto=format&fit=crop&w=800",
+      title: "Adventure Time",
+      description: "Thrilling experiences await",
+      category: "adventure",
+      location: "Mount Kilimanjaro",
+      date: "September 2023"
     },
     {
       id: 5,
-      name: "Tarangire National Park",
-      position: { top: "35%", left: "99%" },
-      description: "Famous for its ancient baobab trees and large elephant herds. Witness incredible wildlife in a unique landscape.",
-      images: [
-        "/images/westernCirciut/tarangire1.jpg",
-        "/images/westernCirciut/tarangire2.jpg"
-      ]
+      src: "https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&w=800",
+      title: "Bird Watching",
+      description: "Discover exotic bird species",
+      category: "wildlife",
+      location: "Lake Manyara",
+      date: "October 2023"
+    },
+    {
+      id: 6,
+      src: "https://images.unsplash.com/photo-1523805009345-7448845a9e53?auto=format&fit=crop&w=800",
+      title: "Local Cuisine",
+      description: "Taste authentic flavors",
+      category: "culture",
+      location: "Stone Town",
+      date: "November 2023"
     }
   ];
 
-  const InteractiveMap = () => {
-    const [activeHotspot, setActiveHotspot] = useState(null);
-
-    return (
-      <section className="interactive-map-section">
-        <h2>Explore Tanzania's Treasures</h2>
-        <div className="map-container">
-          <div className="map-hotspots">
-            {mapHotspots.map((hotspot) => (
-              <div
-                key={hotspot.id}
-                className="map-hotspot"
-                style={{ top: hotspot.position.top, left: hotspot.position.left }}
-                onMouseEnter={() => setActiveHotspot(hotspot.id)}
-                onMouseLeave={() => setActiveHotspot(null)}
-              >
-                <div className="hotspot-icon">
-                  <FaMapMarkerAlt />
-                </div>
-                {activeHotspot === hotspot.id && (
-                  <div className="hotspot-info">
-                    <h4>{hotspot.name}</h4>
-                    <p>{hotspot.description}</p>
-                    <div className="hotspot-images">
-                      {hotspot.images.map((img, index) => (
-                        <img 
-                          key={index} 
-                          src={img} 
-                          alt={`${hotspot.name} ${index + 1}`}
-                          loading="lazy"
-                        />
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-    );
-  };
+  const galleryCategories = [
+    { id: 'all', name: 'All Photos', icon: <FaGlobe /> },
+    { id: 'wildlife', name: 'Wildlife', icon: <FaLeaf /> },
+    { id: 'culture', name: 'Culture', icon: <FaUsers /> },
+    { id: 'beach', name: 'Beaches', icon: <FaHeart /> },
+    { id: 'adventure', name: 'Adventure', icon: <FaCamera /> }
+  ];
 
   return (
     <div className="experience-page">
       <section className="hero-section">
-        <div className="hero-overlay"></div>
         <div className="hero-content">
-          <h1>Extraordinary Experiences</h1>
-          <p>Discover the magic of Tanzania through immersive adventures</p>
-          <div className="hero-stats">
-            <div className="stat-item">
-              <span className="stat-number">50+</span>
-              <span className="stat-label">Unique Experiences</span>
+          <h1>Discover Tanzania's Magic</h1>
+          <p>Embark on extraordinary journeys that blend adventure, culture, and natural wonders</p>
+        </div>
+      </section>
+
+      <section className="stats-section">
+        <div className="stats-container">
+          {stats.map((stat, index) => (
+            <div key={index} className="stat-item">
+              <div className="stat-number">{stat.number}</div>
+              <div className="stat-label">{stat.label}</div>
             </div>
-            <div className="stat-item">
-              <span className="stat-number">1000+</span>
-              <span className="stat-label">Happy Travelers</span>
-            </div>
-            <div className="stat-item">
-              <span className="stat-number">4.9</span>
-              <span className="stat-label">Average Rating</span>
-            </div>
-          </div>
+          ))}
         </div>
       </section>
 
@@ -218,23 +362,23 @@ const Experience = () => {
           <div className="features-grid">
             <div className="feature">
               <div className="feature-icon">🌟</div>
-              <h3>Local Expertise</h3>
-              <p>Guided by experienced locals who know every hidden gem</p>
+              <h3>Expert Local Guides</h3>
+              <p>Knowledgeable guides who bring stories to life</p>
             </div>
             <div className="feature">
               <div className="feature-icon">👥</div>
               <h3>Small Groups</h3>
-              <p>Intimate experiences with maximum personal attention</p>
+              <p>Intimate experiences with personalized attention</p>
             </div>
             <div className="feature">
               <div className="feature-icon">🌍</div>
               <h3>Sustainable Tourism</h3>
-              <p>Eco-friendly practices that protect our natural heritage</p>
+              <p>Eco-friendly practices protecting our heritage</p>
             </div>
             <div className="feature">
               <div className="feature-icon">💫</div>
               <h3>Authentic Encounters</h3>
-              <p>Real connections with nature, culture, and communities</p>
+              <p>Genuine connections with nature and culture</p>
             </div>
           </div>
         </div>
@@ -255,50 +399,57 @@ const Experience = () => {
           ))}
       </div>
 
-      <div className="experiences-grid">
-          {filteredExperiences.map((exp) => (
-            <div key={exp.id} className={`experience-card ${expandedCard === exp.id ? 'expanded' : ''}`}>
-              <div className="card-image" style={{ backgroundImage: `url(${exp.image})` }}>
-                <div className="card-overlay">
-                  <div className="card-icon">{exp.icon}</div>
-                </div>
-                <div className="card-quick-info">
-                  <span><FaClock /> {exp.duration}</span>
-                  <span><FaDollarSign /> From ${exp.price}</span>
-                  <span><FaUsers /> {exp.groupSize}</span>
-                </div>
-              </div>
-              <div className="card-content">
-                <h3>{exp.title}</h3>
-                <p>{exp.description}</p>
-                
-                <div className="card-details">
-                  <div className="highlights">
-                    <h4>Highlights</h4>
-                    <ul>
-                      {exp.highlights.map((highlight, index) => (
-                        <li key={index}>{highlight}</li>
-                      ))}
-                    </ul>
-                  </div>
+        <div className="experiences-container">
+          <button className="scroll-button scroll-left" onClick={() => scrollExperiences('left')}>
+            <FaChevronLeft />
+          </button>
 
+      <div className="experiences-grid">
+            {filteredExperiences.map((exp) => (
+              <div key={exp.id} className={`experience-card ${expandedCard === exp.id ? 'expanded' : ''}`}>
+                <div className="card-image" style={{ backgroundImage: `url(${exp.image})` }}>
+                  <div className="card-overlay">
+                    <div className="card-icon">{exp.icon}</div>
+                  </div>
+                  <div className="card-quick-info">
+                    <span><FaClock /> {exp.duration}</span>
+                    <span><FaDollarSign /> From ${exp.price}</span>
+                    <span><FaUsers /> {exp.groupSize}</span>
+                  </div>
+                </div>
+                <div className="card-content">
+                  <h3>{exp.title}</h3>
+                  <div className="rating">
+                    {'★'.repeat(5)}
+                  </div>
+                  <p>{exp.description}</p>
+                  
                   {expandedCard === exp.id && (
                     <div className="expanded-content">
+                      <div className="highlights-section">
+                        <h4>Experience Highlights</h4>
+                        <ul>
+                          {exp.highlights.map((highlight, index) => (
+                            <li key={index}><FaCheck /> {highlight}</li>
+                          ))}
+                        </ul>
+                      </div>
+
                       <div className="included-section">
                         <h4>What's Included</h4>
                         <ul>
                           {exp.included.map((item, index) => (
-                            <li key={index}>{item}</li>
+                            <li key={index}><FaCheck /> {item}</li>
                           ))}
                         </ul>
                       </div>
 
                       <div className="schedule-section">
-                        <h4>Schedule</h4>
-                        {exp.schedule.map((time, index) => (
+                        <h4>Daily Schedule</h4>
+                        {exp.schedule.map((item, index) => (
                           <div key={index} className="schedule-item">
-                            <span className="time">{time.time}</span>
-                            <span className="activity">{time.activity}</span>
+                            <span className="time">{item.time}</span>
+                            <span className="activity">{item.activity}</span>
                           </div>
                         ))}
                       </div>
@@ -318,238 +469,216 @@ const Experience = () => {
 
                       <div className="booking-actions">
                         <button className="book-now">
-                          <FaCalendarAlt /> Book Now
+                          Book Now <FaCalendarAlt />
                         </button>
                         <button className="inquire">
-                          Request Custom Date
+                          Inquire <FaMapMarkerAlt />
                         </button>
                       </div>
                     </div>
                   )}
+                  
+                  <button 
+                    className="toggle-details" 
+                    onClick={() => toggleCard(exp.id)}
+                  >
+                    {expandedCard === exp.id ? (
+                      <>Show Less <FaChevronUp /></>
+                    ) : (
+                      <>Show More <FaChevronDown /></>
+                    )}
+                  </button>
                 </div>
-
-                <button 
-                  className="toggle-details" 
-                  onClick={() => toggleCard(exp.id)}
-                >
-                  {expandedCard === exp.id ? (
-                    <>Show Less <FaChevronUp /></>
-                  ) : (
-                    <>Show More <FaChevronDown /></>
-                  )}
-                </button>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+
+          <button className="scroll-button scroll-right" onClick={() => scrollExperiences('right')}>
+            <FaChevronRight />
+          </button>
         </div>
       </section>
 
-      <section className="testimonials">
-        <h2>What Our Adventurers Say</h2>
-        <div className="testimonials-grid">
-          {testimonials.map((testimonial) => (
-            <div key={testimonial.id} className="testimonial-card">
-              <div className="testimonial-content">
-                <div className="rating">
-                  {'★'.repeat(testimonial.rating)}
-                  {'☆'.repeat(5 - testimonial.rating)}
-                </div>
-                <p>"{testimonial.quote}"</p>
-                <div className="testimonial-author">
-                  <img src={testimonial.avatar} alt={testimonial.name} />
-                  <div>
-                    <h4>{testimonial.name}</h4>
-                    <p>{testimonial.location}</p>
-                    <span className="experience-date">{testimonial.date}</span>
+      <section className="fun-facts">
+        <h2>Fun Facts About Tanzania</h2>
+        <div className="facts-container">
+          <div className="fact-card">
+            <div className="fact-icon">🦁</div>
+            <h3>Wildlife Paradise</h3>
+            <p>Home to over 20% of Africa's large mammals and the famous Big Five</p>
+          </div>
+          <div className="fact-card">
+            <div className="fact-icon">🗻</div>
+            <h3>Kilimanjaro</h3>
+            <p>Africa's highest peak and the world's highest free-standing mountain</p>
+          </div>
+          <div className="fact-card">
+            <div className="fact-icon">🏖️</div>
+            <h3>Zanzibar</h3>
+            <p>Pristine beaches and rich cultural heritage in the Spice Islands</p>
+          </div>
+          <div className="fact-card">
+            <div className="fact-icon">🦒</div>
+            <h3>Serengeti</h3>
+            <p>Witness the Great Migration, one of nature's most spectacular shows</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="kids-corner">
+        <h2>Kids' Safari Adventure</h2>
+        <div className="kids-activities-container">
+          <button className="scroll-button scroll-left" onClick={() => document.querySelector('.kids-activities').scrollBy({ left: -300, behavior: 'smooth' })}>
+            <FaChevronLeft />
+          </button>
+          
+          <div className="kids-activities">
+            <div className="activity-card">
+              <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&w=800" alt="Junior Rangers" />
+              <div className="activity-content">
+                <h3>Junior Rangers Program</h3>
+                <p>Young explorers learn about wildlife and conservation</p>
+                <ul className="activity-features">
+                  <li>🎯 Wildlife tracking skills</li>
+                  <li>📸 Safari photography lessons</li>
+                  <li>🎨 Nature art workshops</li>
+                  <li>🔍 Guided nature walks</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="activity-card">
+              <img src="https://images.unsplash.com/photo-1504432842672-1a79f78e4084?auto=format&fit=crop&w=800" alt="Cultural Discovery" />
+              <div className="activity-content">
+                <h3>Cultural Discovery</h3>
+                <p>Interactive cultural experiences for young minds</p>
+                <ul className="activity-features">
+                  <li>🎵 Traditional music lessons</li>
+                  <li>💃 Maasai dance workshops</li>
+                  <li>🎨 Local craft making</li>
+                  <li>👕 Traditional dress-up</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="activity-card">
+              <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=800" alt="Safari Adventures" />
+              <div className="activity-content">
+                <h3>Mini Safari Adventures</h3>
+                <p>Safe and exciting wildlife encounters for kids</p>
+                <ul className="activity-features">
+                  <li>🦁 Animal spotting games</li>
+                  <li>🚙 Kid-friendly game drives</li>
+                  <li>📝 Safari diary making</li>
+                  <li>🎮 Wildlife quiz challenges</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="activity-card">
+              <img src="https://images.unsplash.com/photo-1515205244153-fce4e5d8bc49?auto=format&fit=crop&w=800" alt="Nature Explorers" />
+              <div className="activity-content">
+                <h3>Nature Explorers Club</h3>
+                <p>Hands-on learning about Tanzania's ecosystems</p>
+                <ul className="activity-features">
+                  <li>🌿 Plant identification</li>
+                  <li>🦋 Insect discovery walks</li>
+                  <li>🎨 Nature journaling</li>
+                  <li>🔬 Mini science experiments</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="activity-card">
+              <img src="https://images.unsplash.com/photo-1523805009345-7448845a9e53?auto=format&fit=crop&w=800" alt="Kids' Cooking" />
+              <div className="activity-content">
+                <h3>Little Chefs Program</h3>
+                <p>Fun cooking experiences with local ingredients</p>
+                <ul className="activity-features">
+                  <li>🥘 Simple recipe making</li>
+                  <li>🌱 Garden harvesting</li>
+                  <li>🍪 Baking activities</li>
+                  <li>👨‍🍳 Chef certificates</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="activity-card">
+              <img src="https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&w=800" alt="Adventure Sports" />
+              <div className="activity-content">
+                <h3>Kids' Adventure Sports</h3>
+                <p>Safe and supervised outdoor activities</p>
+                <ul className="activity-features">
+                  <li>🚲 Beginner bike trails</li>
+                  <li>🏹 Archery lessons</li>
+                  <li>🧗‍♂️ Rock climbing basics</li>
+                  <li>🏅 Adventure badges</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <button className="scroll-button scroll-right" onClick={() => document.querySelector('.kids-activities').scrollBy({ left: 300, behavior: 'smooth' })}>
+            <FaChevronRight />
+          </button>
+        </div>
+      </section>
+
+      <section className="photo-gallery">
+        <h2>Captured Moments</h2>
+        <p className="gallery-subtitle">Explore our collection of unforgettable experiences</p>
+        
+        <div className="gallery-categories">
+          {galleryCategories.map(category => (
+            <button
+              key={category.id}
+              className={`gallery-category-btn ${selectedGalleryCategory === category.id ? 'active' : ''}`}
+              onClick={() => setSelectedGalleryCategory(category.id)}
+            >
+              {category.icon}
+              {category.name}
+            </button>
+          ))}
+        </div>
+
+        <div className="gallery-container">
+          {galleryImages
+            .filter(img => selectedGalleryCategory === 'all' || img.category === selectedGalleryCategory)
+            .map(image => (
+              <div 
+                key={image.id} 
+                className="gallery-item"
+                onClick={() => setSelectedImage(image)}
+              >
+                <img src={image.src} alt={image.title} />
+                <div className="gallery-overlay">
+                  <h3>{image.title}</h3>
+                  <p>{image.description}</p>
+                  <div className="gallery-meta">
+                    <span><FaMapMarkerAlt /> {image.location}</span>
+                    <span><FaCalendarAlt /> {image.date}</span>
                   </div>
                 </div>
               </div>
-            </div>
           ))}
         </div>
-      </section>
 
-      <section className="fun-facts-section">
-        <h2>Fun Facts About Tanzania</h2>
-        <div className="fun-facts-grid">
-          <div className="fun-fact-card">
-            <div className="fact-icon">🦁</div>
-            <h3>Did You Know?</h3>
-            <p>Tanzania's Serengeti is home to the largest lion population in Africa!</p>
-            <div className="fact-animation">
-              <div className="lion-paw-prints"></div>
+        {selectedImage && (
+          <div className="gallery-modal" onClick={() => setSelectedImage(null)}>
+            <div className="modal-content" onClick={e => e.stopPropagation()}>
+              <button className="modal-close" onClick={() => setSelectedImage(null)}>×</button>
+              <img src={selectedImage.src} alt={selectedImage.title} />
+              <div className="modal-info">
+                <h3>{selectedImage.title}</h3>
+                <p>{selectedImage.description}</p>
+                <div className="modal-meta">
+                  <span><FaMapMarkerAlt /> {selectedImage.location}</span>
+                  <span><FaCalendarAlt /> {selectedImage.date}</span>
+                </div>
+              </div>
             </div>
           </div>
-          <div className="fun-fact-card">
-            <div className="fact-icon">🗻</div>
-            <h3>Amazing!</h3>
-            <p>Mount Kilimanjaro is Africa's highest mountain and the world's highest free-standing mountain!</p>
-            <div className="fact-animation">
-              <div className="mountain-clouds"></div>
-            </div>
-          </div>
-          <div className="fun-fact-card">
-            <div className="fact-icon">🦒</div>
-            <h3>Wow!</h3>
-            <p>Giraffes can run as fast as 35 miles per hour! That's faster than an Olympic sprinter!</p>
-            <div className="fact-animation">
-              <div className="running-giraffe"></div>
-            </div>
-          </div>
-          <div className="fun-fact-card">
-            <div className="fact-icon">🦩</div>
-            <h3>Cool!</h3>
-            <p>Lake Natron turns pink because of special algae, and millions of flamingos visit it!</p>
-            <div className="fact-animation">
-              <div className="flying-flamingos"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <InteractiveMap />
-
-      <section className="kids-corner">
-        <h2>Kids' Safari Adventure Corner</h2>
-        <div className="kids-activities">
-          <div className="activity-card">
-            <div className="activity-icon">🎨</div>
-            <h3>Safari Art Studio</h3>
-            <p>Create your own wildlife masterpiece! Download coloring pages featuring Tanzania's amazing animals.</p>
-            <div className="activity-features">
-              <span>✓ Printable Pages</span>
-              <span>✓ Coloring Guide</span>
-              <span>✓ Fun Facts</span>
-            </div>
-            <button className="activity-button" onClick={() => window.open('/downloads/safari-coloring-book.pdf')}>
-              Start Drawing
-            </button>
-          </div>
-          
-          <div className="activity-card">
-            <div className="activity-icon">🎮</div>
-            <h3>Wildlife Quiz Challenge</h3>
-            <p>Test your knowledge about African animals in our interactive quiz and earn explorer badges!</p>
-            <div className="activity-features">
-              <span>✓ Multiple Levels</span>
-              <span>✓ Digital Badges</span>
-              <span>✓ Learn & Play</span>
-            </div>
-            <button 
-              className="activity-button" 
-              onClick={() => setShowQuizModule(true)}
-            >
-              Start Quiz
-            </button>
-          </div>
-
-          <div className="activity-card">
-            <div className="activity-icon">📸</div>
-            <h3>Junior Photography Tips</h3>
-            <p>Learn amazing wildlife photography tricks and share your best shots in our young explorers' gallery!</p>
-            <div className="activity-features">
-              <span>✓ Photo Tips</span>
-              <span>✓ Safety Guide</span>
-              <span>✓ Photo Gallery</span>
-            </div>
-            <button 
-              className="activity-button" 
-              onClick={() => setShowPhotoModule(true)}
-            >
-              Learn More
-            </button>
-          </div>
-
-          <div className="activity-card">
-            <div className="activity-icon">🦁</div>
-            <h3>Animal Tracker Game</h3>
-            <p>Become a wildlife detective! Learn to identify animal tracks and sounds in our interactive game.</p>
-            <div className="activity-features">
-              <span>✓ Track Guide</span>
-              <span>✓ Sound Library</span>
-              <span>✓ Mini Games</span>
-            </div>
-            <button className="activity-button" onClick={() => window.location.href = '/kids/tracker'}>
-              Start Adventure
-            </button>
-          </div>
-        </div>
-      </section>
-
-      <section className="virtual-safari">
-        <h2>Virtual Safari Experience</h2>
-        <div className="virtual-safari-content">
-          <div className="safari-preview">
-            <div className="preview-screen">
-              <video poster="/images/safari-preview.jpg" className="preview-video">
-                <source src="/videos/safari-preview.mp4" type="video/mp4" />
-              </video>
-              <button className="play-button">
-                <span className="play-icon">▶</span>
-                Start Virtual Tour
-              </button>
-            </div>
-          </div>
-          <div className="safari-features">
-            <div className="feature-item">
-              <span className="feature-icon">🎥</span>
-              <h4>360° Views</h4>
-              <p>Explore the wilderness in immersive 360-degree video</p>
-            </div>
-            <div className="feature-item">
-              <span className="feature-icon">🦁</span>
-              <h4>Live Cameras</h4>
-              <p>Watch real-time wildlife at popular waterholes</p>
-            </div>
-            <div className="feature-item">
-              <span className="feature-icon">🎧</span>
-              <h4>Nature Sounds</h4>
-              <p>Listen to authentic African wilderness sounds</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="eco-education">
-        <h2>Learn & Protect</h2>
-        <div className="eco-content">
-          <div className="eco-card conservation">
-            <h3>Wildlife Conservation</h3>
-            <div className="eco-animation">
-              <div className="animated-animals"></div>
-            </div>
-            <p>Discover how we protect Tanzania's amazing wildlife</p>
-            <ul className="eco-list">
-              <li>Anti-poaching efforts</li>
-              <li>Habitat preservation</li>
-              <li>Community education</li>
-            </ul>
-          </div>
-          <div className="eco-card environment">
-            <h3>Environmental Care</h3>
-            <div className="eco-animation">
-              <div className="animated-plants"></div>
-            </div>
-            <p>Join our mission to keep Tanzania beautiful</p>
-            <ul className="eco-list">
-              <li>Plastic reduction</li>
-              <li>Tree planting</li>
-              <li>Clean water projects</li>
-            </ul>
-          </div>
-          <div className="eco-card culture">
-            <h3>Cultural Heritage</h3>
-            <div className="eco-animation">
-              <div className="animated-culture"></div>
-            </div>
-            <p>Help preserve traditional ways of life</p>
-            <ul className="eco-list">
-              <li>Local crafts support</li>
-              <li>Language preservation</li>
-              <li>Traditional music</li>
-            </ul>
-          </div>
-        </div>
+        )}
       </section>
 
       <section className="cta-section">
@@ -558,153 +687,12 @@ const Experience = () => {
           <p>Let us help you create unforgettable memories in Tanzania</p>
           <div className="cta-buttons">
             <button className="cta-button primary">Start Planning</button>
-            <button className="cta-button secondary">Download Brochure</button>
+            <button className="cta-button secondary">Download Guide</button>
         </div>
       </div>
       </section>
-
-      {showPhotoModule && (
-        <PhotoLearningModule 
-          isOpen={showPhotoModule} 
-          onClose={() => setShowPhotoModule(false)} 
-        />
-      )}
-
-      {showQuizModule && (
-        <WildlifeQuizModule 
-          isOpen={showQuizModule} 
-          onClose={() => setShowQuizModule(false)} 
-        />
-      )}
     </div>
   );
 };
-
-const experiences = [
-  {
-    id: 1,
-    title: "Nature Walks & Hiking",
-    icon: <FaTree />,
-    image: "/images/westernCirciut/hiking.jpg",
-    description: "Immerse yourself in Tanzania's diverse landscapes on guided nature walks through pristine wilderness.",
-    duration: "4-6 hours",
-    price: 89,
-    groupSize: "2-8 people",
-    categories: ['nature', 'popular'],
-    highlights: [
-      "Expert naturalist guides",
-      "Wildlife tracking",
-      "Bird watching opportunities",
-      "Beautiful photography spots"
-    ],
-    included: [
-      "Professional guide",
-      "Safety equipment",
-      "Snacks and water",
-      "Transport from/to hotel",
-      "First aid kit"
-    ],
-    schedule: [
-      { time: "7:00 AM", activity: "Hotel pickup" },
-      { time: "8:00 AM", activity: "Safety briefing and equipment check" },
-      { time: "8:30 AM", activity: "Start of guided walk" },
-      { time: "10:30 AM", activity: "Rest and refreshments" },
-      { time: "12:30 PM", activity: "Return journey" },
-      { time: "1:30 PM", activity: "Hotel drop-off" }
-    ],
-    pricingOptions: [
-      {
-        name: "Standard Tour",
-        price: 89,
-        description: "Group tour with up to 8 participants"
-      },
-      {
-        name: "Private Tour",
-        price: 159,
-        description: "Exclusive tour for your group only"
-      },
-      {
-        name: "Photography Focus",
-        price: 129,
-        description: "Extended tour with photography guidance"
-      }
-    ]
-  },
-  {
-    id: 2,
-    title: "Cultural City Tours",
-    icon: <FaCity />,
-    image: "/images/culturalTours/maasai-village.jpg",
-    description: "Experience the vibrant culture and rich history of Tanzania's most fascinating cities.",
-    duration: "Full Day",
-    price: 129,
-    groupSize: "4-12 people",
-    categories: ['culture', 'popular'],
-    highlights: [
-      "Local market visits",
-      "Historical landmarks",
-      "Art galleries",
-      "Traditional crafts"
-    ],
-    included: [
-      "Local guide",
-      "Museum entries",
-      "Traditional lunch",
-      "Craft workshop",
-      "Transport"
-    ],
-    schedule: [
-      { time: "8:00 AM", activity: "Meet at city center" },
-      { time: "9:00 AM", activity: "Historical district tour" },
-      { time: "11:00 AM", activity: "Local market visit" },
-      { time: "1:00 PM", activity: "Traditional lunch" },
-      { time: "2:30 PM", activity: "Craft workshop" },
-      { time: "4:30 PM", activity: "Tour conclusion" }
-    ],
-    pricingOptions: [
-      {
-        name: "Basic Tour",
-        price: 129,
-        description: "Full day city tour with all essentials"
-      },
-      {
-        name: "Premium Experience",
-        price: 199,
-        description: "Including exclusive craft workshop and dinner"
-      }
-    ]
-  },
-  // ... similar detailed structure for other experiences ...
-];
-
-const testimonials = [
-  {
-    id: 1,
-    quote: "The nature walk experience was absolutely incredible. Our guide's knowledge of local flora and fauna made every moment fascinating.",
-    name: "Sarah Johnson",
-    location: "United Kingdom",
-    avatar: "/images/culturalTours/testimonial1.jpg",
-    rating: 5,
-    date: "December 2023"
-  },
-  {
-    id: 2,
-    quote: "The photography safari exceeded all my expectations. I got shots I never thought possible!",
-    name: "Michael Chen",
-    location: "Canada",
-    avatar: "/images/culturalTours/testimonial2.jpg",
-    rating: 5,
-    date: "January 2024"
-  },
-  {
-    id: 3,
-    quote: "Climbing Kilimanjaro with this team was the adventure of a lifetime. Professional, safe, and inspiring.",
-    name: "Andreas Mueller",
-    location: "Germany",
-    avatar: "/images/culturalTours/testimonial3.jpg",
-    rating: 5,
-    date: "November 2023"
-  }
-];
 
 export default Experience; 

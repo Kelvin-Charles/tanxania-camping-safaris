@@ -770,12 +770,19 @@ const CustomTripBuilder = ({ onClose }) => {
   const renderSuccessPopup = () => (
     <div className="popup-overlay">
       <div className="popup-content success">
+        <div className="confetti"></div>
+        <div className="confetti"></div>
+        <div className="confetti"></div>
+        <div className="confetti"></div>
         <div className="popup-header success">
           <div className="success-icon">
             <FaCheckCircle />
           </div>
-          <h3>Thank You for Your Request!</h3>
-          <p>Our team will review your preferences and contact you shortly with a detailed quote tailored to your dream adventure.</p>
+          <h3>Thank You for Your Request! 🎊</h3>
+          <p>
+            Your safari request has been successfully submitted! 🌟<br />
+            Our team will review your preferences and contact you shortly with a detailed quote tailored to your dream adventure. 🦁✨
+          </p>
           <button 
             className="popup-btn"
             onClick={() => navigate('/contact-us')}

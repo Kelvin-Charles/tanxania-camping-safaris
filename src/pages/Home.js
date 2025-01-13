@@ -1,10 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaCompass, FaCampground, FaUsers, FaShieldAlt, FaClock, FaMapMarkedAlt, FaArrowRight, FaSmile, FaAward } from 'react-icons/fa';
+import { FaCompass, FaCampground, FaUsers, FaShieldAlt, FaClock, FaMapMarkedAlt, FaArrowRight, FaSmile, FaAward, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import './Home.css';
 import heroVideo from '../home-hero-bg-video/hero-video1.mp4';
 
 const Home = () => {
+  const scrollAdventures = (direction) => {
+    const container = document.querySelector('.adventure-grid');
+    const scrollAmount = direction === 'left' ? -400 : 400;
+    container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+  };
+
   return (
     <div className="home">
       <section className="hero">
@@ -23,7 +29,7 @@ const Home = () => {
         <div className="hero-content">
           <h1>Tanzania Camping Safaris</h1>
           <p>Discover the magic of camping safaris in Africa's most beautiful landscapes</p>
-          <Link to="/camping-tours" className="cta-button">Explore Tours</Link>
+          <Link to="/trips" className="cta-button">Explore Tours</Link>
         </div>
       </section>
 
@@ -68,8 +74,18 @@ const Home = () => {
               <img src={dest.image} alt={dest.name} />
               <div className="destination-content">
                 <h3>{dest.name}</h3>
+                <div className="destination-meta">
+                  <span className="meta-item">
+                    <i className="fas fa-map-marker-alt"></i> {dest.location}
+                  </span>
+                  <span className="meta-item">
+                    <i className="fas fa-clock"></i> {dest.duration}
+                  </span>
+                </div>
                 <p>{dest.description}</p>
-                <Link to={dest.link} className="learn-more">Learn More</Link>
+                <Link to={dest.link} className="learn-more">
+                  Explore Destination <FaArrowRight />
+                </Link>
               </div>
             </div>
           ))}
@@ -98,6 +114,9 @@ const Home = () => {
 
       <section className="adventure-types">
         <h2 className="section-title">Adventure Categories</h2>
+        <button className="scroll-button scroll-left" onClick={() => scrollAdventures('left')}>
+          <FaChevronLeft />
+        </button>
         <div className="adventure-grid">
           {adventureTypes.map((type) => (
             <div key={type.id} className="adventure-card">
@@ -112,15 +131,17 @@ const Home = () => {
             </div>
           ))}
         </div>
+        <button className="scroll-button scroll-right" onClick={() => scrollAdventures('right')}>
+          <FaChevronRight />
+        </button>
       </section>
 
       <section className="stats-section">
         <div className="stats-container">
           {stats.map((stat) => (
             <div key={stat.id} className="stat-item">
-              {stat.icon}
               <h3>{stat.number}</h3>
-              <p>{stat.title}</p>
+              <p>{stat.label}</p>
             </div>
           ))}
         </div>
@@ -171,7 +192,7 @@ const Home = () => {
           <p>Book your unforgettable Tanzania camping experience today</p>
           <div className="cta-buttons">
             <Link to="/contact-us" className="cta-button primary">Contact Us</Link>
-            <Link to="/camping-tours" className="cta-button secondary">View All Tours</Link>
+            <Link to="/trips" className="cta-button secondary">View All Tours</Link>
           </div>
         </div>
       </section>
@@ -187,7 +208,7 @@ const popularTours = [
     image: "https://img.freepik.com/premium-photo/zebras-wildebeest-standing-field_1048944-8233060.jpg?semt=ais_hybrid",
     duration: "6 Days",
     price: "1,299",
-    link: "/camping-tours/serengeti"
+    link: "/parks-reserves/northern/serengeti"
   },
   {
     id: 2,
@@ -196,7 +217,7 @@ const popularTours = [
     image: "https://images.unsplash.com/photo-1516426122078-c23e76319801?w=800",
     duration: "4 Days",
     price: "999",
-    link: "/camping-tours/ngorongoro"
+    link: "/parks-reserves/northern/ngorongoro"
   },
   {
     id: 3,
@@ -205,7 +226,7 @@ const popularTours = [
     image: "https://img.freepik.com/free-photo/beautiful-scenery-yellow-tents-kilimanjaro-national-park_181624-36749.jpg?semt=ais_hybrid",
     duration: "5 Days",
     price: "1,499",
-    link: "/camping-tours/kilimanjaro"
+    link: "/parks-reserves/northern/kilimanjaro"
   }
 ];
 
@@ -240,30 +261,38 @@ const destinations = [
   {
     id: 1,
     name: "Serengeti National Park",
-    description: "Home to the great migration and endless plains.",
-    image: "https://img.freepik.com/premium-photo/camping-illustration-free-photo-hd-background_915071-91766.jpg?semt=ais_hybrid",
-    link: "/parks-reserves/serengeti"
+    description: "Witness the spectacular Great Migration across endless savannah plains. Home to the Big Five and over 500 bird species, the Serengeti offers an unparalleled African safari experience.",
+    image: "https://images.unsplash.com/photo-1516426122078-c23e76319801?w=800",
+    location: "Northern Circuit, Tanzania",
+    duration: "3-6 Days Recommended",
+    link: "/parks-reserves/northern/serengeti"
   },
   {
     id: 2,
-    name: "Ngorongoro Crater",
-    description: "A natural wonder teeming with wildlife.",
-    image: "https://images.unsplash.com/photo-1515205244153-fce4e5d8bc49?w=800",
-    link: "/parks-reserves/ngorongoro"
+    name: "Ngorongoro Conservation Area",
+    description: "Explore the world's largest intact volcanic caldera, a UNESCO World Heritage site. This natural wonder hosts the highest density of wildlife in Africa, including rare black rhinos.",
+    image: "https://images.unsplash.com/photo-1549366021-9f761d450615?w=800",
+    location: "Crater Highlands",
+    duration: "2-4 Days Recommended",
+    link: "/parks-reserves/northern/ngorongoro"
   },
   {
     id: 3,
     name: "Mount Kilimanjaro",
-    description: "Africa's highest peak and a trekker's paradise.",
+    description: "Challenge yourself to climb Africa's highest peak at 5,895m. Experience five distinct ecological zones and breathtaking views from the 'Roof of Africa'.",
     image: "https://images.unsplash.com/photo-1521150932951-303a95503ed3?w=800",
-    link: "/parks-reserves/kilimanjaro"
+    location: "Kilimanjaro Region",
+    duration: "6-8 Days Required",
+    link: "/parks-reserves/northern/kilimanjaro"
   },
   {
     id: 4,
-    name: "Tarangire National Park",
-    description: "Famous for its ancient baobab trees and elephants.",
-    image: "https://images.unsplash.com/photo-1549366021-9f761d450615?w=800",
-    link: "/parks-reserves/tarangire"
+    name: "Zanzibar Archipelago",
+    description: "Immerse yourself in the exotic blend of pristine beaches, historic Stone Town architecture, and vibrant coral reefs. Perfect for post-safari relaxation and cultural exploration.",
+    image: "https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?w=800",
+    location: "Indian Ocean Coast",
+    duration: "4-7 Days Recommended",
+    link: "/parks-reserves/coastal/zanzibar"
   }
 ];
 
@@ -297,48 +326,65 @@ const adventureTypes = [
     title: "Wildlife Safari",
     description: "Experience close encounters with Africa's majestic wildlife.",
     image: "https://images.unsplash.com/photo-1549366021-9f761d450615?w=800",
-    link: "/wildlife-safari"
+    link: "/trips/wildlife-safari"
   },
   {
     id: 2,
     title: "Cultural Immersion",
     description: "Discover the rich traditions of Tanzania's diverse tribes.",
     image: "https://img.freepik.com/premium-photo/africa-tanzania-march-04-2016-european-tourists-interact-with-locals-africa-village-masai-tribe_135785-763.jpg?semt=ais_hybrid",
-    link: "/cultural-tours"
+    link: "/trips/cultural-tours"
   },
   {
     id: 3,
     title: "Mountain Trekking",
     description: "Conquer the peaks of Kilimanjaro and other mountains.",
     image: "https://images.unsplash.com/photo-1521150932951-303a95503ed3?w=800",
-    link: "/mountain-trekking"
+    link: "/trips/mountain-climbing"
+  },
+  {
+    id: 4,
+    title: "Beach Holidays",
+    description: "Relax on Zanzibar's pristine beaches and crystal-clear waters.",
+    image: "https://img.freepik.com/free-photo/beautiful-tropical-beach-sea-with-coconut-palm-tree_74190-7488.jpg",
+    link: "/trips/beach-holidays"
+  },
+  {
+    id: 5,
+    title: "Cultural Tours",
+    description: "Experience authentic Tanzanian culture and local traditions.",
+    image: "https://img.freepik.com/premium-photo/maasai-people-their-village-tanzania_400112-153.jpg",
+    link: "/trips/cultural-tours"
+  },
+  {
+    id: 6,
+    title: "Day Trips",
+    description: "Explore nearby attractions and hidden gems in a day.",
+    image: "https://img.freepik.com/free-photo/tourist-watching-zebras-savanna_23-2149058076.jpg",
+    link: "/trips/day-trips"
   }
 ];
 
 const stats = [
   {
     id: 1,
-    icon: <FaSmile className="stat-icon" />,
     number: "2000+",
-    title: "Happy Clients"
+    label: "Happy Clients"
   },
   {
     id: 2,
-    icon: <FaCompass className="stat-icon" />,
     number: "150+",
-    title: "Destinations"
+    label: "Destinations"
   },
   {
     id: 3,
-    icon: <FaCampground className="stat-icon" />,
     number: "70+",
-    title: "Camping Sites"
+    label: "Camping Sites"
   },
   {
     id: 4,
-    icon: <FaAward className="stat-icon" />,
     number: "25+",
-    title: "Years Experience"
+    label: "Years Experience"
   }
 ];
 
