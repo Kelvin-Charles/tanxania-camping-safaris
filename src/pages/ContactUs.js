@@ -149,9 +149,9 @@ const ContactUs = () => {
                 <iframe
                   src={`https://www.instagram.com/gofansafaris/embed`}
                   width="100%"
-                  height="400px"
+                  height="470px"
                   frameBorder="0"
-                  scrolling="no"
+                  scrolling="yes"
                   allowTransparency="true"
                 ></iframe>
               </div>
@@ -165,7 +165,7 @@ const ContactUs = () => {
               <div className="youtube-feed">
                 <iframe
                   width="100%"
-                  height="400px"
+                  height="470px"
                   src="https://www.youtube.com/embed/lq2g2MggY3E?si=4obCql8gK5BHnOYb"
                   title="YouTube video player"
                   frameBorder="0"
