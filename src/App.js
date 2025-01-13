@@ -11,6 +11,7 @@ import ParksReserves from './pages/ParksReserves';
 import AboutUs from './pages/AboutUs';
 import ContactUs from './pages/ContactUs';
 import OurTeam from './pages/OurTeam';
+import Enquiry from './pages/Enquiry';
 import LuxuryCamping from './pages/camping/LuxuryCamping';
 import MidRangeCamping from './pages/camping/MidRangeCamping';
 import BudgetCamping from './pages/camping/BudgetCamping';
@@ -58,6 +59,7 @@ function App() {
         <main className="main-content">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/enquiry" element={<Enquiry />} />
             
             {/* Camping Tours Routes */}
             <Route path="/camping-tours" element={<CampingTours />} />
