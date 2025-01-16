@@ -1,0 +1,245 @@
+.charity-container {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.charity-hero {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    var(--hero-bg);
+  background-size: cover;
+  background-position: center;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  padding: 2rem;
+}
+
+.charity-hero h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.charity-hero p {
+  font-size: 1.5rem;
+  max-width: 800px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.charity-content {
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 0 2rem;
+}
+
+.mission-section {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.mission-section h2 {
+  color: #333;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.mission-section p {
+  color: #666;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.initiatives-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin: 4rem 0;
+}
+
+.initiative-card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.initiative-card:hover {
+  transform: translateY(-5px);
+}
+
+.initiative-image {
+  height: 250px;
+  overflow: hidden;
+}
+
+.initiative-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.initiative-card:hover .initiative-image img {
+  transform: scale(1.05);
+}
+
+.initiative-content {
+  padding: 2rem;
+}
+
+.initiative-content h3 {
+  color: #333;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.initiative-content p {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.impact-section {
+  background: #f9f9f9;
+  padding: 4rem 2rem;
+  margin: 4rem -2rem;
+  text-align: center;
+}
+
+.impact-section h2 {
+  color: #333;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.impact-item {
+  padding: 1.5rem;
+}
+
+.impact-number {
+  color: #4CAF50;
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.impact-text {
+  color: #666;
+  font-size: 1.1rem;
+  line-height: 1.4;
+}
+
+.get-involved {
+  text-align: center;
+  margin: 4rem 0;
+}
+
+.get-involved h2 {
+  color: #333;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.get-involved p {
+  color: #666;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+}
+
+.donate-button {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background: #4CAF50;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.donate-button:hover {
+  background: #388E3C;
+}
+
+.partners-section {
+  margin: 4rem 0;
+  text-align: center;
+}
+
+.partners-section h2 {
+  color: #333;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  align-items: center;
+}
+
+.partner-logo {
+  padding: 1rem;
+  filter: grayscale(100%);
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.partner-logo:hover {
+  filter: grayscale(0);
+  opacity: 1;
+}
+
+.partner-logo img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .charity-hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .charity-hero p {
+    font-size: 1.2rem;
+  }
+
+  .mission-section h2,
+  .impact-section h2,
+  .get-involved h2,
+  .partners-section h2 {
+    font-size: 2rem;
+  }
+
+  .initiative-content h3 {
+    font-size: 1.5rem;
+  }
+
+  .impact-number {
+    font-size: 2.5rem;
+  }
+
+  .charity-content {
+    margin: 2rem auto;
+  }
+} 

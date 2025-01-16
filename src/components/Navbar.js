@@ -115,7 +115,13 @@ const Navbar = () => {
       path: '/about',
       submenu: [
         { path: '/about', text: 'About Us' },
-        { path: '/about/team', text: 'Our Team' }
+        { path: '/about/team', text: 'Our Team' },
+        { path: '/about/fleets', text: 'Our Fleets' },
+        { path: '/about/terms', text: 'Terms & Conditions' },
+        { path: '/about/travel-advice', text: 'Travel Advice' },
+        { path: '/about/blog', text: 'Blog' },
+        { path: '/about/faqs', text: 'FAQs' },
+        { path: '/about/charity', text: 'Charity' }
       ]
     },
     { path: '/contact-us', text: 'Contact' }
