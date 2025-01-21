@@ -1,0 +1,15 @@
+Options +FollowSymLinks
+RewriteEngine On
+
+# Set the base for rewrites to match your XAMPP setup
+RewriteBase /tanzania/php-backend/public/
+
+# Don't rewrite files or directories
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Rewrite everything else to index.php
+RewriteRule ^(.*)$ index.php [QSA,L]
+
+# Allow HTTP Authorization header
+SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1 
