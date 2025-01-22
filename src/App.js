@@ -11,6 +11,12 @@ import ParksReserves from './pages/ParksReserves';
 import AboutUs from './pages/AboutUs';
 import ContactUs from './pages/ContactUs';
 import OurTeam from './pages/OurTeam';
+import OurFleets from './pages/Fleets';
+import Terms from './pages/Terms';
+import TravelAdvice from './pages/TravelAdvice';
+import Blog from './pages/Blog';
+import FAQs from './pages/FAQs';
+import Charity from './pages/Charity';
 import Enquiry from './pages/Enquiry';
 import LuxuryCamping from './pages/camping/LuxuryCamping';
 import MidRangeCamping from './pages/camping/MidRangeCamping';
@@ -115,6 +121,12 @@ function App() {
               <Routes>
                 <Route index element={<AboutUs />} />
                 <Route path="team" element={<OurTeam />} />
+                <Route path="fleets" element={<OurFleets />} />
+                <Route path="terms" element={<Terms />} />
+                <Route path="travel-advice" element={<TravelAdvice />} />
+                <Route path="blog" element={<Blog />} />
+                <Route path="faqs" element={<FAQs />} />
+                <Route path="charity" element={<Charity />} />
               </Routes>
             } />
             <Route path="/contact-us" element={<ContactUs />} />

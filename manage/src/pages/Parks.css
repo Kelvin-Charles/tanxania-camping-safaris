@@ -1,0 +1,111 @@
+.parks-page {
+  padding: 1.5rem;
+}
+
+.parks-page h1 {
+  margin-bottom: 2rem;
+  color: #1a2b3c;
+  font-size: 1.8rem;
+}
+
+.parks-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 0.5rem;
+}
+
+.park-image {
+  width: 100%;
+  height: 200px;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.park-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .park-image img {
+  transform: scale(1.05);
+}
+
+.park-circuit {
+  color: #2563eb;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(37, 99, 235, 0.1);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  width: fit-content;
+}
+
+.park-circuit::before {
+  content: '🗺️';
+}
+
+.park-description {
+  color: #475569;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.park-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-top: auto;
+}
+
+.circuit-select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.circuit-select:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  outline: none;
+}
+
+.circuit-select option {
+  padding: 0.5rem;
+}
+
+@media (max-width: 1200px) {
+  .card {
+    flex: 0 0 calc(50% - 1rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .parks-grid {
+    gap: 1rem;
+  }
+  
+  .card {
+    flex: 0 0 100%;
+  }
+
+  .park-image {
+    height: 180px;
+  }
+} 

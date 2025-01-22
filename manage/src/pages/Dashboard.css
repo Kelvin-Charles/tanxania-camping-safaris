@@ -1,0 +1,268 @@
+.dashboard {
+  padding: 1.5rem;
+}
+
+/* Stats Grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+}
+
+.stat-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: white;
+  flex-shrink: 0;
+}
+
+.stat-icon.packages {
+  background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+}
+
+.stat-icon.bookings {
+  background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+}
+
+.stat-icon.enquiries {
+  background: linear-gradient(135deg, #FF9800 0%, #F57C00 100%);
+}
+
+.stat-icon.revenue {
+  background: linear-gradient(135deg, #9C27B0 0%, #7B1FA2 100%);
+}
+
+.stat-icon.parks {
+  background: linear-gradient(135deg, #00BCD4 0%, #0097A7 100%);
+}
+
+.stat-icon.categories {
+  background: linear-gradient(135deg, #FF5722 0%, #E64A19 100%);
+}
+
+.stat-details {
+  flex: 1;
+}
+
+.stat-details h3 {
+  color: #6c757d;
+  font-size: 0.875rem;
+  margin: 0 0 0.5rem 0;
+  font-weight: 600;
+}
+
+.stat-details p {
+  color: #2d3748;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Activity Grid */
+.activity-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 1.5rem;
+}
+
+.activity-card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.card-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid #e9ecef;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-header h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #2d3748;
+  font-weight: 600;
+}
+
+.view-all {
+  color: #4CAF50;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.875rem;
+  transition: color 0.3s ease;
+}
+
+.view-all:hover {
+  color: #45a049;
+}
+
+.activity-list {
+  padding: 1rem;
+}
+
+.activity-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.activity-item:hover {
+  background-color: #f8f9fa;
+}
+
+.activity-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: #e9ecef;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6c757d;
+  flex-shrink: 0;
+}
+
+.activity-details {
+  flex: 1;
+}
+
+.activity-details h4 {
+  margin: 0 0 0.25rem 0;
+  color: #2d3748;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.activity-details p {
+  margin: 0;
+  color: #6c757d;
+  font-size: 0.875rem;
+}
+
+.activity-date {
+  color: #8898aa !important;
+  font-size: 0.75rem !important;
+  margin-top: 0.25rem !important;
+}
+
+.status {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin-top: 0.5rem;
+  text-transform: capitalize;
+}
+
+.status.pending {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.status.confirmed {
+  background: #d4edda;
+  color: #155724;
+}
+
+.status.cancelled {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.status.completed {
+  background: #cce5ff;
+  color: #004085;
+}
+
+.no-data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  color: #6c757d;
+  text-align: center;
+  background: #f8f9fa;
+  border-radius: 8px;
+  margin: 1rem;
+}
+
+.no-data svg {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.no-data p {
+  margin: 0;
+}
+
+.loading, .error {
+  text-align: center;
+  padding: 2rem;
+  color: #6c757d;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 1.5rem;
+}
+
+.error {
+  color: #dc3545;
+}
+
+@media (max-width: 768px) {
+  .dashboard {
+    padding: 1rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+
+  .activity-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-card {
+    padding: 1rem;
+  }
+
+  .stat-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.25rem;
+  }
+
+  .stat-details p {
+    font-size: 1.25rem;
+  }
+} 
