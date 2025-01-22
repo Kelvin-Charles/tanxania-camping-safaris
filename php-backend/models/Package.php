@@ -10,7 +10,7 @@ class Package {
 
     public function getAll($filters = []) {
         $query = "
-            SELECT p.*, pk.name as park_name, pk.identifier as park_identifier,
+            SELECT DISTINCT p.*, pk.name as park_name, pk.identifier as park_identifier,
                    GROUP_CONCAT(DISTINCT c.name) as category_names
             FROM packages p 
             JOIN parks pk ON p.park_id = pk.id
@@ -20,28 +20,33 @@ class Package {
         ";
         $params = [];
 
-        if (isset($filters['parkId'])) {
+        if (isset($filters['parkId']) && $filters['parkId']) {
             $query .= " AND p.park_id = ?";
             $params[] = $filters['parkId'];
         }
 
-        if (isset($filters['featured'])) {
+        if (isset($filters['featured']) && $filters['featured']) {
             $query .= " AND p.featured = 1";
         }
 
-        if (isset($filters['minPrice'])) {
+        if (isset($filters['minPrice']) && is_numeric($filters['minPrice'])) {
             $query .= " AND p.price >= ?";
             $params[] = $filters['minPrice'];
         }
 
-        if (isset($filters['maxPrice'])) {
+        if (isset($filters['maxPrice']) && is_numeric($filters['maxPrice'])) {
             $query .= " AND p.price <= ?";
             $params[] = $filters['maxPrice'];
         }
 
-        if (isset($filters['duration'])) {
-            $query .= " AND p.duration = ?";
-            $params[] = $filters['duration'];
+        if (isset($filters['duration']) && $filters['duration']) {
+            $query .= " AND p.duration LIKE ?";
+            $params[] = '%' . $filters['duration'] . '%';
+        }
+
+        if (isset($filters['category']) && $filters['category']) {
+            $query .= " AND c.name = ?";
+            $params[] = $filters['category'];
         }
 
         $query .= " GROUP BY p.id ORDER BY p.created_at DESC";
@@ -63,7 +68,7 @@ class Package {
 
     public function findById($id) {
         $query = "
-            SELECT p.*, pk.name as park_name, pk.identifier as park_identifier,
+            SELECT DISTINCT p.*, pk.name as park_name, pk.identifier as park_identifier,
                    GROUP_CONCAT(DISTINCT c.name) as category_names
             FROM packages p 
             JOIN parks pk ON p.park_id = pk.id
@@ -90,13 +95,14 @@ class Package {
 
     public function getPackagesByCategory($category) {
         $query = "
-            SELECT p.*, pk.name as park_name, pk.identifier as park_identifier,
-                   GROUP_CONCAT(DISTINCT c.name) as category_names
+            SELECT DISTINCT p.*, pk.name as park_name, pk.identifier as park_identifier,
+                   GROUP_CONCAT(DISTINCT c_all.name) as category_names
             FROM packages p 
             JOIN parks pk ON p.park_id = pk.id
-            JOIN package_categories pc ON p.id = pc.package_id
-            JOIN categories c ON pc.category_id = c.id 
-            WHERE c.name = ?
+            JOIN package_categories pc_filter ON p.id = pc_filter.package_id
+            JOIN categories c_filter ON pc_filter.category_id = c_filter.id AND c_filter.name = ?
+            LEFT JOIN package_categories pc_all ON p.id = pc_all.package_id
+            LEFT JOIN categories c_all ON pc_all.category_id = c_all.id
             GROUP BY p.id
             ORDER BY p.created_at DESC
         ";
@@ -106,7 +112,7 @@ class Package {
         $packages = $stmt->fetchAll();
 
         foreach ($packages as &$package) {
-            $package['categories'] = $package['category_names'] ? explode(',', $package['category_names']) : [];
+            $package['categories'] = $package['category_names'] ? array_unique(explode(',', $package['category_names'])) : [];
             unset($package['category_names']);
             $package['itinerary'] = json_decode($package['itinerary'], true);
             $package['highlights'] = json_decode($package['highlights'], true);
@@ -118,7 +124,7 @@ class Package {
 
     public function getFeaturedPackages() {
         $query = "
-            SELECT p.*, pk.name as park_name, pk.identifier as park_identifier,
+            SELECT DISTINCT p.*, pk.name as park_name, pk.identifier as park_identifier,
                    GROUP_CONCAT(DISTINCT c.name) as category_names
             FROM packages p 
             JOIN parks pk ON p.park_id = pk.id
