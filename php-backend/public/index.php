@@ -11,7 +11,9 @@ header('Content-Type: application/json');
 
 require_once __DIR__ . '/../config/database.php';
 
-// Enable error reporting for debugging
+// At the top of the file, after the headers
+ini_set('log_errors', 1);
+ini_set('error_log', __DIR__ . '/debug.log');
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
@@ -131,6 +133,52 @@ try {
 
     // Handle packages routes
     if ($segments[0] === 'packages') {
+        // Add image upload endpoint
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($segments[1]) && $segments[1] === 'upload-image') {
+            try {
+                if (!isset($_FILES['image'])) {
+                    throw new Exception('No image file uploaded');
+                }
+
+                $file = $_FILES['image'];
+                $fileName = uniqid() . '_' . basename($file['name']);
+                $uploadPath = __DIR__ . '/uploads/packages/' . $fileName;
+                
+                // Validate file type
+                $allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
+                if (!in_array($file['type'], $allowedTypes)) {
+                    throw new Exception('Invalid file type. Only JPG, PNG, GIF, and WebP are allowed.');
+                }
+
+                // Validate file size (5MB max)
+                if ($file['size'] > 5 * 1024 * 1024) {
+                    throw new Exception('File too large. Maximum size is 5MB.');
+                }
+
+                if (!move_uploaded_file($file['tmp_name'], $uploadPath)) {
+                    throw new Exception('Failed to move uploaded file');
+                }
+
+                // Return the URL for the uploaded image
+                $imageUrl = 'http://localhost/tanzania/php-backend/public/uploads/packages/' . $fileName;
+                echo json_encode([
+                    'status' => 'success',
+                    'message' => 'Image uploaded successfully',
+                    'data' => ['url' => $imageUrl]
+                ]);
+                exit;
+            } catch (Exception $e) {
+                error_log("Image upload error: " . $e->getMessage());
+                http_response_code(400);
+                echo json_encode([
+                    'status' => 'error',
+                    'message' => 'Failed to upload image',
+                    'debug_message' => $e->getMessage()
+                ]);
+                exit;
+            }
+        }
+
         error_log("Matched packages route");
         error_log("Request Method: " . $_SERVER['REQUEST_METHOD']);
         error_log("Segments: " . print_r($segments, true));
@@ -375,6 +423,172 @@ try {
                     'debug_message' => $e->getMessage()
                 ]);
                 exit();
+            }
+        }
+
+        // PUT update package
+        if ($_SERVER['REQUEST_METHOD'] === 'PUT' && isset($segments[1])) {
+            error_log("Inside PUT handler for packages");
+            try {
+                // Clean and validate the package ID
+                $packageId = intval(preg_replace('/[^0-9]/', '', $segments[1]));
+                
+                if (!$packageId) {
+                    http_response_code(400);
+                    echo json_encode([
+                        'status' => 'error',
+                        'message' => 'Invalid package ID'
+                    ]);
+                    exit;
+                }
+
+                $data = json_decode(file_get_contents('php://input'), true);
+                error_log("Updating package ID: " . $packageId);
+                error_log("Raw update data: " . print_r($data, true));
+                
+                // Validate required fields
+                if (!isset($data['title']) || empty($data['title'])) {
+                    http_response_code(400);
+                    echo json_encode([
+                        'status' => 'error',
+                        'message' => 'Package title is required'
+                    ]);
+                    exit;
+                }
+
+                if (!isset($data['description']) || empty($data['description'])) {
+                    http_response_code(400);
+                    echo json_encode([
+                        'status' => 'error',
+                        'message' => 'Package description is required'
+                    ]);
+                    exit;
+                }
+
+                if (!isset($data['price']) || !is_numeric($data['price'])) {
+                    http_response_code(400);
+                    echo json_encode([
+                        'status' => 'error',
+                        'message' => 'Valid price is required'
+                    ]);
+                    exit;
+                }
+
+                $db = Database::getInstance()->getConnection();
+
+                // Start transaction
+                $db->beginTransaction();
+
+                try {
+                    // Prepare the data for update
+                    $updateData = [
+                        'name' => $data['name'],
+                        'title' => $data['title'],
+                        'description' => $data['description'],
+                        'price' => $data['price'],
+                        'duration' => $data['duration'],
+                        'park_id' => $data['park_id'],
+                        'group_size' => $data['group_size'],
+                        'highlights' => is_string($data['highlights']) ? $data['highlights'] : json_encode($data['highlights']),
+                        'itinerary' => is_string($data['itinerary']) ? $data['itinerary'] : json_encode($data['itinerary']),
+                        'image_url' => $data['image_url'],
+                        'featured' => isset($data['featured']) ? (int)$data['featured'] : 0,
+                        'id' => $packageId
+                    ];
+
+                    error_log("Formatted update data: " . print_r($updateData, true));
+
+                    // Update package
+                    $updateQuery = "
+                        UPDATE packages 
+                        SET 
+                            name = :name,
+                            title = :title,
+                            description = :description,
+                            price = :price,
+                            duration = :duration,
+                            park_id = :park_id,
+                            group_size = :group_size,
+                            highlights = :highlights,
+                            itinerary = :itinerary,
+                            image_url = :image_url,
+                            featured = :featured,
+                            updated_at = NOW()
+                        WHERE id = :id
+                    ";
+
+                    $stmt = $db->prepare($updateQuery);
+                    error_log("Executing update query with parameters: " . print_r($updateData, true));
+                    $result = $stmt->execute($updateData);
+                    
+                    if (!$result) {
+                        error_log("Update query failed. Error info: " . print_r($stmt->errorInfo(), true));
+                        throw new Exception("Failed to update package data");
+                    }
+
+                    // Update categories
+                    error_log("Deleting existing categories for package: " . $packageId);
+                    $deleteCategories = "DELETE FROM package_categories WHERE package_id = :package_id";
+                    $stmt = $db->prepare($deleteCategories);
+                    $deleteResult = $stmt->execute(['package_id' => $packageId]);
+                    
+                    if (!$deleteResult) {
+                        error_log("Failed to delete existing categories. Error info: " . print_r($stmt->errorInfo(), true));
+                        throw new Exception("Failed to delete existing categories");
+                    }
+
+                    // Then, add new categories
+                    $categories = $data['categories'];
+                    if (!empty($categories)) {
+                        error_log("Adding new categories: " . print_r($categories, true));
+                        $insertCategory = "INSERT INTO package_categories (package_id, category_id) VALUES (:package_id, :category_id)";
+                        $stmt = $db->prepare($insertCategory);
+                        
+                        foreach ($categories as $categoryId) {
+                            $insertResult = $stmt->execute([
+                                'package_id' => $packageId,
+                                'category_id' => $categoryId
+                            ]);
+                            
+                            if (!$insertResult) {
+                                error_log("Failed to insert category. Error info: " . print_r($stmt->errorInfo(), true));
+                                throw new Exception("Failed to insert category: " . $categoryId);
+                            }
+                        }
+                    }
+
+                    // Commit transaction
+                    $db->commit();
+                    error_log("Package update completed successfully");
+
+                    echo json_encode([
+                        'status' => 'success',
+                        'message' => 'Package updated successfully',
+                        'data' => ['id' => $packageId]
+                    ]);
+                    exit;
+                } catch (Exception $e) {
+                    error_log("Error in transaction: " . $e->getMessage());
+                    error_log("Rolling back transaction");
+                    $db->rollBack();
+                    throw $e;
+                }
+            } catch (Exception $e) {
+                error_log("Error updating package: " . $e->getMessage());
+                error_log("Stack trace: " . $e->getTraceAsString());
+                http_response_code(500);
+                echo json_encode([
+                    'status' => 'error',
+                    'message' => 'Failed to update package',
+                    'debug_message' => $e->getMessage(),
+                    'debug_trace' => $e->getTraceAsString(),
+                    'debug_data' => [
+                        'package_id' => $packageId,
+                        'request_data' => $data,
+                        'formatted_data' => $updateData ?? null
+                    ]
+                ]);
+                exit;
             }
         }
 
