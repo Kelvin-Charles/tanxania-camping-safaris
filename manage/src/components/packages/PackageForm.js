@@ -1,8 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { FaTimes, FaPlus, FaTrash } from 'react-icons/fa';
+import { packageApi } from '../../services/api';
 import './PackageForm.css';
 
 const PackageForm = ({ package: pkg, categories, parks, onSubmit, onClose }) => {
+  const defaultDay = {
+    day: 1,
+    title: '',
+    description: '',
+    activities: [''],
+    meals: {
+      breakfast: '',
+      lunch: '',
+      dinner: ''
+    },
+    accommodation: ''
+  };
+
   const [formData, setFormData] = useState({
     title: '',
     description: '',
@@ -13,44 +27,63 @@ const PackageForm = ({ package: pkg, categories, parks, onSubmit, onClose }) => 
     categories: [],
     parks: [],
     highlights: [''],
-    itinerary: [{
-      day: 1,
-      title: '',
-      description: '',
-      activities: [''],
-      meals: {
-        breakfast: '',
-        lunch: '',
-        dinner: ''
-      },
-      accommodation: ''
-    }]
+    itinerary: [defaultDay]
   });
 
   useEffect(() => {
     if (pkg) {
-      setFormData({
-        ...pkg,
-        categories: pkg.categories?.map(cat => 
-          typeof cat === 'object' ? cat.id : cat
-        ) || [],
-        parks: pkg.parks?.map(park => 
-          typeof park === 'object' ? park.id : park
-        ) || [],
-        highlights: typeof pkg.highlights === 'string' ? JSON.parse(pkg.highlights) : (pkg.highlights || ['']),
-        itinerary: typeof pkg.itinerary === 'string' ? JSON.parse(pkg.itinerary) : (pkg.itinerary || [{
-          day: 1,
-          title: '',
-          description: '',
-          activities: [''],
+      try {
+        // Parse itinerary if it's a string
+        let parsedItinerary = pkg.itinerary;
+        if (typeof pkg.itinerary === 'string') {
+          parsedItinerary = JSON.parse(pkg.itinerary);
+        }
+
+        // Ensure each day in the itinerary has the correct structure
+        const formattedItinerary = (parsedItinerary || []).map((day, index) => ({
+          day: index + 1,
+          title: day.title || '',
+          description: day.description || '',
+          activities: Array.isArray(day.activities) ? day.activities : [''],
           meals: {
-            breakfast: '',
-            lunch: '',
-            dinner: ''
+            breakfast: day.meals?.breakfast || '',
+            lunch: day.meals?.lunch || '',
+            dinner: day.meals?.dinner || ''
           },
-          accommodation: ''
-        }])
-      });
+          accommodation: day.accommodation || ''
+        }));
+
+        // Parse highlights if it's a string
+        let parsedHighlights = pkg.highlights;
+        if (typeof pkg.highlights === 'string') {
+          parsedHighlights = JSON.parse(pkg.highlights);
+        }
+
+        // Initialize parks array with the existing park_id if no parks array exists
+        const initialParks = pkg.parks?.map(park => 
+          typeof park === 'object' ? park.id : park
+        ) || (pkg.park_id ? [pkg.park_id] : []);
+
+        setFormData({
+          ...pkg,
+          categories: pkg.categories?.map(cat => 
+            typeof cat === 'object' ? cat.id : cat
+          ) || [],
+          parks: initialParks,
+          highlights: Array.isArray(parsedHighlights) ? parsedHighlights : [''],
+          itinerary: formattedItinerary.length > 0 ? formattedItinerary : [defaultDay]
+        });
+      } catch (error) {
+        console.error('Error formatting package data:', error);
+        // If there's an error parsing, set default values but keep the park_id
+        setFormData({
+          ...pkg,
+          categories: [],
+          parks: pkg.park_id ? [pkg.park_id] : [],
+          highlights: [''],
+          itinerary: [defaultDay]
+        });
+      }
     }
   }, [pkg]);
 
@@ -231,6 +264,71 @@ const PackageForm = ({ package: pkg, categories, parks, onSubmit, onClose }) => 
                 onChange={handleChange}
                 required
               />
+            </div>
+
+            <div className="form-group">
+              <label>Image URL</label>
+              <div className="image-input-container">
+                <input
+                  type="text"
+                  name="image_url"
+                  value={formData.image_url || ''}
+                  onChange={handleChange}
+                  placeholder="Enter image URL"
+                  className="image-url-input"
+                />
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={async (e) => {
+                    const file = e.target.files[0];
+                    if (file) {
+                      try {
+                        // Show loading state
+                        setFormData(prev => ({
+                          ...prev,
+                          image_url: 'Uploading...'
+                        }));
+
+                        // Upload the image to the server
+                        const imageUrl = await packageApi.uploadImage(file);
+                        
+                        // Update the form with the returned URL
+                        setFormData(prev => ({
+                          ...prev,
+                          image_url: imageUrl
+                        }));
+                      } catch (error) {
+                        console.error('Failed to upload image:', error);
+                        alert('Failed to upload image: ' + error.message);
+                        // Reset the image URL if upload failed
+                        setFormData(prev => ({
+                          ...prev,
+                          image_url: ''
+                        }));
+                      }
+                    }
+                  }}
+                  className="image-file-input"
+                />
+              </div>
+              {formData.image_url && formData.image_url !== 'Uploading...' && (
+                <div className="image-preview">
+                  <img src={formData.image_url} alt="Package preview" />
+                  <button
+                    type="button"
+                    className="remove-image-btn"
+                    onClick={() => setFormData(prev => ({ ...prev, image_url: '' }))}
+                  >
+                    <FaTimes /> Remove Image
+                  </button>
+                </div>
+              )}
+              {formData.image_url === 'Uploading...' && (
+                <div className="upload-loading">
+                  Uploading image...
+                </div>
+              )}
             </div>
 
             <div className="form-group">

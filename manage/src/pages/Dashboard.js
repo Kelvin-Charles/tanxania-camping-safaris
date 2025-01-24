@@ -12,7 +12,6 @@ import {
   FaDollarSign
 } from 'react-icons/fa';
 import { packageApi, bookingApi, enquiryApi, parkApi, categoryApi } from '../services/api';
-import './Dashboard.css';
 
 const Dashboard = () => {
   const [stats, setStats] = useState({
@@ -101,139 +100,194 @@ const Dashboard = () => {
     fetchDashboardData();
   }, []);
 
-  if (loading) return <div className="loading">Loading dashboard...</div>;
-  if (error) return <div className="error">Error: {error}</div>;
+  if (loading) return (
+    <div className="flex items-center justify-center min-h-screen bg-gray-50">
+      <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+    </div>
+  );
+  
+  if (error) return (
+    <div className="flex items-center justify-center min-h-screen bg-gray-50">
+      <div className="p-4 bg-red-100 text-red-700 rounded-lg flex items-center">
+        <FaExclamationCircle className="mr-2" /> {error}
+      </div>
+    </div>
+  );
 
   return (
-    <div className="dashboard">
-      {/* Stats Overview */}
-      <div className="stats-grid">
-        <div className="stat-card">
-          <div className="stat-icon packages">
-            <FaBox />
-          </div>
-          <div className="stat-details">
-            <h3>Total Packages</h3>
-            <p>{stats.packages}</p>
-          </div>
-        </div>
-
-        <div className="stat-card">
-          <div className="stat-icon bookings">
-            <FaCalendarCheck />
-          </div>
-          <div className="stat-details">
-            <h3>Total Bookings</h3>
-            <p>{stats.bookings}</p>
-          </div>
-        </div>
-
-        <div className="stat-card">
-          <div className="stat-icon enquiries">
-            <FaEnvelope />
-          </div>
-          <div className="stat-details">
-            <h3>New Enquiries</h3>
-            <p>{stats.enquiries}</p>
-          </div>
-        </div>
-
-        <div className="stat-card">
-          <div className="stat-icon revenue">
-            <FaChartLine />
-          </div>
-          <div className="stat-details">
-            <h3>Total Revenue</h3>
-            <p>${stats.revenue.toLocaleString()}</p>
-          </div>
-        </div>
-
-        <div className="stat-card">
-          <div className="stat-icon parks">
-            <FaTree />
-          </div>
-          <div className="stat-details">
-            <h3>Total Parks</h3>
-            <p>{stats.parks}</p>
-          </div>
-        </div>
-
-        <div className="stat-card">
-          <div className="stat-icon categories">
-            <FaList />
-          </div>
-          <div className="stat-details">
-            <h3>Total Categories</h3>
-            <p>{stats.categories}</p>
-          </div>
-        </div>
-      </div>
-
-      {/* Recent Activity */}
-      <div className="activity-grid">
-        {/* Recent Bookings */}
-        <div className="activity-card">
-          <div className="card-header">
-            <h2>Recent Bookings</h2>
-            <Link to="/bookings" className="view-all">View All</Link>
-          </div>
-          <div className="activity-list">
-            {recentBookings.length > 0 ? (
-              recentBookings.map(booking => (
-                <div key={booking.id} className="activity-item">
-                  <div className="activity-icon">
-                    <FaDollarSign />
-                  </div>
-                  <div className="activity-details">
-                    <h4>{booking.packageName}</h4>
-                    <p>{booking.customerName} - ${booking.amount.toLocaleString()}</p>
-                    <p className="activity-date">
-                      {new Date(booking.createdAt).toLocaleDateString()}
-                    </p>
-                    <span className={`status ${booking.status}`}>
-                      {booking.status}
-                    </span>
-                  </div>
-                </div>
-              ))
-            ) : (
-              <div className="no-data">
-                <p>No recent bookings</p>
+    <div className="min-h-screen bg-gray-50 p-6">
+      <div className="max-w-7xl mx-auto">
+        {/* Stats Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+          {/* Packages Card */}
+          <div className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
+            <div className="p-6 flex items-center space-x-4">
+              <div className="flex-shrink-0 bg-gradient-to-r from-blue-500 to-blue-600 p-3 rounded-lg">
+                <FaBox className="h-6 w-6 text-white" />
               </div>
-            )}
+              <div>
+                <p className="text-sm font-medium text-gray-600">Total Packages</p>
+                <p className="text-2xl font-bold text-gray-900">{stats.packages}</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Bookings Card */}
+          <div className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
+            <div className="p-6 flex items-center space-x-4">
+              <div className="flex-shrink-0 bg-gradient-to-r from-green-500 to-green-600 p-3 rounded-lg">
+                <FaCalendarCheck className="h-6 w-6 text-white" />
+              </div>
+              <div>
+                <p className="text-sm font-medium text-gray-600">Total Bookings</p>
+                <p className="text-2xl font-bold text-gray-900">{stats.bookings}</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Enquiries Card */}
+          <div className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
+            <div className="p-6 flex items-center space-x-4">
+              <div className="flex-shrink-0 bg-gradient-to-r from-purple-500 to-purple-600 p-3 rounded-lg">
+                <FaEnvelope className="h-6 w-6 text-white" />
+              </div>
+              <div>
+                <p className="text-sm font-medium text-gray-600">New Enquiries</p>
+                <p className="text-2xl font-bold text-gray-900">{stats.enquiries}</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Revenue Card */}
+          <div className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
+            <div className="p-6 flex items-center space-x-4">
+              <div className="flex-shrink-0 bg-gradient-to-r from-yellow-500 to-yellow-600 p-3 rounded-lg">
+                <FaChartLine className="h-6 w-6 text-white" />
+              </div>
+              <div>
+                <p className="text-sm font-medium text-gray-600">Total Revenue</p>
+                <p className="text-2xl font-bold text-gray-900">${stats.revenue.toLocaleString()}</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Parks Card */}
+          <div className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
+            <div className="p-6 flex items-center space-x-4">
+              <div className="flex-shrink-0 bg-gradient-to-r from-teal-500 to-teal-600 p-3 rounded-lg">
+                <FaTree className="h-6 w-6 text-white" />
+              </div>
+              <div>
+                <p className="text-sm font-medium text-gray-600">Total Parks</p>
+                <p className="text-2xl font-bold text-gray-900">{stats.parks}</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Categories Card */}
+          <div className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
+            <div className="p-6 flex items-center space-x-4">
+              <div className="flex-shrink-0 bg-gradient-to-r from-indigo-500 to-indigo-600 p-3 rounded-lg">
+                <FaList className="h-6 w-6 text-white" />
+              </div>
+              <div>
+                <p className="text-sm font-medium text-gray-600">Total Categories</p>
+                <p className="text-2xl font-bold text-gray-900">{stats.categories}</p>
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Recent Enquiries */}
-        <div className="activity-card">
-          <div className="card-header">
-            <h2>Recent Enquiries</h2>
-            <Link to="/enquiries" className="view-all">View All</Link>
-          </div>
-          <div className="activity-list">
-            {recentEnquiries.length > 0 ? (
-              recentEnquiries.map(enquiry => (
-                <div key={enquiry.id} className="activity-item">
-                  <div className="activity-icon">
-                    <FaEnvelope />
+        {/* Activity Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {/* Recent Bookings */}
+          <div className="bg-white rounded-xl shadow-sm overflow-hidden">
+            <div className="px-6 py-4 border-b border-gray-100 flex justify-between items-center">
+              <h2 className="text-lg font-semibold text-gray-900">Recent Bookings</h2>
+              <Link to="/bookings" className="text-blue-600 hover:text-blue-700 text-sm font-medium transition-colors duration-200">
+                View All →
+              </Link>
+            </div>
+            <div className="divide-y divide-gray-100">
+              {recentBookings.length > 0 ? (
+                recentBookings.map(booking => (
+                  <div key={booking.id} className="p-6 hover:bg-gray-50 transition-colors duration-200">
+                    <div className="flex items-center space-x-4">
+                      <div className="flex-shrink-0 bg-blue-100 p-2 rounded-full">
+                        <FaDollarSign className="h-5 w-5 text-blue-600" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-sm font-medium text-gray-900 truncate">{booking.packageName}</p>
+                        <p className="text-sm text-gray-500">{booking.customerName} - ${booking.amount.toLocaleString()}</p>
+                        <div className="flex items-center mt-1">
+                          <FaClock className="h-4 w-4 text-gray-400 mr-1" />
+                          <p className="text-xs text-gray-500">
+                            {new Date(booking.createdAt).toLocaleDateString()}
+                          </p>
+                        </div>
+                      </div>
+                      <span className={`px-2.5 py-1 rounded-full text-xs font-medium ${
+                        booking.status === 'completed' ? 'bg-green-100 text-green-800' :
+                        booking.status === 'confirmed' ? 'bg-blue-100 text-blue-800' :
+                        'bg-yellow-100 text-yellow-800'
+                      }`}>
+                        {booking.status}
+                      </span>
+                    </div>
                   </div>
-                  <div className="activity-details">
-                    <h4>{enquiry.subject}</h4>
-                    <p>{enquiry.name}</p>
-                    <p className="activity-date">
-                      {new Date(enquiry.createdAt).toLocaleDateString()}
-                    </p>
-                    <span className={`status ${enquiry.status}`}>
-                      {enquiry.status}
-                    </span>
-                  </div>
+                ))
+              ) : (
+                <div className="p-6 text-center text-gray-500">
+                  <FaExclamationCircle className="mx-auto h-6 w-6 mb-2" />
+                  <p>No recent bookings</p>
                 </div>
-              ))
-            ) : (
-              <div className="no-data">
-                <p>No recent enquiries</p>
-              </div>
-            )}
+              )}
+            </div>
+          </div>
+
+          {/* Recent Enquiries */}
+          <div className="bg-white rounded-xl shadow-sm overflow-hidden">
+            <div className="px-6 py-4 border-b border-gray-100 flex justify-between items-center">
+              <h2 className="text-lg font-semibold text-gray-900">Recent Enquiries</h2>
+              <Link to="/enquiries" className="text-blue-600 hover:text-blue-700 text-sm font-medium transition-colors duration-200">
+                View All →
+              </Link>
+            </div>
+            <div className="divide-y divide-gray-100">
+              {recentEnquiries.length > 0 ? (
+                recentEnquiries.map(enquiry => (
+                  <div key={enquiry.id} className="p-6 hover:bg-gray-50 transition-colors duration-200">
+                    <div className="flex items-center space-x-4">
+                      <div className="flex-shrink-0 bg-purple-100 p-2 rounded-full">
+                        <FaEnvelope className="h-5 w-5 text-purple-600" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-sm font-medium text-gray-900 truncate">{enquiry.subject}</p>
+                        <p className="text-sm text-gray-500">{enquiry.name}</p>
+                        <div className="flex items-center mt-1">
+                          <FaClock className="h-4 w-4 text-gray-400 mr-1" />
+                          <p className="text-xs text-gray-500">
+                            {new Date(enquiry.createdAt).toLocaleDateString()}
+                          </p>
+                        </div>
+                      </div>
+                      <span className={`px-2.5 py-1 rounded-full text-xs font-medium ${
+                        enquiry.status === 'resolved' ? 'bg-green-100 text-green-800' :
+                        enquiry.status === 'in-progress' ? 'bg-blue-100 text-blue-800' :
+                        'bg-yellow-100 text-yellow-800'
+                      }`}>
+                        {enquiry.status}
+                      </span>
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <div className="p-6 text-center text-gray-500">
+                  <FaExclamationCircle className="mx-auto h-6 w-6 mb-2" />
+                  <p>No recent enquiries</p>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>

@@ -77,7 +77,7 @@ const Layout = () => {
             >
               <FaBars />
             </button>
-            <h1>Tanzania Safari Management</h1>
+            <h1>Tanzania Camping Safaris Management</h1>
           </div>
           <div className="header-right">
             <div className="user-info">

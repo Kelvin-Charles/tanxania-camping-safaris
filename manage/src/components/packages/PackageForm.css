@@ -236,4 +236,70 @@ textarea:focus {
     width: 95%;
     margin: 1rem auto;
   }
+}
+
+/* Image Upload Styles */
+.image-input-container {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.image-url-input {
+  flex: 1;
+}
+
+.image-file-input {
+  padding: 0.5rem;
+  background: #f3f4f6;
+  border: 2px solid #e2e8f0;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.image-file-input:hover {
+  background: #e5e7eb;
+}
+
+.image-preview {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: #f8fafc;
+  border-radius: 8px;
+  border: 2px solid #e2e8f0;
+}
+
+.image-preview img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.remove-image-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.remove-image-btn:hover {
+  background: #dc2626;
+}
+
+.upload-loading {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: #f0f9ff;
+  border: 2px solid #93c5fd;
+  border-radius: 8px;
+  color: #1e40af;
+  text-align: center;
+  font-weight: 500;
 } 
