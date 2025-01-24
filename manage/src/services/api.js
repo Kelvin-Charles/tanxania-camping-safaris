@@ -47,6 +47,28 @@ export const authApi = {
 export const packageApi = {
   getAll: () => api.get('/packages'),
   getById: (id) => api.get(`/packages/${id}`),
+  uploadImage: async (file) => {
+    const formData = new FormData();
+    formData.append('image', file);
+    
+    try {
+      console.log('Uploading image:', file.name);
+      const response = await api.post('/packages/upload-image', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+      console.log('Upload response:', response.data);
+      return response.data.data.url;
+    } catch (error) {
+      console.error('Image upload error details:', {
+        message: error.message,
+        response: error.response?.data,
+        status: error.response?.status
+      });
+      throw new Error(error.response?.data?.debug_message || error.response?.data?.message || 'Failed to upload image');
+    }
+  },
   create: async (data) => {
     if (!data.parks || data.parks.length === 0) {
       throw new Error('At least one park must be selected');
@@ -91,7 +113,56 @@ export const packageApi = {
     console.log('Sending formatted data:', formattedData);
     return api.post('/packages', formattedData);
   },
-  update: (id, data) => api.put(`/packages/${id}`, data),
+  update: async (id, data) => {
+    // Only validate parks for new packages, not for updates
+    if (!id && (!data.parks || data.parks.length === 0)) {
+      throw new Error('At least one park must be selected');
+    }
+
+    // Validate required fields
+    if (!data.title) throw new Error('Title is required');
+    if (!data.description) throw new Error('Description is required');
+    if (!data.price || isNaN(parseFloat(data.price))) throw new Error('Valid price is required');
+    if (!data.duration) throw new Error('Duration is required');
+
+    // Format the data according to the database schema
+    const formattedData = {
+      name: data.title,
+      title: data.title,
+      description: data.description,
+      price: parseFloat(data.price),
+      duration: data.duration.includes('Days') ? data.duration : `${data.duration} Days`,
+      park_id: data.parks?.[0] || data.park_id, // Use existing park_id if no new parks selected
+      group_size: data.groupSize || data.group_size || null,
+      categories: data.categories?.map(id => parseInt(id)) || [],
+      highlights: data.highlights || [],
+      itinerary: data.itinerary || [{
+        day: 1,
+        title: "Day 1",
+        description: data.description,
+        activities: []
+      }],
+      image_url: data.image_url || null,
+      featured: data.featured || false
+    };
+
+    // Log the formatted data
+    console.log('Sending formatted update data:', formattedData);
+    
+    try {
+      const response = await api.put(`/packages/${id}`, formattedData);
+      console.log('Update response:', response);
+      return response;
+    } catch (error) {
+      console.error('Update error details:', {
+        message: error.message,
+        response: error.response?.data,
+        status: error.response?.status,
+        data: formattedData
+      });
+      throw error;
+    }
+  },
   delete: (id) => api.delete(`/packages/${id}`)
 };
 
