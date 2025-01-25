@@ -1,15 +1,34 @@
 <?php
-// Remove these CORS headers since they're handled in .htaccess
-// header('Content-Type: application/json');
-// header('Access-Control-Allow-Origin: http://localhost:3000');
-// header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
-// header('Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With');
-// header('Access-Control-Allow-Credentials: true');
+// Set CORS headers based on origin
+$allowedOrigins = [
+    'https://manage.tanzaniacampingsafaris.com',
+    'http://localhost:3000'
+];
 
-// Just keep the Content-Type header
+$origin = isset($_SERVER['HTTP_ORIGIN']) ? $_SERVER['HTTP_ORIGIN'] : '';
+
+if (in_array($origin, $allowedOrigins)) {
+    header("Access-Control-Allow-Origin: $origin");
+    header('Access-Control-Allow-Credentials: true');
+    header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
+    header('Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With');
+}
+
+// Handle preflight requests
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    http_response_code(200);
+    exit();
+}
+
 header('Content-Type: application/json');
 
 require_once __DIR__ . '/../config/database.php';
+
+// Enable error logging
+ini_set('log_errors', 1);
+ini_set('error_log', __DIR__ . '/debug.log');
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
 // At the top of the file, after the headers
 ini_set('log_errors', 1);

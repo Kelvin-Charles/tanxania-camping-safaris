@@ -1,8 +1,15 @@
 import axios from 'axios';
 
+// Determine the base URL based on environment
+const BASE_URL = process.env.NODE_ENV === 'production'
+  ? 'https://backend.tanzaniacampingsafaris.com/public/api'
+  : 'http://localhost/tanzania/php-backend/public/api';
+
 // Create axios instance with base URL
 const api = axios.create({
-  baseURL: 'http://localhost/tanzania/php-backend/public/api',
+  baseURL: BASE_URL,
+// Create axios instance with base URL
+
   headers: {
     'Content-Type': 'application/json',
     'Accept': 'application/json'
