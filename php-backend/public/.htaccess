@@ -21,14 +21,32 @@
 </IfModule>
 
 # Handle CORS
-<IfModule mod_headers.c>
-    Header always set Access-Control-Allow-Origin "http://localhost:3000"
-    Header always set Access-Control-Allow-Methods "GET, POST, PUT, PATCH, DELETE, OPTIONS"
-    Header always set Access-Control-Allow-Headers "Authorization, Content-Type, Accept"
-    Header always set Access-Control-Allow-Credentials "true"
-    
-    # Handle preflight requests
-    RewriteEngine On
-    RewriteCond %{REQUEST_METHOD} OPTIONS
-    RewriteRule ^(.*)$ $1 [R=200,L]
-</IfModule> 
+RewriteEngine On
+
+# Handle CORS
+Header set Access-Control-Allow-Origin "https://manage.tanzaniacampingsafaris.com"
+Header set Access-Control-Allow-Origin "http://localhost:3000"
+Header set Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
+Header set Access-Control-Allow-Headers "Content-Type, Authorization, X-Requested-With"
+Header set Access-Control-Allow-Credentials "true"
+
+# Handle OPTIONS preflight requests
+RewriteCond %{REQUEST_METHOD} OPTIONS
+RewriteRule ^(.*)$ $1 [R=200,L]
+
+# Rewrite all requests to index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [QSA,L]
+
+# Protect uploads directory
+<Directory "uploads">
+    Order Allow,Deny
+    Deny from all
+</Directory>
+
+# Allow access to specific image files
+<FilesMatch "\.(jpg|jpeg|png|gif|webp)$">
+    Order Allow,Deny
+    Allow from all
+</FilesMatch> 

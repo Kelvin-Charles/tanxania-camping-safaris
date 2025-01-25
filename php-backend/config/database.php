@@ -7,8 +7,8 @@ class Database {
     private function __construct() {
         $host = 'localhost';
         $dbname = 'tanzania_camping';
-        $username = 'root';
-        $password = '';
+        $username = 'toor';
+        $password = 'Kendrick@123';
 
         try {
             $this->connection = new PDO(
@@ -21,8 +21,9 @@ class Database {
                     PDO::ATTR_EMULATE_PREPARES => false
                 ]
             );
-        } catch(PDOException $e) {
-            die("Connection failed: " . $e->getMessage());
+        } catch (PDOException $e) {
+            error_log("Database connection failed: " . $e->getMessage());
+            throw new Exception("Database connection failed");
         }
     }
 
