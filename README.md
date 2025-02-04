@@ -1,6 +1,6 @@
-# Tanzania Safari Circuits Explorer
+# Tanzania Camping Safaris
 
-A comprehensive web application showcasing Tanzania's diverse safari circuits, national parks, and wildlife experiences.
+A comprehensive web application showcasing Tanzania's diverse safari circuits, national parks, and wildlife experiences with specialized Camping Experience
 
 ## Overview
 
@@ -87,10 +87,10 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Contact
 
-Your Name - your.email@example.com
+Pearlk Tech - pearlktech@gmail.com
 Project Link: [https://github.com/Kelvin-Charles/tanzania-safari-circuits](https://github.com/Kelvin-Charles/tanzania-safari-circuits)
 
 ## Acknowledgments
-
+- Gofan Safaris [gofansafaris.com]
 - Tanzania National Parks Authority
 - Wildlife Conservation Society
